@@ -125,10 +125,20 @@ class _SqliteCompat:
 @contextmanager
 def db_connect():
     if use_postgres():
-        import psycopg2
+        import ssl
+        from urllib.parse import urlparse
 
-        conn = psycopg2.connect(DATABASE_URL, connect_timeout=15)
-        conn.autocommit = False
+        import pg8000.dbapi
+
+        u = urlparse(DATABASE_URL)
+        conn = pg8000.dbapi.connect(
+            user=u.username,
+            password=u.password,
+            host=u.hostname,
+            port=u.port or 5432,
+            database=u.path.lstrip("/"),
+            ssl_context=ssl.create_default_context(),
+        )
         wrapper = _PgCompat(conn)
         try:
             yield wrapper
