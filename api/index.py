@@ -1,9 +1,10 @@
-"""Vercel Python entry — routes /api/* to GARAKLAND server.Handler."""
+"""Vercel @vercel/python entry — class `handler` routes /api/* to GARAKLAND server.Handler."""
 from __future__ import annotations
 
 import os
 import sys
 from io import BytesIO
+from http.server import BaseHTTPRequestHandler
 from pathlib import Path
 from urllib.parse import urlencode
 
@@ -23,6 +24,13 @@ class _HeaderMap:
 
     def get(self, name, default=None):
         return self._m.get(name.lower(), default)
+
+
+def _ensure_setup():
+    global _INITIALIZED
+    if not _INITIALIZED:
+        setup()
+        _INITIALIZED = True
 
 
 def _parse_http(raw: bytes):
@@ -78,30 +86,52 @@ def _invoke(method: str, path: str, headers: dict, body: bytes) -> tuple[int, di
     return _parse_http(out.getvalue())
 
 
-def handler(request):
-    global _INITIALIZED
-    if not _INITIALIZED:
-        setup()
-        _INITIALIZED = True
+class handler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        _ensure_setup()
+        status, headers, body = _invoke("GET", self.path, dict(self.headers), b"")
+        self._emit(status, headers, body)
 
+    def do_POST(self):
+        _ensure_setup()
+        length = int(self.headers.get("Content-Length", "0") or 0)
+        raw = self.rfile.read(length) if length > 0 else b""
+        status, headers, body = _invoke("POST", self.path, dict(self.headers), raw)
+        self._emit(status, headers, body)
+
+    def do_OPTIONS(self):
+        _ensure_setup()
+        status, headers, body = _invoke("OPTIONS", self.path, dict(self.headers), b"")
+        self._emit(status, headers, body)
+
+    def log_message(self, *_args, **_kwargs):
+        return
+
+    def _emit(self, status, headers, body):
+        self.send_response(status)
+        for key, value in headers.items():
+            if key.lower() not in ("content-length", "connection", "transfer-encoding"):
+                self.send_header(key, value)
+        self.send_header("Content-Length", str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
+
+
+def vercel_handler(request):
+    """Optional dict-style entry for newer runtimes."""
+    _ensure_setup()
     method = getattr(request, "method", "GET") or "GET"
     path = getattr(request, "path", "/") or "/"
     query = getattr(request, "query", None) or {}
     if query and "?" not in path:
         path = path + "?" + urlencode(query, doseq=True)
-
     body_raw = getattr(request, "body", b"") or b""
     if isinstance(body_raw, str):
         body_raw = body_raw.encode("utf-8")
-
-    hdrs = {}
-    req_headers = getattr(request, "headers", {}) or {}
-    for k, v in req_headers.items():
-        hdrs[k] = v
-
+    hdrs = {k: v for k, v in (getattr(request, "headers", {}) or {}).items()}
     status, headers, body = _invoke(method, path, hdrs, body_raw)
     return {"statusCode": status, "headers": headers, "body": body.decode("utf-8", errors="replace")}
 
 
-app = handler
-application = handler
+app = vercel_handler
+application = vercel_handler
