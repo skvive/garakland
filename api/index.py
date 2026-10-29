@@ -101,3 +101,7 @@ def handler(request):
 
     status, headers, body = _invoke(method, path, hdrs, body_raw)
     return {"statusCode": status, "headers": headers, "body": body.decode("utf-8", errors="replace")}
+
+
+app = handler
+application = handler
