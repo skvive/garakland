@@ -19,10 +19,21 @@
 ## 배포·연동 (2026-10-29)
 
 - [x] GitHub `skvive/garakland`
-- [x] Neon `garakland` + `DATABASE_URL` (Vercel)
-- [x] `GARAK_PUBLIC_BASE_URL=https://garakland.vercel.app`
-- [x] GitHub Actions 워크플로 (시크릿: `VERCEL_TOKEN`, `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID`)
-- [ ] Vercel 팀 **skvive** 소유 이전 (CLI 현재 `shinkang888-code` — skvive 토큰으로 Actions 또는 Vercel 대시보드 이전)
+- [x] Vercel **`shinkang888-codes-projects/garakland`** → https://garakland.vercel.app
+- [x] 로컬 `vercel link` (`.vercel/project.json`)
+- [x] Neon + Vercel env (`DATABASE_URL`, `GARAK_*`, `GARAK_PUBLIC_BASE_URL`)
+- [x] GitHub Secrets: `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID` (Actions용)
+- [ ] **`VERCEL_TOKEN`** — [Vercel Account Token](https://vercel.com/account/tokens) 발급 후  
+  `gh secret set VERCEL_TOKEN --repo skvive/garakland`
+- [ ] **Git 자동 배포** — Vercel 대시보드에서 Git 연결 (아래) 또는 Actions 워크플로
+
+### Vercel Git 연결 (skvive/garakland)
+
+1. https://vercel.com/shinkang888-codes-projects/garakland/settings/git  
+2. Connect **GitHub** → Organization **skvive** 에 Vercel 앱 권한 부여  
+3. Repository **`garakland`** 선택 → Production branch `master`
+
+> CLI `vercel git connect`는 Vercel 앱이 skvive 리포에 쓰기 권한이 없으면 400 오류.
 
 ## GitHub Actions 시크릿 설정 (skvive 리포)
 
