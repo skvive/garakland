@@ -1,0 +1,1 @@
+{"version":1,"models":[],"readme":"Blender 등으로 제작한 검증된 건물 모델(GLB)의 src, latitude, longitude, scale을 설정하면 Google 3D 지도에 배치합니다. 비워두면 Google 기본 포토리얼리스틱 건물을 표시합니다."}

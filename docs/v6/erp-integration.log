@@ -1,0 +1,25 @@
+test_01_auth_get_required (tests.test_erp_v6.ERPIntegration.test_01_auth_get_required) ... ok
+test_02_auth_post_required (tests.test_erp_v6.ERPIntegration.test_02_auth_post_required) ... ok
+test_03_dashboard (tests.test_erp_v6.ERPIntegration.test_03_dashboard) ... ok
+test_04_board_add (tests.test_erp_v6.ERPIntegration.test_04_board_add) ... ok
+test_05_board_move (tests.test_erp_v6.ERPIntegration.test_05_board_move) ... ok
+test_06_bad_task_stage (tests.test_erp_v6.ERPIntegration.test_06_bad_task_stage) ... ok
+test_07_docs_needs_reference (tests.test_erp_v6.ERPIntegration.test_07_docs_needs_reference) ... ok
+test_08_docs_record (tests.test_erp_v6.ERPIntegration.test_08_docs_record) ... ok
+test_09_docs_internal_review (tests.test_erp_v6.ERPIntegration.test_09_docs_internal_review) ... ok
+test_10_csv_bom_validate (tests.test_erp_v6.ERPIntegration.test_10_csv_bom_validate) ... ok
+test_11_csv_import (tests.test_erp_v6.ERPIntegration.test_11_csv_import) ... ok
+test_12_bad_price_no_partial_import (tests.test_erp_v6.ERPIntegration.test_12_bad_price_no_partial_import) ... ok
+test_13_bad_shop (tests.test_erp_v6.ERPIntegration.test_13_bad_shop) ... ok
+test_14_duplicate_code (tests.test_erp_v6.ERPIntegration.test_14_duplicate_code) ... ok
+test_15_csv_excess_rows (tests.test_erp_v6.ERPIntegration.test_15_csv_excess_rows) ... ok
+test_16_settlement_no_real (tests.test_erp_v6.ERPIntegration.test_16_settlement_no_real) ... ok
+test_17_audit_log (tests.test_erp_v6.ERPIntegration.test_17_audit_log) ... ok
+test_18_static_file_guard (tests.test_erp_v6.ERPIntegration.test_18_static_file_guard) ... ok
+test_19_ui_available (tests.test_erp_v6.ERPIntegration.test_19_ui_available) ... ok
+test_20_docx_file_available (tests.test_erp_v6.ERPIntegration.test_20_docx_file_available) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 1.022s
+
+OK

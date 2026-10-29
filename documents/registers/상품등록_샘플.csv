@@ -1,0 +1,2 @@
+﻿product_code,shop_id,product_name,unit,regular_price,special_price,stock,starts_at,ends_at
+DEMO-FRUIT-001,demo-fruit,[시연] 딸기 소포장,1팩,12500,9900,50,2026-10-29T09:00:00+09:00,2026-11-20T21:00:00+09:00

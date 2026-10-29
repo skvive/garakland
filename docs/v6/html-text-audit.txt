@@ -1,0 +1,7 @@
+('index.html', 'UTF-8/Hangul string pass', 'script/css local paths pass')
+('market.html', 'UTF-8/Hangul string pass', 'script/css local paths pass')
+('map.html', 'UTF-8/Hangul string pass', 'script/css local paths pass')
+('ops.html', 'UTF-8/Hangul string pass', 'script/css local paths pass')
+('documents.html', 'UTF-8/Hangul string pass', 'script/css local paths pass')
+('unsubscribe.html', 'UTF-8/Hangul string pass', 'script/css local paths pass')
+('design_gallery.html', 'UTF-8/Hangul string pass', 'script/css local paths pass')

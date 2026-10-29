@@ -1,0 +1,60 @@
+test_01_catalog_and_map (tests.test_beta.BetaTests.test_01_catalog_and_map) ... [access] 127.0.0.1 GET /api/experience 
+[access] 127.0.0.1 GET /map.html 
+ok
+test_02_checkin_and_progress (tests.test_beta.BetaTests.test_02_checkin_and_progress) ... [access] 127.0.0.1 POST /api/demo/checkin 
+[access] 127.0.0.1 POST /api/demo/checkin 
+[access] 127.0.0.1 GET /api/progress 
+[access] 127.0.0.1 POST /api/demo/checkin 
+ok
+test_03_session_isolation (tests.test_beta.BetaTests.test_03_session_isolation) ... [access] 127.0.0.1 POST /api/demo/checkin 
+[access] 127.0.0.1 GET /api/progress 
+ok
+test_04_coupon_once_per_period_and_redeem (tests.test_beta.BetaTests.test_04_coupon_once_per_period_and_redeem) ... [access] 127.0.0.1 POST /api/coupons/claim 
+[access] 127.0.0.1 POST /api/coupons/claim 
+[access] 127.0.0.1 GET /api/wallet 
+[access] 127.0.0.1 POST /api/merchant/redeem 
+[access] 127.0.0.1 POST /api/merchant/redeem 
+[access] 127.0.0.1 POST /api/merchant/redeem 
+ok
+test_05_order_validation (tests.test_beta.BetaTests.test_05_order_validation) ... [access] 127.0.0.1 POST /api/orders 
+[access] 127.0.0.1 GET /api/orders 
+[access] 127.0.0.1 POST /api/merchant/order-status 
+[access] 127.0.0.1 POST /api/orders 
+ok
+test_06_merchant_permissions_qr (tests.test_beta.BetaTests.test_06_merchant_permissions_qr) ... [access] 127.0.0.1 GET /api/merchant/qr 
+[access] 127.0.0.1 POST /api/admin/merchant-key 
+[access] 127.0.0.1 GET /api/merchant/qr 
+[access] 127.0.0.1 POST /api/checkin 
+ok
+test_07_merchant_coupon_and_metadata (tests.test_beta.BetaTests.test_07_merchant_coupon_and_metadata) ... [access] 127.0.0.1 POST /api/merchant/campaign 
+[access] 127.0.0.1 POST /api/merchant/campaign 
+[access] 127.0.0.1 POST /api/admin/metadata 
+[access] 127.0.0.1 GET /api/experience 
+ok
+test_08_photo_match (tests.test_beta.BetaTests.test_08_photo_match) ... [access] 127.0.0.1 POST /api/recognize 
+[access] 127.0.0.1 POST /api/recognize 
+ok
+test_09_permissions_and_legacy_import (tests.test_beta.BetaTests.test_09_permissions_and_legacy_import) ... [access] 127.0.0.1 GET /data/garakland.sqlite 
+[access] 127.0.0.1 GET /data/garakland.sqlite 
+[access] 127.0.0.1 POST /api/import 
+[access] 127.0.0.1 POST /api/demo/checkin 
+ok
+test_10_geofence_math_and_period (tests.test_beta.BetaTests.test_10_geofence_math_and_period) ... ok
+test_11_verified_shop_gps_qr (tests.test_beta.BetaTests.test_11_verified_shop_gps_qr) ... [access] 127.0.0.1 POST /api/import 
+[access] 127.0.0.1 GET /api/merchant/qr 
+[access] 127.0.0.1 POST /api/checkin 
+[access] 127.0.0.1 POST /api/checkin 
+[access] 127.0.0.1 POST /api/checkin 
+[access] 127.0.0.1 POST /api/checkin 
+[access] 127.0.0.1 POST /api/checkin 
+ok
+test_12_photo_upload_and_partner_links (tests.test_beta.BetaTests.test_12_photo_upload_and_partner_links) ... [access] 127.0.0.1 POST /api/merchant/profile 
+[access] 127.0.0.1 GET /api/experience 
+[access] 127.0.0.1 POST /api/merchant/upload-photo 
+[access] 127.0.0.1 POST /api/merchant/profile 
+ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 1.237s
+
+OK

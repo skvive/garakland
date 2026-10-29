@@ -1,0 +1,85 @@
+test_01_public_offers (tests.test_growth_v5.GrowthV5Integration.test_01_public_offers) ... ok
+test_02_coupon_and_repeat (tests.test_growth_v5.GrowthV5Integration.test_02_coupon_and_repeat) ... ok
+test_03_coupon_wrong_store_no_auth (tests.test_growth_v5.GrowthV5Integration.test_03_coupon_wrong_store_no_auth) ... ok
+test_04_coupon_redeem_once (tests.test_growth_v5.GrowthV5Integration.test_04_coupon_redeem_once) ... ok
+test_05_merchant_create_invalid_prices (tests.test_growth_v5.GrowthV5Integration.test_05_merchant_create_invalid_prices) ... ok
+test_06_gift_demo_and_balance (tests.test_growth_v5.GrowthV5Integration.test_06_gift_demo_and_balance) ... ok
+test_07_gift_wrong_pin (tests.test_growth_v5.GrowthV5Integration.test_07_gift_wrong_pin) ... ok
+test_08_gift_redeem_idempotent (tests.test_growth_v5.GrowthV5Integration.test_08_gift_redeem_idempotent) ... ok
+test_09_gift_insufficient_and_refund (tests.test_growth_v5.GrowthV5Integration.test_09_gift_insufficient_and_refund) ... ok
+test_10_consent_separate (tests.test_growth_v5.GrowthV5Integration.test_10_consent_separate) ... ok
+test_11_schedule_and_dispatch_simulation (tests.test_growth_v5.GrowthV5Integration.test_11_schedule_and_dispatch_simulation) ... ok
+test_12_consent_withdraw (tests.test_growth_v5.GrowthV5Integration.test_12_consent_withdraw) ... ok
+test_13_admin_approve_permissions (tests.test_growth_v5.GrowthV5Integration.test_13_admin_approve_permissions) ... ok
+test_14_scheduled_offer_visibility (tests.test_growth_v5.GrowthV5Integration.test_14_scheduled_offer_visibility) ... ok
+test_15_merchant_dashboard_auth (tests.test_growth_v5.GrowthV5Integration.test_15_merchant_dashboard_auth) ... ok
+test_16_public_static_security (tests.test_growth_v5.GrowthV5Integration.test_16_public_static_security) ... ok
+test_17_signed_unsubscribe (tests.test_growth_v5.GrowthV5Integration.test_17_signed_unsubscribe) ... ok
+test_18_live_marketing_fail_closed (tests.test_growth_v5.GrowthV5Integration.test_18_live_marketing_fail_closed) ... ok
+test_19_unsubscribe_screen (tests.test_growth_v5.GrowthV5Integration.test_19_unsubscribe_screen) ... ok
+test_hmac (tests.test_marketing_adapters.ProviderShapeTests.test_hmac) ... ok
+test_kakao_bms (tests.test_marketing_adapters.ProviderShapeTests.test_kakao_bms) ... ok
+test_kakao_reject_invalid_target (tests.test_marketing_adapters.ProviderShapeTests.test_kakao_reject_invalid_target) ... ok
+test_live_disabled (tests.test_marketing_adapters.ProviderShapeTests.test_live_disabled) ... ok
+test_sms (tests.test_marketing_adapters.ProviderShapeTests.test_sms) ... ok
+test_sms_fail (tests.test_marketing_adapters.ProviderShapeTests.test_sms_fail) ... ok
+test_01_catalog_and_map (tests.test_beta.BetaTests.test_01_catalog_and_map) ... [access] 127.0.0.1 GET /api/experience 
+[access] 127.0.0.1 GET /map.html 
+ok
+test_02_checkin_and_progress (tests.test_beta.BetaTests.test_02_checkin_and_progress) ... [access] 127.0.0.1 POST /api/demo/checkin 
+[access] 127.0.0.1 POST /api/demo/checkin 
+[access] 127.0.0.1 GET /api/progress 
+[access] 127.0.0.1 POST /api/demo/checkin 
+ok
+test_03_session_isolation (tests.test_beta.BetaTests.test_03_session_isolation) ... [access] 127.0.0.1 POST /api/demo/checkin 
+[access] 127.0.0.1 GET /api/progress 
+ok
+test_04_coupon_once_per_period_and_redeem (tests.test_beta.BetaTests.test_04_coupon_once_per_period_and_redeem) ... [access] 127.0.0.1 POST /api/coupons/claim 
+[access] 127.0.0.1 POST /api/coupons/claim 
+[access] 127.0.0.1 GET /api/wallet 
+[access] 127.0.0.1 POST /api/merchant/redeem 
+[access] 127.0.0.1 POST /api/merchant/redeem 
+[access] 127.0.0.1 POST /api/merchant/redeem 
+ok
+test_05_order_validation (tests.test_beta.BetaTests.test_05_order_validation) ... [access] 127.0.0.1 POST /api/orders 
+[access] 127.0.0.1 GET /api/orders 
+[access] 127.0.0.1 POST /api/merchant/order-status 
+[access] 127.0.0.1 POST /api/orders 
+ok
+test_06_merchant_permissions_qr (tests.test_beta.BetaTests.test_06_merchant_permissions_qr) ... [access] 127.0.0.1 GET /api/merchant/qr 
+[access] 127.0.0.1 POST /api/admin/merchant-key 
+[access] 127.0.0.1 GET /api/merchant/qr 
+[access] 127.0.0.1 POST /api/checkin 
+ok
+test_07_merchant_coupon_and_metadata (tests.test_beta.BetaTests.test_07_merchant_coupon_and_metadata) ... [access] 127.0.0.1 POST /api/merchant/campaign 
+[access] 127.0.0.1 POST /api/merchant/campaign 
+[access] 127.0.0.1 POST /api/admin/metadata 
+[access] 127.0.0.1 GET /api/experience 
+ok
+test_08_photo_match (tests.test_beta.BetaTests.test_08_photo_match) ... [access] 127.0.0.1 POST /api/recognize 
+[access] 127.0.0.1 POST /api/recognize 
+ok
+test_09_permissions_and_legacy_import (tests.test_beta.BetaTests.test_09_permissions_and_legacy_import) ... [access] 127.0.0.1 GET /data/garakland.sqlite 
+[access] 127.0.0.1 GET /data/garakland.sqlite 
+[access] 127.0.0.1 POST /api/import 
+[access] 127.0.0.1 POST /api/demo/checkin 
+ok
+test_10_geofence_math_and_period (tests.test_beta.BetaTests.test_10_geofence_math_and_period) ... ok
+test_11_verified_shop_gps_qr (tests.test_beta.BetaTests.test_11_verified_shop_gps_qr) ... [access] 127.0.0.1 POST /api/import 
+[access] 127.0.0.1 GET /api/merchant/qr 
+[access] 127.0.0.1 POST /api/checkin 
+[access] 127.0.0.1 POST /api/checkin 
+[access] 127.0.0.1 POST /api/checkin 
+[access] 127.0.0.1 POST /api/checkin 
+[access] 127.0.0.1 POST /api/checkin 
+ok
+test_12_photo_upload_and_partner_links (tests.test_beta.BetaTests.test_12_photo_upload_and_partner_links) ... [access] 127.0.0.1 POST /api/merchant/profile 
+[access] 127.0.0.1 GET /api/experience 
+[access] 127.0.0.1 POST /api/merchant/upload-photo 
+[access] 127.0.0.1 POST /api/merchant/profile 
+ok
+
+----------------------------------------------------------------------
+Ran 37 tests in 2.439s
+
+OK

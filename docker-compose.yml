@@ -1,0 +1,15 @@
+services:
+  garakland:
+    build: .
+    environment:
+      - PORT=8769
+      - GARAK_HOST=0.0.0.0
+      - GARAK_ENABLE_DEMO=0
+      - GARAK_ADMIN_TOKEN=${GARAK_ADMIN_TOKEN:?Set admin token in .env}
+      - GARAK_QR_SECRET=${GARAK_QR_SECRET:?Set QR signing secret in .env}
+    ports:
+      - '127.0.0.1:8769:8769'
+    volumes:
+      - ./data:/app/data
+      - ./assets/store_photos:/app/assets/store_photos
+    restart: unless-stopped

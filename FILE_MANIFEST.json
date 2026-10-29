@@ -1,0 +1,352 @@
+{
+  "product": "GARAKLAND v3.1 Google Maps Coupon Navigation",
+  "built": "2026-10-29",
+  "limitations": "Google Maps external app network/GPS onsite not exercised",
+  "files": [
+    {
+      "path": ".env.example",
+      "bytes": 195,
+      "sha256": "9e88e6c13da82a334463d5e99ef83bb9c220badebaa1ccfbc52eac2a68454ac3"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 83,
+      "sha256": "5002bd29a68c351210ab8442dace2890ce504d2dbc65871d389480c0b1b34903"
+    },
+    {
+      "path": "Dockerfile",
+      "bytes": 163,
+      "sha256": "031340e7ccb967536139c85464a289c6f2bcf83f2ee00e1e1a2a4fdf97109a27"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1252,
+      "sha256": "6bf9add179df5248584c30c13f36696975cf84953f4cc3d3a49804eff09e263e"
+    },
+    {
+      "path": "README.md",
+      "bytes": 10906,
+      "sha256": "c1364f6ac4ab82f0f450f518b8b66e252562f306006a12a5a47d3e5d1401d40f"
+    },
+    {
+      "path": "assets/demo/fruit-hero.png",
+      "bytes": 50903,
+      "sha256": "44104811fce41a0b1139619a2563a419c3e27f1e50e7302de47b268b0546ee32"
+    },
+    {
+      "path": "assets/demo/fruit-menu.png",
+      "bytes": 50954,
+      "sha256": "91629143b0bc04d4dea3878b683f0d06321024fbc1822fee91bcef41c9e22d4a"
+    },
+    {
+      "path": "assets/demo/fruit-poster.png",
+      "bytes": 65242,
+      "sha256": "27416d97799a26cca32021bd90b493b06baf9f8f654231c46cc34f85c4b8adc0"
+    },
+    {
+      "path": "assets/demo/kitchen-hero.png",
+      "bytes": 55295,
+      "sha256": "8ec82a5d9fc05787843bfa4540ccf934035181b6d35da564b21b8f470967bc0a"
+    },
+    {
+      "path": "assets/demo/kitchen-menu.png",
+      "bytes": 52508,
+      "sha256": "e1ded395c7141b3d9c74dede35f49d44adff9652e9a93934d74eab2e627bb682"
+    },
+    {
+      "path": "assets/demo/kitchen-poster.png",
+      "bytes": 67924,
+      "sha256": "374001a2397d2d1e6172c0a15ee5c1a314f63e5c674b6f8da7cb10c4c501f6e0"
+    },
+    {
+      "path": "assets/demo/meat-hero.png",
+      "bytes": 50104,
+      "sha256": "aa9b3eb9aa560114cca4e2bc838a784000bfa7b6465b15d9a6f0ed4e3a1f9aa5"
+    },
+    {
+      "path": "assets/demo/meat-menu.png",
+      "bytes": 49122,
+      "sha256": "b85eb8de478ac8bf39e587e375b1e365c09ced5db8d58d3b111314ded7d3c46b"
+    },
+    {
+      "path": "assets/demo/meat-poster.png",
+      "bytes": 62714,
+      "sha256": "917937717904bfaf8fd9f2ef4b4ebfa66fbcfa049a795e2ffce3189ed91069b3"
+    },
+    {
+      "path": "assets/demo/sea-hero.png",
+      "bytes": 46163,
+      "sha256": "d4853c76a633c4800f3f11dd304261b7ac3b79917d0e457afc882637bc096123"
+    },
+    {
+      "path": "assets/demo/sea-menu.png",
+      "bytes": 44895,
+      "sha256": "1a8b64cda258e6f321f6c1ba6934be9d9317c91f080c78aad3da4d9a3c2aca22"
+    },
+    {
+      "path": "assets/demo/sea-poster.png",
+      "bytes": 58056,
+      "sha256": "e553d52bee31739082961587dda26c0fdb6692ae43c04ad768b3c87dfa5f0fc4"
+    },
+    {
+      "path": "assets/floorplans/.keep",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "assets/icon.svg",
+      "bytes": 292,
+      "sha256": "a1f525d374a599091471e06d0b0bba503d11a74855e1c5f9f651dd3be9d22c2e"
+    },
+    {
+      "path": "assets/models3d/.keep",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "assets/store_photos/.keep",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "data/floorplans.json",
+      "bytes": 195,
+      "sha256": "40796c61309a2fb75db6c7d6d70660539cf1bef09343cad037aa3912d4f5e9e1"
+    },
+    {
+      "path": "data/garakland.sqlite",
+      "bytes": 98304,
+      "sha256": "f258e17d153552c984abe849dec11719f9c7ea207e23af18d47e6e2f31871728"
+    },
+    {
+      "path": "data/models3d.json",
+      "bytes": 258,
+      "sha256": "6ac02670765c135bc60482ce637ea0ed7ae9271d355351518a605d2ad64d3916"
+    },
+    {
+      "path": "data/shops.seed.json",
+      "bytes": 1188,
+      "sha256": "93ecf8abe751cc178a14127977324d75409fd5890059e522f1ecb3f1f3a17a68"
+    },
+    {
+      "path": "data/shops.template.csv",
+      "bytes": 171,
+      "sha256": "9b34faca5c02dd7d94121344aee51726cec8152747ed584dc3943da59647579c"
+    },
+    {
+      "path": "docker-compose.yml",
+      "bytes": 434,
+      "sha256": "3db91b40707ace93da964602e3f4329ef96cc49d2c426de4894cc526bda5a0eb"
+    },
+    {
+      "path": "docs/API_명세.md",
+      "bytes": 2709,
+      "sha256": "381586ec276d9bad0a068dfa43057cca9daf4d2c4959c8255d4f04b4b8e4506f"
+    },
+    {
+      "path": "docs/COUPON_GOOGLE_NAV_3_1.md",
+      "bytes": 3482,
+      "sha256": "d14dc17c14ea4b241be9bf90c781b115d9c0a6e0d1c14e061be4d5cc3f77cd62"
+    },
+    {
+      "path": "docs/PRD_v3_현장플레이_기획.md",
+      "bytes": 3923,
+      "sha256": "450735120a3580634c97ab28c7b2cd26662c23906262319811d3c1fbaf22f42b"
+    },
+    {
+      "path": "docs/server_test_log.txt",
+      "bytes": 1902,
+      "sha256": "86f7a3df905b7ad91f52f85933552af3196e90bbe274315acea0cb0a69a93adf"
+    },
+    {
+      "path": "docs/검수_결과_v3_1.txt",
+      "bytes": 1830,
+      "sha256": "6693fbf66f882784fd13631d7e8f83a5dcfc53649f64ae583db2377ea751f50f"
+    },
+    {
+      "path": "docs/검수결과_한계.md",
+      "bytes": 3528,
+      "sha256": "fa4605d177bd84f345f25a2167f9ac2f73ca7c45f4d11200bbd221d550dd93e6"
+    },
+    {
+      "path": "docs/상용전환_체크리스트.md",
+      "bytes": 1528,
+      "sha256": "fb5bac1862fa077f76e12bdd5c3de317901c4683912a97cb2581d746638c5806"
+    },
+    {
+      "path": "docs/오픈소스_정책_출처.md",
+      "bytes": 2622,
+      "sha256": "221e608e80b482e59f291c349ce60a86e1b8c7877b3271887d68650370f247ad"
+    },
+    {
+      "path": "extras/GARAKLAND_GOOGLE_3D_NAV_이전버전.zip",
+      "bytes": 1522044,
+      "sha256": "c6c4ebbe221403a1227553b370f0e17e23c0aac0c9626b13c8e43129463b8133"
+    },
+    {
+      "path": "game/app.js",
+      "bytes": 29916,
+      "sha256": "160e6dd1ebee18e713fa6bbe910cdf91fd2aa7d4aa26224282efd04dda76869a"
+    },
+    {
+      "path": "game/navigation.mjs",
+      "bytes": 2446,
+      "sha256": "b5e021a4762ab83ad9a714b5b9d8ddd9dab8141dc9d06060e1a64f4c2d150b7c"
+    },
+    {
+      "path": "game/style.css",
+      "bytes": 29193,
+      "sha256": "d3650b564d4eb56fa440d61f378f4942aad470628e1027fadfc652982852fd88"
+    },
+    {
+      "path": "generate_assets.py",
+      "bytes": 3918,
+      "sha256": "8519bf6edd1b221bbf3910f25ee5f26267aa7f0100c156079d3f0829b0c904c1"
+    },
+    {
+      "path": "index.html",
+      "bytes": 18844,
+      "sha256": "15c2ed0699f66b9c703fc8a268443a24f9eeea431d036a8e7fefa8411ad2d426"
+    },
+    {
+      "path": "install_vision_windows.bat",
+      "bytes": 195,
+      "sha256": "cf8c40edce3b5c9e61a04b0cf7ee7fdb59b9d91cbda3603c9f54e0ae6b3ee903"
+    },
+    {
+      "path": "manifest.webmanifest",
+      "bytes": 250,
+      "sha256": "a956ec75be4cd11a3916ea57b8f6ce04052ca4a5e987e81c171ecef3788a8966"
+    },
+    {
+      "path": "map.html",
+      "bytes": 11312,
+      "sha256": "eb117b7526fa7abbcab479f4d2bbe4b67619fa0073089a76ee63958620042e50"
+    },
+    {
+      "path": "preview_desktop.png",
+      "bytes": 345239,
+      "sha256": "45d996b068133f243327b1cc7f94b518d401fac22adefa7f0ba5c5e494b9069c"
+    },
+    {
+      "path": "preview_desktop_coupons.png",
+      "bytes": 133047,
+      "sha256": "011cc56c4c25ef7ccd22df6fbfc32ccee95435d5f516adb4cec7d4cdefa94cbc"
+    },
+    {
+      "path": "preview_desktop_shop.png",
+      "bytes": 276683,
+      "sha256": "9be5b2b3575f820b045b0d53bcfd0916b91c079feb6d62e5689139d682a12502"
+    },
+    {
+      "path": "preview_mobile.png",
+      "bytes": 205625,
+      "sha256": "6a2c7be626db05ebc643bfc1c1e79d24cf82a93f5788b560c5c373de235f71e6"
+    },
+    {
+      "path": "preview_mobile_coupons.png",
+      "bytes": 74277,
+      "sha256": "d2c26cd73a7a8edb31818c177588fe150b5090759dbd855854d55c0f0a1bdf05"
+    },
+    {
+      "path": "preview_mobile_shop.png",
+      "bytes": 97222,
+      "sha256": "4e01c849da99003ce8100bde46aa71ebd0ad1d306754217e29d1f28b262adaa7"
+    },
+    {
+      "path": "preview_nav_desktop.png",
+      "bytes": 221969,
+      "sha256": "abbbbdd9a574eda0d20222c391d1f679c8ee079ff9fa9790b83a69dba86920e2"
+    },
+    {
+      "path": "preview_nav_mobile.png",
+      "bytes": 143106,
+      "sha256": "774851972f47bbe1497048c1fbf9f23c5848846b672fa08e5af2589b32102b44"
+    },
+    {
+      "path": "registry_server.py",
+      "bytes": 9112,
+      "sha256": "f5eca56b308817061874a92c33e96fbb9d3fbb95bd9c32d1c4b7072d93f47be2"
+    },
+    {
+      "path": "requirements-optional.txt",
+      "bytes": 306,
+      "sha256": "5e659305e26f12d988a9d898386456bb69ac7c4457942b8bd334488c561e671b"
+    },
+    {
+      "path": "server.py",
+      "bytes": 34191,
+      "sha256": "eac73263ff8216b53011658399987a1739fa762ca99889113e303b3a130afb2c"
+    },
+    {
+      "path": "src/app.js",
+      "bytes": 20502,
+      "sha256": "8e15010b8cff934824c10779fc83af3d874ef87cffb05454841aa1b5165f8db7"
+    },
+    {
+      "path": "src/catalog.js",
+      "bytes": 6128,
+      "sha256": "04af6cfc0c24157e2935164250c7564104840c38d511bf5f1b2f40ff687f1f7a"
+    },
+    {
+      "path": "src/csv.js",
+      "bytes": 2581,
+      "sha256": "f912701ab4bb0abf6c76e31247c654d1f07a59e1763a8e07748b7a2bae43a6f0"
+    },
+    {
+      "path": "src/floorplans.js",
+      "bytes": 1457,
+      "sha256": "ba6dcb3f4c33d6b08690c49c24cc06fbc57e26fc871c05be1ff730e4ab771689"
+    },
+    {
+      "path": "src/map-engine.js",
+      "bytes": 8405,
+      "sha256": "e7f5dc7c6eb281fef8875d70e30fc7468bf1caeb180869066599fe9143cbb446"
+    },
+    {
+      "path": "src/styles.css",
+      "bytes": 24435,
+      "sha256": "72699dc17132d61be71bbd99833df19d561a6bff550ff5b1ceebb613c227cf9a"
+    },
+    {
+      "path": "start_linux_mac.sh",
+      "bytes": 67,
+      "sha256": "34315c055b41fe1967ab13b88ea2681c2678b02e5267ef58d3cda15eb7bc4cc5"
+    },
+    {
+      "path": "start_windows.bat",
+      "bytes": 474,
+      "sha256": "ae97088d5a0ddc6f00db8692e93f64e765d91127e70db289093640ccfc6da1e0"
+    },
+    {
+      "path": "tests/browser_offline_ui.py",
+      "bytes": 5541,
+      "sha256": "b6531f66a1a382c8a10555feb1d5b4faad8a2f9ba51fdf2c45d0d832fcb108c3"
+    },
+    {
+      "path": "tests/test_beta.py",
+      "bytes": 10055,
+      "sha256": "3a4657ce616fec343a225fa4fe5be631049ebc6443db97fb0921a5ca08653294"
+    },
+    {
+      "path": "tests/test_coupon_browser.py",
+      "bytes": 5482,
+      "sha256": "5ef2741c7dfa35de19a947b78578ab0717c790015ba69211fb530dbf7419901b"
+    },
+    {
+      "path": "tests/test_navigation.mjs",
+      "bytes": 1798,
+      "sha256": "4043f5c9dc51b5ca8ef8e13aff55e63290e04c6db3f2246d9ed158aa1bd68693"
+    },
+    {
+      "path": "verify_windows.bat",
+      "bytes": 469,
+      "sha256": "96ee9440388e63ffca2707f6e56bcda30e303e2b46695b71795b2a9a23832ecf"
+    },
+    {
+      "path": "실행방법.txt",
+      "bytes": 1521,
+      "sha256": "1b542e39ca9cdc37c4f18fe6c38c7cb058ba1c8688619fc15c674ebb8dfdb0a0"
+    }
+  ]
+}

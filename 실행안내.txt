@@ -1,0 +1,15 @@
+가락랜드 MARKET GROWTH v5.0 BETA 실행
+
+1. ZIP 압축 해제.
+2. Python 3.10 이상 설치.
+3. start_windows.bat 실행.
+4. 브라우저에서 http://localhost:8769/market.html 접속.
+
+고객: 오늘의 특가 → 쿠폰 받기 → Google 길찾기.
+상인: 상인 대시보드 → 관리자 토큰(실행 창) → 상인 키 발급 → 정상가/특가/기간/수량 등록.
+시연권: 내 쿠폰·상품권 → 권종 선택 (가상 발급·모의 잔액/사용/취소 전용).
+기존 AR 탐험: http://localhost:8769/
+Google 3D 지도: http://localhost:8769/map.html (별도 Google API 키 필요)
+
+IMPORTANT: 이 프로그램은 유료 선불 상품권, 실제 결제, 실제 대량 메시지 발송을 하지 않습니다.
+시연 매장/가격은 모두 가상이며 공식 가락시장 자료와 구분하세요.

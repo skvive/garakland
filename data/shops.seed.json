@@ -1,0 +1,8 @@
+[
+  {
+    "id":"source-danong", "name":"다농마트", "category":"식자재", "building":"sales", "floor":"2F", "room":"", "description":"공식 안내 자료에 언급되는 식자재 매장입니다. 현재 영업·정확한 호실은 미검증입니다.", "address":"서울특별시 송파구 양재대로 932", "latitude":null, "longitude":null, "coordinateStatus":"unverified", "blogUrl":"", "websiteUrl":"", "phone":"", "sourceUrl":"https://www.garak.co.kr/homepage/M0000273/garak/list.do", "verifiedAt":"", "status":"needs_review", "featured":false
+  },
+  {
+    "id":"source-youngjae", "name":"영재수산", "category":"수산", "building":"sales", "floor":"1F", "room":"C-10", "description":"제3자 방문 기록에 가락몰 판매동 1층 C-10호로 소개되어 있습니다. 공사 점포대장과 실측 좌표 확인 전입니다.", "address":"서울특별시 송파구 양재대로 932", "latitude":null, "longitude":null, "coordinateStatus":"unverified", "blogUrl":"", "websiteUrl":"", "phone":"", "sourceUrl":"https://superchart.com/ko/%40gyeonggi-water-glass/garak-market-sashimi-takeout-three-fish/", "verifiedAt":"", "status":"needs_review", "featured":false
+  }
+]

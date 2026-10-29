@@ -1,0 +1,47 @@
+[access] 127.0.0.1 GET /api/experience 
+[access] 127.0.0.1 GET /map.html 
+[access] 127.0.0.1 POST /api/demo/checkin 
+[access] 127.0.0.1 POST /api/demo/checkin 
+[access] 127.0.0.1 GET /api/progress 
+[access] 127.0.0.1 POST /api/demo/checkin 
+[access] 127.0.0.1 POST /api/demo/checkin 
+[access] 127.0.0.1 GET /api/progress 
+[access] 127.0.0.1 POST /api/coupons/claim 
+[access] 127.0.0.1 POST /api/coupons/claim 
+[access] 127.0.0.1 GET /api/wallet 
+[access] 127.0.0.1 POST /api/merchant/redeem 
+[access] 127.0.0.1 POST /api/merchant/redeem 
+[access] 127.0.0.1 POST /api/merchant/redeem 
+[access] 127.0.0.1 POST /api/orders 
+[access] 127.0.0.1 GET /api/orders 
+[access] 127.0.0.1 POST /api/merchant/order-status 
+[access] 127.0.0.1 POST /api/orders 
+[access] 127.0.0.1 GET /api/merchant/qr 
+[access] 127.0.0.1 POST /api/admin/merchant-key 
+[access] 127.0.0.1 GET /api/merchant/qr 
+[access] 127.0.0.1 POST /api/checkin 
+[access] 127.0.0.1 POST /api/merchant/campaign 
+[access] 127.0.0.1 POST /api/merchant/campaign 
+[access] 127.0.0.1 POST /api/admin/metadata 
+[access] 127.0.0.1 GET /api/experience 
+[access] 127.0.0.1 POST /api/recognize 
+[access] 127.0.0.1 POST /api/recognize 
+[access] 127.0.0.1 GET /data/garakland.sqlite 
+[access] 127.0.0.1 GET /data/garakland.sqlite 
+[access] 127.0.0.1 POST /api/import 
+[access] 127.0.0.1 POST /api/demo/checkin 
+[access] 127.0.0.1 POST /api/import 
+[access] 127.0.0.1 GET /api/merchant/qr 
+[access] 127.0.0.1 POST /api/checkin 
+[access] 127.0.0.1 POST /api/checkin 
+[access] 127.0.0.1 POST /api/checkin 
+[access] 127.0.0.1 POST /api/checkin 
+[access] 127.0.0.1 POST /api/checkin 
+[access] 127.0.0.1 POST /api/merchant/profile 
+[access] 127.0.0.1 GET /api/experience 
+[access] 127.0.0.1 POST /api/merchant/upload-photo 
+[access] 127.0.0.1 POST /api/merchant/profile 
+----------------------------------------------------------------------
+Ran 12 tests in 1.119s
+
+OK

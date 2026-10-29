@@ -1,0 +1,19 @@
+{
+  "version": "4.0 beta",
+  "date": "2026-10-29",
+  "file_count": 105,
+  "generated_photography": 6,
+  "full_source": true,
+  "tests": {
+    "server": "12 pass",
+    "navigation": "pass",
+    "browser": "desktop/mobile 7 pages pass",
+    "coupon": "desktop/mobile pass"
+  },
+  "limitations": [
+    "Google Maps API key/live render not verified",
+    "marketwide verified floorplan data not included",
+    "camera GPS physical field testing not performed",
+    "food delivery/payment external integration unavailable"
+  ]
+}

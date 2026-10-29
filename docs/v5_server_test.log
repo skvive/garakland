@@ -1,0 +1,21 @@
+test_01_public_offers (tests.test_growth_v5.GrowthV5Integration.test_01_public_offers) ... ok
+test_02_coupon_and_repeat (tests.test_growth_v5.GrowthV5Integration.test_02_coupon_and_repeat) ... ok
+test_03_coupon_wrong_store_no_auth (tests.test_growth_v5.GrowthV5Integration.test_03_coupon_wrong_store_no_auth) ... ok
+test_04_coupon_redeem_once (tests.test_growth_v5.GrowthV5Integration.test_04_coupon_redeem_once) ... ok
+test_05_merchant_create_invalid_prices (tests.test_growth_v5.GrowthV5Integration.test_05_merchant_create_invalid_prices) ... ok
+test_06_gift_demo_and_balance (tests.test_growth_v5.GrowthV5Integration.test_06_gift_demo_and_balance) ... ok
+test_07_gift_wrong_pin (tests.test_growth_v5.GrowthV5Integration.test_07_gift_wrong_pin) ... ok
+test_08_gift_redeem_idempotent (tests.test_growth_v5.GrowthV5Integration.test_08_gift_redeem_idempotent) ... ok
+test_09_gift_insufficient_and_refund (tests.test_growth_v5.GrowthV5Integration.test_09_gift_insufficient_and_refund) ... ok
+test_10_consent_separate (tests.test_growth_v5.GrowthV5Integration.test_10_consent_separate) ... ok
+test_11_schedule_and_dispatch_simulation (tests.test_growth_v5.GrowthV5Integration.test_11_schedule_and_dispatch_simulation) ... ok
+test_12_consent_withdraw (tests.test_growth_v5.GrowthV5Integration.test_12_consent_withdraw) ... ok
+test_13_admin_approve_permissions (tests.test_growth_v5.GrowthV5Integration.test_13_admin_approve_permissions) ... ok
+test_14_scheduled_offer_visibility (tests.test_growth_v5.GrowthV5Integration.test_14_scheduled_offer_visibility) ... ok
+test_15_merchant_dashboard_auth (tests.test_growth_v5.GrowthV5Integration.test_15_merchant_dashboard_auth) ... ok
+test_16_public_static_security (tests.test_growth_v5.GrowthV5Integration.test_16_public_static_security) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 1.189s
+
+OK

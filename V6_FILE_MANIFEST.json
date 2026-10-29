@@ -1,0 +1,770 @@
+{
+  "product": "GARAKLAND ERP RELEASE v6.0 STAGING",
+  "date": "2026-10-29",
+  "files": 152,
+  "real_payment_enabled": false,
+  "mass_marketing_enabled": false,
+  "data_verification": "staging only",
+  "entries": [
+    {
+      "name": ".env.example",
+      "sha256": "9e88e6c13da82a334463d5e99ef83bb9c220badebaa1ccfbc52eac2a68454ac3",
+      "bytes": 195
+    },
+    {
+      "name": ".gitignore",
+      "sha256": "5002bd29a68c351210ab8442dace2890ce504d2dbc65871d389480c0b1b34903",
+      "bytes": 83
+    },
+    {
+      "name": "Dockerfile",
+      "sha256": "031340e7ccb967536139c85464a289c6f2bcf83f2ee00e1e1a2a4fdf97109a27",
+      "bytes": 163
+    },
+    {
+      "name": "FILE_MANIFEST.json",
+      "sha256": "02c99d2cfc5c2195ccae4cbb54bfb1f73cd63f1bb2bb42a8b322543405f82aad",
+      "bytes": 10970
+    },
+    {
+      "name": "LICENSE",
+      "sha256": "6bf9add179df5248584c30c13f36696975cf84953f4cc3d3a49804eff09e263e",
+      "bytes": 1252
+    },
+    {
+      "name": "README.md",
+      "sha256": "0b8fb627f7992484005f1d423d4402741f51dd3d8636c8fcdc24f47486130cd4",
+      "bytes": 9390
+    },
+    {
+      "name": "README_V4_DESIGN.md",
+      "sha256": "8e5bac9e2f2c5622fcab1c94f938b0674c5a3fcb8bca801587f3f0fd1e00ad6e",
+      "bytes": 2848
+    },
+    {
+      "name": "README_V6_ERP_RELEASE.md",
+      "sha256": "d2636749e00ceeddd94f296d06dd97f5a2025566e37c8b99d37e65e53e2fac61",
+      "bytes": 5837
+    },
+    {
+      "name": "V4_MANIFEST.json",
+      "sha256": "ca2f80071526101e000a3c51cee85b956ac0f20ba6716a4921a8e6aa92dee6f1",
+      "bytes": 523
+    },
+    {
+      "name": "V5_MANIFEST.json",
+      "sha256": "82bbcd81270dba3b28a754bf99ba81049c6a4c9ae68a5e8df2947abb955d1b6f",
+      "bytes": 17470
+    },
+    {
+      "name": "assets/demo/fruit-hero.png",
+      "sha256": "44104811fce41a0b1139619a2563a419c3e27f1e50e7302de47b268b0546ee32",
+      "bytes": 50903
+    },
+    {
+      "name": "assets/demo/fruit-menu.png",
+      "sha256": "91629143b0bc04d4dea3878b683f0d06321024fbc1822fee91bcef41c9e22d4a",
+      "bytes": 50954
+    },
+    {
+      "name": "assets/demo/fruit-poster.png",
+      "sha256": "27416d97799a26cca32021bd90b493b06baf9f8f654231c46cc34f85c4b8adc0",
+      "bytes": 65242
+    },
+    {
+      "name": "assets/demo/kitchen-hero.png",
+      "sha256": "8ec82a5d9fc05787843bfa4540ccf934035181b6d35da564b21b8f470967bc0a",
+      "bytes": 55295
+    },
+    {
+      "name": "assets/demo/kitchen-menu.png",
+      "sha256": "e1ded395c7141b3d9c74dede35f49d44adff9652e9a93934d74eab2e627bb682",
+      "bytes": 52508
+    },
+    {
+      "name": "assets/demo/kitchen-poster.png",
+      "sha256": "374001a2397d2d1e6172c0a15ee5c1a314f63e5c674b6f8da7cb10c4c501f6e0",
+      "bytes": 67924
+    },
+    {
+      "name": "assets/demo/meat-hero.png",
+      "sha256": "aa9b3eb9aa560114cca4e2bc838a784000bfa7b6465b15d9a6f0ed4e3a1f9aa5",
+      "bytes": 50104
+    },
+    {
+      "name": "assets/demo/meat-menu.png",
+      "sha256": "b85eb8de478ac8bf39e587e375b1e365c09ced5db8d58d3b111314ded7d3c46b",
+      "bytes": 49122
+    },
+    {
+      "name": "assets/demo/meat-poster.png",
+      "sha256": "917937717904bfaf8fd9f2ef4b4ebfa66fbcfa049a795e2ffce3189ed91069b3",
+      "bytes": 62714
+    },
+    {
+      "name": "assets/demo/sea-hero.png",
+      "sha256": "d4853c76a633c4800f3f11dd304261b7ac3b79917d0e457afc882637bc096123",
+      "bytes": 46163
+    },
+    {
+      "name": "assets/demo/sea-menu.png",
+      "sha256": "1a8b64cda258e6f321f6c1ba6934be9d9317c91f080c78aad3da4d9a3c2aca22",
+      "bytes": 44895
+    },
+    {
+      "name": "assets/demo/sea-poster.png",
+      "sha256": "e553d52bee31739082961587dda26c0fdb6692ae43c04ad768b3c87dfa5f0fc4",
+      "bytes": 58056
+    },
+    {
+      "name": "assets/editorial/ai-original-collage.jpg",
+      "sha256": "d0bb45049f3ea0fa47af3dcf3ee1d7baaa73cc88f4e4796f7b45bbf86577199f",
+      "bytes": 515885
+    },
+    {
+      "name": "assets/editorial/fruit.webp",
+      "sha256": "ee948a9de00842a889d5a89b6b43a4a1ee74f736e55f95f1e535111e7e5c0044",
+      "bytes": 101224
+    },
+    {
+      "name": "assets/editorial/kitchen.webp",
+      "sha256": "319e8462bae25d3e749ebe4833c4a13112b3b874eeb19c89e9cd5f9b379cf7bc",
+      "bytes": 87666
+    },
+    {
+      "name": "assets/editorial/market.webp",
+      "sha256": "0acee49d41aaa385be37a4dd978b9c5a23499a51a91afad65bdcde59c9fa0db9",
+      "bytes": 139832
+    },
+    {
+      "name": "assets/editorial/meat.webp",
+      "sha256": "3730709d56ff382c244a094f41f70b27e018ce0c5416c6dfb6fac0d1b8444d7d",
+      "bytes": 112388
+    },
+    {
+      "name": "assets/editorial/merchant.webp",
+      "sha256": "719cd7e41fa70febd82877463234bf2f5e7370b30dcd88aa525baa6e6e44e1f9",
+      "bytes": 106588
+    },
+    {
+      "name": "assets/editorial/seafood.webp",
+      "sha256": "8617bb181a5d6396ad6e040ea48e94a342a2cfd9218e3c16795d9f5c44515f9e",
+      "bytes": 121358
+    },
+    {
+      "name": "assets/floorplans/.keep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "name": "assets/icon.svg",
+      "sha256": "a1f525d374a599091471e06d0b0bba503d11a74855e1c5f9f651dd3be9d22c2e",
+      "bytes": 292
+    },
+    {
+      "name": "assets/models3d/.keep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "name": "assets/store_photos/.keep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "name": "assets/v5/fruit.webp",
+      "sha256": "ee948a9de00842a889d5a89b6b43a4a1ee74f736e55f95f1e535111e7e5c0044",
+      "bytes": 101224
+    },
+    {
+      "name": "assets/v5/giftcard-ai.webp",
+      "sha256": "a3bc44f330ddca8c803babd0c929ded8396c41477c5489ac3938cdd365b9bc33",
+      "bytes": 203408
+    },
+    {
+      "name": "assets/v5/market.webp",
+      "sha256": "0acee49d41aaa385be37a4dd978b9c5a23499a51a91afad65bdcde59c9fa0db9",
+      "bytes": 139832
+    },
+    {
+      "name": "assets/v5/meat.webp",
+      "sha256": "3730709d56ff382c244a094f41f70b27e018ce0c5416c6dfb6fac0d1b8444d7d",
+      "bytes": 112388
+    },
+    {
+      "name": "assets/v5/seafood.webp",
+      "sha256": "8617bb181a5d6396ad6e040ea48e94a342a2cfd9218e3c16795d9f5c44515f9e",
+      "bytes": 121358
+    },
+    {
+      "name": "assets/v6/market-hero.webp",
+      "sha256": "31af656ec906131a82ab943b19a7d4f40370a0d9e5d3b3611465874b101b8fe8",
+      "bytes": 410410
+    },
+    {
+      "name": "assets/v6/market-photo-source.png",
+      "sha256": "f92471ee5a3ba26df9de21049887fe149b293a81f88db845c71abe53f57f1187",
+      "bytes": 3009942
+    },
+    {
+      "name": "build_docs.py",
+      "sha256": "0e684000dcc8c8b90cff55d55d3c3c0ac5a2de1592842c8b870e2776be56f6df",
+      "bytes": 14755
+    },
+    {
+      "name": "data/floorplans.json",
+      "sha256": "40796c61309a2fb75db6c7d6d70660539cf1bef09343cad037aa3912d4f5e9e1",
+      "bytes": 195
+    },
+    {
+      "name": "data/models3d.json",
+      "sha256": "6ac02670765c135bc60482ce637ea0ed7ae9271d355351518a605d2ad64d3916",
+      "bytes": 258
+    },
+    {
+      "name": "data/shops.seed.json",
+      "sha256": "93ecf8abe751cc178a14127977324d75409fd5890059e522f1ecb3f1f3a17a68",
+      "bytes": 1188
+    },
+    {
+      "name": "data/shops.template.csv",
+      "sha256": "9b34faca5c02dd7d94121344aee51726cec8152747ed584dc3943da59647579c",
+      "bytes": 171
+    },
+    {
+      "name": "design_gallery.html",
+      "sha256": "3eb62b1a46ea95d9ebdd5be9108a8cdda505c1f12f21a6949a6439e9857f86fb",
+      "bytes": 5975
+    },
+    {
+      "name": "docker-compose.yml",
+      "sha256": "3db91b40707ace93da964602e3f4329ef96cc49d2c426de4894cc526bda5a0eb",
+      "bytes": 434
+    },
+    {
+      "name": "docs/API_명세.md",
+      "sha256": "381586ec276d9bad0a068dfa43057cca9daf4d2c4959c8255d4f04b4b8e4506f",
+      "bytes": 2709
+    },
+    {
+      "name": "docs/COUPON_GOOGLE_NAV_3_1.md",
+      "sha256": "d14dc17c14ea4b241be9bf90c781b115d9c0a6e0d1c14e061be4d5cc3f77cd62",
+      "bytes": 3482
+    },
+    {
+      "name": "docs/PRD_v3_현장플레이_기획.md",
+      "sha256": "450735120a3580634c97ab28c7b2cd26662c23906262319811d3c1fbaf22f42b",
+      "bytes": 3923
+    },
+    {
+      "name": "docs/server_test_log.txt",
+      "sha256": "86f7a3df905b7ad91f52f85933552af3196e90bbe274315acea0cb0a69a93adf",
+      "bytes": 1902
+    },
+    {
+      "name": "docs/v4_browser_qa.log",
+      "sha256": "505da3f1a62982e0c156cf12b05ce12268e56f11ed8f07cc39f6644bab8789d0",
+      "bytes": 247
+    },
+    {
+      "name": "docs/v4_coupon_qa.log",
+      "sha256": "4a88d6be1adfe3e01ba4a67156096752ca1e88ff11ad9048b78e0fcef92a3e1b",
+      "bytes": 201
+    },
+    {
+      "name": "docs/v4_legacy_README.md",
+      "sha256": "c1364f6ac4ab82f0f450f518b8b66e252562f306006a12a5a47d3e5d1401d40f",
+      "bytes": 10906
+    },
+    {
+      "name": "docs/v4_legacy_regression.log",
+      "sha256": "ff0f1a04cd40d1c1b2de5ce3badfc6f2357c2a8b3eeccf6edb3cadff14949801",
+      "bytes": 3071
+    },
+    {
+      "name": "docs/v4_navigation_qa.log",
+      "sha256": "53165fdd27cbadc84dd2d283bcca650e336f404c3217238663b8ab521b1b3310",
+      "bytes": 113
+    },
+    {
+      "name": "docs/v4_server_qa.log",
+      "sha256": "74bb45897f15ae0dd4f82518cf77ee735d82b66ff25636005863661d7d033e60",
+      "bytes": 1902
+    },
+    {
+      "name": "docs/v5_browser_offline_test.log",
+      "sha256": "3314063254fee1e3f9150868a2d505a796c04ba5ebc889bffe88d7b8218658ae",
+      "bytes": 75
+    },
+    {
+      "name": "docs/v5_combined_tests.log",
+      "sha256": "6842c63205c04fe07bae6978e9f9fd7e63ebc9986f847c3f87e3ffd477b484d3",
+      "bytes": 2433
+    },
+    {
+      "name": "docs/v5_final_tests.log",
+      "sha256": "5af21278f2d3db1b62333dbcdbc338d1330b9e8bb4558a62d8ac71da2498a1f6",
+      "bytes": 5733
+    },
+    {
+      "name": "docs/v5_server_test.log",
+      "sha256": "eb24cfbb77cb972ec54cf3c000831ca1f41fdda847483491384484c9d66dbf06",
+      "bytes": 1885
+    },
+    {
+      "name": "docs/v6/browser-qa-quick.log",
+      "sha256": "c8fe87ab8335836fb73532c97fe4e765ec022c5a2327b7944a88e9919c076227",
+      "bytes": 106
+    },
+    {
+      "name": "docs/v6/browser-qa.log",
+      "sha256": "c8fe87ab8335836fb73532c97fe4e765ec022c5a2327b7944a88e9919c076227",
+      "bytes": 106
+    },
+    {
+      "name": "docs/v6/docx-final-review.webp",
+      "sha256": "1385de2aeeb8fc7d8b6da31302091801aad2ddbddbf85fe1aa3c5134f1f13336",
+      "bytes": 42508
+    },
+    {
+      "name": "docs/v6/docx_contact.jpg",
+      "sha256": "9ba32e74542da5c852cc0cdc2a013deb55387e0f92956ac0a70eff7ed7378626",
+      "bytes": 132946
+    },
+    {
+      "name": "docs/v6/erp-12-pages-contact.webp",
+      "sha256": "cf16974e963b77874859899ebd54fb908d8792d99fbfc750103d60517e74d807",
+      "bytes": 101900
+    },
+    {
+      "name": "docs/v6/erp-integration.log",
+      "sha256": "9cd593292351183ff6000b0a9cce38812364ab0009e1e9c6cadbfe9759aaec23",
+      "bytes": 1885
+    },
+    {
+      "name": "docs/v6/final-python-tests.log",
+      "sha256": "2495f556dc04cedac1642a616b7aed692829cc819c04c5f8e2d09944abdca66e",
+      "bytes": 1902
+    },
+    {
+      "name": "docs/v6/google-navigation-test.log",
+      "sha256": "53165fdd27cbadc84dd2d283bcca650e336f404c3217238663b8ab521b1b3310",
+      "bytes": 113
+    },
+    {
+      "name": "docs/v6/html-text-audit.txt",
+      "sha256": "6735bcff804ff7d3fbeba896309626a795e90459f7762ae4e0da653b7ade4fd1",
+      "bytes": 533
+    },
+    {
+      "name": "docs/v6/screens/erp_desktop_board.png",
+      "sha256": "56681f41548b1a0e088d0ab7d53fe7900437f3ded41e9069a6513f5f935c6044",
+      "bytes": 865522
+    },
+    {
+      "name": "docs/v6/screens/erp_desktop_checklist.png",
+      "sha256": "0567f2bfee629bae0960c27cc1fcda5452093363a5da805fe55a594650ee7851",
+      "bytes": 888802
+    },
+    {
+      "name": "docs/v6/screens/erp_desktop_dashboard.png",
+      "sha256": "64a6ff332db8ee92200087715751eb9bb06cef054eff6c9b96c3336d65dede66",
+      "bytes": 846016
+    },
+    {
+      "name": "docs/v6/screens/erp_desktop_documents.png",
+      "sha256": "7b1156ecb24072eb48831762583efde467d54dd0707c6240016bdefa8b86c1c4",
+      "bytes": 855339
+    },
+    {
+      "name": "docs/v6/screens/erp_desktop_products.png",
+      "sha256": "c4549c39e31f6a029343254d6cfe086d0ec5f318a938cf42cfba10c95a83d028",
+      "bytes": 839995
+    },
+    {
+      "name": "docs/v6/screens/erp_desktop_settlement.png",
+      "sha256": "9419f26ac0b818791c01a16c7a82c152d8ae72825d1afc2dd2ab4e5758359339",
+      "bytes": 794315
+    },
+    {
+      "name": "docs/v6/screens/erp_mobile_board.png",
+      "sha256": "322a00a4675342bc6f00fa85de4420b1160500c27ae929f86bf16fe731b13fbf",
+      "bytes": 385347
+    },
+    {
+      "name": "docs/v6/screens/erp_mobile_checklist.png",
+      "sha256": "613c530da943d9fc37d64008cc0ded853348bbb489e8cb264400b55c9c99e0f9",
+      "bytes": 408673
+    },
+    {
+      "name": "docs/v6/screens/erp_mobile_dashboard.png",
+      "sha256": "c789721f838ace1dd446a6c56949e42fac82cad792e21633a50a8568bd963cb1",
+      "bytes": 357960
+    },
+    {
+      "name": "docs/v6/screens/erp_mobile_documents.png",
+      "sha256": "1d7c2a45e594c484fd06f8d9f8c17eb963ed456f78cfe2a2524ec4233c64a4a4",
+      "bytes": 387530
+    },
+    {
+      "name": "docs/v6/screens/erp_mobile_products.png",
+      "sha256": "458fe16b5d37497620c5e23b8a09de704f9b646e166a1ad59e45320d4ffaad25",
+      "bytes": 346479
+    },
+    {
+      "name": "docs/v6/screens/erp_mobile_settlement.png",
+      "sha256": "b60b809e146519d9aed25476328a80d4eedf1edabcd84c75426a3d8895281035",
+      "bytes": 308049
+    },
+    {
+      "name": "docs/v6/v5-tests.log",
+      "sha256": "42d525ad22f5c2b56831285fff994477a81b2405275c3c442fa0da4ffb96e47b",
+      "bytes": 2099
+    },
+    {
+      "name": "docs/v6/페이지별_UI_검수_및_출시판정.md",
+      "sha256": "c150f616f8490cffafa695f85e3001631f2ca64cdafd279233241eab0aa8ec3b",
+      "bytes": 3408
+    },
+    {
+      "name": "docs/검수_결과_v3_1.txt",
+      "sha256": "6693fbf66f882784fd13631d7e8f83a5dcfc53649f64ae583db2377ea751f50f",
+      "bytes": 1830
+    },
+    {
+      "name": "docs/검수_리포트_v5.md",
+      "sha256": "c8703827bf6d2519f31e21fd1deb2966800d1636adacac1ca75f667f50e56d15",
+      "bytes": 3607
+    },
+    {
+      "name": "docs/검수결과_한계.md",
+      "sha256": "fa4605d177bd84f345f25a2167f9ac2f73ca7c45f4d11200bbd221d550dd93e6",
+      "bytes": 3528
+    },
+    {
+      "name": "docs/디자인_페이지별_검수_v4.md",
+      "sha256": "9f14b92fbaa46a57d435ae77835483f71e63841bccedd6572549051b7a8e2b41",
+      "bytes": 6523
+    },
+    {
+      "name": "docs/상용전환_체크리스트.md",
+      "sha256": "fb5bac1862fa077f76e12bdd5c3de317901c4683912a97cb2581d746638c5806",
+      "bytes": 1528
+    },
+    {
+      "name": "docs/오픈소스_정책_출처.md",
+      "sha256": "221e608e80b482e59f291c349ce60a86e1b8c7877b3271887d68650370f247ad",
+      "bytes": 2622
+    },
+    {
+      "name": "documents/registers/ERP_상품대장_데이터사전.md",
+      "sha256": "87122b4f55ed8b4520d0b50f7c9bfd1ad3802d6f8d8ce40945a7a53e9d029e4f",
+      "bytes": 1270
+    },
+    {
+      "name": "documents/registers/상품등록_샘플.csv",
+      "sha256": "b964c42c6227b25303b149e0571ccc3d194ba82249bedcd83f72fcd3ad488151",
+      "bytes": 219
+    },
+    {
+      "name": "documents/templates/01_상인참여_디지털홍보협약서_검토안.docx",
+      "sha256": "d82b31d010d5b9db53e40575ac08d245bd8c0e888416fb44627047f9876cfe48",
+      "bytes": 38528
+    },
+    {
+      "name": "documents/templates/02_점포_상품_GPS_현장검증서.docx",
+      "sha256": "ed184d4a9538cfdc604b981e992ac3860d29ad0d9b2a9b8535977fffb4c50305",
+      "bytes": 38050
+    },
+    {
+      "name": "documents/templates/03_상품권_PG_정산_법률검토서.docx",
+      "sha256": "7db8e4ae957873bc49d68dcae2ae54eb6b1b86fa83deab395f367c382c629bf3",
+      "bytes": 38142
+    },
+    {
+      "name": "documents/templates/04_개인정보_마케팅수신동의_발송검토서.docx",
+      "sha256": "2b018e6e8b2bfc4aad1b0212028604b999f0cc4ee21d8ed93ba01d6c4f2d26e4",
+      "bytes": 38219
+    },
+    {
+      "name": "documents/templates/05_최종_인수_출시승인_검수서.docx",
+      "sha256": "dae57d755711e94b1789fe7975c711a688ea02ebd42df3fed799d0691ff2231f",
+      "bytes": 38171
+    },
+    {
+      "name": "documents.html",
+      "sha256": "162424d96dc19cb38c02df82dd395238103ae411a9c2456a1af08c15845f8ef1",
+      "bytes": 3109
+    },
+    {
+      "name": "extras/GARAKLAND_GOOGLE_3D_NAV_이전버전.zip",
+      "sha256": "c6c4ebbe221403a1227553b370f0e17e23c0aac0c9626b13c8e43129463b8133",
+      "bytes": 1522044
+    },
+    {
+      "name": "game/app.js",
+      "sha256": "aafc342a2a96597d48df4cc77eece3f709be75cdbfbdd7369520693117f23665",
+      "bytes": 34136
+    },
+    {
+      "name": "game/navigation.mjs",
+      "sha256": "b5e021a4762ab83ad9a714b5b9d8ddd9dab8141dc9d06060e1a64f4c2d150b7c",
+      "bytes": 2446
+    },
+    {
+      "name": "game/studio.css",
+      "sha256": "53b5da06222bf2bb4d3be29f06c93c4784880f7dafbdfc9d08c31157973203dc",
+      "bytes": 16847
+    },
+    {
+      "name": "game/style.css",
+      "sha256": "d3650b564d4eb56fa440d61f378f4942aad470628e1027fadfc652982852fd88",
+      "bytes": 29193
+    },
+    {
+      "name": "generate_assets.py",
+      "sha256": "8519bf6edd1b221bbf3910f25ee5f26267aa7f0100c156079d3f0829b0c904c1",
+      "bytes": 3918
+    },
+    {
+      "name": "index.html",
+      "sha256": "2aebc0b4b1a485210ffcf6576caf404bcca25706f4908048051358923e96787b",
+      "bytes": 25958
+    },
+    {
+      "name": "install_vision_windows.bat",
+      "sha256": "cf8c40edce3b5c9e61a04b0cf7ee7fdb59b9d91cbda3603c9f54e0ae6b3ee903",
+      "bytes": 195
+    },
+    {
+      "name": "manifest.webmanifest",
+      "sha256": "a956ec75be4cd11a3916ea57b8f6ce04052ca4a5e987e81c171ecef3788a8966",
+      "bytes": 250
+    },
+    {
+      "name": "map.html",
+      "sha256": "c4d96ef048ecd9c16eaf1f6d2d88b0a7fa70bcf8beff86e0efab254ee6d4ebf9",
+      "bytes": 11422
+    },
+    {
+      "name": "market/core.py",
+      "sha256": "636bb8ffd13c4c4dfc95688430c606cd79941b6866d39d057edfca246fd64bb4",
+      "bytes": 33332
+    },
+    {
+      "name": "market/providers.py",
+      "sha256": "1083fb1d902f09e855a0b8da98b5e0ef48ad5e0bbd5fed8892f130775a38ae0e",
+      "bytes": 4102
+    },
+    {
+      "name": "market/theme.css",
+      "sha256": "cb28abddccc4db8335423528e0cd00b9b4ea5a72f0e3dde851b982739e9fc759",
+      "bytes": 14108
+    },
+    {
+      "name": "market/ui.js",
+      "sha256": "8eb9954c9b3a720e4c93c25bc54b1ab3e8c4cc6c00812b3954a5d69c7754ad23",
+      "bytes": 14979
+    },
+    {
+      "name": "market.html",
+      "sha256": "b6c51d48e0c08440b56d2a50ffc6f669d8c6ab65fddf8d918b2c2fd3cd255421",
+      "bytes": 13088
+    },
+    {
+      "name": "ops/app.js",
+      "sha256": "492204a83baf4224a6f9e72127df55d335c685c315635f550ef43fea13afa20d",
+      "bytes": 12236
+    },
+    {
+      "name": "ops/core.py",
+      "sha256": "af4e4c80ec302e26963bdcc8bec75dbb613789fa9bbb1dcb228141e823bbd46d",
+      "bytes": 13593
+    },
+    {
+      "name": "ops/style.css",
+      "sha256": "60c90deb6ea50f3b3d4dfb452a91e59126c8422d5815484b01d55004b04109c4",
+      "bytes": 9493
+    },
+    {
+      "name": "ops.html",
+      "sha256": "30c95110e26a41401447356ed03fff3adb3390c658f32f0f04fa993b7fa7b838",
+      "bytes": 10216
+    },
+    {
+      "name": "registry_server.py",
+      "sha256": "f5eca56b308817061874a92c33e96fbb9d3fbb95bd9c32d1c4b7072d93f47be2",
+      "bytes": 9112
+    },
+    {
+      "name": "requirements-optional.txt",
+      "sha256": "5e659305e26f12d988a9d898386456bb69ac7c4457942b8bd334488c561e671b",
+      "bytes": 306
+    },
+    {
+      "name": "server.py",
+      "sha256": "8d6320a1fc53dc3c27cf319f4172412111d2fe65247e00a4ec16073e7983d2a9",
+      "bytes": 35579
+    },
+    {
+      "name": "src/app.js",
+      "sha256": "8e15010b8cff934824c10779fc83af3d874ef87cffb05454841aa1b5165f8db7",
+      "bytes": 20502
+    },
+    {
+      "name": "src/catalog.js",
+      "sha256": "04af6cfc0c24157e2935164250c7564104840c38d511bf5f1b2f40ff687f1f7a",
+      "bytes": 6128
+    },
+    {
+      "name": "src/csv.js",
+      "sha256": "f912701ab4bb0abf6c76e31247c654d1f07a59e1763a8e07748b7a2bae43a6f0",
+      "bytes": 2581
+    },
+    {
+      "name": "src/floorplans.js",
+      "sha256": "ba6dcb3f4c33d6b08690c49c24cc06fbc57e26fc871c05be1ff730e4ab771689",
+      "bytes": 1457
+    },
+    {
+      "name": "src/map-engine.js",
+      "sha256": "e7f5dc7c6eb281fef8875d70e30fc7468bf1caeb180869066599fe9143cbb446",
+      "bytes": 8405
+    },
+    {
+      "name": "src/studio-map.css",
+      "sha256": "f63736ccb3fde777098c27d53636cadc11226ee310651bdd7c7f0199edf87f04",
+      "bytes": 545
+    },
+    {
+      "name": "src/styles.css",
+      "sha256": "72699dc17132d61be71bbd99833df19d561a6bff550ff5b1ceebb613c227cf9a",
+      "bytes": 24435
+    },
+    {
+      "name": "start_erp_windows.bat",
+      "sha256": "ec6a56798ce215d205053596c8115556a6bdc11eae41a3ab7655f7d1ab357732",
+      "bytes": 636
+    },
+    {
+      "name": "start_linux_mac.sh",
+      "sha256": "42f4ddba9897f0daca68afd2adac212f1d2b0454f08f0a40a06997a80e8dbabc",
+      "bytes": 115
+    },
+    {
+      "name": "start_windows.bat",
+      "sha256": "40b0af00c496950b6f1a54c206e076eba390e29cfd061891998e906c3441ed05",
+      "bytes": 593
+    },
+    {
+      "name": "tests/browser_offline_ui.py",
+      "sha256": "b6531f66a1a382c8a10555feb1d5b4faad8a2f9ba51fdf2c45d0d832fcb108c3",
+      "bytes": 5541
+    },
+    {
+      "name": "tests/browser_offline_v5.py",
+      "sha256": "40e92db20307ffdb33b601430e5fe4afb947485103ec2fba9225810ee05c2054",
+      "bytes": 4571
+    },
+    {
+      "name": "tests/browser_v6_qa.py",
+      "sha256": "77856c23362161473c1896d120b0e948cb3c3e8096e51363548aaf73f79469fb",
+      "bytes": 5797
+    },
+    {
+      "name": "tests/test_beta.py",
+      "sha256": "3a4657ce616fec343a225fa4fe5be631049ebc6443db97fb0921a5ca08653294",
+      "bytes": 10055
+    },
+    {
+      "name": "tests/test_coupon_browser.py",
+      "sha256": "5ef2741c7dfa35de19a947b78578ab0717c790015ba69211fb530dbf7419901b",
+      "bytes": 5482
+    },
+    {
+      "name": "tests/test_erp_v6.py",
+      "sha256": "45c377015f6a0b77fdb5980ba453889a48e0efbded98ddd9a020d5a8138c2509",
+      "bytes": 6270
+    },
+    {
+      "name": "tests/test_growth_v5.py",
+      "sha256": "19f53d9f6e1259007465e63d73c1c83a2eeafa54109b44d2f782a7c3bded6137",
+      "bytes": 10417
+    },
+    {
+      "name": "tests/test_marketing_adapters.py",
+      "sha256": "1e9180cdbed51995812af0357575d06c52a5377085467f87a61071370c6fbeb3",
+      "bytes": 1599
+    },
+    {
+      "name": "tests/test_navigation.mjs",
+      "sha256": "4043f5c9dc51b5ca8ef8e13aff55e63290e04c6db3f2246d9ed158aa1bd68693",
+      "bytes": 1798
+    },
+    {
+      "name": "tests/test_studio_browser.py",
+      "sha256": "72ff7c14d4fcd945b3b568c3d18198729ffc5518cd6f9bcdfdf6a47ebb57791d",
+      "bytes": 8063
+    },
+    {
+      "name": "unsubscribe.html",
+      "sha256": "8db9002979cc84e03bcc568d9a1e2e870e054d11bf609f171cefd12f305c4c59",
+      "bytes": 1877
+    },
+    {
+      "name": "v5_desktop_home.png",
+      "sha256": "078a286a49cb651e2bad976849cc29c0262dc53760c7c29cd994dc0d70fee72e",
+      "bytes": 1893317
+    },
+    {
+      "name": "v5_desktop_marketing.png",
+      "sha256": "54b55e54a193d146725f21187608152a061dee3dce61352c900830513b4f8f69",
+      "bytes": 771439
+    },
+    {
+      "name": "v5_desktop_merchant.png",
+      "sha256": "afae73b7a9e2a798bc2f195d414d5455bb0367338897b2ef2c0ef133c47809ea",
+      "bytes": 292248
+    },
+    {
+      "name": "v5_desktop_wallet.png",
+      "sha256": "db1b1a5af7ae17ac244bf2e45fff5226d8ea6bdac86fd4222a87e9bb022fedbc",
+      "bytes": 395455
+    },
+    {
+      "name": "v5_mobile_home.png",
+      "sha256": "b00e5f9ebc0bd01df68ad3b1c960d96ceda7b327b8450d5ec45ebb262951fe2a",
+      "bytes": 797150
+    },
+    {
+      "name": "v5_mobile_marketing.png",
+      "sha256": "2e4525995d52d3a0adead318a9718f20fab43472e2822b725b51e13ea1bdae88",
+      "bytes": 234533
+    },
+    {
+      "name": "v5_mobile_merchant.png",
+      "sha256": "7a241a4bfaf8353e3892dd5b73f85da4528669d56bc40da124396e12748d69aa",
+      "bytes": 281671
+    },
+    {
+      "name": "v5_mobile_wallet.png",
+      "sha256": "d185fe2084e2388df51d2059c6630e073503c04c59ff70fe489d957f38f5fc24",
+      "bytes": 220797
+    },
+    {
+      "name": "verify_windows.bat",
+      "sha256": "96ee9440388e63ffca2707f6e56bcda30e303e2b46695b71795b2a9a23832ecf",
+      "bytes": 469
+    },
+    {
+      "name": "실행방법.txt",
+      "sha256": "1b542e39ca9cdc37c4f18fe6c38c7cb058ba1c8688619fc15c674ebb8dfdb0a0",
+      "bytes": 1521
+    },
+    {
+      "name": "실행안내.txt",
+      "sha256": "a808f8b3555cd26ec823433c413ce202c4e63503b371ff2b374f1611b5206cfa",
+      "bytes": 825
+    }
+  ]
+}

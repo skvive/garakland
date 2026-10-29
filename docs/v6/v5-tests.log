@@ -1,0 +1,24 @@
+test_01_public_offers (test_growth_v5.GrowthV5Integration.test_01_public_offers) ... ok
+test_02_coupon_and_repeat (test_growth_v5.GrowthV5Integration.test_02_coupon_and_repeat) ... ok
+test_03_coupon_wrong_store_no_auth (test_growth_v5.GrowthV5Integration.test_03_coupon_wrong_store_no_auth) ... ok
+test_04_coupon_redeem_once (test_growth_v5.GrowthV5Integration.test_04_coupon_redeem_once) ... ok
+test_05_merchant_create_invalid_prices (test_growth_v5.GrowthV5Integration.test_05_merchant_create_invalid_prices) ... ok
+test_06_gift_demo_and_balance (test_growth_v5.GrowthV5Integration.test_06_gift_demo_and_balance) ... ok
+test_07_gift_wrong_pin (test_growth_v5.GrowthV5Integration.test_07_gift_wrong_pin) ... ok
+test_08_gift_redeem_idempotent (test_growth_v5.GrowthV5Integration.test_08_gift_redeem_idempotent) ... ok
+test_09_gift_insufficient_and_refund (test_growth_v5.GrowthV5Integration.test_09_gift_insufficient_and_refund) ... ok
+test_10_consent_separate (test_growth_v5.GrowthV5Integration.test_10_consent_separate) ... ok
+test_11_schedule_and_dispatch_simulation (test_growth_v5.GrowthV5Integration.test_11_schedule_and_dispatch_simulation) ... ok
+test_12_consent_withdraw (test_growth_v5.GrowthV5Integration.test_12_consent_withdraw) ... ok
+test_13_admin_approve_permissions (test_growth_v5.GrowthV5Integration.test_13_admin_approve_permissions) ... ok
+test_14_scheduled_offer_visibility (test_growth_v5.GrowthV5Integration.test_14_scheduled_offer_visibility) ... ok
+test_15_merchant_dashboard_auth (test_growth_v5.GrowthV5Integration.test_15_merchant_dashboard_auth) ... ok
+test_16_public_static_security (test_growth_v5.GrowthV5Integration.test_16_public_static_security) ... ok
+test_17_signed_unsubscribe (test_growth_v5.GrowthV5Integration.test_17_signed_unsubscribe) ... ok
+test_18_live_marketing_fail_closed (test_growth_v5.GrowthV5Integration.test_18_live_marketing_fail_closed) ... ok
+test_19_unsubscribe_screen (test_growth_v5.GrowthV5Integration.test_19_unsubscribe_screen) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 2.139s
+
+OK

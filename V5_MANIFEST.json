@@ -1,0 +1,562 @@
+{
+  "product": "GARAKLAND MARKET GROWTH v5 BETA",
+  "date": "2026-10-29",
+  "mode": "DEMO_ONLY",
+  "files": 109,
+  "features": [
+    "market_offer_scheduler",
+    "coupon_claim_and_google_map",
+    "consent_channels",
+    "scheduled_marketing_simulation",
+    "smtp_solapi_adapter_disabled_by_default",
+    "demo_giftcards_ledger"
+  ],
+  "testSummary": "37 Python tests passed; desktop/mobile offline Chromium API bridge UI passed",
+  "fileset": [
+    {
+      "path": "v5_desktop_home.png",
+      "size": 1893317,
+      "sha256": "078a286a49cb651e2bad976849cc29c0262dc53760c7c29cd994dc0d70fee72e"
+    },
+    {
+      "path": "Dockerfile",
+      "size": 163,
+      "sha256": "031340e7ccb967536139c85464a289c6f2bcf83f2ee00e1e1a2a4fdf97109a27"
+    },
+    {
+      "path": "실행방법.txt",
+      "size": 1521,
+      "sha256": "1b542e39ca9cdc37c4f18fe6c38c7cb058ba1c8688619fc15c674ebb8dfdb0a0"
+    },
+    {
+      "path": "registry_server.py",
+      "size": 9112,
+      "sha256": "f5eca56b308817061874a92c33e96fbb9d3fbb95bd9c32d1c4b7072d93f47be2"
+    },
+    {
+      "path": "v5_mobile_merchant.png",
+      "size": 281671,
+      "sha256": "7a241a4bfaf8353e3892dd5b73f85da4528669d56bc40da124396e12748d69aa"
+    },
+    {
+      "path": "unsubscribe.html",
+      "size": 1877,
+      "sha256": "8db9002979cc84e03bcc568d9a1e2e870e054d11bf609f171cefd12f305c4c59"
+    },
+    {
+      "path": "requirements-optional.txt",
+      "size": 306,
+      "sha256": "5e659305e26f12d988a9d898386456bb69ac7c4457942b8bd334488c561e671b"
+    },
+    {
+      "path": "start_windows.bat",
+      "size": 543,
+      "sha256": "cf762447c19628b26bdd07d90300360991deb03dd247c0714660f0892f4e2b85"
+    },
+    {
+      "path": "docker-compose.yml",
+      "size": 434,
+      "sha256": "3db91b40707ace93da964602e3f4329ef96cc49d2c426de4894cc526bda5a0eb"
+    },
+    {
+      "path": "v5_mobile_wallet.png",
+      "size": 220797,
+      "sha256": "d185fe2084e2388df51d2059c6630e073503c04c59ff70fe489d957f38f5fc24"
+    },
+    {
+      "path": "start_linux_mac.sh",
+      "size": 115,
+      "sha256": "42f4ddba9897f0daca68afd2adac212f1d2b0454f08f0a40a06997a80e8dbabc"
+    },
+    {
+      "path": "index.html",
+      "size": 25958,
+      "sha256": "2aebc0b4b1a485210ffcf6576caf404bcca25706f4908048051358923e96787b"
+    },
+    {
+      "path": "v5_desktop_wallet.png",
+      "size": 395455,
+      "sha256": "db1b1a5af7ae17ac244bf2e45fff5226d8ea6bdac86fd4222a87e9bb022fedbc"
+    },
+    {
+      "path": "design_gallery.html",
+      "size": 5975,
+      "sha256": "3eb62b1a46ea95d9ebdd5be9108a8cdda505c1f12f21a6949a6439e9857f86fb"
+    },
+    {
+      "path": "LICENSE",
+      "size": 1252,
+      "sha256": "6bf9add179df5248584c30c13f36696975cf84953f4cc3d3a49804eff09e263e"
+    },
+    {
+      "path": ".gitignore",
+      "size": 83,
+      "sha256": "5002bd29a68c351210ab8442dace2890ce504d2dbc65871d389480c0b1b34903"
+    },
+    {
+      "path": "v5_mobile_marketing.png",
+      "size": 234533,
+      "sha256": "2e4525995d52d3a0adead318a9718f20fab43472e2822b725b51e13ea1bdae88"
+    },
+    {
+      "path": "map.html",
+      "size": 11422,
+      "sha256": "c4d96ef048ecd9c16eaf1f6d2d88b0a7fa70bcf8beff86e0efab254ee6d4ebf9"
+    },
+    {
+      "path": "market.html",
+      "size": 13018,
+      "sha256": "110e6f3ff9c0ecc20f64b6b82588ca8afb528eac262c6365acbe8108905945ed"
+    },
+    {
+      "path": "generate_assets.py",
+      "size": 3918,
+      "sha256": "8519bf6edd1b221bbf3910f25ee5f26267aa7f0100c156079d3f0829b0c904c1"
+    },
+    {
+      "path": "install_vision_windows.bat",
+      "size": 195,
+      "sha256": "cf8c40edce3b5c9e61a04b0cf7ee7fdb59b9d91cbda3603c9f54e0ae6b3ee903"
+    },
+    {
+      "path": "README_V4_DESIGN.md",
+      "size": 2848,
+      "sha256": "8e5bac9e2f2c5622fcab1c94f938b0674c5a3fcb8bca801587f3f0fd1e00ad6e"
+    },
+    {
+      "path": "v5_desktop_merchant.png",
+      "size": 292248,
+      "sha256": "afae73b7a9e2a798bc2f195d414d5455bb0367338897b2ef2c0ef133c47809ea"
+    },
+    {
+      "path": "manifest.webmanifest",
+      "size": 250,
+      "sha256": "a956ec75be4cd11a3916ea57b8f6ce04052ca4a5e987e81c171ecef3788a8966"
+    },
+    {
+      "path": "README.md",
+      "size": 9390,
+      "sha256": "0b8fb627f7992484005f1d423d4402741f51dd3d8636c8fcdc24f47486130cd4"
+    },
+    {
+      "path": "v5_mobile_home.png",
+      "size": 797150,
+      "sha256": "b00e5f9ebc0bd01df68ad3b1c960d96ceda7b327b8450d5ec45ebb262951fe2a"
+    },
+    {
+      "path": "server.py",
+      "size": 34928,
+      "sha256": "f824b7f2743bf320312785cc151b8381877a6e9ff73162cb9cf79a2631ed42a4"
+    },
+    {
+      "path": "실행안내.txt",
+      "size": 825,
+      "sha256": "a808f8b3555cd26ec823433c413ce202c4e63503b371ff2b374f1611b5206cfa"
+    },
+    {
+      "path": ".env.example",
+      "size": 195,
+      "sha256": "9e88e6c13da82a334463d5e99ef83bb9c220badebaa1ccfbc52eac2a68454ac3"
+    },
+    {
+      "path": "V4_MANIFEST.json",
+      "size": 523,
+      "sha256": "ca2f80071526101e000a3c51cee85b956ac0f20ba6716a4921a8e6aa92dee6f1"
+    },
+    {
+      "path": "v5_desktop_marketing.png",
+      "size": 771439,
+      "sha256": "54b55e54a193d146725f21187608152a061dee3dce61352c900830513b4f8f69"
+    },
+    {
+      "path": "verify_windows.bat",
+      "size": 469,
+      "sha256": "96ee9440388e63ffca2707f6e56bcda30e303e2b46695b71795b2a9a23832ecf"
+    },
+    {
+      "path": "FILE_MANIFEST.json",
+      "size": 10970,
+      "sha256": "02c99d2cfc5c2195ccae4cbb54bfb1f73cd63f1bb2bb42a8b322543405f82aad"
+    },
+    {
+      "path": "assets/icon.svg",
+      "size": 292,
+      "sha256": "a1f525d374a599091471e06d0b0bba503d11a74855e1c5f9f651dd3be9d22c2e"
+    },
+    {
+      "path": "market/ui.js",
+      "size": 14979,
+      "sha256": "8eb9954c9b3a720e4c93c25bc54b1ab3e8c4cc6c00812b3954a5d69c7754ad23"
+    },
+    {
+      "path": "market/theme.css",
+      "size": 13290,
+      "sha256": "d29b541231f0d2419052fd18c6ece11f8aca53701f7806afc392bef37dd04c05"
+    },
+    {
+      "path": "market/providers.py",
+      "size": 4102,
+      "sha256": "1083fb1d902f09e855a0b8da98b5e0ef48ad5e0bbd5fed8892f130775a38ae0e"
+    },
+    {
+      "path": "market/core.py",
+      "size": 33332,
+      "sha256": "636bb8ffd13c4c4dfc95688430c606cd79941b6866d39d057edfca246fd64bb4"
+    },
+    {
+      "path": "data/shops.seed.json",
+      "size": 1188,
+      "sha256": "93ecf8abe751cc178a14127977324d75409fd5890059e522f1ecb3f1f3a17a68"
+    },
+    {
+      "path": "data/models3d.json",
+      "size": 258,
+      "sha256": "6ac02670765c135bc60482ce637ea0ed7ae9271d355351518a605d2ad64d3916"
+    },
+    {
+      "path": "data/shops.template.csv",
+      "size": 171,
+      "sha256": "9b34faca5c02dd7d94121344aee51726cec8152747ed584dc3943da59647579c"
+    },
+    {
+      "path": "data/floorplans.json",
+      "size": 195,
+      "sha256": "40796c61309a2fb75db6c7d6d70660539cf1bef09343cad037aa3912d4f5e9e1"
+    },
+    {
+      "path": "game/app.js",
+      "size": 34136,
+      "sha256": "aafc342a2a96597d48df4cc77eece3f709be75cdbfbdd7369520693117f23665"
+    },
+    {
+      "path": "game/navigation.mjs",
+      "size": 2446,
+      "sha256": "b5e021a4762ab83ad9a714b5b9d8ddd9dab8141dc9d06060e1a64f4c2d150b7c"
+    },
+    {
+      "path": "game/studio.css",
+      "size": 16847,
+      "sha256": "53b5da06222bf2bb4d3be29f06c93c4784880f7dafbdfc9d08c31157973203dc"
+    },
+    {
+      "path": "game/style.css",
+      "size": 29193,
+      "sha256": "d3650b564d4eb56fa440d61f378f4942aad470628e1027fadfc652982852fd88"
+    },
+    {
+      "path": "extras/GARAKLAND_GOOGLE_3D_NAV_이전버전.zip",
+      "size": 1522044,
+      "sha256": "c6c4ebbe221403a1227553b370f0e17e23c0aac0c9626b13c8e43129463b8133"
+    },
+    {
+      "path": "tests/test_coupon_browser.py",
+      "size": 5482,
+      "sha256": "5ef2741c7dfa35de19a947b78578ab0717c790015ba69211fb530dbf7419901b"
+    },
+    {
+      "path": "tests/test_growth_v5.py",
+      "size": 10417,
+      "sha256": "19f53d9f6e1259007465e63d73c1c83a2eeafa54109b44d2f782a7c3bded6137"
+    },
+    {
+      "path": "tests/test_beta.py",
+      "size": 10055,
+      "sha256": "3a4657ce616fec343a225fa4fe5be631049ebc6443db97fb0921a5ca08653294"
+    },
+    {
+      "path": "tests/test_studio_browser.py",
+      "size": 8063,
+      "sha256": "72ff7c14d4fcd945b3b568c3d18198729ffc5518cd6f9bcdfdf6a47ebb57791d"
+    },
+    {
+      "path": "tests/test_navigation.mjs",
+      "size": 1798,
+      "sha256": "4043f5c9dc51b5ca8ef8e13aff55e63290e04c6db3f2246d9ed158aa1bd68693"
+    },
+    {
+      "path": "tests/browser_offline_ui.py",
+      "size": 5541,
+      "sha256": "b6531f66a1a382c8a10555feb1d5b4faad8a2f9ba51fdf2c45d0d832fcb108c3"
+    },
+    {
+      "path": "tests/browser_offline_v5.py",
+      "size": 4571,
+      "sha256": "40e92db20307ffdb33b601430e5fe4afb947485103ec2fba9225810ee05c2054"
+    },
+    {
+      "path": "tests/test_marketing_adapters.py",
+      "size": 1599,
+      "sha256": "1e9180cdbed51995812af0357575d06c52a5377085467f87a61071370c6fbeb3"
+    },
+    {
+      "path": "docs/v5_combined_tests.log",
+      "size": 2433,
+      "sha256": "6842c63205c04fe07bae6978e9f9fd7e63ebc9986f847c3f87e3ffd477b484d3"
+    },
+    {
+      "path": "docs/상용전환_체크리스트.md",
+      "size": 1528,
+      "sha256": "fb5bac1862fa077f76e12bdd5c3de317901c4683912a97cb2581d746638c5806"
+    },
+    {
+      "path": "docs/v4_browser_qa.log",
+      "size": 247,
+      "sha256": "505da3f1a62982e0c156cf12b05ce12268e56f11ed8f07cc39f6644bab8789d0"
+    },
+    {
+      "path": "docs/오픈소스_정책_출처.md",
+      "size": 2622,
+      "sha256": "221e608e80b482e59f291c349ce60a86e1b8c7877b3271887d68650370f247ad"
+    },
+    {
+      "path": "docs/v5_final_tests.log",
+      "size": 5733,
+      "sha256": "5af21278f2d3db1b62333dbcdbc338d1330b9e8bb4558a62d8ac71da2498a1f6"
+    },
+    {
+      "path": "docs/v5_browser_offline_test.log",
+      "size": 75,
+      "sha256": "3314063254fee1e3f9150868a2d505a796c04ba5ebc889bffe88d7b8218658ae"
+    },
+    {
+      "path": "docs/COUPON_GOOGLE_NAV_3_1.md",
+      "size": 3482,
+      "sha256": "d14dc17c14ea4b241be9bf90c781b115d9c0a6e0d1c14e061be4d5cc3f77cd62"
+    },
+    {
+      "path": "docs/v4_legacy_regression.log",
+      "size": 3071,
+      "sha256": "ff0f1a04cd40d1c1b2de5ce3badfc6f2357c2a8b3eeccf6edb3cadff14949801"
+    },
+    {
+      "path": "docs/PRD_v3_현장플레이_기획.md",
+      "size": 3923,
+      "sha256": "450735120a3580634c97ab28c7b2cd26662c23906262319811d3c1fbaf22f42b"
+    },
+    {
+      "path": "docs/검수_결과_v3_1.txt",
+      "size": 1830,
+      "sha256": "6693fbf66f882784fd13631d7e8f83a5dcfc53649f64ae583db2377ea751f50f"
+    },
+    {
+      "path": "docs/디자인_페이지별_검수_v4.md",
+      "size": 6523,
+      "sha256": "9f14b92fbaa46a57d435ae77835483f71e63841bccedd6572549051b7a8e2b41"
+    },
+    {
+      "path": "docs/v4_legacy_README.md",
+      "size": 10906,
+      "sha256": "c1364f6ac4ab82f0f450f518b8b66e252562f306006a12a5a47d3e5d1401d40f"
+    },
+    {
+      "path": "docs/v4_coupon_qa.log",
+      "size": 201,
+      "sha256": "4a88d6be1adfe3e01ba4a67156096752ca1e88ff11ad9048b78e0fcef92a3e1b"
+    },
+    {
+      "path": "docs/v4_navigation_qa.log",
+      "size": 113,
+      "sha256": "53165fdd27cbadc84dd2d283bcca650e336f404c3217238663b8ab521b1b3310"
+    },
+    {
+      "path": "docs/API_명세.md",
+      "size": 2709,
+      "sha256": "381586ec276d9bad0a068dfa43057cca9daf4d2c4959c8255d4f04b4b8e4506f"
+    },
+    {
+      "path": "docs/server_test_log.txt",
+      "size": 1902,
+      "sha256": "86f7a3df905b7ad91f52f85933552af3196e90bbe274315acea0cb0a69a93adf"
+    },
+    {
+      "path": "docs/검수결과_한계.md",
+      "size": 3528,
+      "sha256": "fa4605d177bd84f345f25a2167f9ac2f73ca7c45f4d11200bbd221d550dd93e6"
+    },
+    {
+      "path": "docs/v4_server_qa.log",
+      "size": 1902,
+      "sha256": "74bb45897f15ae0dd4f82518cf77ee735d82b66ff25636005863661d7d033e60"
+    },
+    {
+      "path": "docs/v5_server_test.log",
+      "size": 1885,
+      "sha256": "eb24cfbb77cb972ec54cf3c000831ca1f41fdda847483491384484c9d66dbf06"
+    },
+    {
+      "path": "docs/검수_리포트_v5.md",
+      "size": 3607,
+      "sha256": "c8703827bf6d2519f31e21fd1deb2966800d1636adacac1ca75f667f50e56d15"
+    },
+    {
+      "path": "src/styles.css",
+      "size": 24435,
+      "sha256": "72699dc17132d61be71bbd99833df19d561a6bff550ff5b1ceebb613c227cf9a"
+    },
+    {
+      "path": "src/floorplans.js",
+      "size": 1457,
+      "sha256": "ba6dcb3f4c33d6b08690c49c24cc06fbc57e26fc871c05be1ff730e4ab771689"
+    },
+    {
+      "path": "src/app.js",
+      "size": 20502,
+      "sha256": "8e15010b8cff934824c10779fc83af3d874ef87cffb05454841aa1b5165f8db7"
+    },
+    {
+      "path": "src/map-engine.js",
+      "size": 8405,
+      "sha256": "e7f5dc7c6eb281fef8875d70e30fc7468bf1caeb180869066599fe9143cbb446"
+    },
+    {
+      "path": "src/studio-map.css",
+      "size": 545,
+      "sha256": "f63736ccb3fde777098c27d53636cadc11226ee310651bdd7c7f0199edf87f04"
+    },
+    {
+      "path": "src/csv.js",
+      "size": 2581,
+      "sha256": "f912701ab4bb0abf6c76e31247c654d1f07a59e1763a8e07748b7a2bae43a6f0"
+    },
+    {
+      "path": "src/catalog.js",
+      "size": 6128,
+      "sha256": "04af6cfc0c24157e2935164250c7564104840c38d511bf5f1b2f40ff687f1f7a"
+    },
+    {
+      "path": "assets/demo/fruit-menu.png",
+      "size": 50954,
+      "sha256": "91629143b0bc04d4dea3878b683f0d06321024fbc1822fee91bcef41c9e22d4a"
+    },
+    {
+      "path": "assets/demo/fruit-hero.png",
+      "size": 50903,
+      "sha256": "44104811fce41a0b1139619a2563a419c3e27f1e50e7302de47b268b0546ee32"
+    },
+    {
+      "path": "assets/demo/meat-poster.png",
+      "size": 62714,
+      "sha256": "917937717904bfaf8fd9f2ef4b4ebfa66fbcfa049a795e2ffce3189ed91069b3"
+    },
+    {
+      "path": "assets/demo/sea-poster.png",
+      "size": 58056,
+      "sha256": "e553d52bee31739082961587dda26c0fdb6692ae43c04ad768b3c87dfa5f0fc4"
+    },
+    {
+      "path": "assets/demo/kitchen-menu.png",
+      "size": 52508,
+      "sha256": "e1ded395c7141b3d9c74dede35f49d44adff9652e9a93934d74eab2e627bb682"
+    },
+    {
+      "path": "assets/demo/sea-hero.png",
+      "size": 46163,
+      "sha256": "d4853c76a633c4800f3f11dd304261b7ac3b79917d0e457afc882637bc096123"
+    },
+    {
+      "path": "assets/demo/fruit-poster.png",
+      "size": 65242,
+      "sha256": "27416d97799a26cca32021bd90b493b06baf9f8f654231c46cc34f85c4b8adc0"
+    },
+    {
+      "path": "assets/demo/kitchen-poster.png",
+      "size": 67924,
+      "sha256": "374001a2397d2d1e6172c0a15ee5c1a314f63e5c674b6f8da7cb10c4c501f6e0"
+    },
+    {
+      "path": "assets/demo/sea-menu.png",
+      "size": 44895,
+      "sha256": "1a8b64cda258e6f321f6c1ba6934be9d9317c91f080c78aad3da4d9a3c2aca22"
+    },
+    {
+      "path": "assets/demo/meat-hero.png",
+      "size": 50104,
+      "sha256": "aa9b3eb9aa560114cca4e2bc838a784000bfa7b6465b15d9a6f0ed4e3a1f9aa5"
+    },
+    {
+      "path": "assets/demo/kitchen-hero.png",
+      "size": 55295,
+      "sha256": "8ec82a5d9fc05787843bfa4540ccf934035181b6d35da564b21b8f470967bc0a"
+    },
+    {
+      "path": "assets/demo/meat-menu.png",
+      "size": 49122,
+      "sha256": "b85eb8de478ac8bf39e587e375b1e365c09ced5db8d58d3b111314ded7d3c46b"
+    },
+    {
+      "path": "assets/floorplans/.keep",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "assets/editorial/market.webp",
+      "size": 139832,
+      "sha256": "0acee49d41aaa385be37a4dd978b9c5a23499a51a91afad65bdcde59c9fa0db9"
+    },
+    {
+      "path": "assets/editorial/fruit.webp",
+      "size": 101224,
+      "sha256": "ee948a9de00842a889d5a89b6b43a4a1ee74f736e55f95f1e535111e7e5c0044"
+    },
+    {
+      "path": "assets/editorial/meat.webp",
+      "size": 112388,
+      "sha256": "3730709d56ff382c244a094f41f70b27e018ce0c5416c6dfb6fac0d1b8444d7d"
+    },
+    {
+      "path": "assets/editorial/merchant.webp",
+      "size": 106588,
+      "sha256": "719cd7e41fa70febd82877463234bf2f5e7370b30dcd88aa525baa6e6e44e1f9"
+    },
+    {
+      "path": "assets/editorial/seafood.webp",
+      "size": 121358,
+      "sha256": "8617bb181a5d6396ad6e040ea48e94a342a2cfd9218e3c16795d9f5c44515f9e"
+    },
+    {
+      "path": "assets/editorial/ai-original-collage.jpg",
+      "size": 515885,
+      "sha256": "d0bb45049f3ea0fa47af3dcf3ee1d7baaa73cc88f4e4796f7b45bbf86577199f"
+    },
+    {
+      "path": "assets/editorial/kitchen.webp",
+      "size": 87666,
+      "sha256": "319e8462bae25d3e749ebe4833c4a13112b3b874eeb19c89e9cd5f9b379cf7bc"
+    },
+    {
+      "path": "assets/store_photos/.keep",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "assets/models3d/.keep",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "assets/v5/market.webp",
+      "size": 139832,
+      "sha256": "0acee49d41aaa385be37a4dd978b9c5a23499a51a91afad65bdcde59c9fa0db9"
+    },
+    {
+      "path": "assets/v5/fruit.webp",
+      "size": 101224,
+      "sha256": "ee948a9de00842a889d5a89b6b43a4a1ee74f736e55f95f1e535111e7e5c0044"
+    },
+    {
+      "path": "assets/v5/meat.webp",
+      "size": 112388,
+      "sha256": "3730709d56ff382c244a094f41f70b27e018ce0c5416c6dfb6fac0d1b8444d7d"
+    },
+    {
+      "path": "assets/v5/giftcard-ai.webp",
+      "size": 203408,
+      "sha256": "a3bc44f330ddca8c803babd0c929ded8396c41477c5489ac3938cdd365b9bc33"
+    },
+    {
+      "path": "assets/v5/seafood.webp",
+      "size": 121358,
+      "sha256": "8617bb181a5d6396ad6e040ea48e94a342a2cfd9218e3c16795d9f5c44515f9e"
+    }
+  ]
+}

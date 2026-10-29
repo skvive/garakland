@@ -1,0 +1,7 @@
+# Optional enhancements only. Core game, Google map v2, SQLite and coupon APIs are Python stdlib.
+# OpenCV + numpy = photograph-to-registered-poster image feature matching
+opencv-python-headless>=4.9,<5
+numpy>=1.26,<3
+# QR png generation + menu/poster artwork generation
+qrcode[pil]>=7.4,<9
+Pillow>=10,<13
