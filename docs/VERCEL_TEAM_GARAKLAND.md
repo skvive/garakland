@@ -6,7 +6,7 @@
 |------|-----|
 | 팀 | `shinkang888-codes-projects` |
 | 프로젝트 | `garakland` |
-| Production URL | https://garakland.vercel.app |
+| Production URL | https://garakland.lexid.site (also https://garakland.vercel.app) |
 | Project ID | `prj_toA7ObGL6Nn7JzkklP9W0YxPAnIz` |
 | Team ID | `team_iqF07oRNVoofJGj4ypBtucPn` |
 | GitHub 소스 | https://github.com/skvive/garakland |

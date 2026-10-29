@@ -5,7 +5,7 @@
 - Neon 프로젝트: `garakland` (`ancient-grass-26115554`)
 - Branch: `main` (`br-billowing-surf-b5bt84al`)
 - Auth URL: `auth/config.public.json` 참조
-- Trusted domain: `https://garakland.vercel.app`
+- Trusted domain: `https://garakland.vercel.app`, `https://garakland.lexid.site`
 
 ## 사이트
 

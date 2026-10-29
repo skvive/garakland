@@ -19,7 +19,8 @@
 ## 배포·연동 (2026-10-29)
 
 - [x] GitHub `skvive/garakland`
-- [x] Vercel **`shinkang888-codes-projects/garakland`** → https://garakland.vercel.app
+- [x] Vercel **`shinkang888-codes-projects/garakland`** → https://garakland.lexid.site · https://garakland.vercel.app
+- [x] `GARAK_PUBLIC_BASE_URL=https://garakland.lexid.site`
 - [x] 로컬 `vercel link` (`.vercel/project.json`)
 - [x] Neon + Vercel env (`DATABASE_URL`, `GARAK_*`, `GARAK_PUBLIC_BASE_URL`)
 - [x] GitHub Secrets: `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID` (Actions용)
