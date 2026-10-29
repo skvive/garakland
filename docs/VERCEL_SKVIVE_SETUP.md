@@ -17,9 +17,10 @@
    - `GARAK_PUBLIC_BASE_URL=https://garakland.vercel.app` (또는 새 도메인)
 4. Deploy → Git 연동 자동
 
-### B. GitHub Actions (이미 설정됨)
+### B. GitHub Actions
 
-`.github/workflows/vercel-production.yml` — skvive Vercel 토큰으로 `master` push 시 `--prod` 배포.
+`docs/vercel-production.workflow.yml` 내용을  
+`.github/workflows/vercel-production.yml` 로 복사한 뒤 push (토큰에 `workflow` scope 필요).
 
 ### C. 기존 shinkang888-code 프로젝트
 
