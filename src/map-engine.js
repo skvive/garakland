@@ -70,14 +70,17 @@ export class MapEngine{
   }
 
   fitMap(){
+    if(this.type!=='2d' && this.type!=='3d') return;
     const {w,h}=this.hostBox();
+    if(this._lastFit && this._lastFit.w===w && this._lastFit.h===h && this._lastFit.type===this.type) return;
+    this._lastFit={w,h,type:this.type};
     this.el.style.width='100%';
     this.el.style.height='100%';
     const canvas=this.el.querySelector('.google-map-canvas, gmp-map-3d');
     if(canvas){
       canvas.style.display='block';
-      canvas.style.width=w+'px';
-      canvas.style.height=h+'px';
+      canvas.style.width='100%';
+      canvas.style.height='100%';
       canvas.style.minHeight='0';
       canvas.style.maxHeight='none';
     }
@@ -164,6 +167,7 @@ export class MapEngine{
     this.clickListener=null;
     this.map=null;
     this.type=null;
+    this._lastFit=null;
     this.el.replaceChildren();
   }
 
@@ -261,8 +265,16 @@ export class MapEngine{
       const c=this.map.getCenter();
       if(c) this.rememberCenter({lat:c.lat(),lng:c.lng()});
     });
+    const kick=()=>{
+      if(this.type!=='2d'||!this.map) return;
+      this._lastFit=null;
+      this.fitMap();
+      if(typeof this.map.setZoom==='function') this.map.setZoom(this.map.getZoom());
+    };
     await this.waitFrames(2);
-    this.fitMap();
+    kick();
+    this.google.maps.event.addListenerOnce(this.map,'idle',kick);
+    setTimeout(kick,400);
   }
 
   wait3DReady(el){
