@@ -1,4 +1,4 @@
-import {MARKET,BUILDINGS,ZONE_IMAGES,verifiedCoords} from './catalog.js';
+import {MARKET,BUILDINGS,ZONE_IMAGES,verifiedCoords,escapeHTML as esc} from './catalog.js';
 
 const MARKET_CENTER={lat:MARKET.lat,lng:MARKET.lng};
 const VIEW={
@@ -34,12 +34,13 @@ function loadGoogle(key){
 }
 
 export class MapEngine{
-  constructor(container,{onShopClick,onBuildingClick,onToast,onCoordinatePick}={}){
+  constructor(container,{onShopClick,onBuildingClick,onToast,onCoordinatePick,onFloorSelect}={}){
     this.el=container;
     this.onShopClick=onShopClick||(()=>{});
     this.onBuildingClick=onBuildingClick||(()=>{});
     this.onToast=onToast||(()=>{});
     this.onCoordinatePick=onCoordinatePick||(()=>{});
+    this.onFloorSelect=onFloorSelect||(()=>{});
     this.mode='concept';
     this.google=null;
     this.map=null;
@@ -54,7 +55,51 @@ export class MapEngine{
     this.picking=false;
     this.user=null;
     this.clickListener=null;
+    this._ro=null;
+    this.watchSize();
     this.renderConcept();
+  }
+
+  hostBox(){
+    const host=this.el.parentElement||this.el;
+    const r=host.getBoundingClientRect();
+    return {
+      w:Math.max(Math.round(r.width||host.clientWidth||this.el.clientWidth||320),1),
+      h:Math.max(Math.round(r.height||host.clientHeight||this.el.clientHeight||320),1)
+    };
+  }
+
+  fitMap(){
+    const {w,h}=this.hostBox();
+    this.el.style.width='100%';
+    this.el.style.height='100%';
+    const canvas=this.el.querySelector('.google-map-canvas, gmp-map-3d');
+    if(canvas){
+      canvas.style.display='block';
+      canvas.style.width=w+'px';
+      canvas.style.height=h+'px';
+      canvas.style.minHeight='0';
+      canvas.style.maxHeight='none';
+    }
+    if(this.type==='2d' && this.map && this.google?.maps?.event){
+      this.google.maps.event.trigger(this.map,'resize');
+      const center=this.currentCenter();
+      if(this.map.setCenter) this.map.setCenter(center);
+    }
+  }
+
+  watchSize(){
+    if(this._ro || typeof ResizeObserver==='undefined') return;
+    const host=this.el.parentElement||this.el;
+    this._ro=new ResizeObserver(()=>this.fitMap());
+    this._ro.observe(host);
+  }
+
+  waitFrames(n=2){
+    return new Promise(resolve=>{
+      const step=()=>{n-=1; if(n<=0) resolve(); else requestAnimationFrame(step);};
+      requestAnimationFrame(step);
+    });
   }
 
   renderConcept(){
@@ -122,10 +167,14 @@ export class MapEngine{
     this.el.replaceChildren();
   }
 
-  async setMode(mode){
+  async setMode(mode,opts={}){
     this.mode=mode;
     if(mode==='concept'){
       this.renderConcept();
+      return;
+    }
+    if(mode==='floor'){
+      this.renderFloorMap(opts.plan,opts.meta||{});
       return;
     }
     if(!this.google) throw new Error('Google 지도 연동을 먼저 설정하세요.');
@@ -133,6 +182,30 @@ export class MapEngine{
     if(mode==='3d') await this.make3D();
     else await this.make2D(mode);
     this.drawMarkers();
+  }
+
+  renderFloorMap(plan,meta={}){
+    this.destroyGoogleMap();
+    this.type='floor';
+    const title=meta.title||'층별 안내도';
+    const caption=meta.caption||'';
+    const floors=Array.isArray(meta.floors)&&meta.floors.length?meta.floors:['all'];
+    const current=meta.floor||'all';
+    const src=plan?.imageUrl||'';
+    const w=plan?.width||1200;
+    const h=plan?.height||780;
+    const pills=floors.map(f=>`<button type="button" class="floor-map-pill${f===current?' active':''}" data-map-floor="${esc(f)}">${esc(f==='all'?'전체':f)}</button>`).join('');
+    const stage=src
+      ?`<img src="${esc(src)}" alt="${esc(title)}" width="${w}" height="${h}">`
+      :`<div class="indoor-placeholder"><span>▦</span><strong>층별 도면 등록 전</strong><small>이 구역·층의 공식 안내 모식도가 아직 없습니다.</small></div>`;
+    this.el.innerHTML=`<div class="floor-map-viewer">
+      <div class="floor-map-head"><strong>${esc(title)}</strong><span>${esc(caption)}</span></div>
+      <div class="floor-map-pills" role="tablist">${pills}</div>
+      <div class="floor-map-stage">${stage}</div>
+    </div>`;
+    this.el.querySelectorAll('[data-map-floor]').forEach(btn=>{
+      btn.addEventListener('click',()=>this.onFloorSelect(btn.dataset.mapFloor));
+    });
   }
 
   async make2D(mode){
@@ -152,6 +225,8 @@ export class MapEngine{
         maxZoom:view.maxZoom
       });
       this.map.setCenter(center);
+      await this.waitFrames(2);
+      this.fitMap();
       return;
     }
 
@@ -160,6 +235,7 @@ export class MapEngine{
     mapEl.className='google-map-canvas';
     this.el.append(mapEl);
     this.type='2d';
+    this.fitMap();
     this.map=new Map(mapEl,{
       center,
       zoom:view.zoom,
@@ -185,6 +261,36 @@ export class MapEngine{
       const c=this.map.getCenter();
       if(c) this.rememberCenter({lat:c.lat(),lng:c.lng()});
     });
+    await this.waitFrames(2);
+    this.fitMap();
+  }
+
+  wait3DReady(el){
+    return new Promise(resolve=>{
+      let done=false;
+      const finish=()=>{
+        if(done) return;
+        done=true;
+        resolve();
+      };
+      const timer=setTimeout(finish,2500);
+      el.addEventListener('gmp-steadystate',()=>{clearTimeout(timer);finish();},{once:true});
+      el.addEventListener('gmp-error',()=>{clearTimeout(timer);finish();},{once:true});
+    });
+  }
+
+  apply3DCamera(center){
+    if(!this.map) return;
+    const cam={center:{lat:center.lat,lng:center.lng,altitude:0},range:720,tilt:67.5,heading:28};
+    this.map.center=cam.center;
+    this.map.range=cam.range;
+    this.map.tilt=cam.tilt;
+    this.map.heading=cam.heading;
+    if(typeof this.map.flyCameraTo==='function'){
+      try{
+        this.map.flyCameraTo({endCamera:cam,durationMillis:700});
+      }catch{}
+    }
   }
 
   async make3D(){
@@ -194,15 +300,20 @@ export class MapEngine{
     this.type='3d';
     const {Map3DElement,MapMode}=await this.google.maps.importLibrary('maps3d');
     this.map=new Map3DElement({
-      center:{...center,altitude:0},
-      range:1800,
-      tilt:57,
-      heading:-20,
+      center:{lat:center.lat,lng:center.lng,altitude:0},
+      range:720,
+      tilt:67.5,
+      heading:28,
       mode:MapMode?.HYBRID||'HYBRID'
     });
     this.map.className='google-map-canvas';
-    this.map.style.cssText='display:block;width:100%;height:100%';
     this.el.append(this.map);
+    await this.waitFrames(2);
+    this.fitMap();
+    this.apply3DCamera(center);
+    await this.wait3DReady(this.map);
+    this.fitMap();
+    this.apply3DCamera(center);
   }
 
   clearMarkers(){
@@ -363,10 +474,7 @@ export class MapEngine{
       this.map.setTilt(0);
       this.map.setHeading(0);
     }else if(this.type==='3d'&&this.map){
-      this.map.center={...MARKET_CENTER,altitude:0};
-      this.map.range=1800;
-      this.map.tilt=57;
-      this.map.heading=-20;
+      this.apply3DCamera(MARKET_CENTER);
     }
   }
 }

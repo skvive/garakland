@@ -38,7 +38,7 @@ def legend(items, x=48, y=720):
 
 def svg(body, title):
     return f'''<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" role="img" aria-label="{esc(title)}">
+<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="{esc(title)}">
   <rect width="{W}" height="{H}" fill="#f4f7f1"/>
   <rect x="24" y="24" width="1152" height="732" rx="28" fill="#fff" stroke="#d7e3d8"/>
   <g font-family="{FONT}">{body}</g>
