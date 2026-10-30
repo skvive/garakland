@@ -23,6 +23,17 @@ IGNORE_CONFLICT = {
 
 DB_LOCK = threading.Lock()
 
+# stores table columns created with quoted camelCase in Postgres (registry_server FIELDS)
+_PG_CAMEL_COLS = (
+    "coordinateStatus",
+    "blogUrl",
+    "websiteUrl",
+    "sourceUrl",
+    "verifiedAt",
+    "indoorX",
+    "indoorY",
+)
+
 
 def backend_name() -> str:
     return "postgres" if DATABASE_URL else "sqlite"
@@ -32,6 +43,12 @@ def use_postgres() -> bool:
     return bool(DATABASE_URL)
 
 
+def _quote_pg_camel_columns(sql: str) -> str:
+    for col in _PG_CAMEL_COLS:
+        sql = re.sub(rf'(?<!"){col}(?!")', f'"{col}"', sql)
+    return sql
+
+
 def _adapt_sql(sql: str) -> str:
     if not use_postgres():
         return sql
@@ -39,6 +56,7 @@ def _adapt_sql(sql: str) -> str:
     # SQLite allows double-quoted string literals; PostgreSQL treats them as identifiers.
     out = re.sub(r'=\s*"([^"]*)"', lambda m: "='" + m.group(1).replace("'", "''") + "'", out)
     out = re.sub(r'!=\s*""', "!= ''", out)
+    out = _quote_pg_camel_columns(out)
     m = re.search(r"INSERT\s+OR\s+IGNORE\s+INTO\s+(\w+)", out, re.I)
     if m:
         table = m.group(1).lower()
