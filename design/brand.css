@@ -1,12 +1,35 @@
 /* GARAKLAND brand mark + 가락한상 mascot */
+.gl-logo-header {
+  height: 56px;
+  width: auto;
+  max-width: min(280px, 62vw);
+  display: block;
+  object-fit: contain;
+}
+.gl-brand .gl-logo-header {
+  height: 52px;
+}
+.logo .gl-logo-header,
+.brand .gl-logo-header {
+  height: 54px;
+}
 .gl-brand-mark img,
-.gl-brand-mark .gl-logo-img {
+.gl-brand-mark .gl-logo-img,
+.gl-logo-img {
   width: 40px;
   height: 40px;
   border-radius: 11px;
   object-fit: cover;
   display: block;
   box-shadow: 0 4px 12px #1f514733;
+}
+@media (max-width: 760px) {
+  .gl-logo-header,
+  .gl-brand .gl-logo-header,
+  .logo .gl-logo-header,
+  .brand .gl-logo-header {
+    height: 42px;
+  }
 }
 .gl-brand-mark {
   padding: 0;

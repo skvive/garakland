@@ -1,5 +1,6 @@
 /* Visual alignment between v4 AR Studio and the existing live Google Maps explorer. */
 :root{--v4-green:#10543c;--v4-lime:#d6ef72}
+.topbar .logo{min-width:0}
 .ar-portal{display:inline-flex;align-items:center;background:#d6ef72;color:#144a34;border-radius:8px;font-size:11px;font-weight:900;padding:11px 13px;margin-right:10px;white-space:nowrap}
 .ar-portal:hover{background:#e7f7ae}
 .map-area{border-radius:15px;overflow:hidden}
