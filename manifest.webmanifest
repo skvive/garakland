@@ -7,9 +7,9 @@
   "theme_color": "#183d34",
   "icons": [
     {
-      "src": "/assets/brand/garakland-logo-mark.webp",
+      "src": "/assets/brand/favicon-512.png",
       "sizes": "512x512",
-      "type": "image/webp",
+      "type": "image/png",
       "purpose": "any"
     },
     {
