@@ -22,3 +22,10 @@
   .concept-building-3d .concept-name{font-size:10px}
   .concept-building-3d:not(.is-primary){display:none}
 }
+.google-map-canvas,
+.map-layer gmp-map-3d{
+  display:block;
+  width:100%;
+  height:100%;
+  min-height:480px;
+}
