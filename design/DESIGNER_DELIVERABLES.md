@@ -11,7 +11,7 @@
 | 3 | **Site Chrome** | `design/site-chrome.mjs` | 모바일 내비 주입·active 상태 |
 | 4 | **Style Guide (HTML)** | `design/design-system.html` | 디자이너·개발 공통 레퍼런스 |
 | 5 | **통합 기획** | `docs/DESIGN_SYSTEM_INTEGRATION_PLAN.md` | IA·로드맵 |
-| 6 | **시안 5종 가이드** | `docs/design-concepts/README.md` | 컨셉 ↔ 구현 매핑 |
+| 6 | **시안 5종 가이드** | `docs/design-concepts/` · `TEMPLATE_CATALOG.md` | 컨셉 ↔ 구현 · `/design/home-templates.html` |
 | 7 | **검수 캡처** | `design_gallery.html` + `design/qa.css` + `v4_*` `v5_*` PNG (ZIP) | 회귀·라이브 링크 |
 | 8 | **Asset map** | `design/assets.json` | 카테고리 webp 매핑 |
 

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>가락랜드 · 메인 시안 템플릿 선택</title>
+  <link rel="stylesheet" href="/design/tokens.css">
+  <link rel="stylesheet" href="/design/components.css">
+  <style>
+    body { margin: 0; font-family: var(--gl-font-display); background: var(--gl-paper); color: var(--gl-ink); line-height: 1.55; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 24px 18px 80px; }
+    h1 { font-size: 26px; letter-spacing: -0.04em; }
+    .pick { background: #e8f1df; border: 1px solid #b8d4a8; border-radius: 14px; padding: 16px 18px; margin: 20px 0 28px; }
+    .pick strong { color: var(--gl-green); }
+    .grid { display: grid; gap: 18px; }
+    @media (min-width: 720px) { .grid { grid-template-columns: 1fr 1fr; } }
+    article { border: 1px solid var(--gl-border); border-radius: 16px; background: #fff; overflow: hidden; }
+    article.selected { outline: 3px solid var(--gl-accent-explore); outline-offset: 2px; }
+    article h2 { font-size: 16px; margin: 0; padding: 14px 16px; background: #f4f8f1; border-bottom: 1px solid var(--gl-border); }
+    article .meta { padding: 12px 16px; font-size: 12px; color: var(--gl-muted); }
+    article ul { margin: 0; padding: 0 16px 14px 32px; font-size: 12px; }
+    article a.btn { display: inline-block; margin: 0 16px 16px; padding: 10px 14px; border-radius: 10px; font-weight: 800; font-size: 12px; background: var(--gl-deep); color: #fff; text-decoration: none; }
+    .frame { height: 200px; background: #eef2ea; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #7a9585; padding: 12px; text-align: center; }
+    .frame img { max-width: 100%; max-height: 100%; object-fit: contain; }
+    nav.top { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; font-size: 13px; }
+    nav.top a { color: var(--gl-green); font-weight: 800; }
+  </style>
+</head>
+<body data-gl-active="home">
+  <header class="gl-site-header">
+    <a class="gl-brand" href="/"><span class="gl-brand-mark">✳</span><span>Template Picker<small>HOME MOODBOARD</small></span></a>
+    <nav class="gl-site-nav"><a href="/">통합 홈</a><a href="/design_gallery.html">검수 갤러리</a></nav>
+  </header>
+  <div class="wrap">
+    <h1>메인(/) 디자인 템플릿 5종</h1>
+    <p>각 템플릿의 <strong>라이브 정본</strong>을 연 뒤, 통합 홈에 어떤 블록을 가져올지 선택합니다. 상세 매트릭스: <code>docs/design-concepts/TEMPLATE_CATALOG.md</code></p>
+    <div class="pick">
+      <strong>채택 (디자인 패키지 v1):</strong> ① STUDIO 히어로·구역 + ③ MARKET 풀블리드 특가·action-row.
+      통합 홈에 반영됨 → <a href="/">/</a> 스크롤하여 ③ 블록 확인.
+    </div>
+    <nav class="top">
+      <a href="/docs/design-concepts/TEMPLATE_CATALOG.md">카탈로그 MD ↗</a>
+      <a href="/design/DESIGNER_DELIVERABLES.md">산출물 패키지 ↗</a>
+    </nav>
+    <div class="grid">
+      <article class="selected">
+        <h2>① 테마파크 3D · STUDIO</h2>
+        <div class="frame"><span>split hero · lime CTA · district grid</span></div>
+        <p class="meta">정본: index explore · studio.css</p>
+        <ul><li>홈 상단 히어로·4-rail·구역 카드</li><li>CTA: gl-cta-explore</li></ul>
+        <a class="btn" href="/index.html">라이브 열기 ↗</a>
+      </article>
+      <article>
+        <h2>② 프리미엄 마켓 · EDITORIAL</h2>
+        <div class="frame"><span>가이드북 · directory</span></div>
+        <p class="meta">정본: index guide/directory</p>
+        <ul><li>홈 보조 링크만 (2depth)</li></ul>
+        <a class="btn" href="/index.html#page-guide">가이드 ↗</a>
+      </article>
+      <article class="selected">
+        <h2>③ 특가 커머스 · MARKET</h2>
+        <div class="frame"><img src="/v5_desktop_home.png" alt="v5 특가 홈 검수 캡처" loading="lazy"></div>
+        <p class="meta">정본: market.html · v6 hero BG</p>
+        <ul><li>홈 중단 gl-deal-hero + action-row</li><li>CTA: gl-cta-deal / gold</li></ul>
+        <a class="btn" href="/market.html">라이브 열기 ↗</a>
+      </article>
+      <article>
+        <h2>④ 몰입 탐험 · MISSIONS</h2>
+        <div class="frame"><span>XP · 미션 리스트</span></div>
+        <p class="meta">정본: index missions</p>
+        <ul><li>홈 HOW TO PLAY와 연계</li></ul>
+        <a class="btn" href="/index.html#page-missions">미션 ↗</a>
+      </article>
+      <article>
+        <h2>⑤ 마켓 가이드 · LEAFLET</h2>
+        <div class="frame"><span>수신동의 · share-kit</span></div>
+        <p class="meta">정본: market marketing</p>
+        <ul><li>푸터·market 탭</li></ul>
+        <a class="btn" href="/market.html#marketing">소식 받기 ↗</a>
+      </article>
+    </div>
+    <p class="gl-disclaimer" style="margin-top:32px">외부 01~05 PNG 수령 시 <code>docs/design-concepts/</code>에 추가하고 본 페이지 썸네일을 교체하세요.</p>
+  </div>
+  <script type="module" src="/design/site-chrome.mjs"></script>
+</body>
+</html>

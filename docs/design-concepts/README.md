@@ -13,4 +13,5 @@
 
 시안 PNG를 받으면 `docs/design-concepts/` 에 넣고 `design_gallery.html`에 섹션 추가.
 
-**추천 결합:** ① + ③ → `/` (`home.html`)
+**추천 결합:** ① + ③ → `/` (`home.html`)  
+**템플릿 카탈로그:** `TEMPLATE_CATALOG.md` · 라이브 비교 `/design/home-templates.html`
