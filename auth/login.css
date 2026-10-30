@@ -24,6 +24,14 @@
   text-decoration: none;
   color: inherit;
 }
+.auth-brand .gl-logo-header {
+  display: block;
+  height: 72px;
+  max-width: 280px;
+}
+.auth-brand .gl-logo-mark {
+  display: none;
+}
 .auth-brand b {
   display: block;
   font-size: 18px;
