@@ -13,6 +13,7 @@
 .concept-building-3d img{width:92px;height:58px;object-fit:cover;border-radius:12px;border:2px solid #fff;box-shadow:0 10px 22px rgba(16,40,32,.28);background:#fff}
 .concept-building-3d .concept-name{background:rgba(16,48,38,.86);color:#fff;font-size:10px;font-weight:800;padding:4px 8px;border-radius:999px;letter-spacing:-.03em}
 .concept-building-3d.is-primary img{width:124px;height:78px;border-width:3px}
+.concept-building-3d:not(.is-primary){display:none}
 .concept-building-3d:hover img{transform:translateY(-3px) scale(1.04);transition:transform .18s ease}
 .zone-card{display:flex;align-items:center;gap:10px}
 .zone-thumb{width:54px;height:40px;object-fit:cover;border-radius:9px;flex:none;background:#dce8dc}
