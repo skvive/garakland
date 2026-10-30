@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "note": "Category → webp mapping for market/ui.js and platform-home.js",
+  "hero": {
+    "ar": "/assets/editorial/market.webp",
+    "marketBg": "/assets/v6/market-hero.webp"
+  },
+  "categories": {
+    "수산": "/assets/v5/seafood.webp",
+    "청과": "/assets/v5/fruit.webp",
+    "축산": "/assets/v5/meat.webp",
+    "default": "/assets/v5/market.webp"
+  }
+}

@@ -1,4 +1,53 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>GARAKLAND v4 · UI 검수 갤러리</title><style>body{margin:0;background:#f2f4ef;font:15px/1.6 system-ui,"Malgun Gothic";color:#193f2d}header{background:#0b412f;color:#fff;padding:38px 5%}h1{margin:0}header p{color:#c4e0cc}.grid{padding:30px 5%;display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px}.card{background:white;border:1px solid #dce6d8;border-radius:16px;overflow:hidden;box-shadow:0 9px 25px #1b503015}.card h2{padding:0 20px;margin:18px 0 10px;font-size:17px}.frame{height:350px;overflow-y:auto;background:#f8faf7}.frame img{width:100%;display:block}.card p{padding:0 20px 16px;color:#6d806c;font-size:12px}.mini{height:350px;width:170px;margin:auto;overflow-y:auto}.note{padding:20px 5%;color:#657c6b;font-size:12px}</style></head><body><header><h1>GARAKLAND · STUDIO V4</h1><p>PC 1440px / 모바일 390px — 자동화 Chromium 실제 UI 렌더 검수 캡처</p></header><div class="grid">
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GARAKLAND · UI 검수 갤러리</title>
+  <link rel="stylesheet" href="/design/qa.css">
+</head>
+<body>
+  <header>
+    <h1>GARAKLAND · UI 검수</h1>
+    <p>정적 PNG(릴리스 ZIP) · 라이브 페이지 · design/design-system.html</p>
+    <nav>
+      <a href="/">통합 홈</a>
+      <a href="/design/design-system.html">Design System</a>
+      <a href="/docs/design-concepts/README.md">시안 5종 매핑</a>
+    </nav>
+  </header>
+
+  <p class="section-title">LIVE · 통합 디자인 v1</p>
+  <div class="grid">
+    <article class="card">
+      <h2>통합 홈 / STUDIO+특가</h2>
+      <p>Phase 0~2 · gl-site-header · 5-tab mobile</p>
+      <a class="live-link" href="/">/ 열기 ↗</a>
+    </article>
+    <article class="card">
+      <h2>AR 탐험 / index</h2>
+      <p>7탭 SPA · tokens + studio</p>
+      <a class="live-link" href="/index.html">index.html ↗</a>
+    </article>
+    <article class="card">
+      <h2>특가 · MARKET v5</h2>
+      <p>쿠폰 · 지갑 · 상인</p>
+      <a class="live-link" href="/market.html">market.html ↗</a>
+    </article>
+    <article class="card">
+      <h2>3D 지도 · Atlas</h2>
+      <p>Google Maps 시연</p>
+      <a class="live-link" href="/map.html">map.html ↗</a>
+    </article>
+    <article class="card">
+      <h2>ERP · OPS v6</h2>
+      <p>운영센터 · 홈 링크 /</p>
+      <a class="live-link" href="/ops.html">ops.html ↗</a>
+    </article>
+  </div>
+
+  <p class="section-title">STUDIO V4 · AR (PNG · release ZIP)</p>
+  <div class="grid">
 <article class="card"><h2>메인 / PC</h2><div class="frame"><img src="./v4_desktop_home.png" alt="메인 desktop 검수 캡처" loading="lazy"></div><p>캡처를 아래로 스크롤하여 화면 구성을 확인할 수 있습니다.</p></article>
 <article class="card"><h2>메인 / 모바일</h2><div class="frame"><img src="./v4_mobile_home.png" alt="메인 mobile 검수 캡처" loading="lazy"></div><p>캡처를 아래로 스크롤하여 화면 구성을 확인할 수 있습니다.</p></article>
 <article class="card"><h2>매장 찾기 / PC</h2><div class="frame"><img src="./v4_desktop_directory.png" alt="매장 찾기 desktop 검수 캡처" loading="lazy"></div><p>캡처를 아래로 스크롤하여 화면 구성을 확인할 수 있습니다.</p></article>
@@ -17,4 +66,34 @@
 <article class="card"><h2>상인 관리 / 모바일</h2><div class="frame"><img src="./v4_mobile_merchant.png" alt="상인 관리 mobile 검수 캡처" loading="lazy"></div><p>캡처를 아래로 스크롤하여 화면 구성을 확인할 수 있습니다.</p></article>
 <article class="card"><h2>가이드북 / PC</h2><div class="frame"><img src="./v4_desktop_guide.png" alt="가이드북 desktop 검수 캡처" loading="lazy"></div><p>캡처를 아래로 스크롤하여 화면 구성을 확인할 수 있습니다.</p></article>
 <article class="card"><h2>가이드북 / 모바일</h2><div class="frame"><img src="./v4_mobile_guide.png" alt="가이드북 mobile 검수 캡처" loading="lazy"></div><p>캡처를 아래로 스크롤하여 화면 구성을 확인할 수 있습니다.</p></article>
-</div><div class="note">실제 시장의 점포 전수 지도나 API 연동을 인증하는 자료가 아니라, 가상 점포를 사용한 화면 렌더 검수 결과입니다.</div></body></html>
+  </div>
+
+  <p class="section-title">MARKET V5 · 특가 (PNG · release ZIP)</p>
+  <div class="grid">
+    <article class="card"><h2>특가 홈 / PC</h2><div class="frame"><img src="./v5_desktop_home.png" alt="" loading="lazy"></div><p>로컬 git에 PNG가 없으면 release/GARAKLAND_PLATFORM_v1.zip 또는 Playwright 재촬영본을 사용하세요.</p></article>
+    <article class="card"><h2>지갑 / PC</h2><div class="frame"><img src="./v5_desktop_wallet.png" alt="" loading="lazy"></div></article>
+    <article class="card"><h2>상인 / PC</h2><div class="frame"><img src="./v5_desktop_merchant.png" alt="" loading="lazy"></div></article>
+    <article class="card"><h2>특가 / 모바일</h2><div class="frame"><img src="./v5_mobile_home.png" alt="" loading="lazy"></div></article>
+  </div>
+
+  <p class="section-title">ERP V6 · 운영 (라이브 + docs/v6 로그)</p>
+  <div class="grid">
+    <article class="card">
+      <h2>운영센터 6뷰</h2>
+      <p>tokens · 홈 / · mobile nav off</p>
+      <a class="live-link" href="/ops.html">ops.html ↗</a>
+    </article>
+    <article class="card">
+      <h2>Word 서류 5종</h2>
+      <p>documents.html · ops 톤</p>
+      <a class="live-link" href="/documents.html">documents.html ↗</a>
+    </article>
+  </div>
+
+  <div class="note">
+    실제 시장의 점포 전수 지도나 API 연동을 인증하는 자료가 아니라, 가상 점포를 사용한 화면 렌더 검수 결과입니다.
+    정적 PNG는 용량상 git 미포함일 수 있으며, <code>scripts/build-platform-zip.ps1</code> 산출물에 포함됩니다.
+    Playwright: <code>tests/browser_offline_v5.py</code>, <code>tests/browser_v6_qa.py</code>, <code>tests/test_studio_browser.py</code>.
+  </div>
+</body>
+</html>

@@ -8,21 +8,24 @@
   <title>가락랜드 | 시장 탐험 · 특가 · 쿠폰</title>
   <link rel="icon" href="/assets/icon.svg">
   <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="stylesheet" href="/design/tokens.css">
+  <link rel="stylesheet" href="/design/components.css">
   <link rel="stylesheet" href="/game/style.css">
   <link rel="stylesheet" href="/game/studio.css">
   <link rel="stylesheet" href="/platform-home.css">
 </head>
-<body class="home-landing">
-  <header class="home-top">
-    <a class="logo-mark" href="/" aria-label="가락랜드 홈">
-      <span>✳</span>
+<body class="home-landing" data-gl-active="home">
+  <header class="gl-site-header">
+    <a class="gl-brand" href="/" aria-label="가락랜드 홈">
+      <span class="gl-brand-mark">✳</span>
       <span>GARAKLAND<small>AR · MARKET · BETA</small></span>
     </a>
-    <nav aria-label="주 메뉴">
-      <a href="/index.html">AR 탐험</a>
-      <a href="/market.html" class="primary">오늘의 특가 ↗</a>
-      <a href="/map.html">3D 지도</a>
-      <a href="/ops.html">ERP</a>
+    <nav class="gl-site-nav" aria-label="주 메뉴">
+      <a href="/" data-gl-nav="home" class="gl-nav-active">홈</a>
+      <a href="/index.html" data-gl-nav="explore" class="gl-cta-explore gl-nav-hide-mobile">AR 탐험</a>
+      <a href="/market.html" data-gl-nav="market" class="gl-cta-deal">특가 ↗</a>
+      <a href="/map.html" data-gl-nav="map" class="gl-nav-hide-mobile">3D 지도</a>
+      <a href="/ops.html" class="gl-nav-hide-mobile">ERP</a>
       <a href="/login.html" id="authLink">로그인</a>
     </nav>
   </header>
@@ -105,7 +108,7 @@
       <a class="how-card" href="/map.html"><span class="num">03 / GO</span><span class="big-emoji">🧭</span><b>길안내 시작</b><p>Google 지도로 매장까지 이동합니다.</p><span class="arrow-circ">↗</span></a>
     </div>
 
-    <p class="home-disclaimer">
+    <p class="gl-disclaimer">
       ※ 화면의 AI 이미지는 기획·시연용이며 실제 가락시장 점포 사진이 아닙니다. 연합 시연권·쿠폰은 베타이며 실결제·실발송은 승인 전 차단됩니다.
       상용 출시 전 상인 계약·GPS 검증·PG·광고 수신동의·선불 상품권 법률 검토가 필요합니다.
     </p>
@@ -116,15 +119,8 @@
     </footer>
   </main>
 
-  <nav class="home-mobile-nav" aria-label="모바일 메뉴">
-    <a href="/" class="active">🧭<small>홈</small></a>
-    <a href="/index.html">🗺️<small>탐험</small></a>
-    <a href="/market.html">🎟️<small>특가</small></a>
-    <a href="/map.html">📍<small>지도</small></a>
-    <a href="/market.html#wallet">💳<small>지갑</small></a>
-  </nav>
-
   <script type="module" src="/auth/banner.mjs"></script>
+  <script type="module" src="/design/site-chrome.mjs"></script>
   <script src="/platform-home.js" defer></script>
 </body>
 </html>

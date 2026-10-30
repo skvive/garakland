@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>가락랜드 Design System v1.0</title>
+  <link rel="stylesheet" href="/design/tokens.css">
+  <link rel="stylesheet" href="/design/components.css">
+  <link rel="stylesheet" href="/game/studio.css">
+  <style>
+    body { margin: 0; font-family: var(--gl-font-display); background: var(--gl-paper); color: var(--gl-ink); }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 24px 20px 100px; }
+    h1 { font-size: 28px; letter-spacing: -0.05em; }
+    section { margin: 40px 0; padding-top: 24px; border-top: 1px solid var(--gl-border); }
+    h2 { font-size: 18px; color: var(--gl-green); }
+    .swatches { display: flex; flex-wrap: wrap; gap: 12px; }
+    .sw { width: 120px; border-radius: 12px; overflow: hidden; border: 1px solid var(--gl-border); }
+    .sw i { display: block; height: 56px; }
+    .sw span { display: block; font-size: 10px; padding: 8px; background: #fff; }
+    .row { display: flex; flex-wrap: wrap; gap: 12px; margin: 16px 0; }
+    .hero-demo { margin-top: 16px; border-radius: var(--gl-radius-lg); overflow: hidden; }
+    .links { font-size: 13px; line-height: 2; }
+    .links a { color: var(--gl-green); font-weight: 800; }
+  </style>
+</head>
+<body data-gl-active="home">
+  <header class="gl-site-header">
+    <a class="gl-brand" href="/"><span class="gl-brand-mark">✳</span><span>Design System<small>GARAKLAND v1.0</small></span></a>
+    <nav class="gl-site-nav">
+      <a href="/">홈</a>
+      <a href="/design_gallery.html">검수 갤러리</a>
+      <a href="/design/DESIGNER_DELIVERABLES.md">산출물 MD</a>
+    </nav>
+  </header>
+  <div class="wrap">
+    <h1>통합 디자인 시스템</h1>
+    <p>Layer A 고객 UI · STUDIO(①) + MARKET(③) · 디자이너·개발 공통 정본</p>
+
+    <section>
+      <h2>Color tokens</h2>
+      <div class="swatches">
+        <div class="sw"><i style="background:var(--gl-deep)"></i><span>--gl-deep</span></div>
+        <div class="sw"><i style="background:var(--gl-green)"></i><span>--gl-green</span></div>
+        <div class="sw"><i style="background:var(--gl-accent-explore)"></i><span>explore lime</span></div>
+        <div class="sw"><i style="background:var(--gl-accent-deal)"></i><span>deal gold</span></div>
+        <div class="sw"><i style="background:var(--gl-paper)"></i><span>--gl-paper</span></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>CTA buttons</h2>
+      <div class="row gl-site-nav" style="position:static;background:none;border:0;padding:0">
+        <a class="gl-cta-explore" href="/index.html">AR 탐험 (lime)</a>
+        <a class="gl-cta-deal" href="/market.html">특가·쿠폰 (gold)</a>
+      </div>
+    </section>
+
+    <section>
+      <h2>Hero (STUDIO)</h2>
+      <div class="hero hero-demo">
+        <div class="hero-content">
+          <span class="eyebrow">✦ DISCOVER GARAK MARKET</span>
+          <h1>가락시장의 모든 발견,<br><em>한 번의 탐험으로.</em></h1>
+          <p>에디토리얼 히어로 + v6 BG는 market 전용.</p>
+        </div>
+        <div class="hero-graphic" aria-hidden="true"><div class="hero-photo"><img src="/assets/editorial/market.webp" alt=""></div></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>District card</h2>
+      <div class="district-grid" style="max-width:720px">
+        <button type="button" class="district-card" style="--district-img:url('/assets/editorial/fruit.webp')"><span>THE FRUIT GARDEN</span><strong>계절 과일</strong><small>샘플</small></button>
+      </div>
+    </section>
+
+    <section>
+      <h2>Disclaimer</h2>
+      <p class="gl-disclaimer">AI 시연 이미지 · 실결제·실발송 차단 · 상용 전 계약·검증 필요.</p>
+    </section>
+
+    <section>
+      <h2>모듈 링크</h2>
+      <div class="links">
+        <a href="/">/</a> 통합 홈 ·
+        <a href="/index.html">index</a> AR ·
+        <a href="/market.html">market</a> 특가 ·
+        <a href="/map.html">map</a> ·
+        <a href="/ops.html">ops</a> ERP ·
+        <a href="/login.html">login</a>
+      </div>
+    </section>
+  </div>
+  <script type="module" src="/design/site-chrome.mjs"></script>
+</body>
+</html>

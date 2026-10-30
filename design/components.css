@@ -1,0 +1,128 @@
+/**
+ * GARAKLAND Shared Components v1.0
+ * Header · Mobile nav · CTA · Disclaimer
+ */
+.gl-site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px clamp(14px, 4vw, 48px);
+  background: #fffefaf2;
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--gl-border);
+}
+.gl-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--gl-font-display);
+  font-weight: 850;
+  font-size: 18px;
+  color: var(--gl-deep);
+  letter-spacing: -0.06em;
+  text-decoration: none;
+}
+.gl-brand-mark {
+  font-size: 26px;
+  color: var(--gl-accent-explore);
+  background: var(--gl-deep);
+  border-radius: 11px;
+  padding: 2px 8px;
+  line-height: 1.15;
+}
+.gl-brand small {
+  display: block;
+  font-size: 8px;
+  letter-spacing: 0.16em;
+  color: var(--gl-muted);
+  font-weight: 700;
+}
+.gl-site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+.gl-site-nav a {
+  font-size: 11px;
+  font-weight: 800;
+  padding: 9px 12px;
+  border-radius: var(--gl-radius-sm);
+  color: var(--gl-green);
+  text-decoration: none;
+}
+.gl-site-nav a:hover:not(.gl-cta-deal):not(.gl-cta-explore) {
+  background: #eef4e8;
+}
+.gl-site-nav a.gl-nav-active {
+  background: #eef4e8;
+  color: var(--gl-deep);
+}
+.gl-site-nav a.gl-cta-deal {
+  background: var(--gl-accent-deal);
+  color: #1a2e24;
+}
+.gl-site-nav a.gl-cta-explore {
+  background: var(--gl-accent-explore);
+  color: #134531;
+}
+.gl-mobile-nav {
+  display: none;
+  position: fixed;
+  z-index: 50;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 8px 4px calc(8px + env(safe-area-inset-bottom));
+  background: #fffefa;
+  box-shadow: 0 -5px 30px rgba(46, 80, 54, 0.17);
+  border-top: 1px solid var(--gl-border);
+  justify-content: space-around;
+}
+.gl-mobile-nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  flex: 1;
+  font-size: 20px;
+  color: #8ea18b;
+  padding: 4px 0;
+  text-decoration: none;
+  border-radius: 8px;
+}
+.gl-mobile-nav a.gl-nav-active {
+  color: #2b6546;
+  background: #e8f1df;
+}
+.gl-mobile-nav small {
+  font-size: 8px;
+  font-weight: 800;
+}
+.gl-disclaimer {
+  font-size: 10px;
+  color: #829385;
+  line-height: 1.65;
+  margin: 32px 0 16px;
+  padding: 14px 16px;
+  background: #fff8e6;
+  border: 1px solid #f0d88a;
+  border-radius: var(--gl-radius-md);
+}
+body.gl-has-mobile-nav {
+  padding-bottom: calc(72px + env(safe-area-inset-bottom));
+}
+@media (max-width: 900px) {
+  .gl-site-nav a.gl-nav-hide-mobile {
+    display: none;
+  }
+}
+@media (max-width: 680px) {
+  .gl-mobile-nav {
+    display: flex;
+  }
+}

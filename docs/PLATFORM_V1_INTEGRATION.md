@@ -49,7 +49,8 @@
 4. 몰입 탐험 → 미션·AR  
 5. 마켓 가이드 → 특가+전단형 CTA  
 
-**랜딩 `home.html` = ① STUDIO 히어로·구역 + ③ 특가 스포트라이트·API 특가 카드**
+**랜딩 `home.html` = ① STUDIO 히어로·구역 + ③ 특가 스포트라이트·API 특가 카드**  
+**통합 디자인 로드맵:** `docs/DESIGN_SYSTEM_INTEGRATION_PLAN.md`
 
 ## 납품 ZIP
 

@@ -1,0 +1,40 @@
+/**
+ * GARAKLAND Design Tokens v1.0 — Layer A (Customer) + aliases for legacy CSS
+ * Designer deliverable · load first on every page
+ */
+:root {
+  /* Brand — Customer (STUDIO) */
+  --gl-deep: #0e3b2d;
+  --gl-green: #116542;
+  --gl-green-bright: #128452;
+  --gl-accent-explore: #d6ef72;
+  --gl-accent-deal: #e8c547;
+  --gl-paper: #f6f5ef;
+  --gl-ink: #1b2d25;
+  --gl-muted: #637568;
+  --gl-border: #e4e9e0;
+  --gl-radius-lg: 22px;
+  --gl-radius-md: 16px;
+  --gl-radius-sm: 11px;
+  --gl-shadow: 0 15px 38px rgba(7, 56, 33, 0.08);
+  --gl-font-display: "Manrope", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  --gl-font-ui: "DM Sans", "Noto Sans KR", system-ui, sans-serif;
+  --gl-font-ops: "Pretendard", "Noto Sans KR", "Malgun Gothic", sans-serif;
+
+  /* MARKET module aliases (theme.css) */
+  --dark: #093c31;
+  --green: #007b53;
+  --light: #e7f5ed;
+  --muted: #77847e;
+  --line: #dfebe4;
+
+  /* OPS module aliases (ops/style.css) — loaded after tokens on ops pages */
+  --deep: var(--gl-ops-deep, #073d32);
+  --mint: #e8f3ed;
+  --gold: #e4af57;
+  --bg: #f6f8f5;
+  --text: #1c3228;
+
+  --gl-ops-deep: #073d32;
+  --gl-ops-green: #006748;
+}

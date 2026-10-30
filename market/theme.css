@@ -10,3 +10,12 @@
 /* v7 safe one-tap merchant promotion */
 .card-buttons .share-offer{background:#f6fbf8;color:#086448;border:1px solid #9dcdb9}
 .card-buttons .share-offer:focus-visible{outline:3px solid #edae23;outline-offset:3px}
+
+/* design v1 — prefer Layer A tokens when tokens.css loads first */
+:root{
+--dark:var(--gl-deep,#093c31);
+--green:var(--gl-green-bright,#007b53);
+--light:#e7f5ed;
+--muted:var(--gl-muted,#77847e);
+--line:var(--gl-border,#dfebe4);
+}

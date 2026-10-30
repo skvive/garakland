@@ -1,0 +1,96 @@
+/** QA gallery — uses design tokens (design_gallery.html) */
+@import url("/design/tokens.css");
+
+body {
+  margin: 0;
+  background: var(--gl-paper);
+  font: 15px/1.6 var(--gl-font-ui);
+  color: var(--gl-ink);
+}
+header {
+  background: var(--gl-deep);
+  color: #fff;
+  padding: 38px 5%;
+}
+h1 {
+  margin: 0;
+  font-family: var(--gl-font-display);
+}
+header p {
+  color: #c4e0cc;
+}
+header nav {
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+header nav a {
+  color: var(--gl-accent-explore);
+  font-weight: 800;
+  font-size: 13px;
+}
+.section-title {
+  padding: 10px 5% 0;
+  font-size: 14px;
+  font-weight: 900;
+  color: var(--gl-deep);
+  letter-spacing: 0.08em;
+}
+.grid {
+  padding: 30px 5%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 24px;
+}
+.card {
+  background: #fff;
+  border: 1px solid var(--gl-border);
+  border-radius: var(--gl-radius-md);
+  overflow: hidden;
+  box-shadow: var(--gl-shadow);
+}
+.card h2 {
+  padding: 0 20px;
+  margin: 18px 0 10px;
+  font-size: 17px;
+}
+.frame {
+  height: 350px;
+  overflow-y: auto;
+  background: #f8faf7;
+}
+.frame img {
+  width: 100%;
+  display: block;
+}
+.frame iframe {
+  width: 100%;
+  height: 1200px;
+  border: 0;
+  transform: scale(0.35);
+  transform-origin: top left;
+  width: 285%;
+  pointer-events: none;
+}
+.card p {
+  padding: 0 20px 16px;
+  color: var(--gl-muted);
+  font-size: 12px;
+}
+.card .live-link {
+  display: inline-block;
+  margin: 0 20px 18px;
+  padding: 10px 14px;
+  border-radius: var(--gl-radius-sm);
+  background: var(--gl-accent-deal);
+  color: var(--gl-ink);
+  font-weight: 800;
+  font-size: 12px;
+  text-decoration: none;
+}
+.note {
+  padding: 20px 5% 40px;
+  color: var(--gl-muted);
+  font-size: 12px;
+}
