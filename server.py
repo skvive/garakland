@@ -212,6 +212,10 @@ class Handler(RegistryHandler):
             if p=='/api/orders':return self.send_json(200,self.orders())
             if p=='/api/merchant/qr':return self.merchant_qr(parse_qs(u.query))
             if p=='/api/health':return self.send_json(200,{'ok':True,'version':'3.0-beta','demo':LOCAL_DEMO,'cameraScan':'BarcodeDetector','photoMatcher':'OpenCV optional'})
+            if p=='/api/public/config':
+                key=(os.environ.get('GOOGLE_MAPS_API_KEY') or '').strip()
+                if not key.startswith('AIza'):key=''
+                return self.send_json(200,{'googleMapsApiKey':key,'mapsConfigured':bool(key)})
             if p=='/scan':
                 # Shareable shop QR (only discovery). Time-bound signed QR is used for check-in.
                 query=parse_qs(u.query);s=query.get('shop',[''])[0]
