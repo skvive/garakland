@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 780" role="img" aria-label="가락몰 5관 1F">
+  <rect width="1200" height="780" fill="#f4f7f1"/>
+  <rect x="24" y="24" width="1152" height="732" rx="28" fill="#fff" stroke="#d7e3d8"/>
+  <g font-family="Apple SD Gothic Neo, Malgun Gothic, Noto Sans KR, sans-serif"><text x="48" y="52" font-size="13" font-weight="800" letter-spacing="2" fill="#6e8a7a">THEME 05</text>
+<text x="48" y="92" font-size="34" font-weight="800" fill="#16332b">가락몰 5관 1F · 회센터</text>
+<text x="48" y="122" font-size="13" fill="#6e8a7a">공식 층별 안내 기반 모식도 · 실측 도면·개별 호실 좌표 아님</text>
+<rect x="90" y="170" width="186" height="96" rx="14" fill="#f7d7c4"/><text x="183.0" y="210.0" text-anchor="middle" font-size="20" font-weight="800" fill="#16332b">1</text><text x="183.0" y="236.0" text-anchor="middle" font-size="13" fill="#4d655c">회센터</text>
+<rect x="290" y="170" width="186" height="96" rx="14" fill="#f7d7c4"/><text x="383.0" y="218.0" text-anchor="middle" font-size="20" font-weight="800" fill="#16332b">2</text>
+<rect x="490" y="170" width="186" height="96" rx="14" fill="#f7d7c4"/><text x="583.0" y="218.0" text-anchor="middle" font-size="20" font-weight="800" fill="#16332b">3</text>
+<rect x="690" y="170" width="186" height="96" rx="14" fill="#f7d7c4"/><text x="783.0" y="218.0" text-anchor="middle" font-size="20" font-weight="800" fill="#16332b">4</text>
+<rect x="890" y="170" width="186" height="96" rx="14" fill="#f7d7c4"/><text x="983.0" y="218.0" text-anchor="middle" font-size="20" font-weight="800" fill="#16332b">5</text>
+<rect x="90" y="280" width="186" height="96" rx="14" fill="#f7d7c4"/><text x="183.0" y="328.0" text-anchor="middle" font-size="20" font-weight="800" fill="#16332b">6</text>
+<rect x="290" y="280" width="186" height="96" rx="14" fill="#f7d7c4"/><text x="383.0" y="328.0" text-anchor="middle" font-size="20" font-weight="800" fill="#16332b">7</text>
+<rect x="490" y="280" width="186" height="96" rx="14" fill="#f7d7c4"/><text x="583.0" y="328.0" text-anchor="middle" font-size="20" font-weight="800" fill="#16332b">8</text>
+<rect x="690" y="280" width="186" height="96" rx="14" fill="#f7d7c4"/><text x="783.0" y="328.0" text-anchor="middle" font-size="20" font-weight="800" fill="#16332b">9</text>
+<rect x="890" y="280" width="186" height="96" rx="14" fill="#f7d7c4"/><text x="983.0" y="328.0" text-anchor="middle" font-size="20" font-weight="800" fill="#16332b">10</text>
+<rect x="90" y="390" width="186" height="96" rx="14" fill="#f7d7c4"/><text x="183.0" y="438.0" text-anchor="middle" font-size="20" font-weight="800" fill="#16332b">11</text>
+<rect x="290" y="390" width="186" height="96" rx="14" fill="#f7d7c4"/><text x="383.0" y="438.0" text-anchor="middle" font-size="20" font-weight="800" fill="#16332b">12</text>
+<rect x="490" y="390" width="186" height="96" rx="14" fill="#f7d7c4"/><text x="583.0" y="438.0" text-anchor="middle" font-size="20" font-weight="800" fill="#16332b">13</text>
+<rect x="690" y="390" width="186" height="96" rx="14" fill="#f7d7c4"/><text x="783.0" y="438.0" text-anchor="middle" font-size="20" font-weight="800" fill="#16332b">14</text>
+<rect x="890" y="390" width="186" height="96" rx="14" fill="#f7d7c4"/><text x="983.0" y="438.0" text-anchor="middle" font-size="20" font-weight="800" fill="#16332b">15</text>
+<rect x="90" y="500" width="186" height="96" rx="14" fill="#f7d7c4"/><text x="183.0" y="548.0" text-anchor="middle" font-size="20" font-weight="800" fill="#16332b">16</text>
+<rect x="290" y="500" width="186" height="96" rx="14" fill="#f7d7c4"/><text x="383.0" y="548.0" text-anchor="middle" font-size="20" font-weight="800" fill="#16332b">17</text>
+<rect x="490" y="500" width="186" height="96" rx="14" fill="#f7d7c4"/><text x="583.0" y="548.0" text-anchor="middle" font-size="20" font-weight="800" fill="#16332b">18</text>
+<rect x="690" y="500" width="186" height="96" rx="14" fill="#f7d7c4"/><text x="783.0" y="548.0" text-anchor="middle" font-size="20" font-weight="800" fill="#16332b">19</text>
+<rect x="90" y="640" width="16" height="16" rx="4" fill="#f7d7c4"/><text x="112" y="653" font-size="13" fill="#3d534a">회센터 1–19호</text></g>
+</svg>

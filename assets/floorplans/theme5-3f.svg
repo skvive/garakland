@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 780" role="img" aria-label="가락몰 5관 3F">
+  <rect width="1200" height="780" fill="#f4f7f1"/>
+  <rect x="24" y="24" width="1152" height="732" rx="28" fill="#fff" stroke="#d7e3d8"/>
+  <g font-family="Apple SD Gothic Neo, Malgun Gothic, Noto Sans KR, sans-serif"><text x="48" y="52" font-size="13" font-weight="800" letter-spacing="2" fill="#6e8a7a">THEME 05</text>
+<text x="48" y="92" font-size="34" font-weight="800" fill="#16332b">가락몰 5관 3F · 식당가</text>
+<text x="48" y="122" font-size="13" fill="#6e8a7a">공식 층별 안내 기반 모식도 · 실측 도면·개별 호실 좌표 아님</text>
+<rect x="80.0" y="220" width="1040.0" height="360" rx="14" fill="#f0c9d8"/><text x="600.0" y="392.0" text-anchor="middle" font-size="20" font-weight="800" fill="#16332b">식당가</text><text x="600.0" y="418.0" text-anchor="middle" font-size="13" fill="#4d655c">테마 5관 식당</text></g>
+</svg>

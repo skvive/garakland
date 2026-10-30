@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 780" role="img" aria-label="판매동 1F">
+  <rect width="1200" height="780" fill="#f4f7f1"/>
+  <rect x="24" y="24" width="1152" height="732" rx="28" fill="#fff" stroke="#d7e3d8"/>
+  <g font-family="Apple SD Gothic Neo, Malgun Gothic, Noto Sans KR, sans-serif"><text x="48" y="52" font-size="13" font-weight="800" letter-spacing="2" fill="#6e8a7a">SALES HALL / GROUND</text>
+<text x="48" y="92" font-size="34" font-weight="800" fill="#16332b">판매동 1F · 수산 · 건해 · 축산</text>
+<text x="48" y="122" font-size="13" fill="#6e8a7a">공식 층별 안내 기반 모식도 · 실측 도면·개별 호실 좌표 아님</text>
+<rect x="56" y="170" width="500" height="430" rx="14" fill="#c5e4f3"/><text x="306.0" y="377.0" text-anchor="middle" font-size="20" font-weight="800" fill="#16332b">A · B · C</text><text x="306.0" y="403.0" text-anchor="middle" font-size="13" fill="#4d655c">수산</text>
+<rect x="566" y="170" width="230" height="430" rx="14" fill="#efe0b8"/><text x="681.0" y="377.0" text-anchor="middle" font-size="20" font-weight="800" fill="#16332b">D</text><text x="681.0" y="403.0" text-anchor="middle" font-size="13" fill="#4d655c">건해</text>
+<rect x="806" y="170" width="338" height="430" rx="14" fill="#f3c9c0"/><text x="975.0" y="377.0" text-anchor="middle" font-size="20" font-weight="800" fill="#16332b">E · F</text><text x="975.0" y="403.0" text-anchor="middle" font-size="13" fill="#4d655c">축산</text>
+<rect x="80" y="200" width="120" height="36" rx="14" fill="#16332b"/><text x="140.0" y="218.0" text-anchor="middle" font-size="20" font-weight="800" fill="#fff">북측 편의</text>
+<rect x="980" y="200" width="140" height="36" rx="14" fill="#16332b"/><text x="1050.0" y="218.0" text-anchor="middle" font-size="20" font-weight="800" fill="#fff">화장실</text>
+<rect x="56" y="640" width="16" height="16" rx="4" fill="#c5e4f3"/><text x="78" y="653" font-size="13" fill="#3d534a">수산</text><rect x="110" y="640" width="16" height="16" rx="4" fill="#efe0b8"/><text x="132" y="653" font-size="13" fill="#3d534a">건해</text><rect x="164" y="640" width="16" height="16" rx="4" fill="#f3c9c0"/><text x="186" y="653" font-size="13" fill="#3d534a">축산</text></g>
+</svg>

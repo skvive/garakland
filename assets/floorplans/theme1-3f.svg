@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 780" role="img" aria-label="가락몰 1관 3F">
+  <rect width="1200" height="780" fill="#f4f7f1"/>
+  <rect x="24" y="24" width="1152" height="732" rx="28" fill="#fff" stroke="#d7e3d8"/>
+  <g font-family="Apple SD Gothic Neo, Malgun Gothic, Noto Sans KR, sans-serif"><text x="48" y="52" font-size="13" font-weight="800" letter-spacing="2" fill="#6e8a7a">THEME 01</text>
+<text x="48" y="92" font-size="34" font-weight="800" fill="#16332b">가락몰 1관 3F · 식품/식자재</text>
+<text x="48" y="122" font-size="13" fill="#6e8a7a">공식 층별 안내 기반 모식도 · 실측 도면·개별 호실 좌표 아님</text>
+<rect x="80" y="180" width="1040" height="430" rx="14" fill="#efe0b8"/><text x="600.0" y="387.0" text-anchor="middle" font-size="20" font-weight="800" fill="#16332b">식자재 상가</text><text x="600.0" y="413.0" text-anchor="middle" font-size="13" fill="#4d655c">호실 블록</text>
+<rect x="80" y="650" width="16" height="16" rx="4" fill="#efe0b8"/><text x="102" y="663" font-size="13" fill="#3d534a">식품/식자재</text></g>
+</svg>

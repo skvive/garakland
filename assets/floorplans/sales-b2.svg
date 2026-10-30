@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 780" role="img" aria-label="판매동 B2">
+  <rect width="1200" height="780" fill="#f4f7f1"/>
+  <rect x="24" y="24" width="1152" height="732" rx="28" fill="#fff" stroke="#d7e3d8"/>
+  <g font-family="Apple SD Gothic Neo, Malgun Gothic, Noto Sans KR, sans-serif"><text x="48" y="52" font-size="13" font-weight="800" letter-spacing="2" fill="#6e8a7a">SALES HALL / B2</text>
+<text x="48" y="92" font-size="34" font-weight="800" fill="#16332b">판매동 B2 · 축산부산물 · 냉동창고</text>
+<text x="48" y="122" font-size="13" fill="#6e8a7a">공식 층별 안내 기반 모식도 · 실측 도면·개별 호실 좌표 아님</text>
+<rect x="56" y="180" width="200" height="160" rx="14" fill="#efe0b8"/><text x="156.0" y="252.0" text-anchor="middle" font-size="20" font-weight="800" fill="#16332b">식품상가</text><text x="156.0" y="278.0" text-anchor="middle" font-size="13" fill="#4d655c">냉동창고</text>
+<rect x="266" y="180" width="200" height="160" rx="14" fill="#efe0b8"/><text x="366.0" y="252.0" text-anchor="middle" font-size="20" font-weight="800" fill="#16332b">건어부류</text><text x="366.0" y="278.0" text-anchor="middle" font-size="13" fill="#4d655c">냉동창고</text>
+<rect x="476" y="180" width="220" height="160" rx="14" fill="#efe0b8"/><text x="586.0" y="252.0" text-anchor="middle" font-size="20" font-weight="800" fill="#16332b">축산부류</text><text x="586.0" y="278.0" text-anchor="middle" font-size="13" fill="#4d655c">냉동창고</text>
+<rect x="706" y="180" width="250" height="160" rx="14" fill="#efe0b8"/><text x="831.0" y="252.0" text-anchor="middle" font-size="20" font-weight="800" fill="#16332b">청과부류</text><text x="831.0" y="278.0" text-anchor="middle" font-size="13" fill="#4d655c">냉동·가공</text>
+<rect x="966" y="180" width="178" height="160" rx="14" fill="#c5dd9a"/><text x="1055.0" y="252.0" text-anchor="middle" font-size="20" font-weight="800" fill="#16332b">A구역</text><text x="1055.0" y="278.0" text-anchor="middle" font-size="13" fill="#4d655c">축산</text>
+<rect x="56" y="360" width="200" height="160" rx="14" fill="#c5e4f3"/><text x="156.0" y="432.0" text-anchor="middle" font-size="20" font-weight="800" fill="#16332b">수산부류</text><text x="156.0" y="458.0" text-anchor="middle" font-size="13" fill="#4d655c">냉동창고</text>
+<rect x="266" y="360" width="200" height="160" rx="14" fill="#e8d4a8"/><text x="366.0" y="432.0" text-anchor="middle" font-size="20" font-weight="800" fill="#16332b">젓갈부류</text><text x="366.0" y="458.0" text-anchor="middle" font-size="13" fill="#4d655c">냉동창고</text>
+<rect x="476" y="360" width="668" height="160" rx="14" fill="#f3c9c0"/><text x="810.0" y="440.0" text-anchor="middle" font-size="20" font-weight="800" fill="#16332b">축산부산물 시장</text>
+<rect x="56" y="560" width="16" height="16" rx="4" fill="#c5dd9a"/><text x="78" y="573" font-size="13" fill="#3d534a">A구역 축산</text><rect x="162" y="560" width="16" height="16" rx="4" fill="#efe0b8"/><text x="184" y="573" font-size="13" fill="#3d534a">창고</text><rect x="216" y="560" width="16" height="16" rx="4" fill="#f3c9c0"/><text x="238" y="573" font-size="13" fill="#3d534a">축산</text></g>
+</svg>

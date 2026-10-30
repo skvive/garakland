@@ -10,6 +10,7 @@ __pycache__/
 
 /release/*.zip
 /assets/zones/ref/
+/assets/floorplans/_ref*
 /preview_*.png
 /v4_*.png
 /v5_*.png

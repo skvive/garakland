@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 780" role="img" aria-label="판매동 3F">
+  <rect width="1200" height="780" fill="#f4f7f1"/>
+  <rect x="24" y="24" width="1152" height="732" rx="28" fill="#fff" stroke="#d7e3d8"/>
+  <g font-family="Apple SD Gothic Neo, Malgun Gothic, Noto Sans KR, sans-serif"><text x="48" y="52" font-size="13" font-weight="800" letter-spacing="2" fill="#6e8a7a">SALES HALL / 3F</text>
+<text x="48" y="92" font-size="34" font-weight="800" fill="#16332b">판매동 3F · 전문식당가 · 식품상가</text>
+<text x="48" y="122" font-size="13" fill="#6e8a7a">공식 층별 안내 기반 모식도 · 실측 도면·개별 호실 좌표 아님</text>
+<rect x="56" y="240" width="174" height="280" rx="14" fill="#f0c9d8"/><text x="143.0" y="380.0" text-anchor="middle" font-size="20" font-weight="800" fill="#16332b">식당가</text>
+<rect x="242" y="240" width="174" height="280" rx="14" fill="#f0c9d8"/><text x="329.0" y="380.0" text-anchor="middle" font-size="20" font-weight="800" fill="#16332b">식당가</text>
+<rect x="428" y="240" width="174" height="280" rx="14" fill="#f0c9d8"/><text x="515.0" y="380.0" text-anchor="middle" font-size="20" font-weight="800" fill="#16332b">식당가</text>
+<rect x="614" y="240" width="174" height="280" rx="14" fill="#f0c9d8"/><text x="701.0" y="380.0" text-anchor="middle" font-size="20" font-weight="800" fill="#16332b">식당가</text>
+<rect x="800" y="240" width="174" height="280" rx="14" fill="#f0c9d8"/><text x="887.0" y="380.0" text-anchor="middle" font-size="20" font-weight="800" fill="#16332b">식당가</text>
+<rect x="986" y="240" width="174" height="280" rx="14" fill="#f0c9d8"/><text x="1073.0" y="380.0" text-anchor="middle" font-size="20" font-weight="800" fill="#16332b">식당가</text>
+<rect x="56" y="580" width="16" height="16" rx="4" fill="#f0c9d8"/><text x="78" y="593" font-size="13" fill="#3d534a">전문식당가</text></g>
+</svg>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 780" role="img" aria-label="수산 도매구역">
+  <rect width="1200" height="780" fill="#f4f7f1"/>
+  <rect x="24" y="24" width="1152" height="732" rx="28" fill="#fff" stroke="#d7e3d8"/>
+  <g font-family="Apple SD Gothic Neo, Malgun Gothic, Noto Sans KR, sans-serif"><text x="48" y="52" font-size="13" font-weight="800" letter-spacing="2" fill="#6e8a7a">WHOLESALE SEAFOOD</text>
+<text x="48" y="92" font-size="34" font-weight="800" fill="#16332b">수산 도매구역</text>
+<text x="48" y="122" font-size="13" fill="#6e8a7a">공식 층별 안내 기반 모식도 · 실측 도면·개별 호실 좌표 아님</text>
+<rect x="60" y="160" width="140" height="86" rx="14" fill="#16332b"/><text x="130.0" y="203.0" text-anchor="middle" font-size="20" font-weight="800" fill="#d6ef72">1F</text>
+<rect x="214" y="160" width="930" height="86" rx="14" fill="#9ec9de"/><text x="679.0" y="203.0" text-anchor="middle" font-size="20" font-weight="800" fill="#16332b">수산 도매 · 현대화 진행</text>
+<rect x="60" y="700" width="16" height="16" rx="4" fill="#9ec9de"/><text x="82" y="713" font-size="13" fill="#3d534a">수산 도매 · 현대화 진행</text></g>
+</svg>
