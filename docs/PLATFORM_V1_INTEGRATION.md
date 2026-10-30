@@ -13,7 +13,7 @@
 
 | 모듈 | URL | 버전 |
 |------|-----|------|
-| 플랫폼 홈 | `/home.html`, `/` | v1 랜딩 |
+| 플랫폼 홈 | `/`, `home.html` | v1 · STUDIO+특가 통합 |
 | AR 탐험 | `/index.html` | v4+ |
 | 특가·쿠폰·상품권·마케팅 | `/market.html` | v5 |
 | Google 지도 | `/map.html` | v4+ |
@@ -49,7 +49,7 @@
 4. 몰입 탐험 → 미션·AR  
 5. 마켓 가이드 → 특가+전단형 CTA  
 
-**랜딩 `home.html` = ①+③ 결합**
+**랜딩 `home.html` = ① STUDIO 히어로·구역 + ③ 특가 스포트라이트·API 특가 카드**
 
 ## 납품 ZIP
 

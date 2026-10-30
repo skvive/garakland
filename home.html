@@ -3,133 +3,128 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="가락랜드 — 시장 탐험·특가 쿠폰·Google 길안내·연합 시연권·상인 ERP 통합 플랫폼">
-  <meta name="theme-color" content="#073e32">
-  <title>가락랜드 | 디지털 가락시장 플랫폼</title>
+  <meta name="description" content="가락랜드 — AR 시장 탐험과 오늘의 특가·쿠폰·Google 길안내를 한곳에서">
+  <meta name="theme-color" content="#183d35">
+  <title>가락랜드 | 시장 탐험 · 특가 · 쿠폰</title>
   <link rel="icon" href="/assets/icon.svg">
   <link rel="manifest" href="/manifest.webmanifest">
-  <link rel="stylesheet" href="/platform.css">
+  <link rel="stylesheet" href="/game/style.css">
+  <link rel="stylesheet" href="/game/studio.css">
+  <link rel="stylesheet" href="/platform-home.css">
 </head>
-<body>
-  <header class="hero">
-    <div class="hero-inner">
-      <span class="eyebrow">GARAKLAND PLATFORM · v7 통합</span>
-      <h1>시장을 <em>탐험</em>하고<br>특가·쿠폰으로 <em>찾아가세요</em></h1>
-      <p class="lead">3D·AR 테마 탐험, 오늘의 특가·연합 시연권, Google 지도 길안내, 상인 마케팅·ERP 출시 준비까지 하나의 플랫폼에서 연결합니다. 시연·베타 데이터이며 실결제·실발송은 승인 전 차단됩니다.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="/market.html">오늘의 특가 · 쿠폰 ↗</a>
-        <a class="btn btn-ghost" href="/index.html">AR 시장 탐험 ↗</a>
-        <a class="btn btn-ghost" href="/login.html">로그인</a>
-      </div>
-    </div>
-  </header>
-  <div class="topbar">
-    <nav aria-label="플랫폼 메뉴">
-      <a href="/">홈</a>
-      <a href="/market.html">특가·상품권</a>
+<body class="home-landing">
+  <header class="home-top">
+    <a class="logo-mark" href="/" aria-label="가락랜드 홈">
+      <span>✳</span>
+      <span>GARAKLAND<small>AR · MARKET · BETA</small></span>
+    </a>
+    <nav aria-label="주 메뉴">
       <a href="/index.html">AR 탐험</a>
-      <a href="/map.html">Google 3D 지도</a>
-      <a href="/ops.html">ERP 운영센터</a>
-      <a href="/documents.html">서류·계약</a>
-      <a href="/design_gallery.html">UI 검수 갤러리</a>
+      <a href="/market.html" class="primary">오늘의 특가 ↗</a>
+      <a href="/map.html">3D 지도</a>
+      <a href="/ops.html">ERP</a>
       <a href="/login.html" id="authLink">로그인</a>
     </nav>
-  </div>
+  </header>
 
-  <section class="section">
-    <h2>핵심 서비스</h2>
-    <p class="sub">v5 마케팅 · v6 ERP · v7 share-kit · 기존 AR·지도 통합</p>
-    <div class="grid-3">
-      <article class="card">
-        <img src="/assets/v5/market.webp" alt="시장 특가 비주얼">
-        <div class="card-body">
-          <span class="tag">MARKET GROWTH v5</span>
-          <h3>특가·쿠폰·길안내</h3>
-          <p>상인이 정상가·할인가·발행 일정을 설정하고, 고객은 쿠폰 수령 후 Google Maps 도보 길찾기로 매장까지 안내받습니다.</p>
-          <a class="btn" href="/market.html">특가 페이지 ↗</a>
+  <main class="main home-main">
+    <section class="hero" aria-label="메인 히어로">
+      <div class="hero-ornament o1"></div>
+      <div class="hero-ornament o2"></div>
+      <div class="hero-content">
+        <span class="eyebrow"><i class="sparkle">✦</i> DISCOVER GARAK MARKET · 2026 EDITION</span>
+        <h1>가락시장의 모든 발견,<br><em>한 번의 탐험으로.</em></h1>
+        <p>시장 골목에서 매장을 발견하고, 오늘의 특가·쿠폰으로<br>Google 지도 길안내까지 — 탐험과 쇼핑을 연결합니다.</p>
+        <div class="hero-actions">
+          <a class="cta" href="/index.html">✦ AR 탐험 시작 <span>↗</span></a>
+          <a class="text-btn" href="/market.html">오늘의 특가 · 쿠폰 ↗</a>
         </div>
-      </article>
-      <article class="card">
-        <img src="/assets/v5/giftcard-ai.webp" alt="연합 시연권">
-        <div class="card-body">
-          <span class="tag">연합 시연권</span>
-          <h3>리워드·잔액·장부</h3>
-          <p>스타벅스 카드형 시연권(3·5·10만 원). 가맹 승인·PIN·잔액·취소 원장. 실결제·전자금융 등록은 상용 전 법무 검토 필요.</p>
-          <a class="btn" href="/market.html#wallet">내 쿠폰·상품권 ↗</a>
-        </div>
-      </article>
-      <article class="card">
-        <img src="/assets/editorial/market.webp" alt="AR 탐험">
-        <div class="card-body">
-          <span class="tag">AR QUEST</span>
-          <h3>테마파크형 탐험</h3>
-          <p>매장 발견·스탬프·미션·쿠폰 지갑. QR·GPS 방문 인증. 시연 매장과 실제 점포 데이터는 구분됩니다.</p>
-          <a class="btn" href="/index.html">탐험 앱 ↗</a>
-        </div>
-      </article>
-      <article class="card">
-        <img src="/assets/v6/market-hero.webp" alt="ERP">
-        <div class="card-body">
-          <span class="tag">ERP v6</span>
-          <h3>상용 출시 준비</h3>
-          <p>계약·증빙·상품 CSV·업무 보드(드래그앤드롭)·모의 정산·출시 검수. Word 서류 초안 포함.</p>
-          <a class="btn" href="/ops.html">운영센터 ↗</a>
-        </div>
-      </article>
-      <article class="card">
-        <img src="/assets/editorial/merchant.webp" alt="상인 마케팅">
-        <div class="card-body">
-          <span class="tag">마케팅 · v5/v7</span>
-          <h3>단체 메일·문자·카카오</h3>
-          <p>채널별 수신동의·캠페인 예약·모의 발송. SOLAPI·SMTP·카카오 어댑터 구현, 실발송은 사업자 승인 후.</p>
-          <a class="btn" href="/market.html#marketing">소식 받기 ↗</a>
-        </div>
-      </article>
-      <article class="card">
-        <img src="/assets/editorial/seafood.webp" alt="지도">
-        <div class="card-body">
-          <span class="tag">MAP · 3D</span>
-          <h3>Google 지도·3D</h3>
-          <p>위성·지형·3D( API 키 설정 시). 키 없이도 길찾기 URL·폴백 안내 동작.</p>
-          <a class="btn" href="/map.html">지도 열기 ↗</a>
-        </div>
-      </article>
+        <small class="hero-caution">AI 시연 이미지 · 실매장과 구분 · 시연 쿠폰·상품권은 실제 거래 불가</small>
+      </div>
+      <div class="hero-graphic" aria-hidden="true">
+        <div class="hero-photo"><img src="/assets/editorial/market.webp" alt=""></div>
+      </div>
+    </section>
+
+    <div class="experience-rail" aria-label="빠른 이동">
+      <a href="/index.html"><span>01 · EXPLORE</span><b>🧭 AR 탐험</b><small>카메라·미션·스탬프</small></a>
+      <a href="/market.html"><span>02 · TODAY'S DEAL</span><b>🎟️ 특가·쿠폰</b><small>받기 → 길찾기</small></a>
+      <a href="/map.html"><span>03 · MAP</span><b>🗺️ Google 3D</b><small>매장·길안내</small></a>
+      <a href="/index.html#page-guide"><span>04 · GUIDE</span><b>📖 테마 가이드</b><small>수산·청과·푸드</small></a>
     </div>
-  </section>
 
-  <section class="section" style="padding-top:0">
-    <h2>홈페이지 디자인 시안 5종 (기획 반영)</h2>
-    <p class="sub">추천: ① 테마파크형 3D + ③ 특가 커머스 결합 — 본 랜딩·market·index에 반영</p>
-    <div class="concepts">
-      <div class="concept"><b>1. 3D 테마파크형</b>탐험·지도·AR 카메라 강조 → /index.html</div>
-      <div class="concept"><b>2. 프리미엄 마켓형</b>에디토리얼 사진·구역 스토리 → /index.html 가이드</div>
-      <div class="concept"><b>3. 특가 쇼핑몰형</b>할인 카드·쿠폰 CTA → /market.html</div>
-      <div class="concept"><b>4. 몰입형 탐험</b>미션·배지·XP → AR 미션 탭</div>
-      <div class="concept"><b>5. 마켓 가이드형</b>전단·오늘의 특가 → market + share-kit</div>
+    <div class="editorial-heading">
+      <div>
+        <span class="eyebrow dark">CURATED MARKET WALKS</span>
+        <h2>취향에 따라 골라 떠나는 시장</h2>
+        <p>구역을 선택하면 AR 앱에서 등록 매장을 검색할 수 있습니다.</p>
+      </div>
+      <a href="/index.html" class="outline-action">탐험 앱 열기 ↗</a>
     </div>
-  </section>
-
-  <section class="section" style="padding-top:0">
-    <h2>기능 검증 요약</h2>
-    <div class="features">
-      <div class="feat"><strong>66+ API 테스트</strong>쿠폰 중복·권한·ERP·v7 share-kit</div>
-      <div class="feat"><strong>드래그앤드롭 ERP</strong>업무 보드 단계 이동 저장</div>
-      <div class="feat"><strong>Neon Auth</strong>이메일 로그인 /login.html</div>
-      <div class="feat"><strong>배포</strong>garakland.lexid.site · Vercel · Neon DB</div>
+    <div class="district-grid">
+      <a class="district-card" href="/index.html" style="--district-img:url('/assets/editorial/seafood.webp')">
+        <span>THE FRESH SEA</span><strong>바다의 오늘을 만나다</strong><small>🐟 수산 매장 ↗</small>
+      </a>
+      <a class="district-card" href="/index.html" style="--district-img:url('/assets/editorial/fruit.webp')">
+        <span>THE FRUIT GARDEN</span><strong>계절을 담은 과일 정원</strong><small>🍓 청과 매장 ↗</small>
+      </a>
+      <a class="district-card" href="/index.html" style="--district-img:url('/assets/editorial/kitchen.webp')">
+        <span>THE FOOD TABLE</span><strong>시장이 식탁이 되는 곳</strong><small>🍜 먹거리 ↗</small>
+      </a>
     </div>
-  </section>
 
-  <section class="section" style="padding-top:0">
-    <div class="warn">
-      <strong>상용 출시 전 필수</strong> — 상인 연합 참여계약, 점포 GPS 현장 검증, PG·정산, 광고 발송 승인, 선불 상품권 법률 검토.
-      의료·건강·공공 API(병원 출석·투약·보험)는 별도 인증·법적 검토가 필요해 본 플랫폼 베타 범위에서 제외했습니다.
-      (요청 ZIP <code>가락랜드플랫폼v1.zip</code>은 로컬 경로에서 확인되지 않아 v7 핸드오프·기획서 기준으로 통합했습니다.)
+    <section class="market-spotlight" aria-label="오늘의 특가">
+      <div class="copy">
+        <span class="kicker">GARAKLAND · MARKET GROWTH</span>
+        <h2>오늘의 가락 특가,<br>쿠폰과 길안내까지</h2>
+        <p>상인이 정한 할인가·발행 일정으로 특가를 받고, Google Maps 도보 길찾기로 매장까지 안내받으세요.</p>
+        <div class="cta-row">
+          <a class="solid" href="/market.html">특가·쿠폰 받기 ↗</a>
+          <a class="line" href="/market.html#wallet">연합 시연권 · 지갑</a>
+        </div>
+      </div>
+      <div class="visual">
+        <img src="/assets/v6/market-hero.webp" alt="AI 생성 시장 홍보 이미지">
+      </div>
+    </section>
+
+    <div class="section-heading">
+      <div><span class="eyebrow dark">TODAY'S PICK</span><h2>지금 받을 수 있는 특가</h2></div>
+      <a class="section-link" href="/market.html">전체 특가 ↗</a>
     </div>
-  </section>
+    <div class="shop-grid home-offers" id="homeOffers">
+      <p class="loading">오늘의 혜택을 불러오는 중…</p>
+    </div>
 
-  <footer>
-    © GARAKLAND · 시연·베타 · <a href="https://garakland.lexid.site">garakland.lexid.site</a>
-  </footer>
+    <div class="section-heading">
+      <div><span class="eyebrow dark">HOW TO PLAY</span><h2>탐험 → 혜택 → 길찾기</h2></div>
+    </div>
+    <div class="how-grid">
+      <a class="how-card" href="/index.html"><span class="num">01 / FIND</span><span class="big-emoji">📷</span><b>매장을 발견</b><p>AR·지도에서 매장 정보를 확인합니다.</p><span class="arrow-circ">↗</span></a>
+      <a class="how-card" href="/market.html"><span class="num">02 / SAVE</span><span class="big-emoji">🎟️</span><b>쿠폰을 받아요</b><p>특가 쿠폰을 지갑에 보관합니다.</p><span class="arrow-circ">↗</span></a>
+      <a class="how-card" href="/map.html"><span class="num">03 / GO</span><span class="big-emoji">🧭</span><b>길안내 시작</b><p>Google 지도로 매장까지 이동합니다.</p><span class="arrow-circ">↗</span></a>
+    </div>
+
+    <p class="home-disclaimer">
+      ※ 화면의 AI 이미지는 기획·시연용이며 실제 가락시장 점포 사진이 아닙니다. 연합 시연권·쿠폰은 베타이며 실결제·실발송은 승인 전 차단됩니다.
+      상용 출시 전 상인 계약·GPS 검증·PG·광고 수신동의·선불 상품권 법률 검토가 필요합니다.
+    </p>
+
+    <footer class="in-app-footer">
+      <div><b>GARAKLAND <em>STUDIO</em></b><span>통합 홈 · AR + 특가 · garakland.lexid.site</span></div>
+      <a href="https://www.garak.co.kr" target="_blank" rel="noopener noreferrer">시장 공식 안내 ↗</a>
+    </footer>
+  </main>
+
+  <nav class="home-mobile-nav" aria-label="모바일 메뉴">
+    <a href="/" class="active">🧭<small>홈</small></a>
+    <a href="/index.html">🗺️<small>탐험</small></a>
+    <a href="/market.html">🎟️<small>특가</small></a>
+    <a href="/map.html">📍<small>지도</small></a>
+    <a href="/market.html#wallet">💳<small>지갑</small></a>
+  </nav>
+
   <script type="module" src="/auth/banner.mjs"></script>
+  <script src="/platform-home.js" defer></script>
 </body>
 </html>
