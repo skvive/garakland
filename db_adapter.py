@@ -105,6 +105,12 @@ class _PgCursor:
     def fetchall(self):
         return [_PgRow(self._names, r) for r in self._cur.fetchall()]
 
+    def __iter__(self):
+        row = self.fetchone()
+        while row is not None:
+            yield row
+            row = self.fetchone()
+
 
 class _PgCompat:
     def __init__(self, conn):
