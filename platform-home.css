@@ -174,15 +174,6 @@
   padding: 40px;
   text-align: center;
 }
-  font-size: 10px;
-  color: #829385;
-  line-height: 1.65;
-  margin: 40px 0 20px;
-  padding: 14px 16px;
-  background: #fff8e6;
-  border: 1px solid #f0d88a;
-  border-radius: 12px;
-}
 .home-mobile-nav {
   display: none;
 }

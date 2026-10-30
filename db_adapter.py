@@ -36,6 +36,9 @@ def _adapt_sql(sql: str) -> str:
     if not use_postgres():
         return sql
     out = sql
+    # SQLite allows double-quoted string literals; PostgreSQL treats them as identifiers.
+    out = re.sub(r'=\s*"([^"]*)"', lambda m: "='" + m.group(1).replace("'", "''") + "'", out)
+    out = re.sub(r'!=\s*""', "!= ''", out)
     m = re.search(r"INSERT\s+OR\s+IGNORE\s+INTO\s+(\w+)", out, re.I)
     if m:
         table = m.group(1).lower()
