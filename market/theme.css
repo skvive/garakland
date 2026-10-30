@@ -19,3 +19,5 @@
 --muted:var(--gl-muted,#77847e);
 --line:var(--gl-border,#dfebe4);
 }
+body.gl-has-mobile-nav .shell{padding-bottom:calc(8px + env(safe-area-inset-bottom))}
+body.gl-has-mobile-nav footer{margin-bottom:calc(64px + env(safe-area-inset-bottom))}

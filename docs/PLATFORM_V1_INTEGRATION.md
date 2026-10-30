@@ -19,7 +19,8 @@
 | Google 지도 | `/map.html` | v4+ |
 | ERP 운영 | `/ops.html` | v6 |
 | 서류 | `/documents.html` | v6 |
-| UI 검수 | `/design_gallery.html` | v4 |
+| UI 검수 | `/design_gallery.html` | v4 · v5 · 라이브 링크 |
+| 디자인 시스템 | `/design/design-system.html` | tokens · components |
 | 로그인 | `/login.html` | Neon Auth |
 | API | `/api/*` | v5–v7 |
 
@@ -64,8 +65,10 @@ powershell -File scripts\build-platform-zip.ps1
 ## 검증
 
 ```powershell
-$env:PYTHONPATH='.'
+cd E:\currsor_C\blog\garakland
+python -m unittest discover -s tests -p "test_design_tokens.py" -v
 python -m unittest discover -s tests -p "test_*.py" -v
+python scripts/capture_review_screens.py
 ```
 
-브라우저: `/`, `/market.html`, `/ops.html`, `/login.html`, `/api/health`
+브라우저: `/`, `/design/design-system.html`, `/market.html`, `/ops.html`, `/login.html`, `/api/health`

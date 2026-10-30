@@ -5,5 +5,7 @@ __pycache__/
 /data/*.sqlite-*
 /assets/store_photos/*.jpg
 
-.vercel
-.env*
+/release/*.zip
+/preview_*.png
+/v4_*.png
+/v5_*.png
