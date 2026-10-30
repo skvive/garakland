@@ -5,3 +5,20 @@
 .map-area{border-radius:15px;overflow:hidden}
 .map-column,.details{border-radius:14px}
 @media(max-width:730px){.ar-portal{font-size:9px;padding:8px}.head-actions .top-guide{display:none}}
+
+.concept-map-3d{position:relative;width:100%;height:100%;min-height:420px;overflow:hidden;background:#dfe8d8}
+.concept-map-3d .concept-3d-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.concept-map-3d .concept-park,.concept-map-3d .concept-bottom-tag{z-index:2}
+.concept-building-3d{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-50%);width:auto!important;min-width:0;padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important;display:flex;flex-direction:column;align-items:center;gap:6px;z-index:3}
+.concept-building-3d img{width:92px;height:58px;object-fit:cover;border-radius:12px;border:2px solid #fff;box-shadow:0 10px 22px rgba(16,40,32,.28);background:#fff}
+.concept-building-3d .concept-name{background:rgba(16,48,38,.86);color:#fff;font-size:10px;font-weight:800;padding:4px 8px;border-radius:999px;letter-spacing:-.03em}
+.concept-building-3d.is-primary img{width:124px;height:78px;border-width:3px}
+.concept-building-3d:hover img{transform:translateY(-3px) scale(1.04);transition:transform .18s ease}
+.zone-card{display:flex;align-items:center;gap:10px}
+.zone-thumb{width:54px;height:40px;object-fit:cover;border-radius:9px;flex:none;background:#dce8dc}
+.zone-card.selected .zone-thumb{outline:2px solid #10543c;outline-offset:1px}
+@media(max-width:730px){
+  .concept-building-3d img{width:64px;height:42px}
+  .concept-building-3d.is-primary img{width:86px;height:56px}
+  .concept-building-3d:not(.is-primary){display:none}
+}
