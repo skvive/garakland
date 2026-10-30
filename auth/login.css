@@ -77,6 +77,40 @@
   background: #fff;
   cursor: pointer;
 }
+.auth-card button.google {
+  width: 100%;
+  margin: 4px 0 0;
+  padding: 13px;
+  border: 1px solid #c9d8d2;
+  border-radius: 12px;
+  background: #fff;
+  color: #1f2a24;
+  font-weight: 800;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.auth-card button.google:hover {
+  background: #f4faf7;
+}
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 18px 0 4px;
+  color: #6b7f76;
+  font-size: 12px;
+}
+.auth-divider::before,
+.auth-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #d7e3dd;
+}
 .auth-toggle {
   margin-top: 16px;
   text-align: center;

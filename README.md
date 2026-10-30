@@ -1,3 +1,9 @@
+# NEW v2.0: 모듈형 통합 운영 허브
+
+먼저 **[README_HUB_V2.md](README_HUB_V2.md)**를 읽으세요.
+
+Windows: `RUN_HUB_WINDOWS.bat` → `http://localhost:8769/hub.html`
+
 # 가락랜드 MARKET GROWTH v5.0 BETA — 시장 공동 마케팅·특가 쿠폰·연합 시연권
 
 **2026-10-29 기준 데모 / 시연용 기술 제품. 실제 쿠폰 사용·유료 상품권 발행·전자금융업·대량 광고 발송·배달 주문·시장 모든 점포의 실측 좌표는 상용 개통 전 검증/계약이 필요합니다.**

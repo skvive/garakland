@@ -1,4 +1,4 @@
-import { getAuthClient, getSession, signOut } from './client.mjs';
+import { getAuthClient, getSession, signOut, signInWithGoogle } from './client.mjs';
 
 const form = document.getElementById('authForm');
 const logged = document.getElementById('loggedPanel');
@@ -18,7 +18,7 @@ function setMsg(text, kind = '') {
 
 function setMode(up) {
   signUp = up;
-  title.textContent = up ? '가락랜드 계정 만들기' : '로그인';
+  title.textContent = up ? '가락한상 계정 만들기' : '로그인';
   submitBtn.textContent = up ? '이메일로 가입' : '로그인';
   modeSignUpWrap.hidden = up;
   modeSignInWrap.hidden = !up;
@@ -26,6 +26,18 @@ function setMode(up) {
 
 document.getElementById('modeSignUpBtn')?.addEventListener('click', () => setMode(true));
 document.getElementById('modeSignInBtn')?.addEventListener('click', () => setMode(false));
+
+document.getElementById('googleBtn')?.addEventListener('click', async () => {
+  setMsg('Google 계정 선택 화면으로 이동합니다…');
+  try {
+    const result = await signInWithGoogle(`${window.location.origin}/login.html`);
+    if (result?.error) {
+      setMsg(result.error.message || 'Google 로그인에 실패했습니다.', 'error');
+    }
+  } catch (err) {
+    setMsg(err?.message || 'Google 로그인에 실패했습니다.', 'error');
+  }
+});
 
 async function showLogged(user) {
   form.hidden = true;
@@ -72,4 +84,7 @@ form?.addEventListener('submit', async (e) => {
 });
 
 setMode(true);
+if (new URLSearchParams(location.search).get('error')) {
+  setMsg('Google 로그인이 취소되었거나 실패했습니다. 다시 시도해 주세요.', 'error');
+}
 refresh().catch(() => setMsg(''));

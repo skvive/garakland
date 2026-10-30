@@ -19,6 +19,8 @@ IGNORE_CONFLICT = {
     "visits": "(session_id, shop_id, day)",
     "v5_participants": "(shop_id)",
     "v5_outbox": "(broadcast_id, recipient)",
+    "v8_modules": "(id)",
+    "v8_custom_modules": "(id)",
 }
 
 DB_LOCK = threading.Lock()

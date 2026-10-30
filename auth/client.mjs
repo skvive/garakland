@@ -21,3 +21,13 @@ export async function signOut() {
   const auth = await getAuthClient();
   await auth.signOut();
 }
+
+export async function signInWithGoogle(callbackURL) {
+  const auth = await getAuthClient();
+  const origin = window.location.origin;
+  return auth.signIn.social({
+    provider: 'google',
+    callbackURL: callbackURL || `${origin}/login.html`,
+    errorCallbackURL: `${origin}/login.html?error=oauth`,
+  });
+}

@@ -1,0 +1,145 @@
+test_01_catalog_and_map (test_beta.BetaTests.test_01_catalog_and_map) ... [access] 127.0.0.1 GET /api/experience 
+[access] 127.0.0.1 GET /map.html 
+ok
+test_02_checkin_and_progress (test_beta.BetaTests.test_02_checkin_and_progress) ... [access] 127.0.0.1 POST /api/demo/checkin 
+[access] 127.0.0.1 POST /api/demo/checkin 
+[access] 127.0.0.1 GET /api/progress 
+[access] 127.0.0.1 POST /api/demo/checkin 
+ok
+test_03_session_isolation (test_beta.BetaTests.test_03_session_isolation) ... [access] 127.0.0.1 POST /api/demo/checkin 
+[access] 127.0.0.1 GET /api/progress 
+ok
+test_04_coupon_once_per_period_and_redeem (test_beta.BetaTests.test_04_coupon_once_per_period_and_redeem) ... [access] 127.0.0.1 POST /api/coupons/claim 
+[access] 127.0.0.1 POST /api/coupons/claim 
+[access] 127.0.0.1 GET /api/wallet 
+[access] 127.0.0.1 POST /api/merchant/redeem 
+[access] 127.0.0.1 POST /api/merchant/redeem 
+[access] 127.0.0.1 POST /api/merchant/redeem 
+ok
+test_05_order_validation (test_beta.BetaTests.test_05_order_validation) ... [access] 127.0.0.1 POST /api/orders 
+[access] 127.0.0.1 GET /api/orders 
+[access] 127.0.0.1 POST /api/merchant/order-status 
+[access] 127.0.0.1 POST /api/orders 
+ok
+test_06_merchant_permissions_qr (test_beta.BetaTests.test_06_merchant_permissions_qr) ... [access] 127.0.0.1 GET /api/merchant/qr 
+[access] 127.0.0.1 POST /api/admin/merchant-key 
+[access] 127.0.0.1 GET /api/merchant/qr 
+[access] 127.0.0.1 POST /api/checkin 
+ok
+test_07_merchant_coupon_and_metadata (test_beta.BetaTests.test_07_merchant_coupon_and_metadata) ... [access] 127.0.0.1 POST /api/merchant/campaign 
+[access] 127.0.0.1 POST /api/merchant/campaign 
+[access] 127.0.0.1 POST /api/admin/metadata 
+[access] 127.0.0.1 GET /api/experience 
+ok
+test_08_photo_match (test_beta.BetaTests.test_08_photo_match) ... [access] 127.0.0.1 POST /api/recognize 
+[access] 127.0.0.1 POST /api/recognize 
+ok
+test_09_permissions_and_legacy_import (test_beta.BetaTests.test_09_permissions_and_legacy_import) ... [access] 127.0.0.1 GET /data/garakland.sqlite 
+[access] 127.0.0.1 GET /data/garakland.sqlite 
+[access] 127.0.0.1 POST /api/import 
+[access] 127.0.0.1 POST /api/demo/checkin 
+ok
+test_10_geofence_math_and_period (test_beta.BetaTests.test_10_geofence_math_and_period) ... ok
+test_11_verified_shop_gps_qr (test_beta.BetaTests.test_11_verified_shop_gps_qr) ... [access] 127.0.0.1 POST /api/import 
+[access] 127.0.0.1 GET /api/merchant/qr 
+[access] 127.0.0.1 POST /api/checkin 
+[access] 127.0.0.1 POST /api/checkin 
+[access] 127.0.0.1 POST /api/checkin 
+[access] 127.0.0.1 POST /api/checkin 
+[access] 127.0.0.1 POST /api/checkin 
+ok
+test_12_photo_upload_and_partner_links (test_beta.BetaTests.test_12_photo_upload_and_partner_links) ... [access] 127.0.0.1 POST /api/merchant/profile 
+[access] 127.0.0.1 GET /api/experience 
+[access] 127.0.0.1 POST /api/merchant/upload-photo 
+[access] 127.0.0.1 POST /api/merchant/profile 
+ok
+test_01_only_demo_or_review (test_bridge_v7.V7BridgeTests.test_01_only_demo_or_review) ... ok
+test_02_public_base_missing (test_bridge_v7.V7BridgeTests.test_02_public_base_missing) ... ok
+test_03_bad_host_suppressed (test_bridge_v7.V7BridgeTests.test_03_bad_host_suppressed) ... ok
+test_04_https_public_host (test_bridge_v7.V7BridgeTests.test_04_https_public_host) ... ok
+test_05_demo_disclaimer (test_bridge_v7.V7BridgeTests.test_05_demo_disclaimer) ... ok
+test_06_real_no_unverified_claims (test_bridge_v7.V7BridgeTests.test_06_real_no_unverified_claims) ... ok
+test_07_anonymous_readiness_forbidden (test_bridge_v7.V7BridgeTests.test_07_anonymous_readiness_forbidden) ... ok
+test_08_reject_bad_id (test_bridge_v7.V7BridgeTests.test_08_reject_bad_id) ... ok
+test_09_meta_safe (test_bridge_v7.V7BridgeTests.test_09_meta_safe) ... ok
+test_01_auth_get_required (test_erp_v6.ERPIntegration.test_01_auth_get_required) ... ok
+test_02_auth_post_required (test_erp_v6.ERPIntegration.test_02_auth_post_required) ... ok
+test_03_dashboard (test_erp_v6.ERPIntegration.test_03_dashboard) ... ok
+test_04_board_add (test_erp_v6.ERPIntegration.test_04_board_add) ... ok
+test_05_board_move (test_erp_v6.ERPIntegration.test_05_board_move) ... ok
+test_06_bad_task_stage (test_erp_v6.ERPIntegration.test_06_bad_task_stage) ... ok
+test_07_docs_needs_reference (test_erp_v6.ERPIntegration.test_07_docs_needs_reference) ... ok
+test_08_docs_record (test_erp_v6.ERPIntegration.test_08_docs_record) ... ok
+test_09_docs_internal_review (test_erp_v6.ERPIntegration.test_09_docs_internal_review) ... ok
+test_10_csv_bom_validate (test_erp_v6.ERPIntegration.test_10_csv_bom_validate) ... ok
+test_11_csv_import (test_erp_v6.ERPIntegration.test_11_csv_import) ... ok
+test_12_bad_price_no_partial_import (test_erp_v6.ERPIntegration.test_12_bad_price_no_partial_import) ... ok
+test_13_bad_shop (test_erp_v6.ERPIntegration.test_13_bad_shop) ... ok
+test_14_duplicate_code (test_erp_v6.ERPIntegration.test_14_duplicate_code) ... ok
+test_15_csv_excess_rows (test_erp_v6.ERPIntegration.test_15_csv_excess_rows) ... ok
+test_16_settlement_no_real (test_erp_v6.ERPIntegration.test_16_settlement_no_real) ... ok
+test_17_audit_log (test_erp_v6.ERPIntegration.test_17_audit_log) ... ok
+test_18_static_file_guard (test_erp_v6.ERPIntegration.test_18_static_file_guard) ... ok
+test_19_ui_available (test_erp_v6.ERPIntegration.test_19_ui_available) ... ok
+test_20_docx_file_available (test_erp_v6.ERPIntegration.test_20_docx_file_available) ... ok
+test_01_public_offers (test_growth_v5.GrowthV5Integration.test_01_public_offers) ... ok
+test_02_coupon_and_repeat (test_growth_v5.GrowthV5Integration.test_02_coupon_and_repeat) ... ok
+test_03_coupon_wrong_store_no_auth (test_growth_v5.GrowthV5Integration.test_03_coupon_wrong_store_no_auth) ... ok
+test_04_coupon_redeem_once (test_growth_v5.GrowthV5Integration.test_04_coupon_redeem_once) ... ok
+test_05_merchant_create_invalid_prices (test_growth_v5.GrowthV5Integration.test_05_merchant_create_invalid_prices) ... ok
+test_06_gift_demo_and_balance (test_growth_v5.GrowthV5Integration.test_06_gift_demo_and_balance) ... ok
+test_07_gift_wrong_pin (test_growth_v5.GrowthV5Integration.test_07_gift_wrong_pin) ... ok
+test_08_gift_redeem_idempotent (test_growth_v5.GrowthV5Integration.test_08_gift_redeem_idempotent) ... ok
+test_09_gift_insufficient_and_refund (test_growth_v5.GrowthV5Integration.test_09_gift_insufficient_and_refund) ... ok
+test_10_consent_separate (test_growth_v5.GrowthV5Integration.test_10_consent_separate) ... ok
+test_11_schedule_and_dispatch_simulation (test_growth_v5.GrowthV5Integration.test_11_schedule_and_dispatch_simulation) ... ok
+test_12_consent_withdraw (test_growth_v5.GrowthV5Integration.test_12_consent_withdraw) ... ok
+test_13_admin_approve_permissions (test_growth_v5.GrowthV5Integration.test_13_admin_approve_permissions) ... ok
+test_14_scheduled_offer_visibility (test_growth_v5.GrowthV5Integration.test_14_scheduled_offer_visibility) ... ok
+test_15_merchant_dashboard_auth (test_growth_v5.GrowthV5Integration.test_15_merchant_dashboard_auth) ... ok
+test_16_public_static_security (test_growth_v5.GrowthV5Integration.test_16_public_static_security) ... ok
+test_17_signed_unsubscribe (test_growth_v5.GrowthV5Integration.test_17_signed_unsubscribe) ... ok
+test_18_live_marketing_fail_closed (test_growth_v5.GrowthV5Integration.test_18_live_marketing_fail_closed) ... ok
+test_19_unsubscribe_screen (test_growth_v5.GrowthV5Integration.test_19_unsubscribe_screen) ... ok
+test_a_01_auth_get (test_hub_v8.HubV8Test.test_a_01_auth_get) ... ok
+test_a_02_auth_post (test_hub_v8.HubV8Test.test_a_02_auth_post) ... ok
+test_a_03_dashboard_has_12 (test_hub_v8.HubV8Test.test_a_03_dashboard_has_12) ... ok
+test_a_04_initial_stats (test_hub_v8.HubV8Test.test_a_04_initial_stats) ... ok
+test_a_05_analytics_periods (test_hub_v8.HubV8Test.test_a_05_analytics_periods) ... ok
+test_a_06_analytics_bad_period (test_hub_v8.HubV8Test.test_a_06_analytics_bad_period) ... ok
+test_a_07_modules_no_unknown (test_hub_v8.HubV8Test.test_a_07_modules_no_unknown) ... ok
+test_a_08_modules_bool_type (test_hub_v8.HubV8Test.test_a_08_modules_bool_type) ... ok
+test_a_09_dependency_guard (test_hub_v8.HubV8Test.test_a_09_dependency_guard) ... ok
+test_a_10_toggle_and_api_gate (test_hub_v8.HubV8Test.test_a_10_toggle_and_api_gate) ... ok
+test_a_11_note_limit (test_hub_v8.HubV8Test.test_a_11_note_limit) ... ok
+test_a_12_jobs_list (test_hub_v8.HubV8Test.test_a_12_jobs_list) ... ok
+test_a_13_jobs_bad_kind (test_hub_v8.HubV8Test.test_a_13_jobs_bad_kind) ... ok
+test_a_14_jobs_bad_due (test_hub_v8.HubV8Test.test_a_14_jobs_bad_due) ... ok
+test_a_15_job_create_and_once (test_hub_v8.HubV8Test.test_a_15_job_create_and_once) ... ok
+test_a_16_coupon_audit_job (test_hub_v8.HubV8Test.test_a_16_coupon_audit_job) ... ok
+test_a_17_preview_no_messaging (test_hub_v8.HubV8Test.test_a_17_preview_no_messaging) ... ok
+test_a_18_recurring (test_hub_v8.HubV8Test.test_a_18_recurring) ... ok
+test_a_19_cancel (test_hub_v8.HubV8Test.test_a_19_cancel) ... ok
+test_a_20_readiness (test_hub_v8.HubV8Test.test_a_20_readiness) ... ok
+test_a_21_audit (test_hub_v8.HubV8Test.test_a_21_audit) ... ok
+test_a_22_snapshots (test_hub_v8.HubV8Test.test_a_22_snapshots) ... ok
+test_a_23_hub_page (test_hub_v8.HubV8Test.test_a_23_hub_page) ... ok
+test_a_24_hub_js (test_hub_v8.HubV8Test.test_a_24_hub_js) ... ok
+test_a_25_no_secret (test_hub_v8.HubV8Test.test_a_25_no_secret) ... ok
+test_z_26_cross_module_metrics (test_hub_v8.HubV8Test.test_z_26_cross_module_metrics) ... ok
+test_z_27_product_api_gate (test_hub_v8.HubV8Test.test_z_27_product_api_gate) ... ok
+test_z_28_marketing_api_gate (test_hub_v8.HubV8Test.test_z_28_marketing_api_gate) ... ok
+test_z_29_create_custom_linked_module (test_hub_v8.HubV8Test.test_z_29_create_custom_linked_module) ... ok
+test_z_30_register_missing_file_and_bad_url (test_hub_v8.HubV8Test.test_z_30_register_missing_file_and_bad_url) ... ok
+test_z_31_custom_toggle_persists (test_hub_v8.HubV8Test.test_z_31_custom_toggle_persists) ... ok
+test_hmac (test_marketing_adapters.ProviderShapeTests.test_hmac) ... ok
+test_kakao_bms (test_marketing_adapters.ProviderShapeTests.test_kakao_bms) ... ok
+test_kakao_reject_invalid_target (test_marketing_adapters.ProviderShapeTests.test_kakao_reject_invalid_target) ... ok
+test_live_disabled (test_marketing_adapters.ProviderShapeTests.test_live_disabled) ... ok
+test_sms (test_marketing_adapters.ProviderShapeTests.test_sms) ... ok
+test_sms_fail (test_marketing_adapters.ProviderShapeTests.test_sms_fail) ... ok
+
+----------------------------------------------------------------------
+Ran 97 tests in 3.234s
+
+OK

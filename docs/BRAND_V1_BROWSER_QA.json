@@ -1,0 +1,240 @@
+{
+  "total": 25,
+  "passed": 25,
+  "failed": 0,
+  "checks": [
+    {
+      "page": "home",
+      "viewport": "pc",
+      "ok": true,
+      "widths": {
+        "page": 1440,
+        "viewport": 1440
+      },
+      "missingPhotos": [],
+      "jsErrors": [],
+      "h1": "가락시장에서 새로운 발견!"
+    },
+    {
+      "page": "map",
+      "viewport": "pc",
+      "ok": true,
+      "widths": {
+        "page": 1440,
+        "viewport": 1440
+      },
+      "missingPhotos": [],
+      "jsErrors": [],
+      "h1": "시장 구역을 누르면, 이야기가 펼쳐져요."
+    },
+    {
+      "page": "stores",
+      "viewport": "pc",
+      "ok": true,
+      "widths": {
+        "page": 1440,
+        "viewport": 1440
+      },
+      "missingPhotos": [],
+      "jsErrors": [],
+      "h1": "상점마다, 맛있는 이야기가 있어요."
+    },
+    {
+      "page": "store",
+      "viewport": "pc",
+      "ok": true,
+      "widths": {
+        "page": 1440,
+        "viewport": 1440
+      },
+      "missingPhotos": [],
+      "jsErrors": [],
+      "h1": "바다마루 수산"
+    },
+    {
+      "page": "coupons",
+      "viewport": "pc",
+      "ok": true,
+      "widths": {
+        "page": 1440,
+        "viewport": 1440
+      },
+      "missingPhotos": [],
+      "jsErrors": [],
+      "h1": "쿠폰도, 장보기의 설렘도 한 곳에."
+    },
+    {
+      "page": "events",
+      "viewport": "pc",
+      "ok": true,
+      "widths": {
+        "page": 1440,
+        "viewport": 1440
+      },
+      "missingPhotos": [],
+      "jsErrors": [],
+      "h1": "신선함이 모이는 이달의 발견"
+    },
+    {
+      "page": "merchant",
+      "viewport": "pc",
+      "ok": true,
+      "widths": {
+        "page": 1440,
+        "viewport": 1440
+      },
+      "missingPhotos": [],
+      "jsErrors": [],
+      "h1": "사장님의 오늘이, 더 빛나도록."
+    },
+    {
+      "page": "guide",
+      "viewport": "pc",
+      "ok": true,
+      "widths": {
+        "page": 1440,
+        "viewport": 1440
+      },
+      "missingPhotos": [],
+      "jsErrors": [],
+      "h1": "시장은 물건보다, 사람의 마음이 먼저입니다."
+    },
+    {
+      "page": "home",
+      "viewport": "mobile",
+      "ok": true,
+      "widths": {
+        "page": 390,
+        "viewport": 390
+      },
+      "missingPhotos": [],
+      "jsErrors": [],
+      "h1": "가락시장에서 새로운 발견!"
+    },
+    {
+      "page": "map",
+      "viewport": "mobile",
+      "ok": true,
+      "widths": {
+        "page": 390,
+        "viewport": 390
+      },
+      "missingPhotos": [],
+      "jsErrors": [],
+      "h1": "시장 구역을 누르면, 이야기가 펼쳐져요."
+    },
+    {
+      "page": "stores",
+      "viewport": "mobile",
+      "ok": true,
+      "widths": {
+        "page": 390,
+        "viewport": 390
+      },
+      "missingPhotos": [],
+      "jsErrors": [],
+      "h1": "상점마다, 맛있는 이야기가 있어요."
+    },
+    {
+      "page": "store",
+      "viewport": "mobile",
+      "ok": true,
+      "widths": {
+        "page": 390,
+        "viewport": 390
+      },
+      "missingPhotos": [],
+      "jsErrors": [],
+      "h1": "바다마루 수산"
+    },
+    {
+      "page": "coupons",
+      "viewport": "mobile",
+      "ok": true,
+      "widths": {
+        "page": 390,
+        "viewport": 390
+      },
+      "missingPhotos": [],
+      "jsErrors": [],
+      "h1": "쿠폰도, 장보기의 설렘도 한 곳에."
+    },
+    {
+      "page": "events",
+      "viewport": "mobile",
+      "ok": true,
+      "widths": {
+        "page": 390,
+        "viewport": 390
+      },
+      "missingPhotos": [],
+      "jsErrors": [],
+      "h1": "신선함이 모이는 이달의 발견"
+    },
+    {
+      "page": "merchant",
+      "viewport": "mobile",
+      "ok": true,
+      "widths": {
+        "page": 390,
+        "viewport": 390
+      },
+      "missingPhotos": [],
+      "jsErrors": [],
+      "h1": "사장님의 오늘이, 더 빛나도록."
+    },
+    {
+      "page": "guide",
+      "viewport": "mobile",
+      "ok": true,
+      "widths": {
+        "page": 390,
+        "viewport": 390
+      },
+      "missingPhotos": [],
+      "jsErrors": [],
+      "h1": "시장은 물건보다, 사람의 마음이 먼저입니다."
+    },
+    {
+      "check": "store keyword search",
+      "ok": true
+    },
+    {
+      "check": "category filter",
+      "ok": true
+    },
+    {
+      "check": "favorites toggle",
+      "ok": true
+    },
+    {
+      "check": "coupon claim",
+      "ok": true
+    },
+    {
+      "check": "coupon duplicate protection",
+      "ok": true
+    },
+    {
+      "check": "coupon remove",
+      "ok": true
+    },
+    {
+      "check": "schematic map zone",
+      "ok": true
+    },
+    {
+      "check": "merchant draft form",
+      "ok": true
+    },
+    {
+      "check": "cart demo storage",
+      "ok": true
+    }
+  ],
+  "limitations": [
+    "External Google Maps 3D/merchant GPS/AR camera/real payment not tested",
+    "Offline Chromium render via set_content due to browser navigation blocked by environment",
+    "Images supplied as same-file data URIs for offline screenshot testing"
+  ]
+}

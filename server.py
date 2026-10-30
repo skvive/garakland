@@ -11,6 +11,7 @@ from urllib.parse import urlsplit, parse_qs, quote
 from market import core as growth_v5
 import bridge_v7
 from ops import core as operations_v6
+from hub import core as hub_v8
 from registry_server import (ROOT, DB, db_connect, DB_LOCK, init_db as init_registry,
                              Handler as RegistryHandler, ADMIN_TOKEN, HOST, PORT, normalize, upsert)
 
@@ -73,6 +74,7 @@ def setup():
         con.commit()
     growth_v5.setup()
     operations_v6.setup()
+    hub_v8.setup()
 
 def read_json(handler):
     if handler.headers.get('X-Garak-Client') != '1': raise ValueError('보안 헤더 누락')
@@ -187,9 +189,17 @@ class Handler(RegistryHandler):
     def do_GET(self):
         u=urlsplit(self.path); p=u.path
         try:
+            if p.startswith('/api/v8/'):
+                found=hub_v8.dispatch_get(self,p,parse_qs(u.query))
+                if found is not False:return found
+            if hub_v8.is_disabled(p):return self.send_json(503,{'error':'운영 허브에서 해당 모듈이 일시중지되었습니다.'})
             if p.startswith('/api/v7/'):
                 found=bridge_v7.get(self,p,parse_qs(u.query))
                 if found is not False:return found
+            if p.startswith('/api/v8/'):
+                found=hub_v8.dispatch_post(self,p,body)
+                if found is not False:return found
+            if hub_v8.is_disabled(p):return self.send_json(503,{'error':'운영 허브에서 해당 모듈이 일시중지되었습니다.'})
             if p.startswith('/api/v6/'):
                 found=operations_v6.get(self,p,parse_qs(u.query))
                 if found is not False:return found
@@ -202,10 +212,6 @@ class Handler(RegistryHandler):
             if p=='/api/orders':return self.send_json(200,self.orders())
             if p=='/api/merchant/qr':return self.merchant_qr(parse_qs(u.query))
             if p=='/api/health':return self.send_json(200,{'ok':True,'version':'3.0-beta','demo':LOCAL_DEMO,'cameraScan':'BarcodeDetector','photoMatcher':'OpenCV optional'})
-            if p=='/api/public/config':
-                key=(os.environ.get('GOOGLE_MAPS_API_KEY') or '').strip()
-                if not key.startswith('AIza'):key=''
-                return self.send_json(200,{'googleMapsApiKey':key,'mapsConfigured':bool(key)})
             if p=='/scan':
                 # Shareable shop QR (only discovery). Time-bound signed QR is used for check-in.
                 query=parse_qs(u.query);s=query.get('shop',[''])[0]
@@ -216,9 +222,15 @@ class Handler(RegistryHandler):
         except (ValueError,sqlite3.Error) as exc:return self.send_json(400,{'error':str(exc)})
     def do_POST(self):
         p=urlsplit(self.path).path
-        if p=='/api/import':return super().do_POST()
+        if p=='/api/import':
+            if hub_v8.is_disabled(p):return self.send_json(503,{'error':'매장 모듈이 일시중지되었습니다.'})
+            return super().do_POST()
         try:
             body=read_json(self)
+            if p.startswith('/api/v8/'):
+                found=hub_v8.dispatch_post(self,p,body)
+                if found is not False:return found
+            if hub_v8.is_disabled(p):return self.send_json(503,{'error':'운영 허브에서 해당 모듈이 일시중지되었습니다.'})
             if p.startswith('/api/v6/'):
                 found=operations_v6.post(self,p,body)
                 if found is not False:return found
@@ -474,7 +486,8 @@ if __name__=='__main__':
     def v5_campaign_scheduler():
         while True:
             try:
-                growth_v5.dispatch_due()
+                if not hub_v8.is_disabled("/api/v5/merchant/broadcast"):
+                    growth_v5.dispatch_due()
             except Exception as e:
                 print('[market/v5] scheduled campaign simulation error:',str(e)[:150],flush=True)
             time.sleep(60)

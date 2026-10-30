@@ -1,0 +1,26 @@
+[
+  {
+    "label": "desktop",
+    "screen": "1440×900",
+    "modules": 12,
+    "moduleFilter": true,
+    "toggle": true,
+    "jobCreate": true,
+    "jobRun": true,
+    "horizontalOverflow": false,
+    "pageErrors": [],
+    "method": "offline browser + mocked API"
+  },
+  {
+    "label": "mobile",
+    "screen": "390×844",
+    "modules": 12,
+    "moduleFilter": true,
+    "toggle": true,
+    "jobCreate": true,
+    "jobRun": true,
+    "horizontalOverflow": false,
+    "pageErrors": [],
+    "method": "offline browser + mocked API"
+  }
+]

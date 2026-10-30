@@ -7,11 +7,12 @@
   ],
   "routes": [
     { "src": "/api/(.*)", "dest": "/api/index.py" },
-    { "src": "^/$", "dest": "/home.html" },
+    { "src": "/(.*)\\.(py|bat|sh|sqlite|sqlite-wal|sqlite-shm)$", "status": 404 },
+    { "src": "^/$", "dest": "/index.html" },
     { "src": "/(.*)", "dest": "/$1" }
   ],
-  "installCommand": "echo skip-root-install",
-  "buildCommand": "echo build-ok",
+  "installCommand": "pip install -r requirements.txt",
+  "buildCommand": "python scripts/vercel_build_check.py",
   "headers": [
     {
       "source": "/(.*)",

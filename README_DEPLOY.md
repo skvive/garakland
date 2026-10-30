@@ -15,6 +15,7 @@ python server.py
 - 배포 기획: [docs/DEPLOYMENT_PLAN.md](docs/DEPLOYMENT_PLAN.md)
 - DB: Neon (`DATABASE_URL`) 또는 로컬 SQLite
 - 호스팅: Vercel (정적 페이지 + `/api/*` Python 함수)
+- 로그인: Neon Auth Google (`/login.html`) · 공개 URL `https://garakland.lexid.site`
 
 ## 테스트
 
