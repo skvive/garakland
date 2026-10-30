@@ -1,0 +1,13 @@
+/* Detail panel — editorial hero (map + AR shells) */
+.detail-hero{position:relative;border-radius:14px;overflow:hidden;margin:0 0 14px;min-height:168px;background:linear-gradient(145deg,#244e51,#436c62 55%,#0c2227)}
+.detail-hero--photo img{display:block;width:100%;height:168px;object-fit:cover;filter:saturate(.92) contrast(1.02)}
+.detail-hero--photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(12,34,39,.72));pointer-events:none}
+.detail-hero-badge{position:absolute;left:10px;bottom:10px;right:10px;z-index:2;font-size:9px;font-weight:700;line-height:1.45;color:#f6f5ef;text-shadow:0 1px 8px rgba(0,0,0,.45);letter-spacing:.02em}
+.detail-hero .feature-stamp{position:absolute;top:10px;right:10px;z-index:2}
+.detail-hero--zone,.detail-hero--guide{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;padding:28px 16px;background:radial-gradient(circle at 78% 8%,var(--zone-accent,#84c2a4),#446f68 68%,#21444a)}
+.detail-hero--zone .symbol,.detail-hero--guide .symbol{font-size:42px;line-height:1;filter:drop-shadow(0 4px 12px rgba(0,0,0,.25))}
+.detail-hero--zone .detail-hero-badge,.detail-hero--guide .detail-hero-badge{position:static;text-align:center;color:#e8f1df;text-shadow:none;max-width:260px}
+.detail-demo-tag{margin:-6px 0 12px;padding:8px 10px;font-size:10px;font-weight:800;color:#8a5a12;background:#fff4d6;border:1px solid #f0d88a;border-radius:8px;text-align:center}
+.verification-warning.gl-disclaimer{margin-top:14px;font-size:10px;line-height:1.65}
+.detail-title{letter-spacing:-.4px}
+.detail-meta .meta-row strong{font-weight:700;color:#17372e}

@@ -8,7 +8,7 @@
 | 1 | 서울시농수산식품공사 점포 및 배치도 사용권한 계약 | ⬜ 미완 | 시연 도면·AI 이미지 사용 중, 공식 도면 권한 없음 |
 | 2 | 실제 점포 및 상인 참여계약서 원본 서명 | ⬜ 미완 | demo-* 시연 매장만 시드 |
 | 3 | 건물별 입구·점포 GPS·실내 층별 호실 현장 검증 | ⬜ 미완 | `coordinateStatus=unverified` 기본, ERP GPS 검수 UI만 |
-| 4 | Google Maps JS API 키, 청구, 사용제한, 프라이버시 표시 | 🟡 부분 | 길찾기 URL 동작; 3D 임베드는 `GOOGLE_MAPS_API_KEY` Vercel env 필요 |
+| 4 | Google Maps JS API 키, 청구, 사용제한, 프라이버시 표시 | 🟢 운영 | `GOOGLE_MAPS_API_KEY` Vercel Production · 리퍼러 `garakland.lexid.site/*` · `/api/public/config` 자동 연결 |
 | 5 | HTTPS·도메인·운영자·상인 인증(MFA)·재해복구 | 🟡 부분 | HTTPS(Vercel), `GARAK_ADMIN_TOKEN` 시크릿; MFA·DR 미구현 |
 | 6 | 개인정보처리방침·광고 동의/철회·수탁사 계약 | 🟡 부분 | v5 동의/철회·`unsubscribe.html` 구현; 법무 문서·수탁 계약 미체결 |
 | 7 | 이메일/문자/카카오 발송업체 승인·발신번호·수신거부 | 🟡 부분 | 어댑터·모의 큐만; `GARAK_V5_LIVE_MARKETING=0` |

@@ -24,3 +24,11 @@ export function mapDirectionsURL(shop,mode='walking',origin=null){const u=new UR
 export function verifiedCoords(s){return s.coordinateStatus==='verified'&&Number.isFinite(Number(s.latitude))&&Number.isFinite(Number(s.longitude))&&s.latitude!==null&&s.longitude!==null;}
 export function escapeHTML(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 export function cleanShop(s){return {...s,id:String(s.id||'').trim(), name:String(s.name||'').trim(),latitude: s.latitude===''||s.latitude==null?null:Number(s.latitude),longitude:s.longitude===''||s.longitude==null?null:Number(s.longitude),indoorX:s.indoorX===''||s.indoorX==null?null:Number(s.indoorX),indoorY:s.indoorY===''||s.indoorY==null?null:Number(s.indoorY),featured: s.featured===true||s.featured==='true'||s.featured==='1',verifiedAt:String(s.verifiedAt||''),status:String(s.status||'needs_review'),coordinateStatus:String(s.coordinateStatus||'unverified')};}
+export function categoryEditorialWebp(category){
+  const t=String(category||'').toLowerCase();
+  if(t.includes('수산'))return '/assets/v5/seafood.webp';
+  if(t.includes('축'))return '/assets/v5/meat.webp';
+  if(t.includes('청과'))return '/assets/v5/fruit.webp';
+  if(t.includes('식'))return '/assets/v5/market.webp';
+  return '/assets/editorial/market.webp';
+}
