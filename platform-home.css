@@ -92,6 +92,7 @@
 }
 .experience-rail a:last-child { border-right: 0; }
 .experience-rail a:hover { background: #f0f7e9; }
+.experience-rail .rail-ico { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 10px; background: #eef6ef; color: #0a6b4a; font-size: 10px; font-weight: 900; letter-spacing: 0.04em; margin-bottom: 6px; }
 .district-card { text-decoration: none; cursor: pointer; }
 .how-card { text-decoration: none; color: inherit; }
 .market-spotlight {

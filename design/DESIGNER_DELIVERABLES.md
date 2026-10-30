@@ -13,7 +13,8 @@
 | 5 | **통합 기획** | `docs/DESIGN_SYSTEM_INTEGRATION_PLAN.md` | IA·로드맵 |
 | 6 | **시안 5종 가이드** | `docs/design-concepts/` · `TEMPLATE_CATALOG.md` | 컨셉 ↔ 구현 · `/design/home-templates.html` |
 | 7 | **검수 캡처** | `design_gallery.html` + `design/qa.css` + `v4_*` `v5_*` PNG (ZIP) | 회귀·라이브 링크 |
-| 8 | **Asset map** | `design/assets.json` | 카테고리 webp 매핑 |
+| 8 | **Asset map** | `design/assets.json` | brand · mascot · 카테고리 webp |
+| 9 | **Brand + mascot CSS** | `design/brand.css` | 로고 img · 가락한상 배치 |
 
 ## 2. CTA 규칙 (디자이너 승인본)
 

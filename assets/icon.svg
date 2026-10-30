@@ -1,1 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="18" fill="#1f5147"/><path d="M20 21c12-11 27-4 26 8l-9 0c-3-6-14-3-14 4 0 9 14 9 16 1h-9v-7h19v7c-2 19-31 21-36 4-3-8 0-13 7-17z" fill="#fff6df"/><circle cx="48" cy="14" r="7" fill="#ffc977"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="GARAKLAND">
+  <rect width="64" height="64" rx="18" fill="#1f5147"/>
+  <path fill="#d6ef72" d="M32 8l4.2 12.9H49.5L37.6 28.2l4.2 12.9L32 33.8l-9.8 7.3 4.2-12.9L14.5 20.9h13.3z"/>
+  <path fill="#fff6df" d="M18 42c8-6 20-6 28 0v8H18z" opacity=".95"/>
+  <circle cx="48" cy="16" r="6" fill="#e8c547"/>
+</svg>

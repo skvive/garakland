@@ -1,0 +1,124 @@
+/* Shared offer cards — market.html + home TODAY'S PICK (pixel-aligned) */
+.home-offers.cards,
+#homeOffers.cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+.home-offers .card {
+  border: 1px solid #e3ece6;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 5px 18px #15332709;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.home-offers .card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px #15332718;
+}
+.home-offers .card .photo {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+.home-offers .card-body {
+  padding: 16px;
+}
+.home-offers .card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.home-offers .tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  border-radius: 5px;
+  padding: 5px 7px;
+  color: #a36300;
+  background: #fff1d8;
+}
+.home-offers .tag.demo {
+  background: #edf2ed;
+  color: #687a6c;
+}
+.home-offers .card h3 {
+  margin: 13px 0 8px;
+  font-size: 17px;
+  letter-spacing: -0.5px;
+}
+.home-offers .card p.desc {
+  color: #77847e;
+  font-size: 12px;
+  min-height: 37px;
+  margin: 0;
+  line-height: 1.5;
+}
+.home-offers .price {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  margin-bottom: 10px;
+}
+.home-offers .price strong {
+  font-size: 23px;
+  color: #ee5d32;
+}
+.home-offers .price s {
+  font-size: 12px;
+  color: #9baba2;
+}
+.home-offers .shopline {
+  border-top: 1px solid #dfebe4;
+  font-size: 12px;
+  color: #556b60;
+  padding-top: 12px;
+  line-height: 1.45;
+}
+.home-offers .card-cta {
+  margin-top: 14px;
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 10px;
+  border-radius: 8px;
+  background: #007b53;
+  color: #fff;
+}
+.home-offers .loading,
+.home-offers .empty {
+  grid-column: 1 / -1;
+  color: #77847e;
+  padding: 40px;
+  text-align: center;
+}
+@media (max-width: 1080px) {
+  .home-offers.cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 670px) {
+  .home-offers.cards {
+    gap: 10px;
+  }
+  .home-offers .card .photo {
+    height: 128px;
+  }
+  .home-offers .card-body {
+    padding: 12px;
+  }
+  .home-offers .card h3 {
+    font-size: 14px;
+  }
+  .home-offers .price strong {
+    font-size: 18px;
+  }
+}

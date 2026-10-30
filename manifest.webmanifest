@@ -1,1 +1,22 @@
-{"name":"가락랜드 AR QUEST · Beta","short_name":"GARAK QUEST","start_url":"/","display":"standalone","background_color":"#f6f6ef","theme_color":"#183d34","icons":[{"src":"/assets/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any"}]}
+{
+  "name": "가락랜드 AR QUEST · Beta",
+  "short_name": "GARAK QUEST",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f6f6ef",
+  "theme_color": "#183d34",
+  "icons": [
+    {
+      "src": "/assets/brand/garakland-logo-mark.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

@@ -14,11 +14,13 @@
   <link rel="stylesheet" href="/game/studio.css">
   <link rel="stylesheet" href="/platform-home.css">
   <link rel="stylesheet" href="/design/home-deal-hero.css">
+  <link rel="stylesheet" href="/design/market-offer-card.css">
+  <link rel="stylesheet" href="/design/brand.css">
 </head>
 <body class="home-landing" data-gl-active="home">
   <header class="gl-site-header">
     <a class="gl-brand" href="/" aria-label="가락랜드 홈">
-      <span class="gl-brand-mark">✳</span>
+      <span class="gl-brand-mark"><img class="gl-logo-img" src="/assets/brand/garakland-logo-mark.webp" alt="" width="40" height="40"></span>
       <span>GARAKLAND<small>AR · MARKET · BETA</small></span>
     </a>
     <nav class="gl-site-nav" aria-label="주 메뉴">
@@ -50,15 +52,16 @@
         <div class="orb orb1"></div>
         <div class="orb orb2"></div>
         <div class="orb orb3"></div>
-        <div class="hero-token">🍉<span>DISCOVER</span></div>
+        <div class="hero-token"><img src="/assets/mascot/garak-hansang-wave.webp" alt=""><span>가락한상</span></div>
+        <img class="gl-mascot-float" src="/assets/mascot/garak-hansang-hero.webp" alt="" aria-hidden="true">
       </div>
     </section>
 
     <div class="experience-rail" aria-label="빠른 이동">
-      <a href="/index.html"><span>01 · EXPLORE</span><b>🧭 AR 탐험</b><small>카메라·미션·스탬프</small></a>
-      <a href="/market.html"><span>02 · TODAY'S DEAL</span><b>🎟️ 특가·쿠폰</b><small>받기 → 길찾기</small></a>
-      <a href="/map.html"><span>03 · MAP</span><b>🗺️ Google 3D</b><small>매장·길안내</small></a>
-      <a href="/index.html#page-guide"><span>04 · GUIDE</span><b>📖 테마 가이드</b><small>수산·청과·푸드</small></a>
+      <a href="/index.html"><span class="rail-ico">EXP</span><span>01 · EXPLORE</span><b>AR 탐험</b><small>카메라·미션·스탬프</small></a>
+      <a href="/market.html"><span class="rail-ico">DEAL</span><span>02 · TODAY'S DEAL</span><b>특가·쿠폰</b><small>받기 → 길찾기</small></a>
+      <a href="/map.html"><span class="rail-ico">MAP</span><span>03 · MAP</span><b>Google 3D</b><small>매장·길안내</small></a>
+      <a href="/index.html#page-guide"><span class="rail-ico">GUIDE</span><span>04 · GUIDE</span><b>테마 가이드</b><small>수산·청과·푸드</small></a>
     </div>
 
     <div class="editorial-heading">
@@ -71,13 +74,13 @@
     </div>
     <div class="district-grid">
       <a class="district-card" href="/index.html" style="--district-img:url('/assets/editorial/seafood.webp')">
-        <span>THE FRESH SEA</span><strong>바다의 오늘을 만나다</strong><small>🐟 수산 매장 ↗</small>
+        <span>THE FRESH SEA</span><strong>바다의 오늘을 만나다</strong><small>수산 매장 ↗</small>
       </a>
       <a class="district-card" href="/index.html" style="--district-img:url('/assets/editorial/fruit.webp')">
-        <span>THE FRUIT GARDEN</span><strong>계절을 담은 과일 정원</strong><small>🍓 청과 매장 ↗</small>
+        <span>THE FRUIT GARDEN</span><strong>계절을 담은 과일 정원</strong><small>청과 매장 ↗</small>
       </a>
       <a class="district-card" href="/index.html" style="--district-img:url('/assets/editorial/kitchen.webp')">
-        <span>THE FOOD TABLE</span><strong>시장이 식탁이 되는 곳</strong><small>🍜 먹거리 ↗</small>
+        <span>THE FOOD TABLE</span><strong>시장이 식탁이 되는 곳</strong><small>먹거리 ↗</small>
       </a>
     </div>
 
@@ -97,6 +100,7 @@
         </div>
       </div>
       <span class="gl-deal-hero-label">AI 생성 홍보용 시장 이미지 · 실제 점포 사진·간판 아님</span>
+      <img class="gl-mascot-float" src="/assets/mascot/garak-hansang-wave.webp" alt="" aria-hidden="true">
     </section>
 
     <div class="gl-deal-action-row" aria-label="특가 빠른 메뉴">
@@ -118,9 +122,9 @@
       <div><span class="eyebrow dark">HOW TO PLAY</span><h2>탐험 → 혜택 → 길찾기</h2></div>
     </div>
     <div class="how-grid">
-      <a class="how-card" href="/index.html"><span class="num">01 / FIND</span><span class="big-emoji">📷</span><b>매장을 발견</b><p>AR·지도에서 매장 정보를 확인합니다.</p><span class="arrow-circ">↗</span></a>
-      <a class="how-card" href="/market.html"><span class="num">02 / SAVE</span><span class="big-emoji">🎟️</span><b>쿠폰을 받아요</b><p>특가 쿠폰을 지갑에 보관합니다.</p><span class="arrow-circ">↗</span></a>
-      <a class="how-card" href="/map.html"><span class="num">03 / GO</span><span class="big-emoji">🧭</span><b>길안내 시작</b><p>Google 지도로 매장까지 이동합니다.</p><span class="arrow-circ">↗</span></a>
+      <a class="how-card" href="/index.html"><img class="how-photo" src="/assets/editorial/how/find.webp" alt=""><span class="num">01 / FIND</span><b>매장을 발견</b><p>AR·지도에서 매장 정보를 확인합니다.</p><span class="arrow-circ">↗</span></a>
+      <a class="how-card" href="/market.html"><img class="how-photo" src="/assets/editorial/how/save.webp" alt=""><span class="num">02 / SAVE</span><b>쿠폰을 받아요</b><p>특가 쿠폰을 지갑에 보관합니다.</p><span class="arrow-circ">↗</span></a>
+      <a class="how-card" href="/map.html"><img class="how-photo" src="/assets/editorial/how/go.webp" alt=""><span class="num">03 / GO</span><b>길안내 시작</b><p>Google 지도로 매장까지 이동합니다.</p><span class="arrow-circ">↗</span></a>
     </div>
 
     <p class="gl-disclaimer">
@@ -129,7 +133,7 @@
     </p>
 
     <footer class="in-app-footer">
-      <div><b>GARAKLAND <em>STUDIO</em></b><span>통합 홈 · AR + 특가 · garakland.lexid.site</span></div>
+      <div><img class="footer-mascot" src="/assets/mascot/garak-hansang-wave.webp" alt=""><div><b>GARAKLAND <em>STUDIO</em></b><span>통합 홈 · AR + 특가 · 홍보 마스코트 가락한상</span></div></div>
       <a href="https://www.garak.co.kr" target="_blank" rel="noopener noreferrer">시장 공식 안내 ↗</a>
     </footer>
   </main>

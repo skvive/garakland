@@ -5,6 +5,19 @@
     "ar": "/assets/editorial/market.webp",
     "marketBg": "/assets/v6/market-hero.webp"
   },
+  "brand": {
+    "logoMark": "/assets/brand/garakland-logo-mark.webp",
+    "favicon": "/assets/icon.svg"
+  },
+  "mascot": {
+    "garakHansangHero": "/assets/mascot/garak-hansang-hero.webp",
+    "garakHansangWave": "/assets/mascot/garak-hansang-wave.webp"
+  },
+  "howCards": {
+    "find": "/assets/editorial/how/find.webp",
+    "save": "/assets/editorial/how/save.webp",
+    "go": "/assets/editorial/how/go.webp"
+  },
   "categories": {
     "수산": "/assets/v5/seafood.webp",
     "청과": "/assets/v5/fruit.webp",
