@@ -9,7 +9,7 @@ const idOk=s=>typeof s==='string'&&/^[a-z0-9_-]{1,64}$/i.test(s);
 const hallOk=x=>['3','4','5'].includes(x);
 const floorOk=x=>['B3','B2','B1','1F','2F','3F'].includes(x);
 const nodeKey=r=>r.hall+':'+r.floor+':'+r.node;
-const floorKey=x=>x.hall+':'+x.floor;
+const floorKey=x=>x?.hall+':'+x?.floor;
 const transferKinds=new Set(['walk','stairs','escalator','elevator']);
 const isAccess=e=>e.mode==='walk'||e.mode==='elevator';
 export const sampleCampus={
@@ -31,7 +31,7 @@ export function validateCampus(bundle){
    const result=validateLayout(f);
    if(!result.ok)errors.push('floors['+i+']: '+result.errors.slice(0,3).join(' / '));
    if(!result.canPublish)warnings.push(k+': 사용권·점포·노드 검증 승인 조건 미충족');
-   for(const n of f.nodes||[]){
+   for(const n of f?.nodes||[]){
      if(!idOk(n.id))continue;
      const key=nodeKey({hall:f.hall,floor:f.floor,node:n.id});
      nodes.set(key,{...n,hall:f.hall,floor:f.floor,key});
