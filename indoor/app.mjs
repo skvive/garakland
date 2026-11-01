@@ -35,6 +35,9 @@ function init(){
     state.floor=shop.floor;state.hall=shop.hall;state.category='all';state.destination={name:shop.name,hall:shop.hall,floor:shop.floor};
     state.selectedZone=null;render();
   });
+  el('zoneQuickList').addEventListener('click',e=>{
+    const b=e.target.closest('[data-zone-quick]');if(b)selectZone(b.dataset.zoneQuick);
+  });
   el('floorSvg').addEventListener('click',e=>{
     const z=e.target.closest('[data-zone]');
     if(z)selectZone(z.dataset.zone);
@@ -49,13 +52,13 @@ function init(){
   }));
   el('originHall').addEventListener('change',e=>{state.origin.hall=e.target.value;drawRoute();});
   el('originFloor').addEventListener('change',e=>{state.origin.floor=e.target.value;drawRoute();});
-  el('zoomIn').addEventListener('click',()=>setZoom(state.zoom+.2));
-  el('zoomOut').addEventListener('click',()=>setZoom(state.zoom-.2));
+  el('zoomIn').addEventListener('click',()=>setZoom(state.zoom+.4));
+  el('zoomOut').addEventListener('click',()=>setZoom(state.zoom-.4));
   el('zoomReset').addEventListener('click',()=>setZoom(1));
   render();
 }
 function setZoom(value){
-  state.zoom=Math.round(Math.max(1,Math.min(2,value))*10)/10;
+  state.zoom=Math.round(Math.max(1,Math.min(3,value))*10)/10;
   el('zoomValue').value=Math.round(state.zoom*100)+'%';
   el('zoomValue').textContent=Math.round(state.zoom*100)+'%';
   el('floorSvg').style.width=state.zoom===1?'100%':Math.round(100*state.zoom)+'%';
@@ -146,6 +149,7 @@ function floorSvgMarkup(){
 }
 function renderMap(){
   el('floorSvg').innerHTML=floorSvgMarkup();
+  renderZoneQuickList();
   el('floorSvg').setAttribute('aria-label',state.floor+' '+floorDescriptions[state.floor]+' 구조 모식도');
   const mapLegend=el('mapLegend');mapLegend.replaceChildren();
   const used=[...new Set(displayZones(state.hall,state.floor).map(z=>z.category))];
@@ -155,6 +159,20 @@ function renderMap(){
     swatch.style.background=categories[k].color;
     span.append(swatch,document.createTextNode(categories[k].label));
     mapLegend.append(span);
+  });
+}
+function renderZoneQuickList(){
+  const parent=el('zoneQuickList');parent.replaceChildren();
+  const zones=displayZones(state.hall,state.floor);
+  if(!zones.length){
+    const p=document.createElement('p');p.className='empty-zones';p.textContent='선택한 관·층의 정확한 도면 자료가 확보되지 않았습니다.';parent.append(p);return;
+  }
+  zones.forEach(z=>{
+    const b=document.createElement('button');b.type='button';
+    b.dataset.zoneQuick=z.id;b.setAttribute('aria-pressed',String(z.id===state.selectedZone));
+    const sw=document.createElement('span');sw.className='swatch';sw.style.background=categories[z.category]?.color||'#999';
+    const title=document.createElement('span');title.textContent=z.label;
+    b.append(sw,title);parent.append(b);
   });
 }
 function drawRoute(){
