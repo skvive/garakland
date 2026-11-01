@@ -1,6 +1,6 @@
 /* GARAKLAND · customer-delivery responsive QA patch · 2026-11-01 */
 html{scroll-padding-top:80px;-webkit-text-size-adjust:100%}
-body{overflow-x:clip}button,a,input,select,textarea{touch-action:manipulation}
+/* Keep overflow measurable: do not mask layout defects with body clipping. */button,a,input,select,textarea{touch-action:manipulation}
 :where(a,button,input,select,textarea):focus-visible{outline:3px solid #df9f42!important;outline-offset:3px!important}
 :where(img){max-width:100%;height:auto}
 :where(.shop-card,.card,.panel,.detail-photo,.how-card){min-width:0}
@@ -83,3 +83,12 @@ body[data-delivery-page="market"] .hero-badges span{font-size:11px}
 body[data-delivery-page="ops"] .hero{background-position:64% 50%}
 }
 @media(prefers-reduced-motion:reduce){:where(.shop-card,.card,.how-card){transition:none!important}}
+
+/* Follow-up touch audit: compact navigation labels must remain reliable tap targets. */
+body[data-page] .head-inner .logo{min-height:44px}
+body[data-page] .crumb a{display:inline-flex;align-items:center;min-height:36px}
+body[data-delivery-page="ar-quest"] a[href="/market.html"]{min-height:44px;display:inline-flex;align-items:center}
+body[data-delivery-page="map"] :is(.top-guide a,.map-top-tag a,.side-tabs button){display:inline-flex;align-items:center;justify-content:center;min-height:44px}
+body[data-delivery-page="ops"] .authstrip input{min-height:44px}
+body[data-delivery-page="documents"] .topright a{display:inline-flex;align-items:center;min-height:44px}
+body[data-delivery-page="design_gallery"] header nav a{display:inline-flex;align-items:center;min-height:44px}
