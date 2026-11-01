@@ -1,21 +1,23 @@
 {
-  "name": "가락랜드 AR QUEST · Beta",
-  "short_name": "GARAK QUEST",
+  "name": "가락랜드 | 3D 시장 테마파크",
+  "short_name": "가락랜드",
+  "description": "시장을 테마파크처럼 탐험하는 3D 시장지도 · 매장 · 쿠폰 · AR",
+  "lang": "ko-KR",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#f6f6ef",
-  "theme_color": "#183d34",
+  "background_color": "#f5f9fb",
+  "theme_color": "#103b5c",
   "icons": [
+    {
+      "src": "/assets/brand/garakland-themepark-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
     {
       "src": "/assets/brand/favicon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/assets/icon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
       "purpose": "any"
     }
   ]
