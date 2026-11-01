@@ -15,7 +15,11 @@ PAGES=[
  "index.html","home.html","stores.html","store.html","coupons.html",
  "events.html","market-map.html","market-guide.html","merchant-center.html",
  "market.html","ar-quest.html","map.html","ops.html","hub.html",
- "login.html","documents.html","unsubscribe.html","design_gallery.html"
+ "login.html","documents.html","unsubscribe.html","design_gallery.html",
+ "brand_strategy_docs/index.html","brand_strategy_docs/brandbook.html",
+ "brand_strategy_docs/business-plan.html","brand_strategy_docs/copyright-dossier.html",
+ "brand_strategy_docs/investment-proposal.html","design/design-system.html",
+ "design/home-templates.html","previews/index.html"
 ]
 SIZES=[("desktop",1440,900),("mobile",390,844),("compact",360,780)]
 AUDIT_JS="""() => {
@@ -76,6 +80,18 @@ def verify_controls(page, page_path, viewport):
         check(page.locator("#marketNav").evaluate("(e)=>e.classList.contains('open')"),"market mobile menu opens")
         page.locator('button[data-page="wallet"]').first.click(timeout=3000)
         check(page.locator("#wallet").evaluate("(e)=>e.classList.contains('active')"),"market wallet tab works")
+    if page_path=="map.html":
+        pins=page.locator(".concept-building-3d")
+        check(pins.count()==9,"all nine conceptual building pins render")
+        page.locator('[data-zone="seafood"]').click(timeout=3000)
+        chosen=page.locator('.concept-building-3d.is-selected')
+        check(chosen.count()==1,"selected map pin is unique")
+        check("수산" in chosen.inner_text(),"selected building location pin matches tapped building")
+    if page_path in ("index.html","home.html","coupons.html","events.html","market.html","map.html"):
+        guide=page.locator('.gl-park-guide[data-gl-injected="true"]')
+        check(guide.count()==1,"context mascot guide is injected")
+        check(guide.locator('img').get_attribute("src")=="/assets/brand/mascot-sticker.png",
+              "mascot preserves the canonical stored character")
     if page_path=="ops.html":
         page.locator('[data-view="board"]').click(timeout=3000)
         check(page.locator("#board").evaluate("(e)=>e.classList.contains('active')"),"ERP board tab works")
