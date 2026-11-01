@@ -21,7 +21,6 @@ class AdaptSqlTest(unittest.TestCase):
             )
             out = d._adapt_sql(sql)
             self.assertIn('s."coordinateStatus"', out)
-            self.assertIn('\\\"coordinateStatus\\\"', "") if False else None
             self.assertIn('\"coordinateStatus\"=\'verified\'', out)
             self.assertIn('\"blogUrl\"', out)
 
