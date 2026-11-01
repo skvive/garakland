@@ -7,7 +7,7 @@
  */
 export const floorOrder = ['B3','B2','B1','1F','2F','3F'];
 export const halls = [
- {id:'all',label:'전체 구역',description:'가락몰 전체 영역'},
+ {id:'all',label:'전체',description:'가락몰 전체 영역'},
  {id:'3',label:'3관',description:'3관 안내판 기반'},
  {id:'4',label:'4관',description:'공용 연결 구역 · 자료 보강 필요'},
  {id:'5',label:'5관',description:'5관 안내판 기반'}
