@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - 'chatgpt/garakland-android-workspace-*'
+      - 'release/garakland-design-20261102'
     paths:
       - '*.html'
       - 'design/**'
@@ -14,6 +15,8 @@ on:
       - 'ops/**'
       - 'hub/**'
       - 'tests/delivery_page_audit.py'
+      - 'scripts/web_quality_gate.py'
+      - 'brand_strategy_docs/**'
       - '.github/workflows/garakland-design-audit.yml'
   workflow_dispatch:
     inputs:
@@ -34,6 +37,8 @@ jobs:
         with:
           python-version: '3.11'
       - run: python -m pip install playwright pg8000
+      - name: Validate HTML/CSS assets and JavaScript syntax
+        run: python scripts/web_quality_gate.py
       - name: Assert Garakland theme park branding and 3D routing
         run: python -m unittest discover -s tests -p 'test_themepark_brand.py' -v
       - run: python -m playwright install --with-deps chromium
