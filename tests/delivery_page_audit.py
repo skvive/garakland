@@ -13,7 +13,7 @@ OUT=ROOT/"qa-artifacts"/"design-delivery"
 OUT.mkdir(parents=True,exist_ok=True)
 PAGES=[
  "index.html","home.html","stores.html","store.html","coupons.html",
- "events.html","market-guide.html","merchant-center.html",
+ "events.html","market-map.html","market-guide.html","merchant-center.html",
  "market.html","ar-quest.html","map.html","ops.html","hub.html",
  "login.html","documents.html","unsubscribe.html","design_gallery.html"
 ]
@@ -51,7 +51,7 @@ def verify_controls(page, page_path, viewport):
     def check(ok, title):
         if not ok: raise AssertionError(title)
         notes.append(title)
-    if page_path in ("index.html","stores.html","store.html","coupons.html","events.html","market-map.html","market-guide.html","merchant-center.html"):
+    if page_path in ("index.html","stores.html","store.html","coupons.html","events.html","market-guide.html","merchant-center.html"):
         toggle=page.locator("#menu-toggle")
         toggle.click(timeout=3000)
         check(page.locator("#primary-nav").evaluate("(e)=>e.classList.contains('open')"),"brand mobile menu opens")
