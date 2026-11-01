@@ -81,7 +81,7 @@ def run():
                 assert page.locator("#routeSteps").get_by_text("구역", exact=False).count() > 0
                 checks += 1
                 page.locator("#zoomIn").click()
-                assert "120%" in page.locator("#zoomValue").inner_text()
+                assert "140%" in page.locator("#zoomValue").inner_text()
                 page.locator("#zoomReset").click()
                 assert "100%" in page.locator("#zoomValue").inner_text()
                 checks += 1
