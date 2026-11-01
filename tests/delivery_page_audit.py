@@ -79,6 +79,41 @@ def verify_controls(page, page_path, viewport):
         check(page.locator("#board").evaluate("(e)=>e.classList.contains('active')"),"ERP board tab works")
     return notes
 
+
+def capture_inner_views(page, route, viewport):
+    """Check tab pages hidden behind a single URL; capture each rendered state."""
+    if viewport not in ("desktop","mobile"):
+        return []
+    configs={
+        "market.html": ["wallet","marketing","merchant"],
+        "ops.html": ["board","documents","products","settlement","checklist"],
+        "ar-quest.html": ["directory","missions","coupons","delivery","merchant","guide"],
+    }
+    out=[]
+    for state in configs.get(route,[]):
+        try:
+            if route=="market.html":
+                if viewport=="mobile" and not page.locator("#marketNav").evaluate("(e)=>e.classList.contains('open')"):
+                    page.locator("#menuToggle").click(timeout=3500)
+                page.locator("#marketNav button[data-page='"+state+"']").click(timeout=3500)
+                active=page.locator("#"+state).evaluate("(e)=>e.classList.contains('active')")
+            elif route=="ops.html":
+                page.locator('button[data-view="'+state+'"]').click(timeout=3500)
+                active=page.locator("#"+state).evaluate("(e)=>e.classList.contains('active')")
+            else:
+                page.locator('button[data-page="'+state+'"]:visible').first.click(timeout=3500)
+                active=page.locator("#page-"+state).evaluate("(e)=>e.classList.contains('active')")
+            if not active: raise AssertionError("tab did not activate")
+            page.wait_for_timeout(220)
+            metrics=page.evaluate(AUDIT_JS)
+            fname=route.replace(".html","")+"_"+state+"_"+viewport+".png"
+            page.screenshot(path=str(OUT/fname),full_page=True,animations="disabled",timeout=20000)
+            out.append({"view":state,"screenshot":fname,"overflow":metrics["overflow"],
+                        "brokenImages":metrics["brokenImages"],"ok":True})
+        except Exception as e:
+            out.append({"view":state,"ok":False,"error":str(e)[:250]})
+    return out
+
 def main():
     tmp=tempfile.TemporaryDirectory()
     env=os.environ.copy()
@@ -123,6 +158,7 @@ def main():
                             d["interactionChecks"]=verify_controls(page,page_path,label)
                         except Exception as interaction_error:
                             d["interactionError"]=str(interaction_error)[:250]
+                        d["innerViews"]=capture_inner_views(page,page_path,label)
                     except Exception as exc:
                         d={"path":page_path,"device":label,"width":w,"fatal":str(exc)[:320]}
                     results.append(d)
@@ -135,7 +171,7 @@ def main():
         except subprocess.TimeoutExpired:proc.kill()
         tmp.cleanup()
     (OUT/"audit.json").write_text(json.dumps(results,ensure_ascii=False,indent=2),encoding="utf-8")
-    findings=[r for r in results if r.get("fatal") or r.get("status")!=200 or r.get("overflow",0)>4 or r.get("brokenImages") or r.get("interactionError")]
+    findings=[r for r in results if r.get("fatal") or r.get("status")!=200 or r.get("overflow",0)>4 or r.get("brokenImages") or r.get("interactionError") or any((not v.get("ok")) or v.get("overflow",0)>4 or v.get("brokenImages") for v in r.get("innerViews",[]))]
     print("CAPTURED:",len(results),"FINDINGS:",len(findings),flush=True)
     if "--strict" in sys.argv and findings:
         print(json.dumps(findings[:8],ensure_ascii=False,indent=2),flush=True)
