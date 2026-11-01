@@ -47,7 +47,7 @@ def run():
                 page.on("pageerror", lambda e, errors=errors: errors.append(str(e)[:300]))
                 response = page.goto(base + "/indoor-map.html", wait_until="networkidle", timeout=30000)
                 assert response and response.status == 200
-                assert "실내 지도" in page.title()
+                assert "가락몰 실내" in page.title()
                 page.get_by_role("button", name="5관", exact=True).click()
                 page.get_by_role("button", name="3F", exact=True).click()
                 page.wait_for_timeout(130)
