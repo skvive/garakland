@@ -25,6 +25,8 @@ jobs:
           python-version: '3.11'
       - name: Floor-model rules and verified-confidence metadata
         run: node tests/indoor_nav.test.mjs
+      - name: Rights-gated floor geometry and accessible route regression
+        run: node tests/indoor_layout_schema.test.mjs
       - name: Validate all HTML/CSS links and JS syntax
         run: python scripts/web_quality_gate.py
 
