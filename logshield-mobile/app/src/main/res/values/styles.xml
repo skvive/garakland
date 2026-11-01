@@ -1,0 +1,9 @@
+<resources>
+    <style name="LogShieldTheme" parent="android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:colorAccent">#17B9A3</item>
+        <item name="android:statusBarColor">#091423</item>
+        <item name="android:navigationBarColor">#091423</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>

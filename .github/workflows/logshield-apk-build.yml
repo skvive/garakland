@@ -1,0 +1,49 @@
+name: LogShield Android APK (isolated build)
+on:
+  push:
+    branches:
+      - chatgpt/logshield-apk-build-20261101
+    paths:
+      - 'logshield-mobile/**'
+      - '.github/workflows/logshield-apk-build.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  android-debug-apk:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.13'
+      - name: Install Android SDK platform 36
+        run: sdkmanager 'platforms;android-36' 'build-tools;36.0.0'
+      - name: Build installable debug APK
+        working-directory: logshield-mobile
+        run: gradle --no-daemon --stacktrace :app:assembleDebug
+      - name: Lint report
+        working-directory: logshield-mobile
+        run: gradle --no-daemon :app:lintDebug
+      - name: APK metadata and integrity
+        run: |
+          APK=logshield-mobile/app/build/outputs/apk/debug/app-debug.apk
+          test -s "$APK"
+          sha256sum "$APK" | tee logshield-mobile/LOGSHIELD_DEBUG_APK.sha256
+          unzip -l "$APK" | head -25
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: LogShield-Android-Installable-Debug-APK
+          path: |
+            logshield-mobile/app/build/outputs/apk/debug/app-debug.apk
+            logshield-mobile/LOGSHIELD_DEBUG_APK.sha256
+            logshield-mobile/app/build/reports/lint-results-debug.html
+          if-no-files-found: warn
+          retention-days: 30

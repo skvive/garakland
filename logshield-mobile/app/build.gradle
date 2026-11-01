@@ -1,0 +1,27 @@
+plugins { id 'com.android.application' }
+
+android {
+    namespace 'site.lexid.logshield'
+    compileSdk 36
+
+    defaultConfig {
+        applicationId 'site.lexid.logshield'
+        minSdk 28
+        targetSdk 36
+        versionCode 2
+        versionName '1.0.0-beta'
+    }
+
+    buildTypes {
+        debug { debuggable true }
+        release {
+            minifyEnabled false
+            // Production signing config must come from a secure CI secret, never the ZIP.
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    lint { abortOnError true }
+}
