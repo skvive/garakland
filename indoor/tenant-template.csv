@@ -1,0 +1,2 @@
+shop_id,name,hall,floor,room,category,source_ref
+example-001,검수 전 예시 매장,5,1F,,food,on-site-source-id
