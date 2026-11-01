@@ -1,0 +1,64 @@
+/* 2026-11-02 · Garakland MARKET THEME PARK design language
+   The GarakHansang mascot appears ONLY in clearly identified partner/sponsor context. */
+:root{--gl-theme-navy:#113a5a;--gl-theme-deep:#062a46;--gl-theme-sky:#ecf8ff;--gl-theme-yellow:#ffca57;--gl-theme-coral:#f27a50;--gl-theme-mint:#cbeee2;--gl-theme-green:#13765a}
+body[data-page]{--green:#176c53;--deep:#123b57;--deep2:#082e49;--cream:#eff7f6;--paper:#fffefb;--red:#e46b4a;--gold:#efb447;--brown:#5f7283;background:#f5f9fb;color:#153a50}
+body[data-page] .top-notice{background:#0c3554;color:#f7fbff;font-size:12px;letter-spacing:.02em}
+body[data-page] .top-notice span{color:#ffe29c;opacity:1}
+body[data-page] .site-header{background:rgba(255,255,255,.97);box-shadow:0 2px 18px rgba(19,58,84,.08)}
+body[data-page] .head-inner{gap:clamp(12px,2.1vw,31px);height:91px}
+.gl-theme-brand-logo{display:block;width:clamp(210px,26vw,345px);height:auto;max-height:78px;object-fit:contain;object-position:left center}
+body[data-page] .search-global{background:#f6fbfe;border:1px solid #c9e2e7;box-shadow:0 4px 13px #113b5708}
+body[data-page] .search-global button{background:#116d83}
+body[data-page] .nav-inner{gap:clamp(14px,2.3vw,34px)}
+body[data-page] .nav-inner a{font-size:13px;color:#325b6c;font-weight:800}
+body[data-page] .nav-inner a.active,body[data-page] .nav-inner a:hover{border-bottom-color:#f0a844;color:#0d526c}
+body[data-page] .nav-inner .nav-beta{color:#bb5927}
+body[data-page] .hero{background:linear-gradient(99deg,rgba(5,37,70,.96) 0%,rgba(8,66,97,.78) 45%,rgba(8,60,86,.07) 100%),url('/assets/editorial/market.webp') center/cover}
+body[data-page] .hero h1{text-shadow:0 4px 24px #03233c50;line-height:1.15}
+body[data-page] .hero h1 em{color:#ffdc72}
+body[data-page] .hero .hero-kicker{color:#a7e7f5}
+body[data-page] .btn-primary{background:#f8bb45;border-color:#efae2d;color:#183853;box-shadow:0 5px 16px #051e3240}
+body[data-page] .btn-primary:hover{background:#ffd371}
+body[data-page] .hero-ctas .btn-outline-white{border-color:#c9f3f8;color:#fff;background:#ffffff18}
+body[data-page] .page-hero{background:linear-gradient(100deg,#0b3a61,#1c7190)}
+body[data-page] .page-hero:after{opacity:.3}
+body[data-page] .page-hero .eyebrow{color:#ffe69a}
+body[data-page] .page-hero p{color:#e6f3f9}
+body[data-page] .chip.active{background:#0e7090;color:#fff;border-color:#0e7090}
+body[data-page] .shop-card,body[data-page] .event-card,body[data-page] .coupon-card{border-color:#d9e8ee;box-shadow:0 7px 26px #10395110}
+body[data-page] .bottom-nav{background:#fff;box-shadow:0 -4px 24px #0a365618}
+body[data-page] .bottom-nav a.active{color:#0f7191}
+.gl-sponsor-inline{display:flex;align-items:center;gap:16px;padding:15px 20px;margin:30px auto 10px;border:1px solid #e1e8e5;border-radius:22px;background:linear-gradient(100deg,#fffaf0,#fff);box-shadow:0 5px 20px #153b3510}
+.gl-sponsor-inline img{width:76px;height:76px;object-fit:contain;flex:none}
+.gl-sponsor-inline span{display:block;color:#9d6c39;font-size:11px;font-weight:900;letter-spacing:.03em}
+.gl-sponsor-inline strong{display:block;font-size:17px;font-weight:900;color:#164d42;margin:4px 0}
+.gl-sponsor-inline p{font-size:12px;color:#647a75;line-height:1.7;margin:0}
+.gl-sponsor-inline a{margin-left:auto;display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 17px;background:#176a51;color:#fff;border-radius:12px;text-decoration:none;white-space:nowrap;font-size:12px;font-weight:800}
+.gl-sponsor-inline.is-partner-small{margin-block:22px}
+.gl-brand-partner-link{font-size:12px;color:#156b53}
+.gl-themepark-disclaimer{font-size:12px;line-height:1.6;color:#60798d}
+@media(max-width:1020px){
+ body[data-page] .head-inner{height:78px}
+ .gl-theme-brand-logo{width:clamp(180px,24vw,270px)}
+ body[data-page] .nav-inner{gap:14px}
+}
+@media(max-width:700px){
+ body[data-page] .head-inner{height:70px;gap:7px}
+ .gl-theme-brand-logo{width:clamp(150px,39vw,205px);max-height:60px}
+ body[data-page] .top-notice{font-size:10px;padding:7px 10px}
+ body[data-page] .hero{background-position:58% center}
+ body[data-page] .hero-copy{padding-top:52px;padding-bottom:108px}
+ body[data-page] .hero h1{font-size:clamp(34px,9vw,48px)}
+ body[data-page] .hero p{font-size:13px}
+ body[data-page] .hero-labels span{font-size:11px}
+ .gl-sponsor-inline{gap:11px;padding:14px;border-radius:16px;flex-wrap:wrap}
+ .gl-sponsor-inline img{width:55px;height:55px}
+ .gl-sponsor-inline strong{font-size:14px}
+ .gl-sponsor-inline p{font-size:11px}
+ .gl-sponsor-inline a{width:100%;margin:5px 0 0}
+}
+@media(max-width:375px){.gl-theme-brand-logo{width:139px}body[data-page] .head-inner{gap:4px}}
+/* Non-brand templates keep current visual hierarchy but adopt Garakland logo. */
+.gl-logo-header[src$=".svg"]{height:60px;width:auto;max-width:min(330px,40vw);object-fit:contain}
+.gl-logo-mark[src$=".svg"]{object-fit:contain;box-shadow:none;background:transparent}
+@media(max-width:760px){.gl-logo-header[src$=".svg"]{display:none}.gl-logo-mark[src$=".svg"]{display:block;width:44px;height:44px}}
