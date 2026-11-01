@@ -140,7 +140,7 @@ class GrowthV5Integration(unittest.TestCase):
   r=self.post('/api/v5/optout',{'token':token,'channel':'email'},client=self.operator)
   self.assertEqual(r.status_code,200,r.text)
   self.assertEqual(self.get('/api/v5/me').json()['contact']['email_opt'],0)
-  self.assertEqual(self.post('/api/v5/optout',{'token':token[:-1]+'0','channel':'email'}).status_code,403)
+  self.assertEqual(self.post('/api/v5/optout',{'token':token[:-1]+('1' if token[-1]=='0' else '0'),'channel':'email'}).status_code,403)
  def test_18_live_marketing_fail_closed(self):
   r=self.post('/api/v5/admin/dispatch-live',{'liveApproved':True,'broadcastId':'no-such','limit':5},headers=self.admin_header)
   self.assertEqual(r.status_code,403)
