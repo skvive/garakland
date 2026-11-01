@@ -93,11 +93,46 @@ def run():
                 checks += 1
                 # Legacy outdoor map link remains available.
                 assert page.locator('a[href="/map.html"]').count() >= 1
+                assert page.locator('a[href="/indoor-layout-lab.html"]').count() >= 1
                 checks += 1
+                # Floor-plan workbench must run locally and never auto-publish imported data.
+                response = page.goto(base + "/indoor-layout-lab.html", wait_until="networkidle")
+                assert response and response.status == 200
+                assert "검수" in page.title()
+                assert "미게시" in page.locator("#status").inner_text()
+                page.locator("#shopName").fill("QA 임시상점")
+                page.locator("#shopCategory").fill("식당")
+                page.locator("#startPin").click()
+                page.locator("#preview").click(position={"x": 280, "y": 230})
+                assert page.locator("#shopRows .shop-record").count() == 1
+                assert "미게시" in page.locator("#status").inner_text()
+                checks += 1
+                page.locator("#hall").select_option("3")
+                assert page.locator("#shopRows .shop-record").count() == 0, "floor change must clear stale geometry"
+                checks += 1
+                import json
+                draft = {
+                  "schemaVersion":1,"hall":"5","floor":"1F",
+                  "source":{"id":"qa-floor","title":"QA 임시 도면","kind":"illustrative",
+                            "status":"draft","permissionRef":"","reviewer":"","reviewDate":""},
+                  "outline":[[8,20],[72,18],[90,45],[78,70],[10,72]],
+                  "entrances":[],"shops":[],"nodes":[],"edges":[]
+                }
+                page.locator("#inputFile").set_input_files({
+                    "name":"qa-floor.json","mimeType":"application/json",
+                    "buffer":json.dumps(draft,ensure_ascii=False).encode("utf-8")
+                })
+                assert "QA 임시 도면" == page.locator("#sourceTitle").input_value()
+                assert page.locator("#hall").input_value() == "5"
+                assert page.locator("#floor").input_value() == "1F"
+                assert "미게시" in page.locator("#status").inner_text()
+                checks += 1
+                if label != "compact":
+                    page.screenshot(path=str(OUT / (label + "_layout_workbench.png")),full_page=True)
                 context.close()
             browser.close()
         assert not errors, errors
-        print(f"PASS indoor beta Chromium: {checks} assertions, 3 viewports, 14 floor/hall screenshots, {len(errors)} JS exceptions")
+        print(f"PASS indoor beta Chromium: {checks} assertions, 3 viewports, 16 screenshots (floor/hall + workbench), {len(errors)} JS exceptions")
     finally:
         server.terminate()
         try:
