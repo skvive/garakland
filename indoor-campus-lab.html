@@ -1,0 +1,38 @@
+<!doctype html><html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#123d58"><title>가락몰 관·층 연결 경로 검수 | GARAKLAND</title>
+<meta name="description" content="가락몰 다층 도면 연결 검수 실험실. 현장 실측과 사용권 검증 전에는 실제 경로를 안내하지 않습니다.">
+<link rel="stylesheet" href="/indoor/layout-lab.css">
+</head><body>
+<a class="skip" href="#main">본문 바로가기</a>
+<header class="head"><a href="/indoor-map.html">← 층별 안내</a><div><strong>가락몰 관·층 이동 검수</strong><span>INDOOR MULTI-FLOOR GRAPH · 검증용 실험실</span></div><a href="/indoor-layout-lab.html">개별 층 도면 작업대 ↗</a></header>
+<div class="warning" role="note"><b>시연 · 정확한 실제 길안내 아님</b> 공식 도면·실측 자료가 아직 연결되지 않았습니다. 테스트 예제는 가상 관/층을 이용한 알고리즘 검수용이며, 실제 가락몰 통로·거리·피난 경로와 관계없습니다.</div>
+<main id="main">
+<section class="left">
+<div class="section-title"><span>01 / 관·층 연결 확인</span><h1>검증된 자료만 경로로 연결</h1><p>각 층의 허가 도면, 승강기·계단 위치, 관 사이 연결통로, 실측거리를 하나의 경로 그래프로 합칩니다.</p></div>
+<div class="actions"><button type="button" id="testExample" class="primary">합성 테스트 예제</button><label class="upload">로컬 JSON 불러오기<input id="inputCampus" type="file" accept=".json,application/json"></label><button id="exportDraft" type="button">미승인 초안 내려받기</button></div>
+<div class="state-box"><span>관·층 경로 상태</span><strong id="graphStatus">자료 없음</strong><p id="graphNote">출입구와 관 이동 연결 데이터가 등록되면 검증할 수 있습니다.</p></div>
+<div class="results"><h2>검수 요약</h2><p id="counts">등록한 도면 없음</p><ul id="validationMessages" aria-live="polite"></ul></div>
+<fieldset><legend>길찾기 실험 <small>등록된 승인 그래프만 계산</small></legend>
+<div class="fields"><label class="full">출발 지점<select id="startNode"></select></label><label class="full">도착 지점<select id="endNode"></select></label></div>
+<label class="wheelchair-option"><input id="wheelchairMode" type="checkbox"> 휠체어 모드 · 계단/에스컬레이터 제외</label>
+<button type="button" id="routeButton">등록 그래프에서 경로 계산</button>
+<p class="hint">실제 도면과 검수 자료가 없으면 경로 계산을 차단합니다. 화면에 표시되는 거리는 시연 데이터일 수 있습니다.</p>
+</fieldset>
+</section>
+<section class="right">
+<div class="preview-head"><div><span class="eyebrow">02 / 다층 연결 네트워크</span><h2 id="previewTitle">도면 미등록</h2><p>관·층·노드와 연결 수단의 데이터 정합성만 검증합니다. 그림은 공식 평면도가 아닙니다.</p></div><span class="draft-tag">PUBLICATION DISABLED</span></div>
+<div class="map-wrap"><svg id="campusSvg" role="img" viewBox="0 0 1000 600" aria-label="검토용 관·층 연결 구조도"></svg></div>
+<div class="map-help"><span>파란색: 보행</span><span>초록색: 엘리베이터</span><span>주황색: 계단/에스컬레이터</span><span>거리: 등록된 간선 값만 사용</span></div>
+<div class="route-result" id="routeResult" aria-live="polite">출발·목적지를 선택해 경로를 검증하세요.</div>
+<div class="data-table"><h3>층간 및 관 연결</h3><div id="transferRows"></div></div>
+<div class="references"><h3>실제 배포 전 확인 항목</h3><ol>
+<li>관리주체의 각 관·층 공식 도면과 데이터 사용권 확보</li>
+<li>승강기·에스컬레이터·계단의 층간 접속점 실측</li>
+<li>관 연결 통로, 출입 제한, 무장애 동선 검증</li>
+<li>현재 입점 점포의 호실·출입문 방향 확인</li>
+<li>운영 관리자 이중 승인 및 도면 변경 이력 관리</li>
+</ol><p>현재 단계에서는 수집한 현장 사진의 안내판 정보와 구획 개략도만 사용합니다. 비상대피 경로로 사용하지 마세요.</p></div>
+</section></main>
+<footer>GARAKLAND INDOOR MAP · MULTI-FLOOR ROUTING BETA · 고객 운영 미반영</footer>
+<script type="module" src="/indoor/campus-lab.mjs"></script></body></html>
