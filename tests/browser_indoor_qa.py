@@ -122,7 +122,7 @@ def run():
                     "name":"qa-floor.json","mimeType":"application/json",
                     "buffer":json.dumps(draft,ensure_ascii=False).encode("utf-8")
                 })
-                assert "QA 임시 도면" == page.locator("#sourceTitle").input_value()
+                page.wait_for_function("document.querySelector('#sourceTitle')?.value === 'QA 임시 도면'", timeout=8000)
                 assert page.locator("#hall").input_value() == "5"
                 assert page.locator("#floor").input_value() == "1F"
                 assert "미게시" in page.locator("#status").inner_text()
