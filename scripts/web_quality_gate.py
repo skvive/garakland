@@ -18,7 +18,7 @@ ATTRS = {
     "img": ("src",), "iframe": ("src",), "source": ("src",),
     "video": ("src", "poster"), "audio": ("src",), "form": ("action",),
 }
-CSS_URL = re.compile(r"url\\(\\s*['\\\"]?([^\\)\\\"]+)['\\\"]?\\s*\\)", re.I)
+CSS_URL = re.compile(r"url\(\s*['\"]?([^)'\"]+)['\"]?\s*\)", re.I)
 
 
 class Links(HTMLParser):
