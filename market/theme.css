@@ -21,3 +21,49 @@
 }
 body.gl-has-mobile-nav .shell{padding-bottom:calc(8px + env(safe-area-inset-bottom))}
 body.gl-has-mobile-nav footer{margin-bottom:calc(64px + env(safe-area-inset-bottom))}
+
+
+/* 2026-11-01 mobile / tablet design QA: prevent cramped cards and mascot collision */
+.hero-inner{position:relative;z-index:1}
+.hero h1,.hero p{word-break:keep-all;overflow-wrap:break-word}
+.hero-actions button{min-height:44px}
+.action-row button{min-width:0;min-height:104px;column-gap:8px;align-content:center}
+.action-row b,.action-row small{word-break:keep-all;overflow-wrap:break-word;line-height:1.4}
+@media(max-width:1100px){
+ .action-row{grid-template-columns:repeat(2,minmax(0,1fr));width:min(96%,760px);gap:12px}
+ .action-row button{min-height:98px}
+ .info-grid{grid-template-columns:1fr}
+}
+@media(max-width:920px){
+ .top{height:70px;padding:0 4%}
+ .top .mobmenu{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;flex-shrink:0}
+ .top nav{display:none;position:absolute;top:100%;left:0;right:0;max-height:calc(100dvh - 80px);overflow-y:auto;padding:10px 4% 16px;background:#fff;box-shadow:0 12px 24px #081d1b28;flex-direction:column;align-items:stretch;z-index:35}
+ .top nav.open{display:flex}
+ .top nav .older{display:block}
+ .top nav a,.top nav button{width:100%;text-align:left;min-height:44px;white-space:normal}
+ .top .brand{min-width:0;max-width:calc(100% - 70px)}
+}
+@media(max-width:670px){
+ .hero{min-height:0;background-position:63% center}
+ .hero-inner{padding:33px 22px 64px;max-width:100%}
+ .hero .eyebrow{line-height:1.6;letter-spacing:1px;font-size:10px}
+ .hero h1{font-size:clamp(29px,8.6vw,37px);line-height:1.26;letter-spacing:-1.5px;margin-bottom:16px}
+ .hero p{font-size:13px;line-height:1.7;max-width:31ch}
+ .hero-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
+ .hero-actions button{padding:12px 14px;max-width:100%}
+ .hero-badges{display:flex;flex-wrap:wrap;gap:7px;line-height:1.5}
+ .hero-label{right:12px;bottom:10px;max-width:calc(100% - 24px);font-size:9px;line-height:1.35;text-align:right}
+ .action-row{width:100%;margin:15px auto 27px;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ .action-row button{display:grid;grid-template-columns:36px minmax(0,1fr);padding:12px 10px;min-height:96px;gap:3px 8px}
+ .action-row b{font-size:13px;line-height:1.4}
+ .action-row small{font-size:10px;line-height:1.4}
+ .action-row span{font-size:24px}
+ .page{padding-bottom:calc(85px + env(safe-area-inset-bottom))}
+ .page-head h1{overflow-wrap:break-word;word-break:keep-all}
+ .panel,.editorial{min-width:0}
+ .tablewrap{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+
+/* Keep the beta tag intact on narrow screens (not split across lines) */
+@media(max-width:670px){.hero .eyebrow span{display:inline-flex;white-space:nowrap;vertical-align:middle;margin:7px 0 0;padding:5px 9px;letter-spacing:.6px}}
