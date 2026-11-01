@@ -36,7 +36,7 @@ jobs:
       - run: python -m pip install playwright pg8000
       - run: python -m playwright install --with-deps chromium
       - name: Render 18 routes × desktop/mobile/compact and record defects
-        run: python tests/delivery_page_audit.py ${{ inputs.strict && '--strict' || '' }}
+        run: python tests/delivery_page_audit.py --strict
       - name: Save screenshot + measurable browser QA evidence
         if: always()
         uses: actions/upload-artifact@v4
