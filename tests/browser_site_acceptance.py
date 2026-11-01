@@ -175,6 +175,22 @@ def main():
                         finally:
                             page.close()
                     context.close()
+                # Explicit deep-link regression: the design template guide and missions
+                # anchors must activate the correct AR SPA panel, not the brand homepage.
+                deep = browser.new_page()
+                try:
+                    for fragment, panel in [("#page-guide", "page-guide"), ("#page-missions", "page-missions")]:
+                        response = deep.goto(base + "/ar-quest.html" + fragment, wait_until="domcontentloaded")
+                        deep.wait_for_function(
+                            "(id) => document.getElementById(id)?.classList.contains('active')",
+                            panel,
+                            timeout=6000,
+                        )
+                        count += 1
+                except Exception as exc:
+                    failures.append(f"AR deep link: {str(exc)[:180]}")
+                finally:
+                    deep.close()
                 browser.close()
         finally:
             srv.terminate()
