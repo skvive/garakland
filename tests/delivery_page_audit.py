@@ -42,6 +42,43 @@ AUDIT_JS="""() => {
    overflow,brokenImages:images.filter(x=>x.broken),imagesCount:images.length,
    smallControls:tooSmall,wideElements:wide,bodyHeight:document.body.scrollHeight};
 }"""
+
+def verify_controls(page, page_path, viewport):
+    """Exercise representative real click handlers, not visual-only screenshots."""
+    if viewport != "compact":
+        return []
+    notes=[]
+    def check(ok, title):
+        if not ok: raise AssertionError(title)
+        notes.append(title)
+    if page_path in ("index.html","stores.html","store.html","coupons.html","events.html","market-map.html","market-guide.html","merchant-center.html"):
+        toggle=page.locator("#menu-toggle")
+        toggle.click(timeout=3000)
+        check(page.locator("#primary-nav").evaluate("(e)=>e.classList.contains('open')"),"brand mobile menu opens")
+        toggle.click(timeout=3000)
+        check(not page.locator("#primary-nav").evaluate("(e)=>e.classList.contains('open')"),"brand mobile menu closes")
+    if page_path=="stores.html":
+        page.locator('button[data-category="수산"]').click(timeout=3000)
+        check(page.locator('button[data-category="수산"]').evaluate("(e)=>e.classList.contains('active')"),"category filter selects")
+        page.locator("#store-search").fill("qwertyuiopnomatch")
+        check(page.locator("#shop-empty").is_visible(),"search empty state appears")
+    if page_path=="events.html":
+        page.locator('button[data-event-filter="수산"]').click(timeout=3000)
+        check(page.locator('button[data-event-filter="수산"]').evaluate("(e)=>e.classList.contains('active')"),"event category changes")
+    if page_path=="coupons.html":
+        button=page.locator("[data-claim]").first
+        button.click(timeout=3000)
+        check(page.locator("#wallet-qty").inner_text().strip()!="0","demo coupon added")
+    if page_path=="market.html":
+        page.locator("#menuToggle").click(timeout=3000)
+        check(page.locator("#marketNav").evaluate("(e)=>e.classList.contains('open')"),"market mobile menu opens")
+        page.locator('button[data-page="wallet"]').first.click(timeout=3000)
+        check(page.locator("#wallet").evaluate("(e)=>e.classList.contains('active')"),"market wallet tab works")
+    if page_path=="ops.html":
+        page.locator('[data-view="board"]').click(timeout=3000)
+        check(page.locator("#board").evaluate("(e)=>e.classList.contains('active')"),"ERP board tab works")
+    return notes
+
 def main():
     tmp=tempfile.TemporaryDirectory()
     env=os.environ.copy()
@@ -82,6 +119,10 @@ def main():
                         page.screenshot(path=str(OUT/fname),full_page=True,
                                         animations="disabled",timeout=20000)
                         d["screenshot"]=fname
+                        try:
+                            d["interactionChecks"]=verify_controls(page,page_path,label)
+                        except Exception as interaction_error:
+                            d["interactionError"]=str(interaction_error)[:250]
                     except Exception as exc:
                         d={"path":page_path,"device":label,"width":w,"fatal":str(exc)[:320]}
                     results.append(d)
@@ -94,7 +135,7 @@ def main():
         except subprocess.TimeoutExpired:proc.kill()
         tmp.cleanup()
     (OUT/"audit.json").write_text(json.dumps(results,ensure_ascii=False,indent=2),encoding="utf-8")
-    findings=[r for r in results if r.get("fatal") or r.get("status")!=200 or r.get("overflow",0)>4 or r.get("brokenImages")]
+    findings=[r for r in results if r.get("fatal") or r.get("status")!=200 or r.get("overflow",0)>4 or r.get("brokenImages") or r.get("interactionError")]
     print("CAPTURED:",len(results),"FINDINGS:",len(findings),flush=True)
     if "--strict" in sys.argv and findings:
         print(json.dumps(findings[:8],ensure_ascii=False,indent=2),flush=True)
