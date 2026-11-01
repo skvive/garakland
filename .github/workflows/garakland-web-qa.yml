@@ -80,3 +80,23 @@ jobs:
         env:
           GARAK_READONLY_BASE: https://garakland.lexid.site
         run: python tests/live_readonly_smoke.py
+
+  source-release:
+    name: Source and QA docs archive
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Package exact tracked QA branch
+        run: |
+          mkdir -p release
+          git archive --format=zip --prefix=GARAKLAND_QA_SOURCE/ --output=release/GARAKLAND_QA_SOURCE_20261102.zip HEAD
+          sha256sum release/GARAKLAND_QA_SOURCE_20261102.zip > release/GARAKLAND_QA_SOURCE_20261102.sha256
+      - name: Upload auditable source archive
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: garakland-full-source-qa
+          path: release/
+          retention-days: 30
