@@ -161,10 +161,28 @@ def run():
                 page.locator("#calculateRoute").click()
                 assert "검증된 연결 동선" in page.locator("#routeResult").inner_text()
                 checks += 1
+                # Multi-floor graph is a separate offline planning lab.
+                response = page.goto(base + "/indoor-campus-lab.html", wait_until="networkidle")
+                assert response and response.status == 200
+                assert "실제 길안내 아님" in page.locator(".warning").inner_text()
+                page.locator("#testExample").click()
+                assert "테스트 예제" in page.locator("#graphStatus").inner_text()
+                assert page.locator("#transferRows .shop-record").count() == 3
+                page.locator("#routeButton").click()
+                assert "49m" in page.locator("#routeResult").inner_text()
+                assert "TEST ONLY" in page.locator("#routeResult").inner_text()
+                checks += 1
+                page.locator("#wheelchairMode").check()
+                page.locator("#routeButton").click()
+                assert "67m" in page.locator("#routeResult").inner_text()
+                assert "TEST ONLY" in page.locator("#routeResult").inner_text()
+                checks += 1
+                if label != "compact":
+                    page.screenshot(path=str(OUT / (label + "_campus_graph.png")),full_page=True)
                 context.close()
             browser.close()
         assert not errors, errors
-        print(f"PASS indoor beta Chromium: {checks} assertions, 3 viewports, 16 screenshots (floor/hall + workbench), {len(errors)} JS exceptions")
+        print(f"PASS indoor beta Chromium: {checks} assertions, 3 viewports, 18 screenshots (floors, workbench, campus graph), {len(errors)} JS exceptions")
     finally:
         server.terminate()
         try:
