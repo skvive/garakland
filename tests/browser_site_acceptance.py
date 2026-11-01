@@ -51,6 +51,10 @@ def reserve_port():
 def main():
     failures = []
     count = 0
+    capture = os.environ.get("QA_CAPTURE_SCREENSHOTS") == "1"
+    screenshot_dir = ROOT / "qa" / "screenshots"
+    if capture:
+        screenshot_dir.mkdir(parents=True, exist_ok=True)
     port = reserve_port()
     base = f"http://127.0.0.1:{port}"
     with tempfile.TemporaryDirectory() as scratch:
@@ -115,6 +119,9 @@ def main():
                                     }))""")
                                 issues.append(f"Horizontal overflow {overflow}px offenders={offenders}")
                             pathname = urlparse(route).path
+                            if capture:
+                                name = pathname.strip("/").replace("/", "_") or "index"
+                                page.screenshot(path=str(screenshot_dir / f"{label}_{name}.png"), full_page=True)
                             if pathname == "/ops.html":
                                 if page.locator("#token").count():
                                     page.locator("#token").fill(env["GARAK_ADMIN_TOKEN"])
