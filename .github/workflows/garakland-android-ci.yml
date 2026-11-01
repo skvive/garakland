@@ -75,7 +75,13 @@ jobs:
           profile: pixel_5
           emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
           disable-animations: true
-          script: gradle -p android :app:connectedDebugAndroidTest --stacktrace
+          script: |
+            gradle -p android :app:connectedDebugAndroidTest --stacktrace
+            adb shell am start -n site.lexid.garakland/.MainActivity
+            sleep 12
+            mkdir -p android/app/build/emulator-screenshots
+            adb exec-out screencap -p > android/app/build/emulator-screenshots/garakland-api35.png
+            adb logcat -d -t 2000 > android/app/build/emulator-screenshots/logcat-after-launch.txt
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -83,5 +89,6 @@ jobs:
           path: |
             android/app/build/reports/androidTests/
             android/app/build/outputs/androidTest-results/
+            android/app/build/emulator-screenshots/
           if-no-files-found: warn
           retention-days: 14
