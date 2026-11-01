@@ -53,5 +53,14 @@ jobs:
           GARAK_ENABLE_DEMO: '1'
           GARAK_V5_LIVE_MARKETING: '0'
           GARAK_V5_APPROVED_LIVE_SEND: NO
+          QA_CAPTURE_SCREENSHOTS: '1'
           DATABASE_URL: ''
         run: python tests/browser_site_acceptance.py
+      - name: Upload browser screenshot evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: garakland-52-page-screenshots
+          path: qa/screenshots/
+          if-no-files-found: warn
+          retention-days: 7
