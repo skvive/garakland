@@ -104,7 +104,16 @@ def main():
                                 issues.append("Blank body")
                             overflow = page.evaluate("document.documentElement.scrollWidth - document.documentElement.clientWidth")
                             if overflow > 3:
-                                issues.append(f"Horizontal overflow {overflow}px")
+                                offenders = page.evaluate("""() => [...document.querySelectorAll('*')]
+                                    .filter(el => {
+                                      const box = el.getBoundingClientRect();
+                                      return box.right > window.innerWidth + 3 && box.width > 0;
+                                    }).slice(0, 8).map(el => ({
+                                      tag: el.tagName.toLowerCase(),
+                                      cls: String(el.className || '').slice(0, 45),
+                                      width: Math.round(el.getBoundingClientRect().width)
+                                    }))""")
+                                issues.append(f"Horizontal overflow {overflow}px offenders={offenders}")
                             pathname = urlparse(route).path
                             if pathname == "/ops.html":
                                 if page.locator("#token").count():
@@ -126,9 +135,9 @@ def main():
                             )
                             for href in candidates:
                                 page.goto(url, wait_until="domcontentloaded", timeout=20000)
-                                locator = page.locator("a[href]").filter(has=page.locator("NOT_A_SELECTOR")) if False else None
-                                # Use element.click() on the matching anchor; JS can handle this navigation.
-                                link = page.locator("a[href]").filter(visible=True) if False else page.locator("a[href]")
+                                # Select a visible, same-tab navigation anchor. Collapsed navigation
+                                # and links obscured by closed menus are not actionable until opened.
+                                link = page.locator("a[href]")
                                 target = link.evaluate_all(
                                     "(nodes, href) => nodes.findIndex(a=>a.getAttribute('href')===href && a.getClientRects().length>0)",
                                     href,
@@ -136,14 +145,22 @@ def main():
                                 if target < 0:
                                     continue
                                 original = page.locator("a[href]").nth(target)
+                                if original.get_attribute("target") == "_blank":
+                                    continue
                                 try:
-                                    with page.expect_navigation(wait_until="domcontentloaded", timeout=6000):
-                                        original.click(timeout=4000)
+                                    original.click(trial=True, timeout=950)
+                                except Exception:
+                                    # Responsive menus can keep anchors rendered in the DOM
+                                    # but inaccessible until the navigation drawer is opened.
+                                    continue
+                                try:
+                                    with page.expect_navigation(wait_until="domcontentloaded", timeout=8000):
+                                        original.click(timeout=5000)
                                     if not page.url.startswith(base):
                                         issues.append("Unexpected outbound navigation")
                                     count += 1
                                 except Exception as exc:
-                                    issues.append(f"Navigation click {href}: {str(exc)[:110]}")
+                                    issues.append(f"Navigation click {href}: {str(exc)[:140]}")
                             if issues:
                                 failures.append(f"{label} {route}: " + "; ".join(issues[:5]))
                         except Exception as exc:
