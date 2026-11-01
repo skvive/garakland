@@ -118,7 +118,7 @@ class BetaTests(unittest.TestCase):
   self.assertEqual(status,200,str(up));path=ROOT/up['path'].lstrip('/');self.assertTrue(path.exists());path.unlink()
   status,_=self.request('/api/merchant/profile',{'shopId':'demo-meat','blogUrl':'javascript:alert(1)','deliveryUrl':'','menu':[]},headers=h);self.assertEqual(status,400)
  def test_13_unknown_api_get_returns_json_404(self):
-  status, payload=self.request('/api/v8/unknown-route')
+  status, payload=self.request('/api/v8/unknown-route',headers={'X-Garak-Admin-Token':server.ADMIN_TOKEN})
   self.assertEqual(status,404)
   self.assertIn('error',payload)
 
