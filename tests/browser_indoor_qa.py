@@ -65,7 +65,7 @@ def run():
                     if label != "compact":
                         page.screenshot(path=str(OUT / (label + "_" + floor + ".png")), full_page=True)
                     checks += 1
-                page.get_by_role("button", name="전체 구역", exact=True).click()
+                page.get_by_role("button", name="전체", exact=True).click()
                 page.locator("#searchInput").fill("이디야")
                 assert page.locator(".store-item").count() == 1
                 page.locator(".store-item").first.click()
