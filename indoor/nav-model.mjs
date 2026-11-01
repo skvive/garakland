@@ -1,4 +1,4 @@
-import {floorOrder,stores,floorZones,floorDescriptions,halls,categories,defaultOrigin} from './data.mjs';
+import {floorOrder,stores,floorZones,displayZones,floorDescriptions,halls,categories,defaultOrigin} from './data.mjs';
 
 export const knownFloor = floor => floorOrder.includes(floor);
 export const knownHall = hall => halls.some(h=>h.id===String(hall));
@@ -20,7 +20,7 @@ export function lookupStores({floor='1F',hall='all',query='',allFloors=false,cat
   );
 }
 export function findShop(id){return stores.find(s=>s.id===id)||null;}
-export function findZone(floor,id){return (floorZones[floor]||[]).find(z=>z.id===id)||null;}
+export function findZone(floor,id,hall='all'){return displayZones(hall,floor).find(z=>z.id===id)||null;}
 export function areaSummary(floor){return floorDescriptions[floor]||'층별 자료 확인 필요';}
 export function buildSchematicRoute(origin=defaultOrigin,destination){
   if(!destination||!knownFloor(destination.floor)||!knownHall(destination.hall)){
