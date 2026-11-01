@@ -1,0 +1,85 @@
+/* GARAKLAND · customer-delivery responsive QA patch · 2026-11-01 */
+html{scroll-padding-top:80px;-webkit-text-size-adjust:100%}
+body{overflow-x:clip}button,a,input,select,textarea{touch-action:manipulation}
+:where(a,button,input,select,textarea):focus-visible{outline:3px solid #df9f42!important;outline-offset:3px!important}
+:where(img){max-width:100%;height:auto}
+:where(.shop-card,.card,.panel,.detail-photo,.how-card){min-width:0}
+body[data-page] .shop-card .thumb{overflow:hidden;aspect-ratio:4/3}
+body[data-page] .shop-card .thumb img{width:100%;height:100%;object-fit:cover;object-position:center 42%}
+body[data-page] .detail-photo img{width:100%;height:clamp(240px,33vw,420px);object-fit:cover;object-position:center 40%}
+body[data-page] img[src*="merchant.webp"]{object-position:center 28%}
+body[data-page] .page-hero h1{max-width:23ch;text-wrap:balance}
+body[data-page] .page-hero p{max-width:68ch}
+body[data-page] .shop-card-body{padding:clamp(14px,1.5vw,22px)}
+body[data-page] .shop-card-body p{min-height:0;line-height:1.65}
+body[data-page] :is(.btn,.chip,.like,.mobile-menu,.search-global button){min-height:44px}
+body[data-page] :is(.chip,.like,.mobile-menu){min-width:44px}
+body[data-page] .chip{padding:10px 15px;line-height:1.4}
+body[data-page] .like{display:inline-flex;align-items:center;justify-content:center}
+body[data-page] .search-global{min-height:46px}
+body[data-page] .search-global button{min-width:44px}
+body[data-page] .site-footer a{min-height:35px;display:inline-flex;align-items:center}
+body[data-delivery-page="index"] .hero{background-position:center 48%}
+body[data-delivery-page="index"] .hero-art img{object-fit:cover;object-position:center 36%}
+body[data-delivery-page="home"] .hero-photo img{object-fit:cover;object-position:center 38%}
+body[data-delivery-page="home"] .gl-site-nav a{min-height:44px;display:inline-flex;align-items:center}
+body[data-delivery-page="home"] .hero-actions a{min-height:44px;display:inline-flex;align-items:center}
+body[data-delivery-page="home"] .how-photo{object-fit:cover;object-position:center 38%}
+body[data-delivery-page="market"] .card .photo{width:100%;aspect-ratio:4/3;height:auto;object-fit:cover;object-position:center 42%}
+body[data-delivery-page="market"] :is(.primary,.outline,.ghost,.mobmenu,.tab){min-height:44px}
+body[data-delivery-page="market"] .hero{background-position:center 49%}
+body[data-delivery-page="market"] .card-body{min-width:0}
+body[data-delivery-page="ar-quest"] :is(.side-nav a,.mobile-nav button,.hero-actions button){min-height:44px}
+body[data-delivery-page="map"] :is(.icon-button,.side-tabs button,.top-guide a){min-height:42px}
+body[data-delivery-page="ops"] :is(.tabs button,.primary,.outline,.topright a){min-height:44px;display:inline-flex;align-items:center;justify-content:center}
+body[data-delivery-page="ops"] .hero{background-position:center 45%}
+body[data-delivery-page="hub"] :is(.sidebar nav a,.white-btn,.ghost-btn,.secondary,.primary,.icon-btn){min-height:43px}
+body[data-delivery-page="login"] :is(button,.auth-back){min-height:44px}
+body[data-delivery-page="documents"] .filegrid a{min-height:150px}
+body[data-delivery-page="unsubscribe"]{min-height:100dvh;min-width:0;overflow-x:hidden;padding:20px;box-sizing:border-box}
+body[data-delivery-page="unsubscribe"] main{width:min(500px,100%);max-width:100%;box-sizing:border-box;padding:clamp(22px,5vw,38px)}
+body[data-delivery-page="unsubscribe"] h1{font-size:clamp(24px,6vw,32px);line-height:1.25;word-break:keep-all}
+body[data-delivery-page="unsubscribe"] :is(select,button){min-height:48px;box-sizing:border-box}
+body[data-delivery-page="unsubscribe"] main>a{display:inline-flex;min-height:44px;align-items:center;color:#046344;font-weight:750}
+body[data-delivery-page="unsubscribe"] #result:empty{display:none}
+body[data-delivery-page="design_gallery"] .frame img{display:block;width:100%;height:auto;object-fit:contain}
+body[data-delivery-page="design_gallery"] .live-link{min-height:44px;display:inline-flex;align-items:center}
+@media(max-width:900px){body[data-page] .page-hero p{max-width:100%}}
+@media(max-width:700px){
+html{scroll-padding-top:70px}
+body[data-page] .head-inner{gap:8px}
+body[data-page] .search-global{width:44px;min-width:44px;max-width:44px;height:44px}
+body[data-page] .search-global button{height:44px;width:44px;margin:0;border-radius:50%}
+body[data-page] .detail-photo img{height:clamp(230px,67vw,340px);object-position:center 38%}
+body[data-page] .detail-content{padding:12px 0 0}
+body[data-page] .page-hero{min-height:218px}
+body[data-page] .page-hero .container{padding-block:32px}
+body[data-page] .page-hero h1{font-size:clamp(27px,7vw,36px);line-height:1.3}
+body[data-page] .page-hero p{font-size:13px;line-height:1.65}
+body[data-page] .site-footer{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
+body[data-delivery-page="index"]>.gl-floating-hub,body[data-delivery-page="merchant-center"]>.gl-floating-hub{bottom:calc(78px + env(safe-area-inset-bottom))!important;right:12px!important}
+body[data-delivery-page="index"] .hero{min-height:460px;background-position:59% center}
+body[data-delivery-page="home"] .hero-photo img{object-position:60% 39%}
+body[data-delivery-page="home"] .gl-site-nav a{padding:10px}
+body[data-delivery-page="market"] .hero{background-position:60% center}
+body[data-delivery-page="market"] .hero-inner{padding:28px 22px 60px}
+body[data-delivery-page="market"] .hero h1{font-size:clamp(32px,8.7vw,41px);line-height:1.17;letter-spacing:-.055em;word-break:keep-all}
+body[data-delivery-page="market"] .hero-actions button{width:100%}
+body[data-delivery-page="market"] .top nav.open{max-height:calc(100dvh - 76px);overflow-y:auto}
+body[data-delivery-page="hub"] .hero-text{max-width:100%}
+body[data-delivery-page="hub"] .hero{padding:22px;min-height:235px}
+body[data-delivery-page="hub"] .hero h2{font-size:clamp(23px,6.2vw,29px)}
+body[data-delivery-page="hub"] .hero p{font-size:12px;line-height:1.6}
+body[data-delivery-page="ops"] .topright{gap:8px;flex-wrap:wrap;justify-content:flex-end}
+body[data-delivery-page="ops"] .tabs button{min-height:44px}
+body[data-delivery-page="documents"] .filegrid a{min-height:132px;padding:20px}
+}
+@media(max-width:390px){
+body[data-page] .container{width:calc(100% - 28px)}
+body[data-delivery-page="home"] .gl-site-header{padding-inline:10px}
+body[data-delivery-page="home"] .gl-site-nav{gap:3px}
+body[data-delivery-page="home"] .gl-site-nav a{font-size:11px;padding:8px}
+body[data-delivery-page="market"] .hero-badges span{font-size:11px}
+body[data-delivery-page="ops"] .hero{background-position:64% 50%}
+}
+@media(prefers-reduced-motion:reduce){:where(.shop-card,.card,.how-card){transition:none!important}}
