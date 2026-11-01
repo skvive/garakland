@@ -1,4 +1,4 @@
-import {template,validateLayout,makeDraft} from './layout-schema.mjs';
+import {template,validateLayout,makeDraft,safeFloorRoute} from './layout-schema.mjs';
 
 const byId=id=>document.getElementById(id);
 const NS='http://www.w3.org/2000/svg';
@@ -28,6 +28,7 @@ function setState(){
   });
   renderSvg(verdict.ok);
   renderShopRows();
+  updateRouteControls(verdict);
 }
 function syncForm(){
   byId('hall').value=current.hall;
@@ -68,6 +69,29 @@ function renderSvg(valid){
   }
   svg.append(elt('text',{x:24,y:30,'font-size':22,'font-weight':850,fill:'#1d526f'},'가락몰 검수본 · '+current.hall+'관 '+current.floor));
   svg.append(elt('text',{x:25,y:625,'font-size':15,fill:'#865c21'},'NOT TO SCALE · DO NOT USE FOR EVACUATION · 발행 전 현장 확인'));
+}
+function updateRouteControls(verdict){
+  const a=byId('routeFrom'),b=byId('routeTo');
+  const from=a.value,to=b.value;
+  for(const select of [a,b])select.replaceChildren();
+  const nodes=verdict.ok?current.nodes:[];
+  if(!nodes.length){
+    for(const select of [a,b]){
+      const opt=document.createElement('option');opt.value='';opt.textContent='검증된 경로 노드가 없습니다.';select.append(opt);select.disabled=true;
+    }
+  }else{
+    for(const select of [a,b]){
+      select.disabled=false;
+      for(const n of nodes){
+        const opt=document.createElement('option');opt.value=n.id;opt.textContent=n.id+' · '+n.type;select.append(opt);
+      }
+    }
+    a.value=nodes.some(n=>n.id===from)?from:nodes[0].id;
+    b.value=nodes.some(n=>n.id===to)?to:nodes[nodes.length-1].id;
+  }
+  byId('routeResult').textContent=verdict.canPublish
+    ?'도면의 승인 메타데이터 조건은 충족했습니다. 그래프를 선택해 검증 결과를 확인하세요.'
+    :'실측·권리 검증이 완료되지 않아 경로를 계산할 수 없습니다.';
 }
 function renderShopRows(){
   const parent=byId('shopRows');parent.replaceChildren();
@@ -147,6 +171,13 @@ byId('clearPins').addEventListener('click',()=>{
   forceDraft();current.shops=[];adding=false;byId('mapWrap').classList.remove('clicking');setState();
 });
 byId('preview').addEventListener('click',clickForPin);
+byId('calculateRoute').addEventListener('click',()=>{
+  const result=safeFloorRoute(current,byId('routeFrom').value,byId('routeTo').value,
+                           {wheelchair:byId('wheelchairMode').checked});
+  byId('routeResult').textContent=result.status==='verified-plan'
+    ?'입력 도면 기준 경로: '+result.path.join(' → ')+' / 실측 간선 합 '+result.distanceMeters+'m. '+result.warning
+    :result.reason;
+});
 byId('inputFile').addEventListener('change',async e=>{
   const file=e.target.files?.[0];if(!file)return;
   if(file.size>1048576){byId('summary').textContent='파일 크기는 1MB 이하만 허용합니다.';return;}
