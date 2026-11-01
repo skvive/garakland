@@ -56,7 +56,7 @@ def run():
                 # Preserve 5관 signage view; use the all-hall overview for the six floor snapshots.
                 if label != "compact":
                     page.screenshot(path=str(OUT / (label + "_hall5_3F.png")), full_page=True)
-                page.get_by_role("button", name="전체 구역", exact=True).click()
+                page.get_by_role("button", name="전체", exact=True).click()
                 for floor in ["B3", "B2", "B1", "1F", "2F", "3F"]:
                     page.get_by_role("button", name=floor, exact=True).click()
                     assert floor in page.locator("#mapHeading").inner_text()
@@ -77,7 +77,7 @@ def run():
                 assert "층 이동" in page.locator("#routeSteps").inner_text()
                 checks += 1
                 page.get_by_role("button", name="1F", exact=True).click()
-                page.locator("#floorSvg .zone").first.click()
+                page.locator("#zoneQuickList button").first.click()
                 assert page.locator("#routeSteps").get_by_text("구역", exact=False).count() > 0
                 checks += 1
                 page.locator("#zoomIn").click()
