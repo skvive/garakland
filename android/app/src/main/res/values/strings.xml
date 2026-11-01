@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">가락랜드</string>
+    <string name="connection_error">연결을 확인하고 다시 시도해 주세요.</string>
+    <string name="external_error">외부 앱을 열 수 없습니다.</string>
+</resources>
