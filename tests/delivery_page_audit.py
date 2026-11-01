@@ -13,7 +13,7 @@ OUT=ROOT/"qa-artifacts"/"design-delivery"
 OUT.mkdir(parents=True,exist_ok=True)
 PAGES=[
  "index.html","home.html","stores.html","store.html","coupons.html",
- "events.html","market-map.html","market-guide.html","merchant-center.html",
+ "events.html","market-guide.html","merchant-center.html",
  "market.html","ar-quest.html","map.html","ops.html","hub.html",
  "login.html","documents.html","unsubscribe.html","design_gallery.html"
 ]
@@ -57,6 +57,8 @@ def verify_controls(page, page_path, viewport):
         check(page.locator("#primary-nav").evaluate("(e)=>e.classList.contains('open')"),"brand mobile menu opens")
         toggle.click(timeout=3000)
         check(not page.locator("#primary-nav").evaluate("(e)=>e.classList.contains('open')"),"brand mobile menu closes")
+    if page_path=="market-map.html":
+        check(page.url.split("?")[0].endswith("/map.html"),"legacy thematic map redirects to interactive 3D atlas")
     if page_path=="stores.html":
         page.locator('button[data-category="수산"]').click(timeout=3000)
         check(page.locator('button[data-category="수산"]').evaluate("(e)=>e.classList.contains('active')"),"category filter selects")
