@@ -2,7 +2,7 @@ package site.lexid.logshield;
 
 import java.net.URI;
 import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
+import java.io.UnsupportedEncodingException;
 import java.util.Locale;
 
 /** Pure-Java security boundaries, runnable without the Android emulator. */
@@ -50,7 +50,11 @@ public final class SecurityRules {
     public static String segment(String value) {
         if (value == null || value.trim().isEmpty() || value.length() > 120)
             throw new IllegalArgumentException("잘못된 값");
-        return URLEncoder.encode(value, StandardCharsets.UTF_8).replace("+", "%20");
+        try {
+            return URLEncoder.encode(value, "UTF-8").replace("+", "%20");
+        } catch (UnsupportedEncodingException ex) {
+            throw new AssertionError("UTF-8 is required by the Java runtime", ex);
+        }
     }
 
     public static boolean can(String[] permissions, String desired) {
