@@ -2,7 +2,7 @@ import {MARKET,BUILDINGS,ZONE_IMAGES,verifiedCoords,escapeHTML as esc} from './c
 
 const MARKET_CENTER={lat:MARKET.lat,lng:MARKET.lng};
 const VIEW={
-  satellite:{zoom:18,minZoom:15,maxZoom:21,tilt:0},
+  satellite:{zoom:16,minZoom:13,maxZoom:18,tilt:0},
   terrain:{zoom:14,minZoom:11,maxZoom:16,tilt:0},
   roadmap:{zoom:16,minZoom:13,maxZoom:20,tilt:0}
 };
@@ -41,6 +41,7 @@ export class MapEngine{
     this.onToast=onToast||(()=>{});
     this.onCoordinatePick=onCoordinatePick||(()=>{});
     this.onFloorSelect=onFloorSelect||(()=>{});
+    this.onFallback=()=>{};
     this.mode='concept';
     this.google=null;
     this.map=null;
@@ -51,6 +52,9 @@ export class MapEngine{
     this.markers=[];
     this.modelElements=[];
     this.lastSelection=null;
+    this.selectedBuildingId='sales';
+    this._satelliteHealthTimer=null;
+    this._tileErrorCount=0;
     this.lastCenter=MARKET_CENTER;
     this.picking=false;
     this.user=null;
@@ -114,7 +118,9 @@ export class MapEngine{
     for(const b of BUILDINGS){
       const el=document.createElement('button');
       el.type='button';
-      el.className='concept-building concept-building-3d'+(['sales','seafood','produce','theme1'].includes(b.id)?' is-primary':'');
+      el.className='concept-building concept-building-3d'+(['sales','seafood','produce','theme1'].includes(b.id)?' is-primary':'')+(this.selectedBuildingId===b.id?' is-selected':'');
+      el.setAttribute('aria-pressed',String(this.selectedBuildingId===b.id));
+      el.setAttribute('aria-label',b.name+' 테마 지도 위치 (안내용 근사 배치)');
       el.style.setProperty('--x',b.illustrative[0]+'%');
       el.style.setProperty('--y',b.illustrative[1]+'%');
       el.style.setProperty('--b',b.accent);
@@ -163,6 +169,8 @@ export class MapEngine{
 
   destroyGoogleMap(){
     this.clearMarkers();
+    if(this._satelliteHealthTimer)clearTimeout(this._satelliteHealthTimer);
+    this._satelliteHealthTimer=null;
     if(this.clickListener && typeof this.clickListener.remove==='function') this.clickListener.remove();
     this.clickListener=null;
     this.map=null;
@@ -186,6 +194,7 @@ export class MapEngine{
     if(mode==='3d') await this.make3D();
     else await this.make2D(mode);
     this.drawMarkers();
+    if(mode==='satellite')this.scheduleSatelliteHealthCheck();
   }
 
   renderFloorMap(plan,meta={}){
@@ -342,12 +351,55 @@ export class MapEngine{
     this.userMarker=null;
   }
 
+
+  /* Building pins represent approximate concept locations only, never verified stall GPS. */
+  addBuildingMarkers2D(){
+    if(this.type!=='2d'||!this.map)return;
+    const g=this.google;
+    BUILDINGS.forEach((b,index)=>{
+      if(!Number.isFinite(b.lat)||!Number.isFinite(b.lng))return;
+      const chosen=b.id===this.selectedBuildingId;
+      const marker=new g.maps.Marker({
+        map:this.map,position:{lat:b.lat,lng:b.lng},
+        title:b.name+' · 건물 안내 근사 위치 (실측 검증 전)',
+        zIndex:chosen?500:100,
+        label:{text:String(index+1),color:chosen?'#163c53':'#fff',fontSize:'12px',fontWeight:'800'},
+        icon:{path:g.maps.SymbolPath.CIRCLE,scale:chosen?19:13,
+          fillColor:chosen?'#ffc64e':'#157795',fillOpacity:1,
+          strokeColor:'#fff',strokeWeight:chosen?4:2}
+      });
+      marker.addListener('click',()=>this.onBuildingClick(b.id));
+      marker.__garakBuildingId=b.id;
+      this.markers.push(marker);
+    });
+  }
+  scheduleSatelliteHealthCheck(){
+    if(this._satelliteHealthTimer)clearTimeout(this._satelliteHealthTimer);
+    this._tileErrorCount=0;
+    if(this.type!=='2d'||!this.map||this.mode!=='satellite')return;
+    const target=this.map;
+    const canvas=this.el.querySelector('.google-map-canvas');
+    if(!canvas)return;
+    const inspect=()=>{
+      if(this.type!=='2d'||this.map!==target||this.mode!=='satellite')return;
+      const imagery=[...canvas.querySelectorAll('img')].filter(img=>img.width>0||img.height>0);
+      const failed=imagery.filter(img=>img.complete&&img.naturalWidth===0).length;
+      if(failed>=3 && failed>=Math.floor(imagery.length/3)){
+        this.onToast('위성 이미지 일부를 불러오지 못해 안정적인 일반 지도로 전환합니다. 모식도는 언제든 선택할 수 있습니다.');
+        this.mode='roadmap';this.map.setMapTypeId(this.mapTypeIdFor('roadmap'));
+        this.map.setZoom(16);this.onFallback('roadmap');
+      }
+    };
+    this._satelliteHealthTimer=setTimeout(inspect,5000);
+  }
+
   drawMarkers(){
     if(!this.map||!this.google) return;
     this.clearMarkers();
     const good=this.shops.filter(verifiedCoords);
     if(this.type==='2d'){
       const g=this.google;
+      this.addBuildingMarkers2D();
       for(const s of good){
         const m=new g.maps.Marker({
           map:this.map,
@@ -359,16 +411,7 @@ export class MapEngine{
         m.addListener('click',()=>this.onShopClick(s.id));
         this.markers.push(m);
       }
-      if(!good.length){
-        const m=new g.maps.Marker({
-          map:this.map,
-          position:MARKET_CENTER,
-          title:'가락시장 기준점(근사)',
-          label:'?'
-        });
-        m.addListener('click',()=>this.onToast('이 표시는 정확한 매장 좌표가 아닌 가락시장 안내용 근사 기준점입니다.'));
-        this.markers.push(m);
-      }
+      /* Building markers remain visible even when no stalls have verified coordinates. */
     }else if(this.type==='3d'){
       this.render3DMarkers(good).catch(err=>this.onToast('3D 매장 마커 오류: '+err.message));
     }
@@ -376,6 +419,16 @@ export class MapEngine{
 
   async render3DMarkers(good){
     const {Marker3DInteractiveElement}=await this.google.maps.importLibrary('maps3d');
+    for(const b of BUILDINGS){
+      if(this.type!=='3d')return;
+      if(!Number.isFinite(b.lat)||!Number.isFinite(b.lng))continue;
+      const m=new Marker3DInteractiveElement({
+        position:{lat:b.lat,lng:b.lng,altitude:18},label:b.name+' · 안내 위치',
+        sizePreserved:true,extruded:true
+      });
+      m.addEventListener('gmp-click',()=>this.onBuildingClick(b.id));
+      this.map.append(m);this.markers.push(m);
+    }
     for(const s of good.slice(0,3000)){
       if(this.type!=='3d') return;
       const m=new Marker3DInteractiveElement({
@@ -439,11 +492,14 @@ export class MapEngine{
 
   focusBuilding(building){
     if(!building||!Number.isFinite(building.lat)||!Number.isFinite(building.lng)) return;
+    this.selectedBuildingId=building.id;
+    if(this.type==='concept'){this.renderConcept();return;}
+    if(this.type==='2d'||this.type==='3d')this.drawMarkers();
     const pos={lat:building.lat,lng:building.lng};
     this.rememberCenter(pos);
     if(this.type==='2d'&&this.map){
       this.map.panTo(pos);
-      this.map.setZoom(this.mode==='terrain'?14:18);
+      this.map.setZoom(this.mode==='terrain'?14:17);
     }else if(this.type==='3d'&&this.map){
       this.map.center={...pos,altitude:0};
       this.map.range=900;
