@@ -1,4 +1,4 @@
-import {floorOrder,halls,categories,floorZones,floorDescriptions,stores,defaultOrigin} from './data.mjs';
+import {floorOrder,halls,categories,displayZones,floorDescriptions,stores,defaultOrigin} from './data.mjs';
 import {readSelection,lookupStores,findShop,findZone,buildSchematicRoute,areaSummary,qualityStats} from './nav-model.mjs';
 const el=id=>document.getElementById(id);
 const escapeText=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -61,7 +61,7 @@ function setZoom(value){
   el('floorSvg').style.width=state.zoom===1?'100%':Math.round(100*state.zoom)+'%';
 }
 function selectZone(id){
-  const z=findZone(state.floor,id);
+  const z=findZone(state.floor,id,state.hall);
   if(!z)return;
   state.selectedZone=z.id;
   state.destination={name:z.label,hall:state.hall==='all'?'all':state.hall,floor:state.floor};
@@ -108,7 +108,7 @@ function renderStores(){
   });
 }
 function floorSvgMarkup(){
-  const zones=floorZones[state.floor]||[];
+  const zones=displayZones(state.hall,state.floor);
   const zoneShapes=zones.map(z=>{
     const x=z.x*10,y=115+z.y*2.1,w=z.w*10,h=z.h*2.1;
     const dimmed=state.category!=='all'&&state.category!==z.category?' dimmed':'';
@@ -125,14 +125,14 @@ function floorSvgMarkup(){
     '<g><rect x="'+(130+i*270)+'" y="425" width="195" height="39" rx="18" fill="#fff" stroke="#a9c8d7"/>'+
     '<text x="'+(227+i*270)+'" y="450" class="hall-tag" text-anchor="middle">'+h+' · 관 위치 대조 필요</text></g>'
   ).join('');
-  const footprint='M73 165 Q88 134 137 132 L814 125 Q907 114 943 156 Q965 193 931 229 L825 331 Q774 354 708 355 L160 361 Q82 352 73 301 Z';
+  const footprint=state.hall==='3'?'M175 158 Q205 112 300 113 L660 118 Q790 124 840 190 Q862 225 834 269 Q777 342 670 349 L274 343 Q167 322 165 258 Z':state.hall==='5'?'M122 148 L739 136 Q790 132 842 167 L922 226 Q937 239 908 270 L821 338 L121 342 Z':'M73 165 Q88 134 137 132 L814 125 Q907 114 943 156 Q965 193 931 229 L825 331 Q774 354 708 355 L160 361 Q82 352 73 301 Z';
   return '<title>'+escapeText(state.floor)+' 층 구역 안내 모식도</title>'+
    '<desc>현장 사진을 참고한 비축척 도면. 색상 구역과 편의시설 기호는 정확한 위치가 아닌 예시입니다.</desc>'+
    '<defs><clipPath id="mallFootprint"><path d="'+footprint+'"/></clipPath></defs>'+
    '<text x="75" y="64" class="floor-caption">'+escapeText(state.floor)+' FLOOR · CATEGORY ZONES</text>'+
    '<text x="75" y="94" class="external">입구 및 관 연결 통로 위치 확인 필요</text>'+
    '<path d="'+footprint+'" fill="#fdfefe" stroke="#769ab0" stroke-width="6"/>'+
-   '<g clip-path="url(#mallFootprint)">'+zoneShapes+
+   '<g clip-path="url(#mallFootprint)">'+zoneShapes+(!zones.length?'<text x="500" y="230" text-anchor="middle" class="external">이 관·층의 공식 구획자료 확인 필요</text>':'')+
    '<path d="M80 322 C300 309 610 315 916 283" fill="none" stroke="#fff" stroke-width="30" opacity=".83"/>'+
    '<path d="M80 322 C300 309 610 315 916 283" fill="none" stroke="#8db2c4" stroke-width="4" stroke-dasharray="14 10"/></g>'+
    '<text x="270" y="301" class="floor-caption">통로(시연)</text>'+
@@ -142,13 +142,14 @@ function floorSvgMarkup(){
    '<text class="poi" x="520" y="349" text-anchor="middle">EV</text>'+
    '<text class="poi" x="814" y="312" text-anchor="middle">ES</text>'+
    '<text x="73" y="401" class="external">WC 화장실 · EV 승강기 · ES 에스컬레이터 (표시 위치는 예시)</text>'+
-   hallLabels;
+   (state.hall==='all'?hallLabels:'<text x="510" y="452" class="floor-caption" text-anchor="middle">'+state.hall+'관 구역 간략도 · 매장별 정확 좌표 미확인</text>');
 }
 function renderMap(){
   el('floorSvg').innerHTML=floorSvgMarkup();
   el('floorSvg').setAttribute('aria-label',state.floor+' '+floorDescriptions[state.floor]+' 구조 모식도');
   const mapLegend=el('mapLegend');mapLegend.replaceChildren();
-  const used=[...new Set((floorZones[state.floor]||[]).map(z=>z.category))];
+  const used=[...new Set(displayZones(state.hall,state.floor).map(z=>z.category))];
+  if(!used.length){const p=document.createElement('span');p.textContent='선택한 관·층은 도면자료 확보 중입니다.';mapLegend.append(p);}
   used.forEach(k=>{
     const span=document.createElement('span'),swatch=document.createElement('i');
     swatch.style.background=categories[k].color;
