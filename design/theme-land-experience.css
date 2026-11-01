@@ -1,0 +1,171 @@
+/* Garakland Theme Land: shared branded grammar, accessible and responsive.
+   Canonical mascot art: /assets/brand/mascot-sticker.png (user's original character).
+   Garakland is the primary brand, GarakHansang a supporting merchant-guide mascot. */
+:root{
+ --glt-night:#092d4b;--glt-navy:#123e60;--glt-blue:#126e96;--glt-sky:#eaf7ff;
+ --glt-gold:#ffc64e;--glt-coral:#f07859;--glt-mint:#48bba6;
+ --glt-ink:#153950;--glt-cream:#fffaf0;--glt-radius:22px;
+ --glt-shadow:0 14px 36px rgba(11,51,77,.12)
+}
+body.gl-theme-land{background-color:#f5f9fc;color:var(--glt-ink);-webkit-text-size-adjust:100%}
+body.gl-theme-land :where(button,a,input,select,textarea,[role="button"]){touch-action:manipulation}
+body.gl-theme-land :where(button,a,input,select,textarea,[role="button"]):focus-visible{
+ outline:3px solid var(--glt-gold)!important;outline-offset:3px!important
+}
+body.gl-theme-land :where(.btn,.primary-btn,.primary-action,.primary,.linkbtn,.chip,.tab,.mobile-menu){
+ min-height:44px
+}
+body.gl-theme-land :where(.btn-primary,.primary-btn,.primary-action):not(:disabled){
+ background:linear-gradient(115deg,#ffca5b,#f9b23c);color:#153752;border-color:#edaa36;
+ box-shadow:0 6px 16px rgba(196,116,19,.17);font-weight:850
+}
+body.gl-theme-land :where(.shop-card,.coupon-card,.event-card,.tool,.panel,.how-card,.value-card){
+ border-radius:clamp(14px,1.8vw,22px)
+}
+body.gl-theme-land :where(.shop-card,.coupon-card,.event-card,.how-card,.tool,.value-card) {
+ transition:transform .18s ease,box-shadow .18s ease
+}
+body.gl-theme-land :where(.shop-card,.coupon-card,.event-card,.how-card,.tool,.value-card):hover{
+ box-shadow:var(--glt-shadow)
+}
+body.gl-theme-land :where(.shop-card,.coupon-card,.event-card,.how-card,.tool,.value-card) :where(img){
+ max-width:100%;object-position:50% 42%
+}
+body.gl-theme-land .page-hero{background-color:var(--glt-navy)}
+body.gl-theme-land .page-hero .eyebrow{color:#ffdf87}
+body.gl-theme-land .hero .eyebrow,body.gl-theme-land .hero-kicker{color:#b9e7f7}
+body.gl-theme-land :where(.site-header,.gl-site-header) a:focus-visible{border-radius:5px}
+body.gl-theme-land :where(.section-title,.mini-title,.section-heading) h2{letter-spacing:-.04em}
+body.gl-theme-land .top-notice{background:var(--glt-night);color:#f6fbff}
+body.gl-theme-land .head-inner{max-width:1250px}
+body.gl-theme-land .search-global{border:1px solid #cee4ee;box-shadow:0 7px 24px rgba(11,51,77,.06)}
+body.gl-theme-land .nav-inner a.active{color:var(--glt-blue)}
+body.gl-theme-land .site-footer{border-top:1px solid #d8e8f0}
+/* Reuse the repository's previously generated illustration of the market buildings.
+   Unlike an image of a generic covered market, this directly supports 3D exploration. */
+body.gl-theme-land[data-page="home"] .hero{
+ background-image:linear-gradient(102deg,rgba(4,37,70,.96) 0%,rgba(7,59,96,.86) 40%,rgba(6,47,78,.32) 71%,rgba(12,58,85,.05) 100%),url('/assets/zones/campus-3d.jpg')!important;
+ background-size:cover;background-position:center 48%
+}
+body.gl-theme-land[data-page="home"] .hero-art .hero-market-photo{
+ content:url('/assets/zones/campus-3d.jpg');object-fit:cover;opacity:.53
+}
+body.gl-theme-land[data-page="home"] .hero h1{max-width:15ch;text-wrap:balance}
+body.gl-theme-land[data-page="home"] .hero-labels{margin-top:18px}
+body.gl-theme-land[data-page="home"] .hero-labels span{
+ background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.2);
+ border-radius:99px;padding:6px 11px
+}
+body.gl-theme-land[data-page="home"] .hero-floating{
+ border:1px solid rgba(255,255,255,.55);box-shadow:0 18px 42px rgba(5,33,61,.2)
+}
+body.gl-theme-land[data-page="home"] .quick-panel a:nth-child(2),
+body.gl-theme-land[data-page="home"] .quick-panel a:nth-child(5){color:#116b8f}
+body.gl-theme-land[data-delivery-page="home"] .hero{
+ background-image:linear-gradient(95deg,rgba(6,44,70,.84),rgba(9,59,87,.15)),url('/assets/zones/campus-3d.jpg');
+ background-position:center 50%;background-size:cover
+}
+/* Mascot as a context-sensitive little guide, not the main corporate logo. */
+.gl-park-guide{
+ isolation:isolate;position:relative;display:flex;align-items:center;gap:13px;
+ box-sizing:border-box;max-width:1200px;margin:20px auto;padding:13px 17px;
+ border:1px solid #d7e8e5;border-radius:21px;
+ background:linear-gradient(110deg,#fffaf1 0%,#fff 63%,#f0fbff 100%);
+ box-shadow:0 11px 28px rgba(10,48,70,.08);color:#1c4750;
+}
+.gl-park-guide::before{
+ content:"";position:absolute;left:13px;top:-5px;width:43px;height:8px;
+ border-radius:3px 3px 0 0;background:var(--glt-gold);z-index:0
+}
+.gl-park-guide .gl-park-character{
+ flex:0 0 74px;width:74px;height:77px;position:relative;display:grid;place-items:end center
+}
+.gl-park-guide .gl-park-character img{
+ position:relative;display:block;width:74px;height:76px;object-fit:contain;object-position:bottom;
+ filter:drop-shadow(1px 6px 3px rgba(35,57,47,.18));transform:translateY(-1px)
+}
+.gl-park-guide .gl-park-guide-copy{min-width:0;flex:1}
+.gl-park-guide .gl-park-guide-copy small{display:block;font-size:10px;letter-spacing:.09em;color:#a66e27;font-weight:900}
+.gl-park-guide .gl-park-guide-copy b{display:block;margin:4px 0;font-size:clamp(13px,1.35vw,16px);font-weight:900;color:#134057;line-height:1.35}
+.gl-park-guide .gl-park-guide-copy p{margin:0;font-size:12px;line-height:1.55;color:#566c72}
+.gl-park-guide .gl-park-guide-link{
+ flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;
+ min-height:44px;padding:10px 15px;background:var(--glt-navy);color:#fff!important;
+ border-radius:12px;text-decoration:none;font-size:12px;font-weight:850;white-space:nowrap
+}
+.gl-park-guide .gl-park-guide-link:hover{background:#176d94}
+.gl-park-guide.gl-park-guide--tiny{max-width:none;margin:12px 0;padding:10px 12px;border-radius:14px}
+.gl-park-guide.gl-park-guide--tiny .gl-park-character{width:49px;height:53px;flex-basis:49px}
+.gl-park-guide.gl-park-guide--tiny .gl-park-character img{width:49px;height:53px}
+.gl-park-guide.gl-park-guide--tiny .gl-park-guide-copy p{font-size:11px}
+.gl-park-guide.gl-park-guide--tiny .gl-park-guide-link{font-size:11px;padding:9px 12px}
+.gl-park-guide.gl-park-guide--admin{background:linear-gradient(110deg,#f5f9fb,#fff);border-color:#dce8f0}
+.gl-park-guide.gl-park-guide--admin .gl-park-character{width:45px;flex-basis:45px}
+.gl-park-guide.gl-park-guide--admin .gl-park-character img{width:45px;height:48px}
+.gl-park-tickets{margin:19px auto;padding:12px;max-width:1200px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.gl-park-tickets a{
+ display:flex;align-items:center;gap:10px;min-height:64px;padding:12px 15px;
+ border-radius:16px;background:#fff;border:1px solid #dce8f0;
+ box-shadow:0 5px 17px rgba(17,64,89,.055);color:#173d55;text-decoration:none;
+ font-size:12px;font-weight:800
+}
+.gl-park-tickets .gl-park-ticket-icon{display:grid;place-items:center;width:37px;height:37px;flex:none;border-radius:11px;background:#ecf7ff;font-size:19px}
+.gl-park-tickets a:nth-child(2) .gl-park-ticket-icon{background:#e8f6eb}
+.gl-park-tickets a:nth-child(3) .gl-park-ticket-icon{background:#fff1da}
+.gl-park-tickets a:nth-child(4) .gl-park-ticket-icon{background:#faeafb}
+.gl-park-tickets a:hover{border-color:#9dd2e5;transform:translateY(-2px)}
+/* Map: never place a floating mascot above critical Google map controls. */
+body.gl-theme-land[data-delivery-page="map"] .gl-park-guide{margin:13px 16px;max-width:none}
+body.gl-theme-land[data-delivery-page="map"] .map-area{background:#e5eef4}
+body.gl-theme-land[data-delivery-page="map"] .zone-card.selected{
+ border-color:#1d91ad;box-shadow:0 0 0 2px rgba(29,145,173,.12)
+}
+body.gl-theme-land[data-delivery-page="map"] .map-top{background:var(--glt-night)}
+body.gl-theme-land[data-delivery-page="map"] .mode-switch button.active{background:#0d5d78}
+body.gl-theme-land[data-delivery-page="map"] .detail-hero-badge{background:#0e354e;color:white}
+body.gl-theme-land[data-delivery-page="map"] .concept-building-3d.is-selected{z-index:9}
+body.gl-theme-land[data-delivery-page="map"] .concept-building-3d.is-selected i{
+ background:#ffc347!important;width:22px;height:22px;border:4px solid white;
+ box-shadow:0 0 0 3px #e99616,0 5px 18px rgba(0,0,0,.33)
+}
+body.gl-theme-land[data-delivery-page="map"] .concept-building-3d.is-selected .concept-name{
+ background:#073c62;color:#fff;outline:2px solid #ffcd55
+}
+body.gl-theme-land[data-delivery-page="map"] .concept-building-3d:not(.is-primary){display:flex}
+body.gl-theme-land[data-delivery-page="map"] .concept-building-3d:not(.is-primary):not(.is-selected) .concept-name{opacity:0;pointer-events:none}
+body.gl-theme-land[data-delivery-page="map"] .concept-building-3d:not(.is-primary):focus-visible .concept-name,
+body.gl-theme-land[data-delivery-page="map"] .concept-building-3d:not(.is-primary):hover .concept-name{opacity:1}
+/* Hero/marketing imagery remains demo art, not a verified real market photograph. */
+body.gl-theme-land :where(.hero-photo,.detail-photo,.event-card img,.how-photo) img{object-fit:cover}
+@media(max-width:900px){
+ .gl-park-tickets{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:700px){
+ body.gl-theme-land .hero h1{line-height:1.17}
+ body.gl-theme-land[data-page="home"] .hero{background-position:59% center}
+ body.gl-theme-land[data-page="home"] .hero-art{opacity:.7}
+ body.gl-theme-land :where(.container){max-width:100%}
+ .gl-park-guide{margin:12px 14px;padding:11px;gap:9px;flex-wrap:wrap;border-radius:17px}
+ .gl-park-guide .gl-park-character{flex-basis:53px;width:53px;height:58px}
+ .gl-park-guide .gl-park-character img{width:53px;height:58px}
+ .gl-park-guide .gl-park-guide-copy b{font-size:13px}
+ .gl-park-guide .gl-park-guide-copy p{font-size:11px}
+ .gl-park-guide .gl-park-guide-link{min-height:42px;width:100%;margin-top:1px}
+ .gl-park-tickets{margin:9px 14px;padding:0;gap:8px}
+ .gl-park-tickets a{min-height:57px;padding:9px;gap:7px;font-size:11px}
+ .gl-park-tickets .gl-park-ticket-icon{width:31px;height:31px;font-size:16px}
+ body.gl-theme-land[data-delivery-page="map"] .gl-park-guide{margin:12px}
+ body.gl-theme-land[data-delivery-page="map"] .concept-building-3d:not(.is-selected) .concept-name{opacity:0;pointer-events:none}
+ body.gl-theme-land[data-delivery-page="map"] .concept-building-3d.is-selected .concept-name{font-size:11px}
+}
+@media(max-width:370px){
+ .gl-park-guide{margin-inline:10px}
+ .gl-park-guide .gl-park-character{flex-basis:47px;width:47px}
+ .gl-park-guide .gl-park-guide-copy b{font-size:12px}
+ .gl-park-tickets{margin-inline:10px}
+ .gl-park-tickets a{font-size:10px}
+}
+@media(prefers-reduced-motion:reduce){
+ body.gl-theme-land :where(.shop-card,.coupon-card,.event-card,.how-card,.tool,.value-card){transition:none!important}
+ .gl-park-tickets a:hover{transform:none}
+}
