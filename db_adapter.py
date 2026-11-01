@@ -151,22 +151,48 @@ class _SqliteCompat:
         self._con.commit()
 
 
+def pg8000_connection_target(url: str, direct_url: str = "") -> dict:
+    """Resolve pg8000 connection settings without using Neon transaction pooling.
+
+    Some pg8000 extended-query flows fail against Neon PgBouncer's transaction
+    pool with 'unnamed prepared statement does not exist'. This app opens a
+    fresh pg8000 connection per request and closes it after each transaction.
+    Prefer an explicitly configured GARAK_DB_DIRECT_URL; otherwise switch
+    only confirmed Neon '-pooler' hosts to the corresponding direct endpoint.
+    Never log passwords or return this object in an API response.
+    """
+    from urllib.parse import urlparse, unquote
+
+    target = (direct_url or "").strip() or url
+    u = urlparse(target)
+    if u.scheme not in ("postgres", "postgresql") or not u.hostname:
+        raise ValueError("PostgreSQL 연결 주소 형식이 올바르지 않습니다.")
+    host = u.hostname
+    if not direct_url and host.endswith(".neon.tech") and "-pooler." in host:
+        host = host.replace("-pooler.", ".", 1)
+    return {
+        "user": unquote(u.username or ""),
+        "password": unquote(u.password or ""),
+        "host": host,
+        "port": u.port or 5432,
+        "database": unquote(u.path.lstrip("/")),
+    }
+
+
 @contextmanager
 def db_connect():
     if use_postgres():
         import ssl
-        from urllib.parse import urlparse
 
         import pg8000.dbapi
 
-        u = urlparse(DATABASE_URL)
+        details = pg8000_connection_target(
+            DATABASE_URL, os.environ.get("GARAK_DB_DIRECT_URL", "")
+        )
         conn = pg8000.dbapi.connect(
-            user=u.username,
-            password=u.password,
-            host=u.hostname,
-            port=u.port or 5432,
-            database=u.path.lstrip("/"),
+            **details,
             ssl_context=ssl.create_default_context(),
+            timeout=15,
         )
         wrapper = _PgCompat(conn)
         try:

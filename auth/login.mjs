@@ -42,7 +42,7 @@ document.getElementById('googleBtn')?.addEventListener('click', async () => {
 async function showLogged(user) {
   form.hidden = true;
   logged.hidden = false;
-  userEmail.textContent = user.email;
+  userEmail.textContent = user.email || '계정';
 }
 
 async function refresh() {
@@ -62,25 +62,37 @@ document.getElementById('signOutBtn')?.addEventListener('click', async () => {
 form?.addEventListener('submit', async (e) => {
   e.preventDefault();
   setMsg('처리 중…');
-  const email = form.email.value.trim();
-  const password = form.password.value;
-  const auth = await getAuthClient();
-  const result = signUp
-    ? await auth.signUp.email({ name: email.split('@')[0] || '탐험가', email, password })
-    : await auth.signIn.email({ email, password });
-
-  if (result.error) {
-    setMsg(result.error.message || '인증에 실패했습니다.', 'error');
+  const email = String(form.elements.namedItem('email')?.value || '').trim();
+  const password = String(form.elements.namedItem('password')?.value || '');
+  if (!email || !password) {
+    setMsg('이메일과 비밀번호를 입력해 주세요.', 'error');
     return;
   }
+  submitBtn.disabled = true;
+  try {
+    const auth = await getAuthClient();
+    const result = signUp
+      ? await auth.signUp.email({ name: email.split('@')[0] || '탐험가', email, password })
+      : await auth.signIn.email({ email, password });
 
-  const session = await getSession();
-  if (session?.user) {
-    setMsg('환영합니다!', 'ok');
-    await showLogged(session.user);
-    return;
+    if (result?.error) {
+      setMsg(result.error.message || '인증에 실패했습니다.', 'error');
+      return;
+    }
+
+    const session = await getSession();
+    if (session?.user) {
+      setMsg('환영합니다!', 'ok');
+      await showLogged(session.user);
+      return;
+    }
+    setMsg(signUp ? '가입 완료. 이메일 확인이 필요할 수 있습니다.' : '로그인이 처리됐습니다. 계정 상태를 확인해 주세요.', 'ok');
+  } catch (error) {
+    setMsg('인증 서버에 연결할 수 없습니다. 네트워크 상태를 확인한 뒤 다시 시도해 주세요.', 'error');
+    console.error('[auth] login request failed', error?.name || 'Error');
+  } finally {
+    submitBtn.disabled = false;
   }
-  setMsg(signUp ? '가입 완료. 이메일 확인이 필요할 수 있습니다.' : '로그인되었습니다.', 'ok');
 });
 
 setMode(true);

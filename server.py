@@ -196,9 +196,6 @@ class Handler(RegistryHandler):
             if p.startswith('/api/v7/'):
                 found=bridge_v7.get(self,p,parse_qs(u.query))
                 if found is not False:return found
-            if p.startswith('/api/v8/'):
-                found=hub_v8.dispatch_post(self,p,body)
-                if found is not False:return found
             if hub_v8.is_disabled(p):return self.send_json(503,{'error':'운영 허브에서 해당 모듈이 일시중지되었습니다.'})
             if p.startswith('/api/v6/'):
                 found=operations_v6.get(self,p,parse_qs(u.query))
@@ -220,6 +217,8 @@ class Handler(RegistryHandler):
                 # Shareable shop QR (only discovery). Time-bound signed QR is used for check-in.
                 query=parse_qs(u.query);s=query.get('shop',[''])[0]
                 self.send_response(302);self.send_header('Location','/?shop='+quote(s,safe='')+('&qr='+quote(query.get('token',[''])[0],safe='') if query.get('token',[''])[0] else ''));self.end_headers();return
+            if p.startswith('/api/'):
+                return self.send_json(404,{'error':'API 없음'})
             if p in ('/','/index.html'):
                 self.path='/index.html';return super().do_GET()
             return super().do_GET()
