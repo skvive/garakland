@@ -162,7 +162,15 @@ public final class MainActivity extends Activity {
     protected void onDestroy() {
         if (pendingFiles != null) pendingFiles.onReceiveValue(null);
         if (pendingLocation != null) pendingLocation.invoke(pendingOrigin, false, false);
-        if (browser != null) browser.destroy();
+        if (browser != null) {
+            browser.stopLoading();
+            browser.setWebChromeClient(null);
+            browser.setWebViewClient(null);
+            if (browser.getParent() instanceof android.view.ViewGroup) {
+                ((android.view.ViewGroup) browser.getParent()).removeView(browser);
+            }
+            browser.destroy();
+        }
         super.onDestroy();
     }
 }
