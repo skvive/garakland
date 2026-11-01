@@ -179,10 +179,37 @@ def run():
                 checks += 1
                 if label != "compact":
                     page.screenshot(path=str(OUT / (label + "_campus_graph.png")),full_page=True)
+                # Phase 4: signboard roster, CSV conflicts and staged shop polygons.
+                response = page.goto(base + "/indoor-tenant-lab.html", wait_until="networkidle")
+                assert response and response.status == 200
+                assert page.locator("#tenantRows tr").count() == 14
+                assert "14개" in page.locator("#summary").inner_text()
+                checks += 1
+                page.locator("#tenantRows button[data-id='h5-dolgorae']").click()
+                assert page.locator("#editHall").input_value() == "5"
+                assert page.locator("#editFloor").input_value() == "3F"
+                page.locator("#stageMap").click(position={"x": 210, "y": 195})
+                assert page.locator("#stageMap polygon").count() == 2
+                assert page.locator("#tenantRows tr.selected .unverified").inner_text() == "초안 위치 지정"
+                assert "미반영" in page.locator("#stageStatus").inner_text()
+                checks += 1
+                if label != "compact":
+                    page.screenshot(path=str(OUT / (label + "_tenant_registry.png")), full_page=True)
+                page.locator("#csvPaste").fill(
+                    "shop_id,name,hall,floor,room,category,source_ref\\n"
+                    "t1,Test Shop,5,3F,A1,food,test-sign\\n"
+                    "t2,Test Shop,5,3F,A1,food,test-sign\\n"
+                .replace("\\n", "\n"))
+                page.locator("#loadPaste").click()
+                assert "오류 또는 중복" in page.locator("#warning").inner_text()
+                assert page.locator("#errorList li").count() >= 1
+                page.locator("#seedButton").click()
+                assert page.locator("#tenantRows tr").count() == 14
+                checks += 1
                 context.close()
             browser.close()
         assert not errors, errors
-        print(f"PASS indoor beta Chromium: {checks} assertions, 3 viewports, 18 screenshots (floors, workbench, campus graph), {len(errors)} JS exceptions")
+        print(f"PASS indoor beta Chromium: {checks} assertions, 3 viewports, 20 screenshots (floors, workbench, campus and tenant review), {len(errors)} JS exceptions")
     finally:
         server.terminate()
         try:
