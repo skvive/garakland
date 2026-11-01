@@ -169,3 +169,21 @@ body.gl-theme-land :where(.hero-photo,.detail-photo,.event-card img,.how-photo) 
  body.gl-theme-land :where(.shop-card,.coupon-card,.event-card,.how-card,.tool,.value-card){transition:none!important}
  .gl-park-tickets a:hover{transform:none}
 }
+
+/* CI 360px/390px repair: keep mascot callout within the actual viewport even
+   when the containing documentation template has additional padding. */
+body.gl-theme-land .gl-park-guide{
+ min-width:0;max-width:min(1200px,calc(100vw - 24px));width:auto
+}
+body.gl-theme-land .gl-park-guide .gl-park-guide-copy{min-width:0;overflow-wrap:anywhere}
+body.gl-theme-land .gl-park-guide .gl-park-guide-link{
+ min-width:0;max-width:100%;box-sizing:border-box;white-space:normal;text-align:center;overflow-wrap:anywhere
+}
+@media(max-width:700px){
+ body.gl-theme-land .gl-park-guide.gl-park-guide--tiny{
+   width:calc(100% - 20px);max-width:calc(100vw - 24px);margin:12px auto
+ }
+ body.gl-theme-land .gl-park-guide.gl-park-guide--tiny .gl-park-guide-link{
+   flex:0 0 100%;width:100%;max-width:100%;margin:3px 0 0;white-space:normal
+ }
+}
