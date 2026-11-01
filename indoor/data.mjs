@@ -44,6 +44,23 @@ export const floorZones={
   z('f3-restaurants','전문식당가','food',11,22,46,44),
   z('f3-dried','건어물·도소매','dried',59,22,29,44)]
 };
+/** Hall-specific sketches from signboard categories; not unit footprints. */
+export const hallZones={
+ '3':{
+  '1F':[z('h3-1f','3관 1F · 식당·상가','food',22,25,56,40,'표기 매장: 다오세 사람들, 리얼펍, 정진농산')],
+  '2F':[z('h3-2f','3관 2F · 식자재 매장','grocery',22,25,56,40,'표기 매장: 새농 푸드마켓')],
+  '3F':[z('h3-3f','3관 3F · 식당·카페','food',22,25,56,40,'표기 매장: 다미정, 소정, 이디야 가락몰점')]
+ },
+ '4':{},
+ '5':{
+  '1F':[z('h5-1f','5관 1F · 회센터','seafood',20,25,60,40,'5관 1층 회센터/수산 분야')],
+  '2F':[z('h5-2f','5관 2F · 전문식당가','food',20,25,60,40,'표기 매장: 거북선, 구룡각, 일품')],
+  '3F':[z('h5-3f','5관 3F · 전문식당가','food',20,25,60,40,'표기 매장: 돌고래, 만찬, 서울식당, 해금강')]
+ }
+};
+export function displayZones(hall,floor){
+  return hall==='all' ? (floorZones[floor]||[]) : (hallZones[hall]?.[floor]||[]);
+}
 export const floorDescriptions={
  B3:'고객용 주차장',
  B2:'축산부산물 · 가공처리 · 주차',
