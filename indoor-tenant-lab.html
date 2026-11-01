@@ -1,0 +1,55 @@
+<!doctype html><html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#123d58">
+<meta name="description" content="가락몰 매장 명부를 검토하고 관·층·호실 정보를 대조하는 로컬 검수 작업대. 임의 위치는 실제 지도에 게시되지 않습니다.">
+<title>가락몰 매장 명부·호실 매칭 작업대 | GARAKLAND</title>
+<link rel="icon" href="/assets/brand/garakland-themepark-mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/indoor/layout-lab.css">
+<link rel="stylesheet" href="/indoor/tenant-lab.css">
+</head><body>
+<a class="skip" href="#main">본문 바로가기</a>
+<header class="head"><a href="/indoor-map.html">← 실내지도</a><div><strong>매장 명부 · 호실 대조</strong><span>SHOP DIRECTORY ONBOARDING · REVIEW DRAFT</span></div><a href="/indoor-layout-lab.html">층별 도면 검수 ↗</a></header>
+<div class="warning"><b>관리자 승인 전용 초안</b> 현장 안내판의 매장명은 사진 촬영 시점의 표기 정보입니다. 실제 입점·영업 여부 또는 호실·정확한 좌표를 의미하지 않습니다. 이 페이지에서 선택한 위치는 실서비스로 전송되지 않습니다.</div>
+<main id="main">
+<section class="left">
+<div class="section-title"><span>01 / 매장 명부 가져오기</span><h1>매장 이름을 관·층·호실과 대조합니다.</h1><p>CSV 명부와 현장 안내판을 비교한 뒤 도면 구획을 검증 전 초안으로 연결합니다.</p></div>
+<div class="actions">
+<button id="seedButton" class="primary" type="button">현장 안내판 14개 불러오기</button>
+<button id="templateButton" type="button">CSV 입력 양식</button>
+<label class="upload">명부 CSV 업로드<input type="file" id="csvFile" accept=".csv,text/csv"></label>
+<button type="button" id="exportCsv">현재 명부 CSV</button>
+<button type="button" id="exportJson">검수용 명부 JSON</button>
+</div>
+<fieldset><legend>명부 붙여넣기</legend>
+<label class="full label-block">CSV 텍스트<textarea id="csvPaste" rows="4" spellcheck="false" placeholder="shop_id,name,hall,floor,room,category,source_ref"></textarea></label>
+<button type="button" id="loadPaste">텍스트 명부 검수</button>
+</fieldset>
+<div class="state-box"><span>명부 검수 상태</span><strong id="summary">불러오기 전</strong><p id="warning">명부 파일은 서버에 전송하지 않습니다.</p></div>
+<fieldset><legend>검색과 필터</legend>
+<div class="fields">
+<label class="full">매장 검색<input type="search" id="search" placeholder="매장명 또는 호실"></label>
+<label>관<select id="hallFilter"><option value="all">모든 관</option><option value="3">3관</option><option value="4">4관</option><option value="5">5관</option></select></label>
+<label>층<select id="floorFilter"><option value="all">모든 층</option><option>B3</option><option>B2</option><option>B1</option><option>1F</option><option>2F</option><option>3F</option></select></label>
+</div>
+</fieldset>
+<div id="errorPanel" class="results" aria-live="polite"><h2>오류·중복·누락 안내</h2><ul id="errorList"></ul></div>
+</section>
+<section class="right">
+<div class="preview-head"><div><span class="eyebrow">02 / 호실·구역 대조</span><h2>검수 전 위치 등록</h2><p>현재 도면은 정규화 상대 좌표의 시연 형태입니다. 현장 측량 없이 배치한 구역은 위치 검증 완료로 간주하지 않습니다.</p></div><span class="draft-tag">PUBLICATION BLOCKED</span></div>
+<div id="resultTableWrap" class="tenant-table-wrap" role="region" tabindex="0" aria-label="매장 후보 명부 표">
+<table class="tenant-table"><thead><tr><th>선택</th><th>매장명</th><th>관·층</th><th>호실</th><th>사진과 비교</th><th>좌표 상태</th></tr></thead><tbody id="tenantRows"></tbody></table>
+</div>
+<div class="tenant-actions">
+<label>대조할 관<select id="editHall"><option value="3">3관</option><option value="4">4관</option><option value="5">5관</option></select></label>
+<label>대조할 층<select id="editFloor"><option>B3</option><option>B2</option><option>B1</option><option>1F</option><option>2F</option><option>3F</option></select></label>
+<label class="upload">로컬 도면 JSON 가져오기<input type="file" id="layoutFile" accept=".json,application/json"></label>
+<button id="downloadLayout" type="button">현재 층 임시 도면 JSON</button>
+</div>
+<div class="stage-tip" id="selectedInfo" aria-live="polite">먼저 명부의 매장을 선택하세요. 도면을 클릭하면 검증 전 구획이 생성됩니다.</div>
+<div class="map-wrap"><svg id="stageMap" role="img" viewBox="0 0 1000 650" aria-label="관·층별 임시 위치 도식. 선택한 매장을 클릭한 위치에 검증 전 배치합니다."></svg></div>
+<div class="map-help"><span>파란색: 검증 전 구획</span><span>회색: 단순화된 외곽 초안</span><span>상대좌표·비축척</span></div>
+<div class="route-result" id="stageStatus" aria-live="polite">임의 구획은 운영 지도에 표시되지 않습니다.</div>
+<div class="references"><h3>실제 매장 핀을 게시하기 전 확인</h3><ol><li>관리주체 원본 도면과 가공·배포 허가 증빙</li><li>관·층·호실 단위 실매장 입점/영업 확인</li><li>출입문 위치·도면 내부 좌표의 현장 검증</li><li>담당자 및 별도 승인자의 전자 승인·감사 기록</li></ol></div>
+</section>
+</main><footer>GARAKLAND · TENANT REGISTRY DRAFT · 실제 위치 안내·피난 경로로 사용 금지</footer>
+<script type="module" src="/indoor/tenant-lab.mjs"></script></body></html>
