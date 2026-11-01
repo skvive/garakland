@@ -5,8 +5,20 @@ let clientPromise;
 export async function getAuthClient() {
   if (!clientPromise) {
     clientPromise = fetch('/auth/config.public.json', { cache: 'no-store' })
-      .then((r) => r.json())
-      .then((cfg) => createAuthClient(cfg.authUrl));
+      .then((r) => {
+        if (!r.ok) throw new Error('Neon Auth 설정을 읽을 수 없습니다.');
+        return r.json();
+      })
+      .then((cfg) => {
+        if (typeof cfg.authUrl !== 'string' || !cfg.authUrl.startsWith('https://')) {
+          throw new Error('Neon Auth 주소가 올바르지 않습니다.');
+        }
+        return createAuthClient(cfg.authUrl);
+      })
+      .catch((error) => {
+        clientPromise = undefined; // Network failures must allow a subsequent retry.
+        throw error;
+      });
   }
   return clientPromise;
 }
