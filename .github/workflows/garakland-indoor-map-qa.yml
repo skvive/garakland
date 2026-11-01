@@ -52,3 +52,22 @@ jobs:
           path: qa-artifacts/indoor/
           if-no-files-found: warn
           retention-days: 14
+
+  source-package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Archive exact Git source for reproducible delivery
+        run: |
+          mkdir -p release
+          git archive --format=zip --prefix=GARAKLAND_INDOOR_BETA/ -o release/GARAKLAND_INDOOR_BETA_SOURCE.zip HEAD
+          (cd release && sha256sum GARAKLAND_INDOOR_BETA_SOURCE.zip > GARAKLAND_INDOOR_BETA_SOURCE.sha256)
+      - name: Upload complete-source delivery package
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: garakland-indoor-beta-source
+          path: release/
+          retention-days: 30
