@@ -195,11 +195,11 @@ def run():
                 checks += 1
                 if label != "compact":
                     page.screenshot(path=str(OUT / (label + "_tenant_registry.png")), full_page=True)
-                page.locator("#csvPaste").fill(
-                    "shop_id,name,hall,floor,room,category,source_ref\\n"
-                    "t1,Test Shop,5,3F,A1,food,test-sign\\n"
-                    "t2,Test Shop,5,3F,A1,food,test-sign\\n"
-                .replace("\\n", "\n"))
+                page.locator("#csvPaste").fill("\n".join([
+                    "shop_id,name,hall,floor,room,category,source_ref",
+                    "t1,Test Shop,5,3F,A1,food,test-sign",
+                    "t2,Test Shop,5,3F,A1,food,test-sign",
+                ]))
                 page.locator("#loadPaste").click()
                 assert "오류 또는 중복" in page.locator("#warning").inner_text()
                 assert page.locator("#errorList li").count() >= 1
