@@ -183,7 +183,7 @@ def main():
                         response = deep.goto(base + "/ar-quest.html" + fragment, wait_until="domcontentloaded")
                         deep.wait_for_function(
                             "(id) => document.getElementById(id)?.classList.contains('active')",
-                            panel,
+                            arg=panel,
                             timeout=6000,
                         )
                         count += 1
