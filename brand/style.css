@@ -5,3 +5,20 @@
 
 /* Original user-supplied brush-lettered brand mark */
 .logo{gap:8px}.logo-wordmark{height:42px;width:169px;object-fit:contain;object-position:left center}.brand-strapline{font-size:9px;white-space:nowrap;color:#765f49;line-height:1.4;font-weight:800}.brand-strapline small{display:block;color:#9d9b88;font-size:9px;letter-spacing:.06em}.foot-grid .logo-wordmark{height:37px;width:145px}@media(max-width:700px){.logo-wordmark{height:34px;width:117px}.brand-strapline{font-size:7px}.brand-strapline small{font-size:7px}.head-inner{gap:6px}}
+
+
+/* 2026-11-01 UX audit: replace repeated people stickers with market imagery. */
+.page-mascot,.hero-mascot,.quote-bubble{display:none!important}
+.hero-art .hero-market-photo{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 45%;opacity:.72;border-radius:22px;mask-image:linear-gradient(to right,transparent 0%,#000 35%,#000 100%)}
+@media(max-width:700px){
+ .hero-art .hero-market-photo{height:100%;width:100%;object-position:50% 50%;opacity:.42;mask-image:linear-gradient(to bottom,transparent 0%,#000 46%,#000 100%)}
+ .page-hero .container{min-width:0}
+ .page-hero h1{font-size:clamp(25px,7vw,32px);line-height:1.36;word-break:keep-all}
+ .shop-card,.filter-panel,.coupon-card{min-width:0}
+}
+
+/* Follow-up QA: page-detail decorative mascot and intermediate-width overflow */
+.feature-mascot,.tip-mascot,.detail-coupon-mascot,.join-mascot{display:none!important}
+.detail-grid>*{min-width:0}
+.detail-content{min-width:0;max-width:100%;overflow-wrap:break-word}
+@media(min-width:701px) and (max-width:900px){.detail-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
