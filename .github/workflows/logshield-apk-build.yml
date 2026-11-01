@@ -79,19 +79,15 @@ jobs:
           disable-animations: true
           emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
           script: |
-            set -eu
-            ROOT="$GITHUB_WORKSPACE"
-            QA="$ROOT/logshield-emulator-qa"
-            mkdir -p "$QA"
-            ls -la "$ROOT/logshield-apk-artifact"
-            APK="$(find "$ROOT/logshield-apk-artifact" -type f -name '*.apk' -print -quit)"
-            test -s "$APK"
-            adb install -r "$APK" | tee "$QA/install.txt"
-            adb shell am start -n site.lexid.logshield/.MainActivity | tee "$QA/launch.txt"
+            mkdir -p "$GITHUB_WORKSPACE/logshield-emulator-qa"
+            find "$GITHUB_WORKSPACE/logshield-apk-artifact" -type f -name "*.apk" -print
+            find "$GITHUB_WORKSPACE/logshield-apk-artifact" -type f -name "*.apk" -exec adb install -r {} \;
+            adb shell pm path site.lexid.logshield
+            adb shell am start -n site.lexid.logshield/.MainActivity > "$GITHUB_WORKSPACE/logshield-emulator-qa/launch.txt"
             sleep 10
-            adb shell pidof site.lexid.logshield | tee "$QA/app-pid.txt"
-            adb exec-out screencap -p > "$QA/launch-screenshot.png"
-            adb logcat -d -t 1200 > "$QA/logcat.txt"
+            adb shell pidof site.lexid.logshield > "$GITHUB_WORKSPACE/logshield-emulator-qa/app-pid.txt"
+            adb exec-out screencap -p > "$GITHUB_WORKSPACE/logshield-emulator-qa/launch-screenshot.png"
+            adb logcat -d -t 1200 > "$GITHUB_WORKSPACE/logshield-emulator-qa/logcat.txt"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
