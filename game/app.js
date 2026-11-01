@@ -155,5 +155,10 @@ document.body.addEventListener('click',e=>{
  const jump=e.target.closest('[data-jump-search]');if(jump){go('directory');$('shopSearch').focus();return}
 });
 document.addEventListener('keydown',e=>{const tag=e.target?.tagName||'';if(e.key==='/'&&!['INPUT','TEXTAREA','SELECT'].includes(tag)&&!e.ctrlKey&&!e.metaKey){e.preventDefault();go('directory');$('shopSearch').focus()}});
-attach();load();
+function openHashedPage(){
+ const match=/^#page-(explore|directory|missions|coupons|delivery|guide|merchant)$/.exec(location.hash);
+ if(match) go(match[1]);
+}
+window.addEventListener('hashchange',openHashedPage);
+attach();openHashedPage();load();
 export {esc,won,link};
