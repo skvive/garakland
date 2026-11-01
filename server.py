@@ -217,6 +217,8 @@ class Handler(RegistryHandler):
                 # Shareable shop QR (only discovery). Time-bound signed QR is used for check-in.
                 query=parse_qs(u.query);s=query.get('shop',[''])[0]
                 self.send_response(302);self.send_header('Location','/?shop='+quote(s,safe='')+('&qr='+quote(query.get('token',[''])[0],safe='') if query.get('token',[''])[0] else ''));self.end_headers();return
+            if p.startswith('/api/'):
+                return self.send_json(404,{'error':'API 없음'})
             if p in ('/','/index.html'):
                 self.path='/index.html';return super().do_GET()
             return super().do_GET()
