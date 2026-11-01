@@ -1,0 +1,59 @@
+name: Garakland SQL and backend regression
+
+on:
+  push:
+    branches:
+      - 'chatgpt/garakland-android-workspace-*'
+    paths:
+      - 'db_adapter.py'
+      - 'market/**'
+      - 'ops/**'
+      - 'hub/**'
+      - 'registry_server.py'
+      - 'server.py'
+      - 'tests/**'
+      - '.github/workflows/garakland-sql-ci.yml'
+  pull_request:
+    paths:
+      - 'db_adapter.py'
+      - 'market/**'
+      - 'ops/**'
+      - 'hub/**'
+      - 'registry_server.py'
+      - 'server.py'
+      - 'tests/**'
+      - '.github/workflows/garakland-sql-ci.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  sqlite-regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      DATABASE_URL: ''
+      POSTGRES_URL: ''
+      GARAK_ENABLE_DEMO: '1'
+      GARAK_V7_MODE: demo
+      GARAK_V5_LIVE_MARKETING: '0'
+      GARAK_V5_APPROVED_LIVE_SEND: NO
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install backend test dependencies
+        run: python -m pip install --upgrade pip && python -m pip install -r requirements.txt requests
+      - name: SQLite and Postgres syntax adaptation (no real database)
+        run: python -m unittest tests.test_adapt_sql -v
+      - name: Run isolated backend regression against throwaway SQLite
+        env:
+          GARAK_DB_PATH: ${{ runner.temp }}/garakland-ci.sqlite
+          GARAK_ADMIN_TOKEN: local-ci-dummy-not-a-production-secret
+          GARAK_QR_SECRET: local-ci-dummy-not-a-production-secret-123456
+        run: |
+          python -m unittest tests.test_beta tests.test_growth_v5 tests.test_marketing_adapters tests.test_erp_v6 tests.test_hub_v8 -v
+      - name: Check JS navigation rules
+        run: node tests/test_navigation.mjs
