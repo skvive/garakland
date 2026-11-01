@@ -53,6 +53,10 @@ def run():
                 page.wait_for_timeout(130)
                 assert page.locator(".store-item").count() == 4, (label, "5관 3F", page.locator(".store-item").count())
                 checks += 1
+                # Preserve 5관 signage view; use the all-hall overview for the six floor snapshots.
+                if label != "compact":
+                    page.screenshot(path=str(OUT / (label + "_hall5_3F.png")), full_page=True)
+                page.get_by_role("button", name="전체 구역", exact=True).click()
                 for floor in ["B3", "B2", "B1", "1F", "2F", "3F"]:
                     page.get_by_role("button", name=floor, exact=True).click()
                     assert floor in page.locator("#mapHeading").inner_text()
@@ -93,7 +97,7 @@ def run():
                 context.close()
             browser.close()
         assert not errors, errors
-        print(f"PASS indoor beta Chromium: {checks} assertions, 3 viewports, 12 floor screenshots, {len(errors)} JS exceptions")
+        print(f"PASS indoor beta Chromium: {checks} assertions, 3 viewports, 14 floor/hall screenshots, {len(errors)} JS exceptions")
     finally:
         server.terminate()
         try:
