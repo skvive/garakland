@@ -21,6 +21,14 @@
 <section class="right"><div class="preview-head"><div><span class="eyebrow">02 / 층별 도면 미리보기</span><h2 id="previewTitle">5관 · 3F</h2><p>좌표는 0~100의 내부 도면용 상대값이며 GPS·실측 길이가 아닙니다.</p></div><span class="draft-tag">PUBLICATION BLOCKED</span></div>
 <div id="mapWrap" class="map-wrap"><svg id="preview" role="img" aria-label="검수용 상대좌표 도면" viewBox="0 0 1000 650"></svg></div>
 <div class="map-help"><span>그리드: 10단위</span><span>회색: 외곽 초안</span><span>파란 구획: 검증 전 임시 점포</span></div>
+<section class="route-experiment" aria-labelledby="routeExperimentTitle">
+<h3 id="routeExperimentTitle">검증된 동선 경로 계산</h3>
+<p>승인된 실측 그래프가 들어온 경우에만 계산됩니다. 임의 초안·안내판 사진에는 거리 결과를 표시하지 않습니다.</p>
+<div class="route-controls"><label>출발 노드<select id="routeFrom"><option value="">먼저 도면 불러오기</option></select></label><label>도착 노드<select id="routeTo"><option value="">먼저 도면 불러오기</option></select></label></div>
+<label class="wheelchair-option"><input type="checkbox" id="wheelchairMode"> 계단·에스컬레이터 제외한 이동 모드</label>
+<button type="button" id="calculateRoute">검증 그래프 경로 조회</button>
+<div id="routeResult" class="route-result" aria-live="polite">실측 그래프를 기다리는 중입니다.</div>
+</section>
 <div class="data-table"><h3>임시 점포 목록</h3><div id="shopRows"></div></div>
 <div class="references"><h3>출시 승인 체크</h3><ol><li>관리주체의 도면 사용 허락 또는 직접 실측 권리 증빙</li><li>관·층 기준점과 구획 경계의 현장 확인</li><li>점포명·호실·입점 상태 업데이트 확인</li><li>출입구·승강기·에스컬레이터·무장애 연결 검증</li><li>승인된 지오메트리만 제품에 반영하고 현장 재검수</li></ol>
 <p>기존 사용자용 지도는 <a href="/indoor-map.html">가락몰 실내지도 베타</a>에서 확인할 수 있습니다.</p></div></section>
