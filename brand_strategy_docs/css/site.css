@@ -16,3 +16,9 @@ img{max-width:100%;height:auto}h1,h2,h3{line-height:1.28;letter-spacing:-.035em;
 .roadmap{list-style-position:inside}.source-list{overflow-wrap:anywhere;font-size:.91rem}.smallspace{margin-top:8px}.tagline{font-size:2rem;font-weight:900;color:var(--green)}.brand-colors{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.colorcard{padding:13px;background:white;border:1px solid var(--border);border-radius:12px}.brand-color{height:65px;border-radius:8px;margin-bottom:10px}.footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted);border-top:1px solid var(--border);margin-top:45px;padding-top:28px;font-size:.8rem}
 @media(max-width:800px){.topin{padding:13px 16px}.nav{width:100%;overflow:auto;flex-wrap:nowrap;padding-bottom:7px}.nav a{white-space:nowrap}.frame{padding:16px 14px 50px}.hero{border-radius:17px}.grid,.grid.two,.split{grid-template-columns:1fr}.split.rev{direction:ltr}.brand-colors{grid-template-columns:repeat(2,minmax(0,1fr))}.section{padding-top:25px}.section-heading{align-items:start}.num{font-size:10px;letter-spacing:0}.tile,.brandmark,.quote,.note,.kpi{padding:18px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* Narrow-screen protection for long formulas, citations, and tables. */
+.frame,.section,.grid,.split,.tile,.kpi,.note{min-width:0}
+.section,.tile,.kpi,.note,.source-list,pre,code{overflow-wrap:anywhere;word-break:normal}
+pre{max-width:100%;overflow-x:auto;white-space:pre-wrap}
+@media(max-width:800px){.table-scroll{display:block;width:100%;max-width:calc(100vw - 28px);overflow-x:auto}.table-scroll table{max-width:none}}
