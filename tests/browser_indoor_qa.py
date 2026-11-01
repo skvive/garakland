@@ -126,9 +126,41 @@ def run():
                 assert page.locator("#hall").input_value() == "5"
                 assert page.locator("#floor").input_value() == "1F"
                 assert "미게시" in page.locator("#status").inner_text()
+                page.locator("#calculateRoute").click()
+                assert "실측" in page.locator("#routeResult").inner_text()
                 checks += 1
                 if label != "compact":
                     page.screenshot(path=str(OUT / (label + "_layout_workbench.png")),full_page=True)
+                # Entirely synthetic approval fixture: verifies route-graph gate,
+                # not that any real Garak Mall path has been surveyed.
+                approved = dict(draft)
+                approved["source"] = {
+                    "id":"test-approved","title":"QA TEST-ONLY","kind":"owner-authorized-drawing",
+                    "status":"approved","permissionRef":"TEST-NOT-REAL",
+                    "reviewer":"QA TEST","reviewDate":"2026-11-02"
+                }
+                approved["shops"] = [{
+                    "id":"test-shop","name":"TEST SHOP","category":"food",
+                    "polygon":[[40,20],[50,20],[50,30],[40,30]],"verified":True
+                }]
+                approved["nodes"] = [
+                    {"id":"start","xy":[10,20],"type":"entry","verified":True},
+                    {"id":"finish","xy":[70,20],"type":"passage","verified":True}
+                ]
+                approved["edges"] = [{
+                    "id":"short-stairs","from":"start","to":"finish",
+                    "mode":"stairs","lengthMeters":7,"verified":True
+                }]
+                page.locator("#inputFile").set_input_files({
+                    "name":"test-approved.json","mimeType":"application/json",
+                    "buffer":json.dumps(approved,ensure_ascii=False).encode("utf-8")
+                })
+                page.locator("#calculateRoute").click()
+                assert "7m" in page.locator("#routeResult").inner_text()
+                page.locator("#wheelchairMode").check()
+                page.locator("#calculateRoute").click()
+                assert "검증된 연결 동선" in page.locator("#routeResult").inner_text()
+                checks += 1
                 context.close()
             browser.close()
         assert not errors, errors
