@@ -17,10 +17,10 @@ function image(src,alt){return `<img alt="${esc(alt)}" src="${esc(src||'/assets/
 /* v4 editorial assets are explicitly demo imagery; never override authentic merchant uploads. */
 const photoByCategory={"수산":"seafood","청과":"fruit","축산":"meat","음식":"kitchen","식자재":"market"};
 function editorialPhoto(s){
-  if(!s)return './assets/editorial/market.webp';
+  if(!s)return '/assets/editorial/market.webp';
   if(!s.isDemo)return s.hero||'/assets/icon.svg';
   const k=photoByCategory[s.category]||'merchant';
-  return './assets/editorial/'+k+'.webp';
+  return '/assets/editorial/'+k+'.webp';
 }
 let favoriteIds=new Set();
 try{const a=JSON.parse(localStorage.getItem('garakland_favorites_v4')||'[]');if(Array.isArray(a))favoriteIds=new Set(a.filter(x=>typeof x==='string'))}catch{}
