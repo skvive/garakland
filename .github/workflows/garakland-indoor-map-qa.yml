@@ -35,6 +35,8 @@ jobs:
         run: python -m unittest tests/test_after_lotte_campaign.py
       - name: Public map mode regression (no satellite fallback)
         run: python -m unittest discover -s tests -p test_map_mode_policy.py
+      - name: Google and Naver SEO crawl-readiness regression
+        run: python -m unittest discover -s tests -p test_search_registration_readiness.py
       - name: Validate all HTML/CSS links and JS syntax
         run: python scripts/web_quality_gate.py
 
