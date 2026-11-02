@@ -40,6 +40,8 @@ def run():
         page.locator('[data-mode="floor"]').click()
         page.locator('.floor-map-pill[data-map-floor="2F"]').click()
         image=page.locator('.floor-map-stage .floor-plan-figure img')
+        assert page.locator('.map-area').evaluate("(el)=>el.classList.contains('is-floor-view')")
+        if w<=760:assert page.locator('.map-area').bounding_box()['height']>=620
         image.wait_for(state='visible')
         assert image.get_attribute('src').endswith('/sales-2f.svg')
         page.wait_for_function("""() => {

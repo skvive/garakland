@@ -80,6 +80,7 @@ function currentFloorContext(){
 }
 function applyModeChrome(mode){
   mapMode=mode;
+  document.querySelector('.map-area')?.classList.toggle('is-floor-view',mode==='floor');
   document.querySelectorAll('[data-mode]').forEach(btn=>{const active=btn.dataset.mode===mode;btn.classList.toggle('active',active);btn.setAttribute('aria-pressed',String(active));});
   const typeInfo={concept:'가락랜드 입체 모식도',terrain:'Google 지형도',roadmap:'Google 일반 지도','3d':'Google Photorealistic 3D',floor:'가락몰 층별 안내도'};
   $('mapStatus').textContent='지도 엔진: '+(typeInfo[mode]||mode);

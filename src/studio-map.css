@@ -174,3 +174,14 @@
   .floor-map-viewport{border-radius:8px}
 }
 @media(prefers-reduced-motion:reduce){.details{transition:none}}
+
+/* On small phones, preserve the SVG's full intrinsic ratio and control toolbar.
+   The short generic map canvas clipped the lower half of these floor guides. */
+@media(max-width:760px){
+  .map-area.is-floor-view{height:650px;min-height:650px}
+  .map-area.is-floor-view .map-disclaimer{display:none}
+  .map-area.is-floor-view .map-overlay-bottom{bottom:7px;left:9px;right:9px}
+}
+@media(min-width:761px) and (max-width:1040px){
+  .map-area.is-floor-view{min-height:660px}
+}
