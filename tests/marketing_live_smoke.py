@@ -16,6 +16,10 @@ CHECKS={
  '/design/after-lotte.css':('text/css','.gl-after-lotte'),
  '/indoor/indoor-3d.css':('text/css','.is-isometric'),
  '/assets/mascot/garak-hansang-wave.webp':('image/webp',None),
+ '/design/after-lotte-v2.css':('text/css','.lot-v2-hero'),
+ '/assets/campaign/garak-hansang-official-guide.webp':('image/webp',None),
+ '/assets/campaign/garakland-after-lotte-hero.webp':('image/webp',None),
+ '/assets/campaign/garakland-after-lotte-mobile.webp':('image/webp',None),
 }
 errors=[]
 for path,(mime,marker) in CHECKS.items():
