@@ -2,7 +2,7 @@ import {floorOrder,halls,categories,displayZones,floorDescriptions,stores,defaul
 import {readSelection,lookupStores,findShop,findZone,buildSchematicRoute,areaSummary,qualityStats} from './nav-model.mjs';
 const el=id=>document.getElementById(id);
 const escapeText=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const state={...readSelection(new URLSearchParams(location.search)),category:'all',destination:null,selectedZone:null,zoom:1,origin:{...defaultOrigin}};
+const state={...readSelection(new URLSearchParams(location.search)),category:'all',destination:null,selectedZone:null,zoom:1,view:'3d',rotation:0,origin:{...defaultOrigin}};
 const quality=qualityStats();
 function init(){
   halls.forEach(h=>{const b=document.createElement('button');b.type='button';b.dataset.hall=h.id;b.textContent=h.label;el('hallTabs').append(b);});
@@ -52,10 +52,27 @@ function init(){
   }));
   el('originHall').addEventListener('change',e=>{state.origin.hall=e.target.value;drawRoute();});
   el('originFloor').addEventListener('change',e=>{state.origin.floor=e.target.value;drawRoute();});
+  el('view3d').addEventListener('click',()=>setMapMode('3d'));
+  el('view2d').addEventListener('click',()=>setMapMode('2d'));
+  el('rotateMap').addEventListener('click',()=>{state.rotation=(state.rotation+15)%360;applyMapView();});
   el('zoomIn').addEventListener('click',()=>setZoom(state.zoom+.4));
   el('zoomOut').addEventListener('click',()=>setZoom(state.zoom-.4));
   el('zoomReset').addEventListener('click',()=>setZoom(1));
+  applyMapView();
   render();
+}
+function setMapMode(mode){
+  state.view=mode;
+  applyMapView();
+}
+function applyMapView(){
+  const viewport=el('mapViewport');
+  viewport.classList.toggle('is-isometric',state.view==='3d');
+  viewport.classList.toggle('is-flat',state.view==='2d');
+  viewport.style.setProperty('--map-spin',state.rotation+'deg');
+  el('view3d').setAttribute('aria-pressed',String(state.view==='3d'));
+  el('view2d').setAttribute('aria-pressed',String(state.view==='2d'));
+  el('rotateMap').disabled=state.view!=='3d';
 }
 function setZoom(value){
   state.zoom=Math.round(Math.max(1,Math.min(3,value))*10)/10;
@@ -121,6 +138,7 @@ function floorSvgMarkup(){
     const textX=x+w/2,textY=y+h/2;
     const fontSize=z.w<17?12:16;
     return '<g data-zone="'+z.id+'" role="button" tabindex="0" aria-label="'+label+' 개략 구역 선택">'+
+    '<path class="zone-edge" d="M '+x+' '+(y+h-4)+' v 19 l 16 13 h '+(w-18)+' l 5 -13 v -19 Z" fill="'+shade+'"></path>'+
     '<rect class="zone'+dimmed+selected+'" x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="10" fill="'+shade+'"></rect>'+
     '<text class="zone-label" font-size="'+fontSize+'" x="'+textX+'" y="'+textY+'">'+label+'</text></g>';
   }).join('');

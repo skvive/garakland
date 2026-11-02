@@ -31,6 +31,8 @@ jobs:
         run: node tests/indoor_campus_graph.test.mjs
       - name: Validate tenant CSV ingestion and draft-only map placements
         run: node tests/indoor_tenant_onboarding.test.mjs
+      - name: Garakland after-Lotte marketing and mascot integration
+        run: python -m unittest tests/test_after_lotte_campaign.py
       - name: Validate all HTML/CSS links and JS syntax
         run: python scripts/web_quality_gate.py
 

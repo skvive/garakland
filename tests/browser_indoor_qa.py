@@ -48,6 +48,22 @@ def run():
                 response = page.goto(base + "/indoor-map.html", wait_until="networkidle", timeout=30000)
                 assert response and response.status == 200
                 assert "가락몰 실내" in page.title()
+                # Branded 2.5D display must be reversible, default isometric.
+                assert page.locator('#view3d').get_attribute('aria-pressed') == 'true'
+                page.locator('#view2d').click()
+                assert page.locator('#mapViewport').evaluate("el => el.classList.contains('is-flat')")
+                page.locator('#view3d').click()
+                assert page.locator('#mapViewport').evaluate("el => el.classList.contains('is-isometric')")
+                page.locator('#rotateMap').click()
+                checks += 1
+                campaign=page.goto(base + '/lotteworld-next.html',wait_until='networkidle')
+                assert campaign and campaign.status==200
+                assert '롯데월드 다음 코스' in page.locator('h1').inner_text()
+                assert page.locator('a[href*="travelmode=transit"]').count() == 1
+                assert page.locator('a[href*="indoor-map.html?floor="]').count() == 3
+                checks += 1
+                response = page.goto(base + '/indoor-map.html', wait_until='networkidle')
+                assert response and response.status == 200
                 page.get_by_role("button", name="5관", exact=True).click()
                 page.get_by_role("button", name="3F", exact=True).click()
                 page.wait_for_timeout(130)

@@ -5,29 +5,30 @@
  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
  <meta name="theme-color" content="#103d59">
  <meta name="description" content="가락몰 3·4·5관 층별 실내지도 시연: B3부터 3F까지 구역과 안내판 수록 매장을 찾아보세요. 실제 길찾기 도면은 아닙니다.">
- <title>가락몰 실내 층별 안내 | GARAKLAND</title>
+ <title>가락몰 실내 3D 지도 | 가락랜드</title>
  <link rel="icon" href="/assets/brand/garakland-themepark-mark.svg" type="image/svg+xml">
- <link rel="stylesheet" href="/indoor/indoor.css">
+ <link rel="stylesheet" href="/indoor/indoor.css"><link rel="stylesheet" href="/indoor/indoor-3d.css">
 </head>
 <body>
  <a href="#indoorMain" class="skip">실내 지도 바로가기</a>
  <header class="site-head">
-  <a class="brand" href="/"><img src="/assets/brand/garakland-themepark-logo.svg" width="180" height="50" alt="가락랜드 홈"></a>
-  <div class="head-title"><strong>가락몰 실내 지도</strong><small>INDOOR FLOOR GUIDE · 시범 서비스</small></div>
+  <a class="brand" href="/"><img src="/assets/brand/garakland-themepark-logo.svg" width="180" height="50" alt="가락랜드 홈"></a><img class="gl-indoor-mascot" src="/assets/mascot/garak-hansang-wave.webp" alt="가락랜드 마스코트 가락한상" width="64" height="64">
+  <div class="head-title"><strong>가락랜드 3D 실내 탐험</strong><small>가락몰 관·층 개략도 · GARAKLAND GUIDE</small></div>
   <nav class="head-links" aria-label="관련 메뉴">
    <a href="/map.html">위성·3D 지도</a>
-   <a href="/stores.html">매장 안내</a><a href="/indoor-layout-lab.html">도면 검수 작업대</a><a href="/indoor-campus-lab.html">관·층 경로 검증</a><a href="/indoor-tenant-lab.html">매장·호실 명부 검수</a>
+   <a href="/stores.html">매장 안내</a><a href="/lotteworld-next.html">롯데월드 다음 코스</a><a href="/indoor-layout-lab.html">도면 검수 작업대</a><a href="/indoor-campus-lab.html">관·층 경로 검증</a><a href="/indoor-tenant-lab.html">매장·호실 명부 검수</a>
    <a href="https://www.kakaocorp.com/page/detail/11930" target="_blank" rel="noopener noreferrer">실내지도 참고 자료 ↗</a>
   </nav>
  </header>
  <div class="verification-banner" role="note">
   <span>도면 검증 단계</span> 업로드된 현장 안내판을 바탕으로 재구성한 <b>개략도</b>입니다. 실제 매장 호실, 이동거리, 피난경로 및 출입 가능 통로를 보증하지 않습니다.
  </div>
- <main id="indoorMain" class="layout">
+  <aside class="indoor-brand-intro" aria-label="가락랜드 마스코트와 잠실 관광 연계 안내"><img src="/assets/mascot/garak-hansang-hero.webp" alt="가락랜드 가락한상 마스코트" loading="lazy"><div><small>GARAKLAND · 3D MARKET EXPLORER</small><h1>가락랜드에 온 걸 환영해요!</h1><p>롯데월드 다음 코스는 가락랜드! 가락한상과 함께 층별 시장 구역을 입체 지도로 둘러보세요. 지도는 실제 측량을 대신하지 않는 개략 시연입니다.</p></div><a href="/lotteworld-next.html">잠실 추천 코스 →</a></aside>
+<main id="indoorMain" class="layout">
   <section class="controls" aria-labelledby="filterHeading">
    <div class="panel-heading">
-    <p class="kicker">EXPLORE GARAK MALL</p>
-    <h1 id="filterHeading">목적지를 찾아보세요.</h1>
+    <p class="kicker">EXPLORE GARAKLAND · 3D INDOOR ATLAS</p>
+    <h2 id="filterHeading">어디로 가볼까요?</h2>
     <p>관과 층을 선택하면 구역 안내도가 바뀝니다. 매장명은 현장 안내판에 표기된 목록을 기반으로 합니다.</p>
    </div>
    <label class="field">매장·업종 검색
@@ -63,7 +64,7 @@
    <div id="floorTabs" class="floor-tabs" role="group" aria-label="층 선택"></div>
    <div class="map-stage">
     <div class="map-stage-top">
-     <span class="map-chip">개략도 · NOT TO SCALE</span>
+     <span class="map-chip">입체 개략도 · NOT TO SCALE</span><div class="view-switch" role="group" aria-label="지도 표시 방식"><button type="button" id="view3d" aria-pressed="true">입체 3D</button><button type="button" id="view2d" aria-pressed="false">평면 2D</button><button type="button" id="rotateMap" aria-label="입체 지도 회전">↻ 회전</button></div>
      <div class="zoom-controls">
       <button type="button" id="zoomOut" aria-label="지도 축소">−</button>
       <output id="zoomValue" aria-live="polite">100%</output>
@@ -71,10 +72,10 @@
       <button type="button" id="zoomReset">초기화</button>
      </div>
     </div>
-    <div id="mapViewport" class="map-viewport" tabindex="0" aria-label="층별 구역 지도. 확대하여 볼 수 있습니다.">
+    <div id="mapViewport" class="map-viewport is-isometric" tabindex="0" aria-label="층별 구역 지도. 확대하여 볼 수 있습니다.">
      <svg id="floorSvg" class="floor-svg" viewBox="0 0 1000 490" role="img" aria-label="층별 가락몰 구역 모식도"></svg>
     </div>
-    <div class="map-footnote">모바일에서는 전체 지도를 확인한 뒤 +로 확대하고 지도 영역을 좌우로 스크롤할 수 있습니다. 주요 구역 색상은 업종 안내입니다. 건물 외곽은 현장 사진을 참고한 단순화 형태로, 실제 호실 경계·피난 동선을 나타내지 않습니다.</div>
+    <div class="map-footnote">입체 모드는 평면 모식도에 깊이 효과를 준 시연입니다. 실제 건물 높이·면적·매장 호실은 반영되지 않았습니다. 모바일에서는 전체 지도를 확인한 뒤 +로 확대하고 지도 영역을 좌우로 스크롤할 수 있습니다. 주요 구역 색상은 업종 안내입니다. 건물 외곽은 현장 사진을 참고한 단순화 형태로, 실제 호실 경계·피난 동선을 나타내지 않습니다.</div>
    </div>
    <div class="map-legend" id="mapLegend" aria-label="지도 색상 범례"></div>
    <div id="zoneQuickList" class="zone-quick-list" role="group" aria-label="구역 바로 선택"></div>
