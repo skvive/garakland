@@ -6,8 +6,10 @@ on:
       - 'chatgpt/garakland-android-workspace-*'
       - 'release/garakland-design-20261102'
       - 'design/garakland-theme-land-*'
+      - 'feature/garakland-free-merchant-proposal-*'
     paths:
       - '*.html'
+      - 'merchant-proposal.*'
       - 'design/**'
       - 'brand/**'
       - 'src/**'
@@ -43,7 +45,7 @@ jobs:
       - name: Assert Garakland theme park branding and 3D routing
         run: python -m unittest discover -s tests -p 'test_themepark_brand.py' -v
       - run: python -m playwright install --with-deps chromium
-      - name: Render 26 routes × desktop/mobile/compact and record defects
+      - name: Render 27 routes × desktop/mobile/compact and record defects
         run: python tests/delivery_page_audit.py --strict
       - name: Save screenshot + measurable browser QA evidence
         if: always()

@@ -187,3 +187,21 @@ body.gl-theme-land .gl-park-guide .gl-park-guide-link{
    flex:0 0 100%;width:100%;max-width:100%;margin:3px 0 0;white-space:normal
  }
 }
+
+/* Free merchant prospectus entry: visible, distinct from non-functional demo signup. */
+body.gl-theme-land .nav-inner .nav-free-proposal{
+ color:#b55a14;background:#fff3d7;border:1px solid #ffd289;border-radius:18px;
+ padding:7px 10px;font-weight:900
+}
+.gl-free-proposal-banner{
+ display:flex;align-items:center;justify-content:space-between;gap:16px;
+ margin:25px auto 0;padding:20px 24px;border:1px solid #ecd5a8;
+ border-radius:20px;background:linear-gradient(105deg,#fff2cf,#eff9fd);
+ box-shadow:0 10px 25px rgba(7,58,83,.085)
+}
+.gl-free-proposal-banner>div{min-width:0}
+.gl-free-proposal-banner span{display:block;color:#ae6e25;font-weight:900;font-size:10px;letter-spacing:.07em;margin-bottom:8px}
+.gl-free-proposal-banner strong{display:block;color:#153b55;font-size:18px;font-weight:900;line-height:1.45}
+.gl-free-proposal-banner p{font-size:12px;line-height:1.75;color:#4e6a7a;margin:7px 0 0}
+.gl-free-proposal-banner a{display:flex;align-items:center;justify-content:center;flex:0 0 auto;min-height:46px;padding:12px 20px;color:#fff;background:#0b5b81;border-radius:13px;font-size:12px;font-weight:900;text-decoration:none}
+@media(max-width:700px){.gl-free-proposal-banner{margin:14px;padding:17px;flex-wrap:wrap}.gl-free-proposal-banner a{width:100%}}

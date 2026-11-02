@@ -19,7 +19,7 @@ PAGES=[
  "brand_strategy_docs/index.html","brand_strategy_docs/brandbook.html",
  "brand_strategy_docs/business-plan.html","brand_strategy_docs/copyright-dossier.html",
  "brand_strategy_docs/investment-proposal.html","design/design-system.html",
- "design/home-templates.html","previews/index.html"
+ "design/home-templates.html","previews/index.html","merchant-proposal.html"
 ]
 SIZES=[("desktop",1440,900),("mobile",390,844),("compact",360,780)]
 AUDIT_JS="""() => {
@@ -92,6 +92,14 @@ def verify_controls(page, page_path, viewport):
         check(guide.count()==1,"context mascot guide is injected")
         check(guide.locator('img').get_attribute("src")=="/assets/brand/mascot-sticker.png",
               "mascot preserves the canonical stored character")
+    if page_path=="merchant-proposal.html":
+        check(page.locator("h1").count()==1,"merchant proposal has one clear headline")
+        check("0원" in page.locator(".trustbar").inner_text(),"free-listing promise is visible")
+        check(page.locator(".sample-browser img").count()==1,"store detail mock page displayed")
+        page.eval_on_selector("#views","e=>{e.value='1000';e.dispatchEvent(new Event('input',{bubbles:true}))}")
+        check("20건" in page.locator("#sales-count").inner_text(),"coupon scenario calculation updates")
+        check("600,000원" in page.locator("#sales-value").inner_text(),"coupon scenario gross amount updates")
+        check(page.locator('a[href="/merchant-center.html"]').count()>=1,"merchant CTA links to existing demo signup")
     if page_path=="ops.html":
         page.locator('[data-view="board"]').click(timeout=3000)
         check(page.locator("#board").evaluate("(e)=>e.classList.contains('active')"),"ERP board tab works")
