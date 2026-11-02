@@ -22,3 +22,6 @@
 /* Designer review: preserve Korean word boundaries and fit all mobile menu actions. */
 .lot-v2-copy h1{word-break:keep-all;overflow-wrap:normal}
 @media(max-width:640px){.lot-v2-header nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));overflow:visible;white-space:normal;gap:5px}.lot-v2-header nav a{text-align:center;display:flex;justify-content:center;align-items:center;min-height:40px;line-height:1.35;font-size:.69rem;padding:6px 4px}}
+
+/* Prevent Korean syllable breaks in editorial headings. */
+.lot-v2-section-head h2,.lot-v2-guide-copy h2,.lot-v2-bottom h2{word-break:keep-all;overflow-wrap:normal}

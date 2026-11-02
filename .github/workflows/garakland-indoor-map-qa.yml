@@ -50,7 +50,7 @@ jobs:
           python-version: '3.11'
       - name: Install Chromium for isolated static site
         run: |
-          python -m pip install playwright
+          python -m pip install playwright pillow
           python -m playwright install --with-deps chromium
       - name: Test 6 floors and all user navigation actions at three viewports
         run: python tests/browser_indoor_qa.py

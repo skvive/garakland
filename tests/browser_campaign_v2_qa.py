@@ -3,6 +3,8 @@ import functools
 import http.server
 import socketserver
 import threading
+from io import BytesIO
+from PIL import Image,ImageStat
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 
@@ -35,7 +37,18 @@ try:
    assert page.locator('.lot-v2-disclaimer').count()==1
    assert page.locator('img[src*="garak-hansang-official-guide"]').count()>=2
    for img in page.locator('main img').all():
+    img.scroll_into_view_if_needed(timeout=6000)
     assert img.evaluate('x=>x.complete && x.naturalWidth>0'),img.get_attribute('src')
+    img.evaluate('x=>x.decode()')
+   # A loaded-but-unpainted lazy image is a delivery defect for a visual landing page.
+   for card in page.locator('.lot-v2-card-media').all():
+    card.scroll_into_view_if_needed(timeout=6000)
+    page.wait_for_timeout(160)
+    image=Image.open(BytesIO(card.screenshot())).convert('RGB')
+    variance=ImageStat.Stat(image).stddev
+    assert max(variance)>12,(name,'card is a blank color block',variance)
+   page.evaluate('window.scrollTo(0,0)')
+   page.wait_for_timeout(160)
    overflow=page.evaluate('document.documentElement.scrollWidth - document.documentElement.clientWidth')
    assert overflow<=4,(name,'horizontal overflow',overflow)
    assert not failures,(name,'request failures',failures)
