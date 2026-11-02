@@ -5,6 +5,7 @@ import {getFloorPlan,renderFloorPlan} from './floorplans.js';
 const $=id=>document.getElementById(id);let shops=[],tab='explore',selected={type:'building',id:'sales'},floor='all',mapMode='concept',server=false,geo=null,loadingMap=false,pendingMode=null,toastTimeout;
 let floorplans={plans:[]};
 const DATA_LOCAL='garakland-local-shops-v2',KEY_STORAGE='garakland-google-api-session';
+const SUPPORTED_PUBLIC_MAP_MODES=new Set(['concept','terrain','3d','floor']); // No satellite tile mode.
 const toast=msg=>{const el=$('toast');el.textContent=msg;el.classList.add('show');clearTimeout(toastTimeout);toastTimeout=setTimeout(()=>el.classList.remove('show'),4700);};
 const map=new MapEngine($('map'),{onShopClick:id=>selectShop(id),onBuildingClick:id=>selectBuilding(id),onToast:toast,onFloorSelect:f=>{floor=f;renderDetails();changeMapMode('floor');},onCoordinatePick:pos=>{$('fLatitude').value=pos.lat.toFixed(7);$('fLongitude').value=pos.lng.toFixed(7);$('fCoordinateStatus').value='approximate';$('adminDialog').showModal();$('adminResult').textContent='좌표가 입력되었습니다. 검증 완료 표시를 하려면 별도 현장 확인이 필요합니다.';}});
 function openExternal(url){const safe=safeUrl(url);if(!safe){toast('등록된 안전한 외부 링크가 없습니다.');return;}window.open(safe,'_blank','noopener,noreferrer');}
@@ -47,13 +48,13 @@ function currentFloorContext(){
 }
 function applyModeChrome(mode){
   mapMode=mode;
-  document.querySelectorAll('[data-mode]').forEach(btn=>btn.classList.toggle('active',btn.dataset.mode===mode));
-  const typeInfo={concept:'시연용 모식도',satellite:'Google 위성 사진',terrain:'Google 지형도',roadmap:'Google 일반 지도','3d':'Google Photorealistic 3D',floor:'가락몰 층별 안내도'};
+  document.querySelectorAll('[data-mode]').forEach(btn=>{const active=btn.dataset.mode===mode;btn.classList.toggle('active',active);btn.setAttribute('aria-pressed',String(active));});
+  const typeInfo={concept:'가락랜드 입체 모식도',terrain:'Google 지형도',roadmap:'Google 일반 지도','3d':'Google Photorealistic 3D',floor:'가락몰 층별 안내도'};
   $('mapStatus').textContent='지도 엔진: '+(typeInfo[mode]||mode);
-  $('mapDisclaimer').textContent=mode==='concept'?'실사 기반 3D 건물 모식도입니다. 정확한 동 경계·실내는 공식 도면과 Google 3D를 확인하세요.':mode==='3d'?'Google Photorealistic 3D입니다. 실제 건물 입체 모델이며 매장 실내는 아닙니다.':mode==='satellite'?'Google 위성 사진입니다. 위에서 본 항공 영상이며 도로명 레이블은 넣지 않습니다.':mode==='terrain'?'Google 지형도입니다. 고도·음영을 보여 주며 위성·3D와 다릅니다.':mode==='floor'?'공사 공식 층별 안내 기반 모식도입니다. 실측 CAD·개별 호실 좌표가 아닙니다.':'Google 실제 지도. 검증된 GPS 좌표를 가진 매장만 지도 핀으로 표시합니다.';
+  $('mapDisclaimer').textContent=mode==='concept'?'실사 기반 3D 건물 모식도입니다. 정확한 동 경계·실내는 공식 도면과 Google 3D를 확인하세요.':mode==='3d'?'Google Photorealistic 3D입니다. 실제 건물 입체 모델이며 매장 실내는 아닙니다.':mode==='terrain'?'Google 지형도입니다. 고도·음영을 보여 주며 3D 입체 지도와 다릅니다.':mode==='floor'?'공사 공식 층별 안내 기반 모식도입니다. 실측 CAD·개별 호실 좌표가 아닙니다.':'Google 실제 지도. 검증된 GPS 좌표를 가진 매장만 지도 핀으로 표시합니다.';
 }
 async function changeMapMode(mode){
-  if(!mode) return;
+  if(!SUPPORTED_PUBLIC_MAP_MODES.has(mode)) return;
   if(mode!=='concept'&&mode!=='floor'&&!map.google){$('settingsDialog').showModal();toast('Google API 키 연결 후 이용할 수 있습니다.');return;}
   if(loadingMap){pendingMode=mode;return;}
   loadingMap=true;
@@ -72,9 +73,7 @@ async function changeMapMode(mode){
     applyModeChrome(mode);
   }catch(err){
     toast('지도 전환 실패: '+err.message);
-    if(mode==='3d'&&map.google){
-      try{await map.setMode('satellite');applyModeChrome('satellite');return;}catch{}
-    }
+    // A failed 3D load must never expose the old, often-unavailable satellite tiles.
     try{await map.setMode('concept');applyModeChrome('concept');}catch{}
   }finally{
     loadingMap=false;

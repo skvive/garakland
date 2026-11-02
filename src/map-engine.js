@@ -2,7 +2,6 @@ import {MARKET,BUILDINGS,ZONE_IMAGES,verifiedCoords,escapeHTML as esc} from './c
 
 const MARKET_CENTER={lat:MARKET.lat,lng:MARKET.lng};
 const VIEW={
-  satellite:{zoom:18,minZoom:15,maxZoom:21,tilt:0},
   terrain:{zoom:14,minZoom:11,maxZoom:16,tilt:0},
   roadmap:{zoom:16,minZoom:13,maxZoom:20,tilt:0}
 };
@@ -153,12 +152,11 @@ export class MapEngine{
   mapTypeIdFor(mode){
     const {MapTypeId}=this.mapsLib||{};
     if(mode==='terrain') return MapTypeId?.TERRAIN||'terrain';
-    if(mode==='satellite') return MapTypeId?.SATELLITE||'satellite';
     return MapTypeId?.ROADMAP||'roadmap';
   }
 
   viewFor(mode){
-    return VIEW[mode]||VIEW.satellite;
+    return VIEW[mode]||VIEW.roadmap;
   }
 
   destroyGoogleMap(){
@@ -172,6 +170,7 @@ export class MapEngine{
   }
 
   async setMode(mode,opts={}){
+    if(!['concept','floor','terrain','roadmap','3d'].includes(mode)) throw new Error('지원하지 않는 지도 모드입니다.');
     this.mode=mode;
     if(mode==='concept'){
       this.renderConcept();

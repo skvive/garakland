@@ -55,3 +55,8 @@
 .floorplan-open{
   margin:8px 0 0;width:100%;border:1px solid #dce7dd;background:#204b44;color:#fff;border-radius:8px;padding:10px 9px;font-size:11px;font-weight:800;
 }
+
+/* Four concise view options; no unsupported satellite tab. */
+.mode-switch{max-width:min(100%,370px);gap:4px}
+.mode-switch button{min-height:39px;min-width:50px;padding:9px 12px}
+@media(max-width:520px){.mode-switch{max-width:min(100%,330px);margin-left:auto}.mode-switch button{min-width:48px;padding:9px 10px;font-size:11px}}
