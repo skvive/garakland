@@ -56,10 +56,10 @@ def run():
         assert zoom.inner_text()=='100%'
         page.locator('[data-floor-zoom="in"]').click()
         assert zoom.inner_text()=='135%'
-        assert 'scale(1.350)' in image.get_attribute('style')
+        assert image.evaluate("el => Math.abs(new DOMMatrix(getComputedStyle(el).transform).a - 1.35) < .02")
         surface=page.locator('.floor-map-viewport')
         surface.focus()
-        page.keyboard.press('+')
+        page.keyboard.press('Shift+=')
         assert zoom.inner_text()=='170%'
         page.keyboard.press('0')
         assert zoom.inner_text()=='100%'
