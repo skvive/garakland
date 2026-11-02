@@ -52,6 +52,45 @@ def run():
         assert box['width'] >= stage['width'] * .87, (label, 'floorplan displayed too narrowly', box['width'],stage['width'])
         assert page.locator('.floor-map-original').get_attribute('href').endswith('/sales-2f.svg')
         assert page.locator('.floor-map-stage figcaption').count()==1
+        zoom=page.locator('[data-floor-zoom-status]')
+        assert zoom.inner_text()=='100%'
+        page.locator('[data-floor-zoom="in"]').click()
+        assert zoom.inner_text()=='135%'
+        assert 'scale(1.350)' in image.get_attribute('style')
+        surface=page.locator('.floor-map-viewport')
+        surface.focus()
+        page.keyboard.press('+')
+        assert zoom.inner_text()=='170%'
+        page.keyboard.press('0')
+        assert zoom.inner_text()=='100%'
+        page.locator('[data-floor-zoom="in"]').click()
+        box=surface.bounding_box()
+        assert box
+        page.mouse.move(box['x']+box['width']/2,box['y']+box['height']/2)
+        page.mouse.down()
+        page.mouse.move(box['x']+box['width']/2+30,box['y']+box['height']/2+20,steps=4)
+        page.mouse.up()
+        assert 'translate3d(' in image.get_attribute('style')
+        page.locator('[data-floor-zoom="reset"]').click()
+        assert zoom.inner_text()=='100%'
+        checks+=1
+        page.locator('#searchInput').fill('다농마트')
+        page.locator('[data-shop="source-danong"]').click()
+        page.wait_for_selector('.floor-map-selection')
+        assert '다농마트' in page.locator('.floor-map-selection').inner_text()
+        assert '미확인' in page.locator('.floor-map-selection').inner_text()
+        assert page.locator('.floor-map-pill[data-map-floor="2F"]').get_attribute('class').find('active')>=0
+        assert page.locator('.floor-map-stage .floor-marker').count()==0
+        if w<=760:
+          assert page.locator('.details').evaluate("(el)=>el.classList.contains('is-open')")
+          assert page.locator('#detailSheetToggle').get_attribute('aria-expanded')=='true'
+          page.locator('#detailSheetToggle').click()
+          assert page.locator('#detailSheetToggle').get_attribute('aria-expanded')=='false'
+          page.locator('#detailSheetToggle').click()
+          assert page.locator('#detailSheetToggle').get_attribute('aria-expanded')=='true'
+          page.locator('#detailSheetToggle').click()
+        page.locator('.floor-map-pill[data-map-floor="1F"]').click()
+        assert page.locator('.floor-map-pill[data-map-floor="1F"]').get_attribute('class').find('active')>=0
         checks+=1
         if label!='compact':page.screenshot(path=str(OUT/f'{label}-sales-2f-expanded.png'),full_page=True)
         page.locator('[data-mode="concept"]').click()

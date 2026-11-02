@@ -15,6 +15,6 @@ class FloorMapDelivery(unittest.TestCase):
  def test_source_and_disclaimer(self):
   src=(ROOT/'src/map-engine.js').read_text('utf-8')
   self.assertIn('floor-map-original',src)
-  self.assertIn('실측 경로가 검증된 도면은 아닙니다',src)
+  self.assertIn('실측 이동경로·개별 호실 지도 위치는 확인되지 않았습니다',src)
   self.assertIn('aria-label="층별 도면 선택"',src)
 if __name__=='__main__':unittest.main()
