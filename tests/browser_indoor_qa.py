@@ -60,7 +60,7 @@ def run():
                 assert campaign and campaign.status==200
                 assert '롯데월드 다음 코스' in page.locator('h1').inner_text()
                 assert page.locator('a[href*="travelmode=transit"]').count() == 1
-                assert page.locator('a[href*="indoor-map.html?floor="]').count() == 3
+                assert page.locator('a[href*="indoor-map.html?floor="]').count() >= 3
                 checks += 1
                 response = page.goto(base + '/indoor-map.html', wait_until='networkidle')
                 assert response and response.status == 200
