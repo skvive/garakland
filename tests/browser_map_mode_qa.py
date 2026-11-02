@@ -34,6 +34,27 @@ def run():
         assert page.locator('.concept-map').count()==1
         assert page.locator('[data-mode="concept"]').get_attribute('aria-pressed')=='true'
         checks+=1
+
+        # Regression: floor diagrams previously occupied only the center third
+        # of the wide map viewport due to a flex intrinsic-height constraint.
+        page.locator('[data-mode="floor"]').click()
+        page.locator('.floor-map-pill[data-map-floor="2F"]').click()
+        image=page.locator('.floor-map-stage .floor-plan-figure img')
+        image.wait_for(state='visible')
+        assert image.get_attribute('src').endswith('/sales-2f.svg')
+        page.wait_for_function("""() => {
+          const img=document.querySelector('.floor-map-stage .floor-plan-figure img');
+          return img && img.complete && img.naturalWidth>0;
+        }""", timeout=12000)
+        box=image.bounding_box()
+        stage=page.locator('.floor-map-stage').bounding_box()
+        assert box and stage
+        assert box['width'] >= stage['width'] * .87, (label, 'floorplan displayed too narrowly', box['width'],stage['width'])
+        assert page.locator('.floor-map-original').get_attribute('href').endswith('/sales-2f.svg')
+        assert page.locator('.floor-map-stage figcaption').count()==1
+        checks+=1
+        if label!='compact':page.screenshot(path=str(OUT/f'{label}-sales-2f-expanded.png'),full_page=True)
+        page.locator('[data-mode="concept"]').click()
         page.locator('[data-mode="3d"]').click()
         assert page.locator('#settingsDialog').evaluate("(el)=>el.open")
         assert page.locator('.concept-map').count()==1

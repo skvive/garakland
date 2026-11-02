@@ -60,3 +60,43 @@
 .mode-switch{max-width:min(100%,370px);gap:4px}
 .mode-switch button{min-height:39px;min-width:50px;padding:9px 12px}
 @media(max-width:520px){.mode-switch{max-width:min(100%,330px);margin-left:auto}.mode-switch button{min-width:48px;padding:9px 10px;font-size:11px}}
+
+
+/* Delivery fix: floorplan must fill the map width instead of shrinking to intrinsic
+   height of a flex child (reported on Android 2026-11-02). */
+.floor-map-viewer{overflow:hidden}
+.floor-map-stage{
+  display:block;flex:1 1 auto;min-width:0;min-height:0;
+  padding:12px 14px 18px;overflow:auto;overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
+  background:linear-gradient(180deg,#edf3ed,#f5f8f4);
+}
+.floor-map-stage .floor-plan-figure{
+  display:block;width:100%;max-width:none;margin:0;min-width:0;
+}
+.floor-map-stage .floor-plan-figure img{
+  display:block;width:100%;max-width:100%;height:auto;min-height:0;
+  aspect-ratio:1200/780;object-fit:fill;flex:none;
+  border:1px solid #d8e4da;border-radius:12px;background:#fff;
+}
+.floor-map-stage .floor-plan-figure figcaption{
+  padding:8px 3px 12px;font-size:11px;line-height:1.55;
+  color:#506e61;word-break:keep-all;
+}
+.floor-map-original{
+  flex:none;display:block;margin:0 14px 12px;padding:12px;
+  border:1px solid #c1d7cb;background:#fff;color:#155a4b;border-radius:10px;
+  text-align:center;text-decoration:none;font-weight:850;font-size:12px;
+  box-shadow:0 4px 14px #214c3910;
+}
+.floor-map-original:focus-visible,.floor-map-pill:focus-visible{
+  outline:3px solid #e6a34a;outline-offset:2px
+}
+@media(max-width:540px){
+ .floor-map-stage{padding:9px 7px 14px}
+ .floor-map-stage .floor-plan-figure img{border-radius:8px}
+ .floor-map-head{padding:70px 11px 9px}
+ .floor-map-pills{gap:5px;padding:7px 9px}
+ .floor-map-pill{min-height:43px;min-width:45px;padding:8px 10px}
+ .floor-map-original{margin:0 8px 8px;min-height:44px;font-size:12px}
+}

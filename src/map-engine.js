@@ -199,12 +199,13 @@ export class MapEngine{
     const h=plan?.height||780;
     const pills=floors.map(f=>`<button type="button" class="floor-map-pill${f===current?' active':''}" data-map-floor="${esc(f)}">${esc(f==='all'?'전체':f)}</button>`).join('');
     const stage=src
-      ?`<img src="${esc(src)}" alt="${esc(title)}" width="${w}" height="${h}">`
+      ?`<figure class="floor-plan-figure"><img src="${esc(src)}" alt="${esc(title)}" width="${w}" height="${h}" decoding="async"><figcaption>가락랜드 층별 안내 개략도 · 호실·실측 경로가 검증된 도면은 아닙니다.</figcaption></figure>`
       :`<div class="indoor-placeholder"><span>▦</span><strong>층별 도면 등록 전</strong><small>이 구역·층의 공식 안내 모식도가 아직 없습니다.</small></div>`;
     this.el.innerHTML=`<div class="floor-map-viewer">
       <div class="floor-map-head"><strong>${esc(title)}</strong><span>${esc(caption)}</span></div>
-      <div class="floor-map-pills" role="tablist">${pills}</div>
+      <div class="floor-map-pills" role="group" aria-label="층별 도면 선택">${pills}</div>
       <div class="floor-map-stage">${stage}</div>
+      ${src?`<a class="floor-map-original" href="${esc(src)}" target="_blank" rel="noopener noreferrer" aria-label="${esc(title)} 안내도 원본을 새 창에서 확대하여 보기">↗ 도면 원본 크게 보기</a>`:''}
     </div>`;
     this.el.querySelectorAll('[data-map-floor]').forEach(btn=>{
       btn.addEventListener('click',()=>this.onFloorSelect(btn.dataset.mapFloor));
