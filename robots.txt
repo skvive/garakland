@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /data/
+Disallow: /release/
+
+Sitemap: https://garakland.lexid.site/sitemap.xml

@@ -1,8 +1,8 @@
 import {MARKET,BUILDINGS,ZONE_IMAGES,verifiedCoords,escapeHTML as esc} from './catalog.js';
+import {FloorViewport} from './floor-viewport.js';
 
 const MARKET_CENTER={lat:MARKET.lat,lng:MARKET.lng};
 const VIEW={
-  satellite:{zoom:18,minZoom:15,maxZoom:21,tilt:0},
   terrain:{zoom:14,minZoom:11,maxZoom:16,tilt:0},
   roadmap:{zoom:16,minZoom:13,maxZoom:20,tilt:0}
 };
@@ -153,12 +153,11 @@ export class MapEngine{
   mapTypeIdFor(mode){
     const {MapTypeId}=this.mapsLib||{};
     if(mode==='terrain') return MapTypeId?.TERRAIN||'terrain';
-    if(mode==='satellite') return MapTypeId?.SATELLITE||'satellite';
     return MapTypeId?.ROADMAP||'roadmap';
   }
 
   viewFor(mode){
-    return VIEW[mode]||VIEW.satellite;
+    return VIEW[mode]||VIEW.roadmap;
   }
 
   destroyGoogleMap(){
@@ -172,6 +171,7 @@ export class MapEngine{
   }
 
   async setMode(mode,opts={}){
+    if(!['concept','floor','terrain','roadmap','3d'].includes(mode)) throw new Error('지원하지 않는 지도 모드입니다.');
     this.mode=mode;
     if(mode==='concept'){
       this.renderConcept();
@@ -200,16 +200,24 @@ export class MapEngine{
     const h=plan?.height||780;
     const pills=floors.map(f=>`<button type="button" class="floor-map-pill${f===current?' active':''}" data-map-floor="${esc(f)}">${esc(f==='all'?'전체':f)}</button>`).join('');
     const stage=src
-      ?`<img src="${esc(src)}" alt="${esc(title)}" width="${w}" height="${h}">`
+      ?`<figure class="floor-plan-figure"><div class="floor-map-viewport" tabindex="0" aria-label="${esc(title)} 개략 지도. 두 손가락 확대, 드래그 이동, 키보드 플러스 마이너스 확대 가능"><img src="${esc(src)}" alt="${esc(title)}" width="${w}" height="${h}" decoding="async"></div><figcaption>가락랜드 층별 안내 개략도 · 실측 이동경로·개별 호실 지도 위치는 확인되지 않았습니다.</figcaption></figure>`
       :`<div class="indoor-placeholder"><span>▦</span><strong>층별 도면 등록 전</strong><small>이 구역·층의 공식 안내 모식도가 아직 없습니다.</small></div>`;
+    const selection=meta.storeName
+      ?`<p class="floor-map-selection" role="status"><strong>${esc(meta.storeName)}</strong> · ${esc(meta.floor||'층 미확인')} 안내도 · <span>개별 매장 호실의 지도 위치는 미확인</span></p>`
+      :'';
     this.el.innerHTML=`<div class="floor-map-viewer">
       <div class="floor-map-head"><strong>${esc(title)}</strong><span>${esc(caption)}</span></div>
-      <div class="floor-map-pills" role="tablist">${pills}</div>
+      <div class="floor-map-pills" role="group" aria-label="층별 도면 선택">${pills}</div>
+      ${selection}
+      ${src?`<div class="floor-map-toolbar" role="group" aria-label="층별지도 확대·이동"><button type="button" data-floor-zoom="out" aria-label="지도 축소">−</button><output data-floor-zoom-status aria-live="off">100%</output><button type="button" data-floor-zoom="in" aria-label="지도 확대">＋</button><button type="button" data-floor-zoom="reset">초기화</button><small>지도에서 드래그 · 두 손가락 확대</small></div>`:''}
       <div class="floor-map-stage">${stage}</div>
+      ${src?`<a class="floor-map-original" href="${esc(src)}" target="_blank" rel="noopener noreferrer" aria-label="${esc(title)} 안내도 원본을 새 창에서 확대하여 보기">↗ 도면 원본 크게 보기</a>`:''}
     </div>`;
     this.el.querySelectorAll('[data-map-floor]').forEach(btn=>{
       btn.addEventListener('click',()=>this.onFloorSelect(btn.dataset.mapFloor));
     });
+    if(src)this.floorViewport=new FloorViewport(this.el);
+    else this.floorViewport=null;
   }
 
   async make2D(mode){

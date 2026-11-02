@@ -1,0 +1,38 @@
+<!doctype html><html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#123d58">
+<meta name="description" content="가락몰 층별 도면 검수 작업대: 승인된 실내 도면·매장 폴리곤·보행 그래프를 안전하게 검사하고 승인 전 시연할 수 있습니다.">
+<title>가락몰 도면 검수 작업대 | GARAKLAND</title>
+<link rel="icon" href="/assets/brand/garakland-themepark-mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/indoor/layout-lab.css">
+<meta name="robots" content="noindex,nofollow,noarchive">
+</head><body>
+<a class="skip" href="#main">본문으로 이동</a>
+<header class="head"><a href="/indoor-map.html">← 층별 안내로 돌아가기</a><div><strong>가락몰 도면 검수 작업대</strong><span>PLAN DATA WORKBENCH / 로컬 파일 검수</span></div><a href="/indoor-campus-lab.html">층간 연결 검수 ↗</a><a href="/indoor-tenant-lab.html">매장 명부 검수 ↗</a><a href="/map.html">3D 시장지도 ↗</a></header>
+<div class="warning" role="note"><b>운영 미반영</b> 이 도구는 브라우저 안에서 자료를 검수하는 시연 작업대입니다. 업로드 파일은 서버에 전송하지 않습니다. 관리주체의 도면 사용허가와 실제 매장·동선 실측 없이는 공개 지도로 전환할 수 없습니다.</div>
+<main id="main">
+<section class="left">
+<div class="section-title"><span>01 / 도면 가져오기</span><h1>승인·실측 자료를 검증합니다.</h1><p>관·층, 원본 도면의 출처, 호실 경계 및 이동 노드를 구조화합니다. 임의로 매장 위치를 공개하지 않습니다.</p></div>
+<div class="actions"><button id="newDraft" class="primary" type="button">빈 도면 템플릿</button><label class="upload">로컬 JSON 불러오기<input type="file" id="inputFile" accept=".json,application/json"></label><button id="download" type="button">검수본 JSON 내보내기</button></div>
+<div class="state-box"><span>도면 상태</span><strong id="status">시연 초안</strong><p id="statusDetail">승인되지 않은 자료입니다.</p></div>
+<fieldset><legend>도면 식별</legend><div class="fields"><label>관<select id="hall"><option value="3">3관</option><option value="4">4관</option><option value="5">5관</option></select></label><label>층<select id="floor"><option>B3</option><option>B2</option><option>B1</option><option>1F</option><option>2F</option><option selected>3F</option></select></label><label class="full">자료명<input id="sourceTitle" type="text" maxlength="140"></label><label class="full">출처 유형<select id="sourceKind"><option value="illustrative">시연·개략도</option><option value="signboard-photo">현장 안내판 사진</option><option value="owner-authorized-drawing">관리주체 허가 도면</option><option value="on-site-survey">현장 실측</option></select></label><label class="full">관리주체 허가/승인 근거번호 (내부 기록)<input id="permissionRef" maxlength="140" placeholder="실제 허가 기록이 있을 때만 입력"></label></div></fieldset>
+<fieldset><legend>점포 위치 등록 <small>초안 작성 전용</small></legend><div class="fields"><label>점포 표시명<input id="shopName" placeholder="표기 자료와 대조한 명칭" maxlength="140"></label><label>업종<input id="shopCategory" value="식당" maxlength="140"></label></div><p class="hint">다음 버튼을 누른 뒤 오른쪽 좌표판을 클릭하세요. 클릭 위치를 중심으로 작은 시연 점포 구획이 만들어집니다. 이 위치는 <b>항상 미확인 상태</b>입니다.</p><button id="startPin" type="button">지도에서 시연 위치 지정</button><button id="clearPins" type="button">등록한 초안 점포 삭제</button></fieldset>
+<section class="results"><h2>데이터 검사</h2><p id="summary" aria-live="polite"></p><ul id="messages"></ul></section>
+</section>
+<section class="right"><div class="preview-head"><div><span class="eyebrow">02 / 층별 도면 미리보기</span><h2 id="previewTitle">5관 · 3F</h2><p>좌표는 0~100의 내부 도면용 상대값이며 GPS·실측 길이가 아닙니다.</p></div><span class="draft-tag">PUBLICATION BLOCKED</span></div>
+<div id="mapWrap" class="map-wrap"><svg id="preview" role="img" aria-label="검수용 상대좌표 도면" viewBox="0 0 1000 650"></svg></div>
+<div class="map-help"><span>그리드: 10단위</span><span>회색: 외곽 초안</span><span>파란 구획: 검증 전 임시 점포</span></div>
+<section class="route-experiment" aria-labelledby="routeExperimentTitle">
+<h3 id="routeExperimentTitle">검증된 동선 경로 계산</h3>
+<p>승인된 실측 그래프가 들어온 경우에만 계산됩니다. 임의 초안·안내판 사진에는 거리 결과를 표시하지 않습니다.</p>
+<div class="route-controls"><label>출발 노드<select id="routeFrom"><option value="">먼저 도면 불러오기</option></select></label><label>도착 노드<select id="routeTo"><option value="">먼저 도면 불러오기</option></select></label></div>
+<label class="wheelchair-option"><input type="checkbox" id="wheelchairMode"> 계단·에스컬레이터 제외한 이동 모드</label>
+<button type="button" id="calculateRoute">검증 그래프 경로 조회</button>
+<div id="routeResult" class="route-result" aria-live="polite">실측 그래프를 기다리는 중입니다.</div>
+</section>
+<div class="data-table"><h3>임시 점포 목록</h3><div id="shopRows"></div></div>
+<div class="references"><h3>출시 승인 체크</h3><ol><li>관리주체의 도면 사용 허락 또는 직접 실측 권리 증빙</li><li>관·층 기준점과 구획 경계의 현장 확인</li><li>점포명·호실·입점 상태 업데이트 확인</li><li>출입구·승강기·에스컬레이터·무장애 연결 검증</li><li>승인된 지오메트리만 제품에 반영하고 현장 재검수</li></ol>
+<p>기존 사용자용 지도는 <a href="/indoor-map.html">가락몰 실내지도 베타</a>에서 확인할 수 있습니다.</p></div></section>
+</main><footer>GARAKLAND · 독립 실내도면 검수 도구 · 현장 이동/피난 안내가 아님</footer>
+<script type="module" src="/indoor/layout-lab.mjs"></script>
+</body></html>

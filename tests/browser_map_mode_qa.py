@@ -1,0 +1,114 @@
+"""Responsive real-browser acceptance for the public map mode simplification."""
+from pathlib import Path
+from playwright.sync_api import sync_playwright
+import socket,sys,subprocess
+ROOT=Path(__file__).resolve().parents[1]
+OUT=ROOT/'qa-artifacts'/'map-mode'
+OUT.mkdir(parents=True,exist_ok=True)
+def run():
+  with socket.socket() as sock:
+    sock.bind(('127.0.0.1',0));port=sock.getsockname()[1]
+  server=subprocess.Popen([sys.executable,'-m','http.server',str(port),'--bind','127.0.0.1'],cwd=ROOT,stdout=subprocess.DEVNULL,stderr=subprocess.STDOUT)
+  checks=0
+  try:
+    with sync_playwright() as pw:
+      browser=pw.chromium.launch(headless=True)
+      for label,w,h in [('desktop',1440,900),('mobile',390,844),('compact',360,740)]:
+        context=browser.new_context(viewport={'width':w,'height':h},reduced_motion='reduce')
+        page=context.new_page()
+        errors=[]
+        page.on('pageerror',lambda e:errors.append(str(e)))
+        response=page.goto(f'http://127.0.0.1:{port}/map.html?mode=satellite',wait_until='networkidle',timeout=30000)
+        assert response and response.status==200
+        modes=page.locator('.mode-switch [data-mode]')
+        assert modes.count()==4
+        assert modes.evaluate_all("(els)=>els.map(x=>x.dataset.mode)")==['concept','terrain','3d','floor']
+        assert page.locator('[data-mode="satellite"]').count()==0
+        assert page.locator('[data-mode="concept"]').get_attribute('aria-pressed')=='true'
+        assert page.locator('.concept-map').count()==1
+        checks+=1
+        page.locator('[data-mode="floor"]').click()
+        assert page.locator('.floor-map-viewer').count()==1
+        assert page.locator('[data-mode="floor"]').get_attribute('aria-pressed')=='true'
+        page.locator('[data-mode="concept"]').click()
+        assert page.locator('.concept-map').count()==1
+        assert page.locator('[data-mode="concept"]').get_attribute('aria-pressed')=='true'
+        checks+=1
+
+        # Regression: floor diagrams previously occupied only the center third
+        # of the wide map viewport due to a flex intrinsic-height constraint.
+        page.locator('[data-mode="floor"]').click()
+        page.locator('.floor-map-pill[data-map-floor="2F"]').click()
+        image=page.locator('.floor-map-stage .floor-plan-figure img')
+        assert page.locator('.map-area').evaluate("(el)=>el.classList.contains('is-floor-view')")
+        if w<=760:assert page.locator('.map-area').bounding_box()['height']>=620
+        image.wait_for(state='visible')
+        assert image.get_attribute('src').endswith('/sales-2f.svg')
+        page.wait_for_function("""() => {
+          const img=document.querySelector('.floor-map-stage .floor-plan-figure img');
+          return img && img.complete && img.naturalWidth>0;
+        }""", timeout=12000)
+        box=image.bounding_box()
+        stage=page.locator('.floor-map-stage').bounding_box()
+        assert box and stage
+        assert box['width'] >= stage['width'] * .87, (label, 'floorplan displayed too narrowly', box['width'],stage['width'])
+        assert page.locator('.floor-map-original').get_attribute('href').endswith('/sales-2f.svg')
+        assert page.locator('.floor-map-stage figcaption').count()==1
+        zoom=page.locator('[data-floor-zoom-status]')
+        assert zoom.inner_text()=='100%'
+        page.locator('[data-floor-zoom="in"]').click()
+        assert zoom.inner_text()=='135%'
+        assert image.evaluate("el => Math.abs(new DOMMatrix(getComputedStyle(el).transform).a - 1.35) < .02")
+        surface=page.locator('.floor-map-viewport')
+        surface.focus()
+        page.keyboard.press('Shift+=')
+        assert zoom.inner_text()=='170%'
+        page.keyboard.press('0')
+        assert zoom.inner_text()=='100%'
+        page.locator('[data-floor-zoom="in"]').click()
+        box=surface.bounding_box()
+        assert box
+        page.mouse.move(box['x']+box['width']/2,box['y']+box['height']/2)
+        page.mouse.down()
+        page.mouse.move(box['x']+box['width']/2+30,box['y']+box['height']/2+20,steps=4)
+        page.mouse.up()
+        assert 'translate3d(' in image.get_attribute('style')
+        page.locator('[data-floor-zoom="reset"]').click()
+        assert zoom.inner_text()=='100%'
+        checks+=1
+        page.locator('#searchInput').fill('다농마트')
+        page.locator('[data-shop="source-danong"]').click()
+        page.wait_for_selector('.floor-map-selection')
+        assert '다농마트' in page.locator('.floor-map-selection').inner_text()
+        assert '미확인' in page.locator('.floor-map-selection').inner_text()
+        assert page.locator('.floor-map-pill[data-map-floor="2F"]').get_attribute('class').find('active')>=0
+        assert page.locator('.floor-map-stage .floor-marker').count()==0
+        if w<=760:
+          assert page.locator('.details').evaluate("(el)=>el.classList.contains('is-open')")
+          assert page.locator('#detailSheetToggle').get_attribute('aria-expanded')=='true'
+          page.locator('#detailSheetToggle').click()
+          assert page.locator('#detailSheetToggle').get_attribute('aria-expanded')=='false'
+          page.locator('#detailSheetToggle').click()
+          assert page.locator('#detailSheetToggle').get_attribute('aria-expanded')=='true'
+          page.locator('#detailSheetToggle').click()
+        page.locator('.floor-map-pill[data-map-floor="1F"]').click()
+        assert page.locator('.floor-map-pill[data-map-floor="1F"]').get_attribute('class').find('active')>=0
+        checks+=1
+        if label!='compact':page.screenshot(path=str(OUT/f'{label}-sales-2f-expanded.png'),full_page=True)
+        page.locator('[data-mode="concept"]').click()
+        page.locator('[data-mode="3d"]').click()
+        assert page.locator('#settingsDialog').evaluate("(el)=>el.open")
+        assert page.locator('.concept-map').count()==1
+        assert page.locator('[data-mode="satellite"]').count()==0
+        page.locator('#settingsDialog button[aria-label="닫기"]').click()
+        checks+=1
+        if label!='compact':page.screenshot(path=str(OUT/f'{label}-map-no-satellite.png'),full_page=True)
+        assert not errors,errors
+        context.close()
+      browser.close()
+    print(f'PASS public map: {checks} browser checks, 3 viewports, satellite tab absent, mode transitions verified, 0 JS errors')
+  finally:
+    server.terminate()
+    try:server.wait(timeout=5)
+    except subprocess.TimeoutExpired:server.kill()
+if __name__=='__main__':run()
