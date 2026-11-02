@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import {clampZoom,clampOffset} from '../src/floor-viewport.js';
+assert.equal(clampZoom(0),1);
+assert.equal(clampZoom(6),4);
+assert.equal(clampZoom(Infinity),1);
+assert.equal(clampZoom(1.7),1.7);
+assert.equal(clampOffset(120,1,350),0);
+assert.equal(clampOffset(999,2,300),150);
+assert.equal(clampOffset(-999,3,250),-250);
+assert.equal(clampOffset(14,2,200),14);
+console.log('PASS floor zoom math: 8 assertions');
