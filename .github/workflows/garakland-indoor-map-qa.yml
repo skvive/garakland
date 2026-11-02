@@ -52,12 +52,14 @@ jobs:
           python -m playwright install --with-deps chromium
       - name: Test 6 floors and all user navigation actions at three viewports
         run: python tests/browser_indoor_qa.py
+      - name: Campaign V2 desktop/mobile real-browser acceptance
+        run: python tests/browser_campaign_v2_qa.py
       - name: Save floor-map evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: garakland-indoor-floor-12-screens
-          path: qa-artifacts/indoor/
+          path: qa-artifacts/
           if-no-files-found: warn
           retention-days: 14
 
