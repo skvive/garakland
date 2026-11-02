@@ -33,7 +33,7 @@ try:
    assert page.locator('a[href*="indoor-map.html?floor="]').count()>=5
    assert page.locator('a[href*="travelmode=transit"]').count()==1
    assert page.locator('.lot-v2-disclaimer').count()==1
-   assert page.locator('img[src*="garak-hansang"]').count()>=2
+   assert page.locator('img[src*="garak-hansang-official-guide"]').count()>=2
    for img in page.locator('main img').all():
     assert img.evaluate('x=>x.complete && x.naturalWidth>0'),img.get_attribute('src')
    overflow=page.evaluate('document.documentElement.scrollWidth - document.documentElement.clientWidth')

@@ -12,7 +12,7 @@ class AfterLotteCampaign(unittest.TestCase):
   self.assertIn('rel="noopener noreferrer"',s)
  def test_licensed_brand_asset_and_generated_art(self):
   for p in ['assets/mascot/garak-hansang-wave.webp','assets/mascot/garak-hansang-hero.webp',
-      'assets/campaign/garakland-after-lotte-hero.webp','assets/campaign/garakland-after-lotte-mobile.webp']:
+      'assets/campaign/garakland-after-lotte-hero.webp','assets/campaign/garakland-after-lotte-mobile.webp', 'assets/campaign/garak-hansang-official-guide.webp']:
    self.assertTrue((R/p).is_file(),p)
   self.assertLess((R/'assets/campaign/garakland-after-lotte-hero.webp').stat().st_size,350_000)
   self.assertLess((R/'assets/campaign/garakland-after-lotte-mobile.webp').stat().st_size,250_000)
@@ -31,6 +31,7 @@ class AfterLotteCampaign(unittest.TestCase):
   self.assertIn('property="og:image"',html)
   self.assertIn('rel="canonical"',html)
   self.assertIn('after-lotte-v2.css',html)
+  self.assertIn('/assets/campaign/garak-hansang-official-guide.webp',html)
  def test_responsive_and_accessibility(self):
   css=(R/'design/after-lotte-v2.css').read_text()
   self.assertIn('max-width:640px',css)
