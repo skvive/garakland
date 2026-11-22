@@ -196,3 +196,6 @@
  .topbar .head-actions .icon-button{min-width:44px;min-height:44px;flex:0 0 44px}
  .topbar .head-actions .top-guide{display:none}
 }
+
+/* a11y QA: map controls: min 44px touch targets, without changing existing map logic */
+.search-box input{min-height:40px;min-width:0}.detail-header-actions button,.dialog-head button{min-width:44px;min-height:44px;touch-action:manipulation}

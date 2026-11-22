@@ -126,3 +126,6 @@ body.gl-has-mobile-nav {
     display: flex;
   }
 }
+
+/* main customer header and text CTA keyboard/touch targets */
+.gl-site-header .gl-brand{min-height:44px;display:inline-flex;align-items:center}.outline-action{min-height:44px;display:inline-flex;align-items:center}

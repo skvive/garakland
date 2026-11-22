@@ -7,7 +7,7 @@ ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/"qa-artifacts"/"brand-refresh"
 OUT.mkdir(parents=True,exist_ok=True)
 images=[]
-for root in ["assets","previews","brand_strategy_docs/previews"]:
+for root in ["."]:
  for path in (ROOT/root).rglob("*"):
   if not path.is_file() or path.suffix.lower() not in {".webp",".png",".jpg",".jpeg",".svg",".gif"}:continue
   rel=path.relative_to(ROOT).as_posix()
