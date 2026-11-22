@@ -1,13 +1,16 @@
 {
-  "version": "1.0",
+  "version": "2.0",
   "note": "Category → webp mapping for market/ui.js and platform-home.js",
   "hero": {
     "ar": "/assets/editorial/market.webp",
     "marketBg": "/assets/v6/market-hero.webp"
   },
   "brand": {
-    "logoMark": "/assets/brand/garakland-logo-mark.webp",
-    "favicon": "/assets/icon.svg"
+    "logoMark": "/assets/brand/garakland-themepark-mark.svg",
+    "favicon": "/assets/brand/garakland-themepark-mark.svg",
+    "logoHorizontal": "/assets/brand/garakland-themepark-logo.svg",
+    "og": "/assets/brand/garakland-og-v2.jpg",
+    "subbrand": "가락한상"
   },
   "mascot": {
     "garakHansangHero": "/assets/mascot/garak-hansang-hero.webp",

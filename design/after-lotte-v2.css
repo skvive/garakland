@@ -25,3 +25,5 @@
 
 /* Prevent Korean syllable breaks in editorial headings. */
 .lot-v2-section-head h2,.lot-v2-guide-copy h2,.lot-v2-bottom h2{word-break:keep-all;overflow-wrap:normal}
+
+.lotte-v2 .lot-v2-hero-visual picture img{object-position:50% 32%}@media(max-width:640px){.lotte-v2 .lot-v2-hero-visual picture img{object-position:50% 17%;min-height:0;aspect-ratio:840/980;height:auto}}

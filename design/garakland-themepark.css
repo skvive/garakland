@@ -70,3 +70,6 @@ body[data-page="guide"] .gl-guide-values{margin:26px 0 32px}
 body[data-page="guide"] .guide-image img{object-fit:cover;object-position:center 42%}
 body[data-page="guide"] .gl-sponsor-inline{margin-block:28px}
 @media(max-width:700px){body[data-page="guide"] .gl-guide-brand>img{height:130px;max-width:170px;padding:14px}body[data-page="guide"] .gl-guide-brand{justify-items:start}body[data-page="guide"] .gl-guide-values{margin:18px 0}}
+
+/* Brand QA · aligned to Garak Green while retaining amusement accents */
+body[data-page]{--green:#0f5d3b;--deep:#123b2a;--deep2:#083121;--cream:#f9f5e9;--paper:#fffdf8;--red:#c4302f;--gold:#d4af68;--brown:#8b5e3c;background:#fafbf7;color:#1b3a2c}body[data-page] .top-notice{background:#123b2a;color:#fffef8}body[data-page] .nav-inner a.active{color:#0f5d3b;border-color:#0f5d3b}body[data-page] .gl-theme-brand-logo{max-height:72px}@media(max-width:1000px){body[data-page] .nav-inner{flex-wrap:wrap;gap:10px 18px}.primary-nav{overflow-x:auto}}

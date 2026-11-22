@@ -38,3 +38,5 @@
   --gl-ops-deep: #073d32;
   --gl-ops-green: #006748;
 }
+
+:root{--gl-brand-primary:#0f5d3b;--gl-brand-dark:#123b2a;--gl-brand-cream:#f9f5e9;--gl-brand-red:#c4302f;--gl-brand-gold:#d4af68;--gl-text-primary:#18372b;--gl-focus:#ffca57;--gl-card-aspect:4/3}

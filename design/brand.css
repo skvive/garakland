@@ -113,3 +113,7 @@
 
 /* Decorative mascots are removed from content pages; keep only the official header brand mark. */
 .gl-mascot-float{display:none!important}
+
+/* Actual 1152×864 how-cards and mobile full-logo preservation */
+.how-card .how-photo{height:auto!important;aspect-ratio:4/3;object-fit:cover;object-position:center}
+@media(max-width:760px){.gl-brand .gl-logo-header,.auth-brand .gl-logo-header,.gl-logo-header[src$=".svg"]{display:block!important;height:auto!important;width:min(170px,43vw)!important;max-width:100%!important}.gl-logo-mark{display:none!important}}
