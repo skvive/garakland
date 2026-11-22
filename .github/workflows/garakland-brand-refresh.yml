@@ -1,0 +1,54 @@
+name: GARAKLAND brand refresh QA and versioned raster build
+on:
+  push:
+    branches: ['release/garakland-design-20261122']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  brand-validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Korean fonts and browser packages
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y fonts-noto-cjk
+          python -m pip install --upgrade pip
+          python -m pip install pillow playwright pg8000
+      - name: Build versioned OG and favicon masters
+        run: python scripts/generate_garakland_brand_assets.py
+      - name: Static audit and brand contracts
+        run: |
+          python tests/test_brand_refresh.py
+          python scripts/web_quality_gate.py
+          python -m unittest discover -s tests -p test_themepark_brand.py -v
+      - name: Install Chromium
+        run: python -m playwright install --with-deps chromium
+      - name: Public pages and responsive 7-width smoke
+        run: python tests/brand_refresh_browser_qa.py
+      - name: Existing 18-page UX regression
+        run: python tests/delivery_page_audit.py --strict
+      - name: Publish generated image derivatives without touching original files
+        run: |
+          git add assets/brand/garakland-og-v2.jpg assets/brand/garakland-favicon-v2-32.png assets/brand/garakland-favicon-v2-192.png assets/brand/garakland-favicon-v2-512.png assets/brand/garakland-apple-v2.png
+          if ! git diff --cached --quiet; then
+            git config user.name 'garakland-brand-qa'
+            git config user.email 'garakland-brand-qa@users.noreply.github.com'
+            git commit -m 'build(brand): add deterministic GARAKLAND OG/icon derivatives [skip ci]'
+            git push origin HEAD:release/garakland-design-20261122
+          fi
+      - name: Preserve browser QA screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: garakland-brand-refresh-20261122-visual-qa
+          path: |
+            qa-artifacts/brand-refresh/
+            qa-artifacts/design-delivery/
+          if-no-files-found: warn
+          retention-days: 30
