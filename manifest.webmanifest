@@ -1,12 +1,12 @@
 {
   "name": "가락랜드 | 3D 시장 테마파크",
   "short_name": "가락랜드",
-  "description": "시장을 테마파크처럼 탐험하는 3D 시장지도 · 매장 · 쿠폰 · AR",
+  "description": "가락시장의 시장 탐험·문화·관광·온라인 유통 실증 제안",
   "lang": "ko-KR",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#f5f9fb",
-  "theme_color": "#103b5c",
+  "background_color": "#f9f5e9",
+  "theme_color": "#0f5d3b",
   "icons": [
     {
       "src": "/assets/brand/garakland-themepark-mark.svg",
@@ -15,7 +15,13 @@
       "purpose": "any"
     },
     {
-      "src": "/assets/brand/favicon-512.png",
+      "src": "/assets/brand/garakland-favicon-v2-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/brand/garakland-favicon-v2-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
