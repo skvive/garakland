@@ -22,6 +22,8 @@ jobs:
           python -m pip install pillow playwright pg8000
       - name: Build versioned OG and favicon masters
         run: python scripts/generate_garakland_brand_assets.py
+      - name: Full repository image dimension and usage inventory
+        run: python scripts/garakland_image_inventory.py
       - name: Static audit and brand contracts
         run: |
           python tests/test_brand_refresh.py

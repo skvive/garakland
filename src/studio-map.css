@@ -185,3 +185,14 @@
 @media(min-width:761px) and (max-width:1040px){
   .map-area.is-floor-view{min-height:660px}
 }
+
+/* GARAKLAND 2026-11-22 responsive atlas toolbar: original navigation remains reachable */
+@media(max-width:760px){
+ .topbar{height:auto!important;min-height:63px;flex-wrap:wrap;align-items:center;padding:9px 13px!important;gap:6px 10px}
+ .topbar>.logo{flex:1 1 auto;min-width:0;max-width:100%}
+ .topbar .gl-logo-header{width:160px;max-width:45vw;height:auto}
+ .topbar .head-actions{flex:1 1 100%;width:100%;min-width:0;max-width:100%;display:flex;flex-wrap:wrap;align-items:center;gap:5px 8px;justify-content:flex-start}
+ .topbar .head-actions .ar-portal{white-space:normal;word-break:keep-all;min-height:44px;display:inline-flex;align-items:center;margin:0;padding:8px 10px;font-size:11px}
+ .topbar .head-actions .icon-button{min-width:44px;min-height:44px;flex:0 0 44px}
+ .topbar .head-actions .top-guide{display:none}
+}
