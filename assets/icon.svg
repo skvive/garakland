@@ -1,6 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="GARAKLAND">
-  <rect width="64" height="64" rx="18" fill="#1f5147"/>
-  <path fill="#d6ef72" d="M32 8l4.2 12.9H49.5L37.6 28.2l4.2 12.9L32 33.8l-9.8 7.3 4.2-12.9L14.5 20.9h13.3z"/>
-  <path fill="#fff6df" d="M18 42c8-6 20-6 28 0v8H18z" opacity=".95"/>
-  <circle cx="48" cy="16" r="6" fill="#e8c547"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="가락랜드"><rect width="64" height="64" rx="14" fill="#0F5D3B"/><circle cx="32" cy="21" r="12.5" fill="none" stroke="#F5D179" stroke-width="2.8"/><path d="M32 9v24M20 21h24M24 13l16 16M40 13 24 29" stroke="#F5D179" stroke-width="1.3"/><path d="M9 46l8-8h30l8 8v9H9Z" fill="#FFF5E4"/><path d="M9 46l8-8h9l-4 8Zm18 0 4-8h8l4 8Zm18 0-5-8h7l8 8Z" fill="#F27A50"/><rect x="13" y="53" width="38" height="4" rx="2" fill="#F5D179"/></svg>

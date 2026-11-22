@@ -67,3 +67,5 @@ body.gl-has-mobile-nav footer{margin-bottom:calc(64px + env(safe-area-inset-bott
 
 /* Keep the beta tag intact on narrow screens (not split across lines) */
 @media(max-width:670px){.hero .eyebrow span{display:inline-flex;white-space:nowrap;vertical-align:middle;margin:7px 0 0;padding:5px 9px;letter-spacing:.6px}}
+
+.card .photo{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:center}
