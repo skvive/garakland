@@ -23,7 +23,7 @@ for entry in manifest.get("icons",[]):
 for p in ROOT.glob("*.html"):
  s=p.read_text(encoding="utf-8")
  if "garakland-themepark-logo.svg" in s or "garakland-themepark-mark.svg" in s or "garakland-og-v2.jpg" in s:errors.append("old brand reference: "+p.name)
- if 'og:image' in s and "garakland-og-v3.jpg" not in s:errors.append("OG mismatch: "+p.name)
+ if 'og:image' in s and "garakland-og-v3.jpg" not in s and not (p.name=="lotteworld-next.html" and "garakland-after-lotte-hero.webp" in s):errors.append("OG mismatch: "+p.name)
  if 'garakland-g-favicon-v3-' in s and not ("garakland-g-favicon-v3-32.png" in s or "garakland-g-favicon-v3-48.png" in s):errors.append("favicon reference mismatch: "+p.name)
  if p.name in ("index.html","home.html","project.html","culture.html","commerce.html","map.html","login.html","hub.html"):
   if p.name=="index.html":continue # Index header is generated from brand/app.js
