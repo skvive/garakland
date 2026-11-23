@@ -41,5 +41,5 @@ class ThemeParkBrand(unittest.TestCase):
         import json
         m=json.loads(read("manifest.webmanifest"))
         self.assertTrue(m["name"].startswith("가락랜드"))
-        self.assertIn("garakland-themepark-mark.svg",m["icons"][0]["src"])
+        self.assertIn("garakland-g-favicon-v3-192.png",m["icons"][0]["src"])
 if __name__=="__main__": unittest.main()

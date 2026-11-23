@@ -1,10 +1,10 @@
 name: GARAKLAND brand refresh QA and versioned raster build
 on:
   push:
-    branches: ['release/garakland-design-20261122']
+    branches: ['release/garakland-brand-v3-20261123']
   workflow_dispatch:
 permissions:
-  contents: write
+  contents: read
 jobs:
   brand-validation:
     runs-on: ubuntu-latest
@@ -20,8 +20,6 @@ jobs:
           sudo apt-get install -y fonts-noto-cjk
           python -m pip install --upgrade pip
           python -m pip install pillow playwright pg8000
-      - name: Build versioned OG and favicon masters
-        run: python scripts/generate_garakland_brand_assets.py
       - name: Full repository image dimension and usage inventory
         run: python scripts/garakland_image_inventory.py
       - name: Static audit and brand contracts
@@ -35,20 +33,11 @@ jobs:
         run: python tests/brand_refresh_browser_qa.py
       - name: Existing 18-page UX regression
         run: python tests/delivery_page_audit.py --strict
-      - name: Publish generated image derivatives without touching original files
-        run: |
-          git add assets/brand/garakland-og-v2.jpg assets/brand/garakland-favicon-v2-32.png assets/brand/garakland-favicon-v2-192.png assets/brand/garakland-favicon-v2-512.png assets/brand/garakland-apple-v2.png
-          if ! git diff --cached --quiet; then
-            git config user.name 'garakland-brand-qa'
-            git config user.email 'garakland-brand-qa@users.noreply.github.com'
-            git commit -m 'build(brand): add deterministic GARAKLAND OG/icon derivatives [skip ci]'
-            git push origin HEAD:release/garakland-design-20261122
-          fi
       - name: Preserve browser QA screenshots
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: garakland-brand-refresh-20261122-visual-qa
+          name: garakland-approved-brand-v3-20261123-visual-qa
           path: |
             qa-artifacts/brand-refresh/
             qa-artifacts/design-delivery/

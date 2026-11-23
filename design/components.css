@@ -129,3 +129,11 @@ body.gl-has-mobile-nav {
 
 /* main customer header and text CTA keyboard/touch targets */
 .gl-site-header .gl-brand{min-height:44px;display:inline-flex;align-items:center}.outline-action{min-height:44px;display:inline-flex;align-items:center}
+
+/* Official v3 visual: navy wordmark + orange CTA, green remains secondary */
+.gl-site-header{background:#fffefa;border-bottom-color:#dce6ee}.gl-site-header .gl-brand{min-width:0}
+.gl-site-nav a.gl-nav-active{background:#eef3f9;color:#0b2d52}
+.gl-site-nav a.gl-cta-deal{background:#ffb257;color:#092647}
+.gl-site-nav a.gl-cta-explore{background:#e8f6e7;color:#155b3f}
+.gl-mobile-nav a.gl-nav-active{color:#0b2d52;background:#edf3fb}
+.gl-site-nav a:focus-visible,.gl-mobile-nav a:focus-visible{outline:3px solid #ff8500;outline-offset:2px}

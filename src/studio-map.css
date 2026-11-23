@@ -199,3 +199,8 @@
 
 /* a11y QA: map controls: min 44px touch targets, without changing existing map logic */
 .search-box input{min-height:40px;min-width:0}.detail-header-actions button,.dialog-head button{min-width:44px;min-height:44px;touch-action:manipulation}
+
+/* Brand v3: preserve map interactions, update visual identity only */
+.topbar{border-bottom:2px solid #e9eef3;background:#fffefb}.topbar .gl-logo-header{width:min(230px,28vw)!important;max-height:63px;object-fit:contain}.topbar .icon-button:focus-visible{outline:3px solid #ff8500;outline-offset:2px}
+.search-box:focus-within{border-color:#0b2d52;box-shadow:0 0 0 2px #0b2d521b}
+@media(max-width:760px){.topbar .gl-logo-header{width:min(160px,46vw)!important;height:auto!important;max-height:55px}}

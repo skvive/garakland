@@ -69,3 +69,8 @@ body.gl-has-mobile-nav footer{margin-bottom:calc(64px + env(safe-area-inset-bott
 @media(max-width:670px){.hero .eyebrow span{display:inline-flex;white-space:nowrap;vertical-align:middle;margin:7px 0 0;padding:5px 9px;letter-spacing:.6px}}
 
 .card .photo{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:center}
+
+/* GARAKLAND brand v3: navy-first with fresh green and orange market highlights */
+body{--dark:#0b2d52;--green:#0b4d75;--light:#f1f7fa;--muted:#6a7582;--line:#dce7ee}
+body .hero-actions button:focus-visible,body .action-row button:focus-visible{outline:3px solid #ff8500;outline-offset:3px}
+body .gl-logo-header{max-width:min(240px,46vw);object-fit:contain}

@@ -226,3 +226,9 @@
     font-weight: 800;
   }
 }
+
+/* Official logo makes navy + orange the leading signature on the customer landing */
+.home-landing .gl-site-header{box-shadow:0 2px 11px #0b2d5208}
+.home-landing .hero-actions .cta{background:#0b2d52;color:white}
+.home-landing .hero-actions .cta:hover{background:#0b4569}
+.home-landing .experience-rail .rail-ico{color:#0b2d52;background:#eaf2f8}
