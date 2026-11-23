@@ -95,3 +95,6 @@ body[data-delivery-page="index"][data-page="home"] .hero{background-image:linear
 /* 2026-11-23 QA: keep a single hero visual from the section background.
    Guard against a previously cached app.js rendering the obsolete foreground photo. */
 body[data-delivery-page="index"][data-page="home"] .hero-art .hero-market-photo{display:none!important}
+
+/* 2026-11-23: Main hero must show only the approved market background photo. */
+body[data-delivery-page="index"][data-page="home"] .hero-art .gl-home-mascot{display:none!important}
