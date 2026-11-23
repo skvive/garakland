@@ -19,3 +19,13 @@
 /* Release review: keep Korean words intact rather than splitting inside words. */
 .glp-hero h1{font-size:clamp(35px,3.2vw,52px);word-break:keep-all;overflow-wrap:normal;hyphens:none;letter-spacing:-.055em;line-height:1.28}
 @media(max-width:760px){.glp-hero h1{font-size:clamp(28px,7.3vw,40px);word-break:keep-all;overflow-wrap:normal;letter-spacing:-.055em}}
+
+/* Final visual QA: coherent word wrapping and high-contrast policy partnership banner */
+.glp-section-head{max-width:min(940px,100%)}
+.glp-section h2{font-size:clamp(28px,3.0vw,43px);word-break:keep-all;overflow-wrap:normal;hyphens:none;line-height:1.3}
+.glp-section h3{word-break:keep-all;overflow-wrap:normal;hyphens:none}
+.glp-section-green{background:#0b2d52;color:#fff}
+.glp-section-green h2,.glp-section-green h3,.glp-section-green p{color:#fff!important}
+.glp-section-green .glp-eyebrow{color:#ffbd71}
+.glp-section-green a:focus-visible,.glp-section-green a:hover{color:#fff;outline-offset:4px}
+@media(max-width:760px){.glp-section h2{font-size:clamp(25px,6.8vw,34px);word-break:keep-all;overflow-wrap:normal}.glp-section-head{max-width:100%}}
