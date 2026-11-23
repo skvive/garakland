@@ -15,3 +15,7 @@
 .glp-footer{background:#0b2d52;color:#e4eefd}.glp-note{border-color:#dce7ee}.glp-metrics span{background:#f1f6fa}.glp-flow li{border-top-color:#f7ba7e}.glp-flow li>b{background:#0b2d52}
 .glp-cards article:hover,.glp-editorials article:hover{border-color:#ff8500;box-shadow:0 8px 24px #0b2d5210}
 @media(max-width:760px){.glp-logo img{width:clamp(162px,41vw,205px)}.glp-hero-figure img.glp-hero-brand-mark{top:9px;right:9px;width:62px;height:62px;padding:5px}.glp-footer-brand-mark{width:44px;height:44px}}
+
+/* Release review: keep Korean words intact rather than splitting inside words. */
+.glp-hero h1{font-size:clamp(35px,3.2vw,52px);word-break:keep-all;overflow-wrap:normal;hyphens:none;letter-spacing:-.055em;line-height:1.28}
+@media(max-width:760px){.glp-hero h1{font-size:clamp(28px,7.3vw,40px);word-break:keep-all;overflow-wrap:normal;letter-spacing:-.055em}}

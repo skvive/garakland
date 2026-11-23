@@ -83,3 +83,7 @@ body[data-page] .nav-inner a.active,body[data-page] .nav-inner a:hover{color:#0b
 body[data-page] .gl-theme-brand-logo{width:clamp(180px,24vw,295px);max-height:77px;aspect-ratio:1200/332;object-fit:contain;object-position:left center}
 body[data-page=guide] .gl-guide-brand>img{background:#fffdf7;border:1px solid #ebeff1;object-fit:contain}
 @media(max-width:700px){body[data-page] .gl-theme-brand-logo{width:clamp(145px,41vw,204px);max-height:59px}}
+
+/* Release review: avoid slicing Korean syllables inside hero headings. */
+body[data-page] .hero h1{font-size:clamp(36px,3.5vw,54px);word-break:keep-all;overflow-wrap:normal;hyphens:none;letter-spacing:-.055em;line-height:1.24}
+@media(max-width:760px){body[data-page] .hero h1{font-size:clamp(29px,7.7vw,39px);word-break:keep-all;overflow-wrap:normal;letter-spacing:-.053em}}
