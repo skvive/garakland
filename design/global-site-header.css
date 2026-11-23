@@ -60,3 +60,7 @@ body.glsh-active[data-delivery-page="market"] .shell>header.top nav .older{displ
  .glsh-nav-inner a.glsh-active-link:after{bottom:4px}
  .glsh-shell .glsh-map-settings{min-width:36px;min-height:36px;padding:3px}
 }
+/* The standalone sign-in and legal opt-out forms retain their original behavior. */
+body.glsh-active[data-delivery-page="login"] .auth-card>.auth-brand{display:none!important}
+body.glsh-active[data-delivery-page="unsubscribe"]{display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:flex-start!important;place-items:initial!important}
+body.glsh-active[data-delivery-page="unsubscribe"] main{align-self:center;flex:0 0 auto;margin:clamp(28px,5vw,55px) 12px 60px;width:min(500px,calc(100vw - 24px))}
