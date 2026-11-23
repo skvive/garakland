@@ -37,7 +37,7 @@ for name in ("project.html","culture.html","commerce.html"):
 for p in ROOT.rglob("*.html"):
  if "node_modules" in p.parts:continue
  txt=p.read_text(encoding="utf-8")
- for src in re.findall(r'(?:src|href)=["\\'](/(?:assets|design)/[^"\\']+)["\\']',txt):
+ for src in re.findall(r"""(?:src|href)=['"](/(?:assets|design)/[^'"]+)['"]""",txt):
   if not (ROOT/src.lstrip("/")).exists(): errors.append(f"{p.name}: missing {src}")
 print(json.dumps({"test":"brand-v3","assets_verified":len(assets),"pages_scanned":len(list(ROOT.glob('*.html'))),"errors":errors},ensure_ascii=False))
 if errors:sys.exit(1)
