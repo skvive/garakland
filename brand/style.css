@@ -42,3 +42,7 @@ body[data-page] .gl-theme-brand-logo{width:clamp(186px,23vw,296px);height:auto;a
 .gl-brand-footer-row .logo{min-width:0}.gl-brand-footer-row .gl-theme-brand-logo{width:min(242px,100%);height:auto}
 body[data-page] .gl-story-cards a:hover,body[data-page] .gl-story-cards a:focus-visible{border-color:#ff8500}
 @media(max-width:760px){body[data-page] .gl-theme-brand-logo{width:clamp(146px,40vw,205px);max-height:56px}body[data-page] .head-inner{gap:9px}.gl-brand-footer-row{gap:8px}.gl-brand-footer-symbol{height:43px;width:43px}.gl-brand-footer-row .gl-theme-brand-logo{width:min(185px,51vw)}}
+
+/* Full user-approved wordmark is visible in page footers (not tiny header nav). */
+.gl-brand-footer-row .gl-brand-footer-full{width:min(250px,100%);height:auto;max-height:110px;aspect-ratio:1300/559;object-fit:contain;object-position:left center;display:block}
+@media(max-width:760px){.gl-brand-footer-row .gl-brand-footer-full{width:min(186px,55vw);max-height:84px}}
