@@ -91,3 +91,7 @@ body[data-page] .hero h1{font-size:clamp(36px,3.5vw,54px);word-break:keep-all;ov
 /* 2026-11-23 · Approved second hero concept; source retained. */
 body[data-delivery-page="index"][data-page="home"] .hero{background-image:linear-gradient(95deg,rgba(4,24,47,.25) 0%,rgba(4,24,47,.12) 53%,rgba(4,24,47,0) 100%),url('/assets/v6/garakland-digital-market-hero-20261123.webp');background-size:cover;background-position:center 48%;}
 @media(max-width:700px){body[data-delivery-page="index"][data-page="home"] .hero{background-image:linear-gradient(98deg,rgba(3,24,45,.81) 0%,rgba(5,30,54,.59) 54%,rgba(5,30,54,.27) 100%),url('/assets/v6/garakland-digital-market-hero-20261123.webp');background-position:63% center;}}
+
+/* 2026-11-23 QA: keep a single hero visual from the section background.
+   Guard against a previously cached app.js rendering the obsolete foreground photo. */
+body[data-delivery-page="index"][data-page="home"] .hero-art .hero-market-photo{display:none!important}
