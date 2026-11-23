@@ -29,3 +29,7 @@
 .glp-section-green .glp-eyebrow{color:#ffbd71}
 .glp-section-green a:focus-visible,.glp-section-green a:hover{color:#fff;outline-offset:4px}
 @media(max-width:760px){.glp-section h2{font-size:clamp(25px,6.8vw,34px);word-break:keep-all;overflow-wrap:normal}.glp-section-head{max-width:100%}}
+
+/* Small-viewport exception: very long institutional names must not force horizontal scrolling. */
+.glp-section h2,.glp-section h3{word-break:keep-all;overflow-wrap:break-word}
+@media(max-width:360px){.glp-section h2{font-size:clamp(22px,6.4vw,25px)}.glp-section-green h2{overflow-wrap:anywhere}.glp-section .glp-container{min-width:0}}
