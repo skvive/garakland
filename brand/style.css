@@ -28,3 +28,17 @@
 
 /* Responsive navigation: allow multiple rows rather than forcing 1270px width */
 .primary-nav{max-width:100%;width:100%}.primary-nav .nav-inner{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 15px;min-width:0;padding-block:8px}.primary-nav .nav-inner>a{max-width:100%}@media(min-width:761px) and (max-width:1200px){.primary-nav .nav-inner{gap:8px 12px}.hero-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.hero-grid>*{min-width:0}}
+
+/* GARAKLAND v3 official visual identity */
+body[data-page]{--green:#0c416b;--deep:#0b2d52;--deep2:#071f3b;--gold:#ff941a;--red:#ec712c;--cream:#fffaf4;--paper:#fffdf9;--line:#dce6ed;--muted:#637489}
+body[data-page] .top-notice{background:#0b2d52;color:#fff}
+body[data-page] .primary-nav{border-bottom:1px solid #e2eaf0;background:#fff}
+body[data-page] .nav-inner a.active,body[data-page] .nav-inner a:hover{color:#0b2d52;border-bottom-color:#ff8500}
+body[data-page] .search-global button{background:#0b5479;color:#fff}
+body[data-page] .btn-primary,body[data-page] .btn-green{background:#0b416b;color:#fff}
+body[data-page] .btn-primary:hover,body[data-page] .btn-green:hover{background:#0b2d52}
+body[data-page] .gl-theme-brand-logo{width:clamp(186px,23vw,296px);height:auto;aspect-ratio:1200/332;object-fit:contain;object-position:left center;max-height:76px}
+.gl-brand-footer-row{display:flex;align-items:center;gap:14px;min-width:0}.gl-brand-footer-symbol{display:block;width:58px;height:58px;object-fit:contain;flex:none;border-radius:14px;background:#fff}
+.gl-brand-footer-row .logo{min-width:0}.gl-brand-footer-row .gl-theme-brand-logo{width:min(242px,100%);height:auto}
+body[data-page] .gl-story-cards a:hover,body[data-page] .gl-story-cards a:focus-visible{border-color:#ff8500}
+@media(max-width:760px){body[data-page] .gl-theme-brand-logo{width:clamp(146px,40vw,205px);max-height:56px}body[data-page] .head-inner{gap:9px}.gl-brand-footer-row{gap:8px}.gl-brand-footer-symbol{height:43px;width:43px}.gl-brand-footer-row .gl-theme-brand-logo{width:min(185px,51vw)}}

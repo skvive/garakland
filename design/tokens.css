@@ -40,3 +40,6 @@
 }
 
 :root{--gl-brand-primary:#0f5d3b;--gl-brand-dark:#123b2a;--gl-brand-cream:#f9f5e9;--gl-brand-red:#c4302f;--gl-brand-gold:#d4af68;--gl-text-primary:#18372b;--gl-focus:#ffca57;--gl-card-aspect:4/3}
+
+/* 2026-11-23 approved GARAKLAND v3: navy wordmark, orange sweep, green G leaf */
+:root{--gl-brand-primary:#0b2d52;--gl-brand-dark:#092647;--gl-brand-orange:#ff8500;--gl-brand-green:#389b18;--gl-brand-cream:#fffaf4;--gl-deep:#0b2d52;--gl-green:#195671;--gl-green-bright:#0b5276;--gl-accent-explore:#e3f3d6;--gl-accent-deal:#ffbc53;--gl-ink:#173451;--gl-paper:#fffaf4;--gl-ops-deep:#0b2d52;--gl-ops-green:#165476;--gold:#ff982b;--gl-focus:#ffa631}

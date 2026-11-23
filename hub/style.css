@@ -9,3 +9,8 @@
 /* Non-essential repeated illustrations removed from the operations dashboard. */
 .side-mascot,.hero-mascot,.locked>img,.help-card>img{display:none!important}
 @media(max-width:700px){.hero-text,.locked,.help-card{min-width:0}.hero-text h1{word-break:keep-all;overflow-wrap:break-word}}
+
+/* GARAKLAND v3 control center branding (keep private workflow unchanged) */
+:root{--green:#0b4a73;--deep:#0b2d52;--dark:#092b4d;--gold:#ff941a;--cream:#fffaf4;--line:#dce7ee;--muted:#637688}
+.sidebar .brand img{width:180px;max-width:100%;height:auto;object-fit:contain;object-position:left center;aspect-ratio:1200/332}
+.sidebar .brand{color:#0b2d52}

@@ -117,3 +117,8 @@
 /* Actual 1152×864 how-cards and mobile full-logo preservation */
 .how-card .how-photo{height:auto!important;aspect-ratio:4/3;object-fit:cover;object-position:center}
 @media(max-width:760px){.gl-brand .gl-logo-header,.auth-brand .gl-logo-header,.gl-logo-header[src$=".svg"]{display:block!important;height:auto!important;width:min(170px,43vw)!important;max-width:100%!important}.gl-logo-mark{display:none!important}}
+
+/* v3: typography-first horizontal logo in mobile AND desktop; G icon reserved for app/markers */
+.gl-logo-header,.gl-brand .gl-logo-header,.logo .gl-logo-header,.brand .gl-logo-header{display:block!important;width:clamp(155px,19vw,225px)!important;height:auto!important;max-height:66px;max-width:100%!important;object-fit:contain;object-position:left center;aspect-ratio:1200/332}
+.gl-logo-mark{display:none!important}
+@media(max-width:760px){.gl-logo-header,.gl-brand .gl-logo-header,.logo .gl-logo-header,.brand .gl-logo-header{display:block!important;width:min(174px,45vw)!important;height:auto!important;max-height:54px;max-width:100%!important}.gl-logo-mark{display:none!important}}
