@@ -78,7 +78,7 @@ jobs:
           script: |
             gradle -p android :app:connectedDebugAndroidTest --stacktrace
             adb install -r android/app/build/outputs/apk/debug/app-debug.apk
-            adb shell am start -n site.lexid.garakland/.MainActivity
+            adb shell am start -n site.lexid.garakland/.NativeActivity
             sleep 12
             mkdir -p android/app/build/emulator-screenshots
             adb exec-out screencap -p > android/app/build/emulator-screenshots/garakland-api35.png

@@ -46,7 +46,15 @@ public final class MainActivity extends Activity {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
                 Uri url = request.getUrl();
-                if (AppConfig.isTrustedUrl(url.toString())) return false;
+                if (AppConfig.isTrustedUrl(url.toString())) {
+                    String path = url.getPath();
+                    // Google OAuth and member account pages must use the system browser.
+                    if (path != null && (path.startsWith("/login") || path.startsWith("/mypage"))) {
+                        openExternal(url);
+                        return true;
+                    }
+                    return false;
+                }
                 openExternal(url);
                 return true;
             }
@@ -105,7 +113,11 @@ public final class MainActivity extends Activity {
                 }, LOCATION_REQUEST);
             }
         });
-        if (state == null) browser.loadUrl(AppConfig.START_URL);
+        if (state == null) {
+            String requestedPage = getIntent().getStringExtra("page");
+            if (!AppConfig.isEmbeddedRoute(requestedPage)) requestedPage = "/map.html";
+            browser.loadUrl(AppConfig.page(requestedPage));
+        }
         else browser.restoreState(state);
     }
 
