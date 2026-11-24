@@ -1,6 +1,7 @@
 import { getMemberSession, memberRequest, signOut } from './member-client.mjs';
 
 let root = null;
+let started = false;
 const shops = window.GARAK_BRAND_DATA?.shops || [];
 const coupons = window.GARAK_BRAND_DATA?.coupons || [];
 let state = { favorites: [], coupons: [], demoOnly: true };
@@ -86,10 +87,27 @@ async function load() {
       return;
     }
     user = session.user;
-    state = await memberRequest('/api/member/state');
-    render();
     const tab = new URLSearchParams(location.search).get('tab');
-    if (['coupons','favorites','profile'].includes(tab)) { activeTab = tab; render(); }
+    if (['coupons','favorites','profile'].includes(tab)) activeTab = tab;
+    // Show the authenticated account immediately, even if the coupon API fails.
+    render();
+    try {
+      state = await memberRequest('/api/member/state');
+      render();
+    } catch (apiError) {
+      const message = apiError?.message || '회원 데이터 서버 연결 오류';
+      const warning = document.createElement('p');
+      warning.className = 'mp-info mp-member-error';
+      warning.setAttribute('role', 'alert');
+      warning.textContent = '로그인은 정상 확인됐습니다. 쿠폰·즐겨찾기를 불러오지 못했습니다: ' + message;
+      root.querySelector('.mp-tabs')?.before(warning);
+      const refresh = document.createElement('button');
+      refresh.type = 'button';
+      refresh.className = 'mp-retry';
+      refresh.textContent = '회원 데이터 다시 불러오기';
+      warning.after(refresh);
+      status(message, true);
+    }
   } catch (error) {
     root.innerHTML = '<div class="mp-empty"><div>!</div><h2>회원 정보를 불러오지 못했습니다.</h2>' +
       '<p>' + esc(error?.message || '네트워크 상태를 확인해 주세요.') + '</p>' +
@@ -97,8 +115,10 @@ async function load() {
   }
 }
 function boot() {
+  if (started) return;
   root = document.getElementById('member-panel');
   if (!root) return;
+  started = true;
   root.addEventListener('click', async (event) => {
   const tab = event.target.closest('[data-member-tab]');
   if (tab) { activeTab = tab.dataset.memberTab; render(); return; }
@@ -120,5 +140,9 @@ function boot() {
   });
   load();
 }
-if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
-else boot();
+// brand/app.js builds #member-panel in a DOMContentLoaded listener.
+// Module scripts run during document.readyState === "interactive", before that
+// listener runs, so never run boot() early and silently abandon the page.
+document.addEventListener('DOMContentLoaded', boot, { once: true });
+if (document.readyState === 'complete') boot();
+else if (document.readyState === 'interactive') setTimeout(boot, 0);

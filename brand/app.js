@@ -36,7 +36,7 @@ function startMemberSession(){
     if(!session?.user?.id)return;
     const state=await api.memberRequest('/api/member/state');
     memberApi=api;memberState=state;updateMemberDisplays();
-  })().catch(error=>{toast(error?.message||'회원 데이터 연결을 확인해 주세요.')});
+  })().catch(error=>{if(page!=='mypage')toast(error?.message||'회원 데이터 연결을 확인해 주세요.')});
 }
 const routes={home:'index.html',map:'map.html',stores:'stores.html',coupons:'coupons.html',events:'events.html',merchant:'merchant-center.html',guide:'market-guide.html',mypage:'mypage.html'};
 const logo=`<a class="logo" href="index.html" aria-label="가락랜드 홈페이지"><img class="gl-theme-brand-logo" src="/assets/brand/garakland-wordmark-header-v3.webp" alt="가락랜드" width="300" height="83"></a>`;
