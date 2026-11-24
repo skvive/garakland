@@ -78,7 +78,7 @@ async function load() {
   if (!root) return;
   root.innerHTML = '<div class="mp-loading">회원 정보를 확인하고 있습니다…</div>';
   try {
-    const session = await getMemberSession();
+    const session = await Promise.race([getMemberSession(), new Promise((_, reject) => setTimeout(() => reject(new Error('인증 확인 시간이 초과됐습니다. 다시 시도해 주세요.')), 9000))]);
     if (!session?.user?.id) {
       root.innerHTML = '<div class="mp-empty"><div>🔒</div><h2>로그인 후 이용할 수 있습니다.</h2>' +
         '<p>Google 계정으로 가입하면 쿠폰과 찜한 업소를 회원별로 보관할 수 있습니다.</p>' +

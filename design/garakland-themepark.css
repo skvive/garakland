@@ -98,3 +98,45 @@ body[data-delivery-page="index"][data-page="home"] .hero-art .hero-market-photo{
 
 /* 2026-11-23: Main hero must show only the approved market background photo. */
 body[data-delivery-page="index"][data-page="home"] .hero-art .gl-home-mascot{display:none!important}
+
+
+/* Member access controls - always visible before scrollable primary navigation. */
+body[data-page] .head-actions{display:flex;align-items:center;gap:9px;flex:none;min-width:0}
+body[data-page] .head-actions>a.header-member-link{
+  display:inline-flex!important;align-items:center;justify-content:center;
+  flex:none;min-height:38px;padding:9px 13px;border-radius:11px;
+  border:1px solid #a9cbd5;background:#fff;color:#104766;
+  font-size:13px;font-weight:850;text-decoration:none;white-space:nowrap;
+  line-height:1.1;box-shadow:0 2px 7px rgba(7,41,62,.06)
+}
+body[data-page] .head-actions>a.header-member-mypage{background:#0b416b;border-color:#0b416b;color:#fff}
+body[data-page] .head-actions>a.header-member-mypage[aria-current="page"]{background:#ed870a;border-color:#ed870a;color:#112d4b}
+body[data-page] .head-actions>a.header-member-link:focus-visible{outline:3px solid #ffae33;outline-offset:3px}
+@media(max-width:860px){
+  body[data-page] .head-inner{gap:8px}
+  body[data-page] .head-actions{gap:5px}
+  body[data-page] .head-actions>a.header-benefit-link{display:none!important}
+  body[data-page] .head-actions>a.header-member-link{padding:8px 10px;min-height:35px;font-size:12px}
+  body[data-page] .head-inner>.logo{min-width:0;flex:0 1 auto}
+  body[data-page] .gl-theme-brand-logo{width:clamp(115px,28vw,180px)!important;max-height:55px}
+  body[data-page] .search-global{min-width:35px;max-width:38px;flex:0 0 38px;height:38px;margin-left:auto}
+  body[data-page] .search-global input{width:0;min-width:0;padding:0;opacity:0}
+  body[data-page] .search-global button{width:34px;min-width:34px;height:34px;margin:2px;font-size:24px}
+  body[data-page] .head-actions .mobile-menu{display:none!important}
+  body[data-page] .primary-nav{display:block!important;position:static!important;box-shadow:none!important}
+  body[data-page] .primary-nav .nav-inner{display:flex!important;flex-wrap:nowrap!important;
+    flex-direction:row!important;align-items:center!important;justify-content:flex-start!important;
+    gap:18px!important;overflow-x:auto;overflow-y:hidden;min-width:0;width:100%;height:49px;
+    padding:0 12px!important;white-space:nowrap;scrollbar-width:thin}
+  body[data-page] .primary-nav .nav-inner>a{flex:none!important;white-space:nowrap;height:100%;padding:4px 0!important;
+    display:inline-flex!important;align-items:center;max-width:none!important;border-bottom:3px solid transparent}
+  body[data-page] .primary-nav .nav-inner>a.active{border-bottom-color:#ff8500}
+}
+@media(max-width:390px){
+  body[data-page] .head-inner{gap:5px;padding-inline:8px}
+  body[data-page] .gl-theme-brand-logo{width:clamp(105px,31vw,128px)!important}
+  body[data-page] .search-global{min-width:32px;max-width:32px;flex-basis:32px;height:34px}
+  body[data-page] .search-global button{width:30px;min-width:30px;height:30px;margin:2px 0;font-size:22px}
+  body[data-page] .head-actions{gap:4px}
+  body[data-page] .head-actions>a.header-member-link{padding:8px 7px;font-size:11px;min-height:33px}
+}

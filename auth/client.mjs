@@ -1,12 +1,15 @@
-import { createAuthClient } from 'https://esm.sh/@neondatabase/auth@0.7.0-beta';
-
 let clientPromise;
 
 export async function getAuthClient() {
   if (!clientPromise) {
-    clientPromise = fetch('/auth/config.public.json', { cache: 'no-store' })
-      .then((r) => r.json())
-      .then((cfg) => createAuthClient(cfg.authUrl));
+    clientPromise = Promise.all([
+      fetch('/auth/config.public.json', { cache: 'no-store' }).then((r) => {
+        if (!r.ok) throw new Error('인증 설정을 읽을 수 없습니다.');
+        return r.json();
+      }),
+      import('https://esm.sh/@neondatabase/auth@0.7.0-beta'),
+    ]).then(([cfg, sdk]) => sdk.createAuthClient(cfg.authUrl))
+      .catch((err) => { clientPromise = null; throw err; });
   }
   return clientPromise;
 }

@@ -17,8 +17,7 @@
     ['/project.html','사업 소개','project'],
     ['/culture.html','문화·행사','culture'],
     ['/commerce.html','온라인 유통','commerce'],
-    ['/mypage.html','마이페이지','mypage'],
-    ['/login.html','로그인','login']
+    ['/mypage.html','마이페이지','mypage']
   ];
   function activeFromPath() {
     if (path === '/' || path === '/index.html' || path === '/home.html') return 'home';
@@ -51,14 +50,16 @@
             '<button type="submit" aria-label="매장 검색">⌕</button>' +
           '</form>' +
           '<div class="glsh-head-actions">' +
-            '<a href="/coupons.html" aria-label="내 쿠폰">🎟️</a>' +
-            '<a href="/mypage.html?tab=favorites" aria-label="찜한 매장">♡</a>' +
+            '<a class="glsh-benefit" href="/coupons.html" aria-label="내 쿠폰">🎟️</a>' +
+            '<a class="glsh-benefit" href="/mypage.html?tab=favorites" aria-label="찜한 매장">♡</a>' +
+            '<a id="authLinkGlobal" class="glsh-member-link glsh-login" href="/login.html">로그인</a>' +
+            '<a class="glsh-member-link glsh-mypage" href="/mypage.html">마이페이지</a>' +
           '</div>' +
         '</div>' +
         '<nav class="glsh-nav" aria-label="가락랜드 통합 메뉴"><div class="glsh-nav-inner">' +
           menu.map(function (m) {
             var current = m[2] === active;
-            return '<a href="' + m[0] + '"' + (m[2] === 'login' ? ' id="authLinkGlobal"' : '') + (current ? ' class="glsh-active-link" aria-current="page"' : '') + '>' + m[1] + '</a>';
+            return '<a href="' + m[0] + '"' + (current ? ' class="glsh-active-link" aria-current="page"' : '') + '>' + m[1] + '</a>';
           }).join('') +
         '</div></nav>' +
       '</header>';

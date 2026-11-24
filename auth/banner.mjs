@@ -13,7 +13,7 @@ export async function mountAuthLink(linkId = 'authLink') {
   try {
     const data = await getSession();
     if (data?.user?.email) {
-      el.textContent = data.user.email.split('@')[0];
+      el.textContent = '내 계정';
       el.href = '/mypage.html';
       el.title = `${data.user.email} — 나의 가락랜드`;
       el.dataset.authed = '1';
