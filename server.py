@@ -9,6 +9,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import urlsplit, parse_qs, quote
 from market import core as growth_v5
+import member_api
 import bridge_v7
 from ops import core as operations_v6
 from hub import core as hub_v8
@@ -75,6 +76,7 @@ def setup():
     growth_v5.setup()
     operations_v6.setup()
     hub_v8.setup()
+    member_api.setup()
 
 def read_json(handler):
     if handler.headers.get('X-Garak-Client') != '1': raise ValueError('보안 헤더 누락')
@@ -189,6 +191,9 @@ class Handler(RegistryHandler):
     def do_GET(self):
         u=urlsplit(self.path); p=u.path
         try:
+            if p.startswith('/api/member/'):
+                found=member_api.dispatch_get(self,p)
+                if found is not False:return found
             if p.startswith('/api/v8/'):
                 found=hub_v8.dispatch_get(self,p,parse_qs(u.query))
                 if found is not False:return found
@@ -231,6 +236,9 @@ class Handler(RegistryHandler):
             return super().do_POST()
         try:
             body=read_json(self)
+            if p.startswith('/api/member/'):
+                found=member_api.dispatch_post(self,p,body)
+                if found is not False:return found
             if p.startswith('/api/v8/'):
                 found=hub_v8.dispatch_post(self,p,body)
                 if found is not False:return found

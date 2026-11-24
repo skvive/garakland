@@ -14,8 +14,8 @@ export async function mountAuthLink(linkId = 'authLink') {
     const data = await getSession();
     if (data?.user?.email) {
       el.textContent = data.user.email.split('@')[0];
-      el.href = '/login.html';
-      el.title = `${data.user.email} — 계정 관리`;
+      el.href = '/mypage.html';
+      el.title = `${data.user.email} — 나의 가락랜드`;
       el.dataset.authed = '1';
     } else {
       el.textContent = '로그인';
@@ -37,3 +37,4 @@ document.addEventListener('click', async (e) => {
 
 mountAuthLink('authLink');
 mountAuthLink('authLinkMarket');
+mountAuthLink('authLinkGlobal');

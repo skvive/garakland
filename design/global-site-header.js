@@ -17,6 +17,7 @@
     ['/project.html','사업 소개','project'],
     ['/culture.html','문화·행사','culture'],
     ['/commerce.html','온라인 유통','commerce'],
+    ['/mypage.html','마이페이지','mypage'],
     ['/login.html','로그인','login']
   ];
   function activeFromPath() {
@@ -51,18 +52,19 @@
           '</form>' +
           '<div class="glsh-head-actions">' +
             '<a href="/coupons.html" aria-label="내 쿠폰">🎟️</a>' +
-            '<a href="/stores.html?favorites=1" aria-label="찜한 매장">♡</a>' +
+            '<a href="/mypage.html?tab=favorites" aria-label="찜한 매장">♡</a>' +
           '</div>' +
         '</div>' +
         '<nav class="glsh-nav" aria-label="가락랜드 통합 메뉴"><div class="glsh-nav-inner">' +
           menu.map(function (m) {
             var current = m[2] === active;
-            return '<a href="' + m[0] + '"' + (current ? ' class="glsh-active-link" aria-current="page"' : '') + '>' + m[1] + '</a>';
+            return '<a href="' + m[0] + '"' + (m[2] === 'login' ? ' id="authLinkGlobal"' : '') + (current ? ' class="glsh-active-link" aria-current="page"' : '') + '>' + m[1] + '</a>';
           }).join('') +
         '</div></nav>' +
       '</header>';
     document.body.insertBefore(root, document.body.firstChild);
     document.body.classList.add('glsh-active');
+    import('/auth/banner.mjs').then(m => m.mountAuthLink('authLinkGlobal')).catch(() => {});
     document.body.dataset.glMobileNav = 'off';
     /* The map's settings button must remain interactive after hiding its legacy nav. */
     if (path === '/map.html') {

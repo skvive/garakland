@@ -11,6 +11,11 @@ const userEmail = document.getElementById('userEmail');
 
 let signUp = true;
 
+function safeNext() {
+  const proposed = new URLSearchParams(location.search).get('next') || '/mypage.html';
+  return /^\/(?!\/)[A-Za-z0-9_/?=&%-]*$/.test(proposed) ? proposed : '/mypage.html';
+}
+
 function setMsg(text, kind = '') {
   msg.textContent = text;
   msg.className = 'auth-msg' + (kind ? ` ${kind}` : '');
@@ -18,7 +23,7 @@ function setMsg(text, kind = '') {
 
 function setMode(up) {
   signUp = up;
-  title.textContent = up ? '가락한상 계정 만들기' : '로그인';
+  title.textContent = up ? '가락랜드 계정 만들기' : '로그인';
   submitBtn.textContent = up ? '이메일로 가입' : '로그인';
   modeSignUpWrap.hidden = up;
   modeSignInWrap.hidden = !up;
@@ -30,7 +35,7 @@ document.getElementById('modeSignInBtn')?.addEventListener('click', () => setMod
 document.getElementById('googleBtn')?.addEventListener('click', async () => {
   setMsg('Google 계정 선택 화면으로 이동합니다…');
   try {
-    const result = await signInWithGoogle(`${window.location.origin}/login.html`);
+    const result = await signInWithGoogle(`${window.location.origin}/mypage.html`);
     if (result?.error) {
       setMsg(result.error.message || 'Google 로그인에 실패했습니다.', 'error');
     }
@@ -43,6 +48,7 @@ async function showLogged(user) {
   form.hidden = true;
   logged.hidden = false;
   userEmail.textContent = user.email;
+  const go = document.getElementById('myPageFromLogin');if(go)go.href=safeNext();
 }
 
 async function refresh() {
@@ -78,6 +84,7 @@ form?.addEventListener('submit', async (e) => {
   if (session?.user) {
     setMsg('환영합니다!', 'ok');
     await showLogged(session.user);
+    location.assign(safeNext());
     return;
   }
   setMsg(signUp ? '가입 완료. 이메일 확인이 필요할 수 있습니다.' : '로그인되었습니다.', 'ok');
